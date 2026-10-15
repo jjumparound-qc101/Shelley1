@@ -58,7 +58,8 @@ async function main() {
 
   // AI drawings (PROVENANCE.md), listed in public/art/ai/index.json as paths without the extension
   // (e.g. "l01/desk"); every set falls back to its code-drawn placeholder for any that are missing.
-  const AI_ART = await fetch('art/ai/index.json').then((r) => (r.ok ? r.json() : [])).catch(() => []);
+  // Model sheets are only references for drawing the poses, so the game skips them.
+  const AI_ART = (await fetch('art/ai/index.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])).filter((n) => !n.endsWith('_sheet'));
   const narrated = CHAPTERS.filter((c) => c.narrated);
   const [wordsList, ...aiArt] = await Promise.all([
     Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json()))),
