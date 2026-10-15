@@ -9,7 +9,7 @@
    "title": "Victor Frankenstein: model sheet",
    "prompt": "Character model sheet for Victor Frankenstein. Genevese gentleman and student of natural philosophy, about 17-25 over the story; slender, dark-haired, intense; later gaunt, pale and haggard from illness and grief; tailcoat, waistcoat, cravat, riding boots; on the ice, emaciated and wrapped in furs. Height about 1.80 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Letter 4, Chapter 1, Chapter 2, Chapter 3, Chapter 4, Chapter 5, Chapter 6, Chapter 7, Chapter 8, Chapter 9, Chapter 16, Chapter 17, Chapter 18, Chapter 19, Chapter 20, Chapter 21, Chapter 22, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -19,7 +19,7 @@
    "title": "Victor Frankenstein: stand",
    "prompt": "Victor Frankenstein, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -29,7 +29,7 @@
    "title": "Victor Frankenstein: walk",
    "prompt": "Victor Frankenstein, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -39,7 +39,7 @@
    "title": "Victor Frankenstein: back",
    "prompt": "Victor Frankenstein, seen from behind, full figure, standing still and looking away into the scene. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -49,7 +49,7 @@
    "title": "Victor Frankenstein: sit",
    "prompt": "Victor Frankenstein, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -59,7 +59,7 @@
    "title": "Victor Frankenstein: kneel",
    "prompt": "Victor Frankenstein, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -69,7 +69,7 @@
    "title": "Victor Frankenstein: lie",
    "prompt": "Victor Frankenstein, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -79,7 +79,7 @@
    "title": "Victor Frankenstein: point",
    "prompt": "Victor Frankenstein, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -89,7 +89,7 @@
    "title": "Victor Frankenstein: grieve",
    "prompt": "Victor Frankenstein, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/victor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -99,7 +99,7 @@
    "title": "The Creature: model sheet",
    "prompt": "Character model sheet for The Creature. Eight feet tall, built in proportion; yellow skin that scarcely covers the muscles and arteries beneath; lustrous flowing black hair; pearly white teeth; watery eyes almost the colour of their dun-white sockets; shrivelled complexion and straight black lips. Dressed in rough peasant clothes and a cloak taken from Victor's lodging. NOT the 1931 film look: no flat head, no neck bolts, no stitches across the forehead. Height about 2.45 m (eight feet, towering over everyone). Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Letter 4, Chapter 3, Chapter 4, Chapter 6, Chapter 9, Chapter 10, Chapter 11, Chapter 12, Chapter 13, Chapter 14, Chapter 15, Chapter 16, Chapter 19, Chapter 22, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -109,7 +109,7 @@
    "title": "The Creature: stand",
    "prompt": "The Creature, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -119,7 +119,7 @@
    "title": "The Creature: walk",
    "prompt": "The Creature, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -129,7 +129,7 @@
    "title": "The Creature: back",
    "prompt": "The Creature, seen from behind, full figure, standing still and looking away into the scene. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -139,7 +139,7 @@
    "title": "The Creature: sit",
    "prompt": "The Creature, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -149,7 +149,7 @@
    "title": "The Creature: kneel",
    "prompt": "The Creature, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -159,7 +159,7 @@
    "title": "The Creature: lie",
    "prompt": "The Creature, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -169,7 +169,7 @@
    "title": "The Creature: point",
    "prompt": "The Creature, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -179,7 +179,7 @@
    "title": "The Creature: grieve",
    "prompt": "The Creature, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/creature_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -189,7 +189,7 @@
    "title": "Alphonse Frankenstein: model sheet",
    "prompt": "Character model sheet for Alphonse Frankenstein. Victor's father, a respected Genevese magistrate, elderly, white-haired, dignified and kind; sober dark coat of the 1790s. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2, Chapter 5, Chapter 6, Chapter 7, Chapter 8, Chapter 16, Chapter 17, Chapter 20, Chapter 21, Chapter 22.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -199,7 +199,7 @@
    "title": "Alphonse Frankenstein: stand",
    "prompt": "Alphonse Frankenstein, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -209,7 +209,7 @@
    "title": "Alphonse Frankenstein: walk",
    "prompt": "Alphonse Frankenstein, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -219,7 +219,7 @@
    "title": "Alphonse Frankenstein: sit",
    "prompt": "Alphonse Frankenstein, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -229,7 +229,7 @@
    "title": "Alphonse Frankenstein: kneel",
    "prompt": "Alphonse Frankenstein, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -239,7 +239,7 @@
    "title": "Alphonse Frankenstein: lie",
    "prompt": "Alphonse Frankenstein, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -249,7 +249,7 @@
    "title": "Alphonse Frankenstein: grieve",
    "prompt": "Alphonse Frankenstein, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/alphonse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -259,7 +259,7 @@
    "title": "Elizabeth Lavenza: model sheet",
    "prompt": "Character model sheet for Elizabeth Lavenza. Victor's cousin, adopted by his family; the daughter of Alphonse's sister, raised with Victor; gentle, lively and beautiful, fair-haired; high-waisted 1790s gown, shawl. Height about 1.65 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2, Chapter 5, Chapter 6, Chapter 7, Chapter 8, Chapter 16, Chapter 17, Chapter 21, Chapter 22.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -269,7 +269,7 @@
    "title": "Elizabeth Lavenza: stand",
    "prompt": "Elizabeth Lavenza, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -279,7 +279,7 @@
    "title": "Elizabeth Lavenza: walk",
    "prompt": "Elizabeth Lavenza, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -289,7 +289,7 @@
    "title": "Elizabeth Lavenza: sit",
    "prompt": "Elizabeth Lavenza, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -299,7 +299,7 @@
    "title": "Elizabeth Lavenza: kneel",
    "prompt": "Elizabeth Lavenza, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -309,7 +309,7 @@
    "title": "Elizabeth Lavenza: lie",
    "prompt": "Elizabeth Lavenza, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -319,7 +319,7 @@
    "title": "Elizabeth Lavenza: grieve",
    "prompt": "Elizabeth Lavenza, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/elizabeth_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -329,7 +329,7 @@
    "title": "A townsman: model sheet",
    "prompt": "Character model sheet for A townsman. A man of the town (Ingolstadt, Geneva, Ireland): plain coat and hat. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 2, Chapter 7, Chapter 13, Chapter 15, Chapter 18, Chapter 19, Chapter 20, Chapter 21, Chapter 22, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -339,7 +339,7 @@
    "title": "A townsman: stand",
    "prompt": "A townsman, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townsman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -349,7 +349,7 @@
    "title": "A townsman: walk",
    "prompt": "A townsman, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townsman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -359,7 +359,7 @@
    "title": "A townsman: sit",
    "prompt": "A townsman, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townsman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -369,7 +369,7 @@
    "title": "A townsman: point",
    "prompt": "A townsman, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townsman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -379,7 +379,7 @@
    "title": "A peasant: model sheet",
    "prompt": "Character model sheet for A peasant. A German or Swiss countryman: smock, breeches, rough boots. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 5, Chapter 7, Chapter 10, Chapter 12, Chapter 15, Chapter 18, Chapter 19, Chapter 20, Chapter 22, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -389,7 +389,7 @@
    "title": "A peasant: stand",
    "prompt": "A peasant, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/peasant_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -399,7 +399,7 @@
    "title": "A peasant: walk",
    "prompt": "A peasant, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/peasant_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -409,7 +409,7 @@
    "title": "A peasant: sit",
    "prompt": "A peasant, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/peasant_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -419,7 +419,7 @@
    "title": "A peasant: point",
    "prompt": "A peasant, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/peasant_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -429,7 +429,7 @@
    "title": "A townswoman: model sheet",
    "prompt": "Character model sheet for A townswoman. A woman of the town: plain dress, shawl and bonnet. Height about 1.62 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 5, Chapter 7, Chapter 10, Chapter 13, Chapter 19, Chapter 20, Chapter 21, Chapter 22, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -439,7 +439,7 @@
    "title": "A townswoman: stand",
    "prompt": "A townswoman, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townswoman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -449,7 +449,7 @@
    "title": "A townswoman: walk",
    "prompt": "A townswoman, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townswoman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -459,7 +459,7 @@
    "title": "A townswoman: lie",
    "prompt": "A townswoman, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townswoman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -469,7 +469,7 @@
    "title": "A townswoman: point",
    "prompt": "A townswoman, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townswoman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -479,7 +479,7 @@
    "title": "A townswoman: grieve",
    "prompt": "A townswoman, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/townswoman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -489,7 +489,7 @@
    "title": "Henry Clerval: model sheet",
    "prompt": "Character model sheet for Henry Clerval. Victor's boyhood friend, son of a Geneva merchant; cheerful, warm, romantic, fond of languages and travel; tailcoat and top hat for travelling. Height about 1.78 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2, Chapter 4, Chapter 5, Chapter 6, Chapter 17, Chapter 18, Chapter 20.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -499,7 +499,7 @@
    "title": "Henry Clerval: stand",
    "prompt": "Henry Clerval, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -509,7 +509,7 @@
    "title": "Henry Clerval: walk",
    "prompt": "Henry Clerval, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -519,7 +519,7 @@
    "title": "Henry Clerval: sit",
    "prompt": "Henry Clerval, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -529,7 +529,7 @@
    "title": "Henry Clerval: lie",
    "prompt": "Henry Clerval, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -539,7 +539,7 @@
    "title": "Henry Clerval: point",
    "prompt": "Henry Clerval, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -549,7 +549,7 @@
    "title": "Henry Clerval: grieve",
    "prompt": "Henry Clerval, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/clerval_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -559,7 +559,7 @@
    "title": "Ernest Frankenstein: model sheet",
    "prompt": "Character model sheet for Ernest Frankenstein. Victor's middle brother, a boy of about ten to sixteen, wants to be a soldier. Height about 1.50 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2, Chapter 5, Chapter 6, Chapter 16, Chapter 21, Chapter 22.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -569,7 +569,7 @@
    "title": "Ernest Frankenstein: stand",
    "prompt": "Ernest Frankenstein, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/ernest_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -579,7 +579,7 @@
    "title": "Ernest Frankenstein: walk",
    "prompt": "Ernest Frankenstein, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/ernest_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -589,7 +589,7 @@
    "title": "Ernest Frankenstein: grieve",
    "prompt": "Ernest Frankenstein, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/ernest_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -599,7 +599,7 @@
    "title": "Felix De Lacey: model sheet",
    "prompt": "Character model sheet for Felix De Lacey. De Lacey's son, a young man, slender and graceful, poor and hard-working; peasant work clothes; once a gentleman in Paris. Height about 1.80 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 10, Chapter 11, Chapter 12, Chapter 13, Chapter 14, Chapter 15.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -609,7 +609,7 @@
    "title": "Felix De Lacey: stand",
    "prompt": "Felix De Lacey, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -619,7 +619,7 @@
    "title": "Felix De Lacey: walk",
    "prompt": "Felix De Lacey, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -629,7 +629,7 @@
    "title": "Felix De Lacey: sit",
    "prompt": "Felix De Lacey, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -639,7 +639,7 @@
    "title": "Felix De Lacey: kneel",
    "prompt": "Felix De Lacey, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -649,7 +649,7 @@
    "title": "Felix De Lacey: point",
    "prompt": "Felix De Lacey, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -659,7 +659,7 @@
    "title": "Felix De Lacey: grieve",
    "prompt": "Felix De Lacey, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/felix_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -669,7 +669,7 @@
    "title": "Robert Walton: model sheet",
    "prompt": "Character model sheet for Robert Walton. English explorer in his late twenties, captain of a ship bound for the North Pole; weathered, earnest, self-taught; dark naval-style coat with high collar, cravat, breeches and boots; on the ice, wrapped in furs. Height about 1.80 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Letter 1, Letter 2, Letter 3, Letter 4, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -679,7 +679,7 @@
    "title": "Robert Walton: stand",
    "prompt": "Robert Walton, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -689,7 +689,7 @@
    "title": "Robert Walton: walk",
    "prompt": "Robert Walton, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -699,7 +699,7 @@
    "title": "Robert Walton: back",
    "prompt": "Robert Walton, seen from behind, full figure, standing still and looking away into the scene. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -709,7 +709,7 @@
    "title": "Robert Walton: sit",
    "prompt": "Robert Walton, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -719,7 +719,7 @@
    "title": "Robert Walton: kneel",
    "prompt": "Robert Walton, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -729,7 +729,7 @@
    "title": "Robert Walton: point",
    "prompt": "Robert Walton, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -739,7 +739,7 @@
    "title": "Robert Walton: write",
    "prompt": "Robert Walton, seated at a writing desk, writing with a quill, seen from in front across the desk. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/walton_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -749,7 +749,7 @@
    "title": "A sailor: model sheet",
    "prompt": "Character model sheet for A sailor. One of Walton's crew: rough wool jacket, knitted cap, sea boots. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Letter 2, Letter 3, Letter 4, Chapter 19, Chapter 23.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -759,7 +759,7 @@
    "title": "A sailor: stand",
    "prompt": "A sailor, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/sailor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -769,7 +769,7 @@
    "title": "A sailor: walk",
    "prompt": "A sailor, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/sailor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -779,7 +779,7 @@
    "title": "A sailor: back",
    "prompt": "A sailor, seen from behind, full figure, standing still and looking away into the scene. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/sailor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -789,7 +789,7 @@
    "title": "A sailor: point",
    "prompt": "A sailor, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/sailor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -799,7 +799,7 @@
    "title": "A sailor: grieve",
    "prompt": "A sailor, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/sailor_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -809,7 +809,7 @@
    "title": "Agatha De Lacey: model sheet",
    "prompt": "Character model sheet for Agatha De Lacey. De Lacey's daughter, a young woman with a gentle mien, plain dress, often sad. Height about 1.65 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 10, Chapter 11, Chapter 12, Chapter 13, Chapter 14.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -819,7 +819,7 @@
    "title": "Agatha De Lacey: stand",
    "prompt": "Agatha De Lacey, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -829,7 +829,7 @@
    "title": "Agatha De Lacey: walk",
    "prompt": "Agatha De Lacey, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -839,7 +839,7 @@
    "title": "Agatha De Lacey: sit",
    "prompt": "Agatha De Lacey, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -849,7 +849,7 @@
    "title": "Agatha De Lacey: kneel",
    "prompt": "Agatha De Lacey, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -859,7 +859,7 @@
    "title": "Agatha De Lacey: lie",
    "prompt": "Agatha De Lacey, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -869,7 +869,7 @@
    "title": "Agatha De Lacey: point",
    "prompt": "Agatha De Lacey, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -879,7 +879,7 @@
    "title": "Agatha De Lacey: grieve",
    "prompt": "Agatha De Lacey, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/agatha_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -889,7 +889,7 @@
    "title": "De Lacey: model sheet",
    "prompt": "Character model sheet for De Lacey. An old blind Frenchman living in exile in a German cottage; silver hair, benevolent countenance, plays the guitar. Height about 1.72 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 10, Chapter 11, Chapter 12, Chapter 13, Chapter 14.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -899,7 +899,7 @@
    "title": "De Lacey: stand",
    "prompt": "De Lacey, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/delacey_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -909,7 +909,7 @@
    "title": "De Lacey: walk",
    "prompt": "De Lacey, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/delacey_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -919,7 +919,7 @@
    "title": "De Lacey: sit",
    "prompt": "De Lacey, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/delacey_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -929,7 +929,7 @@
    "title": "William Frankenstein: model sheet",
    "prompt": "Character model sheet for William Frankenstein. Victor's youngest brother, a small boy of about six with sweet laughing blue eyes, dark eyelashes and curling hair; skeleton suit of the 1790s. Height about 1.10 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2, Chapter 5, Chapter 15.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -939,7 +939,7 @@
    "title": "William Frankenstein: stand",
    "prompt": "William Frankenstein, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/william_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -949,7 +949,7 @@
    "title": "William Frankenstein: walk",
    "prompt": "William Frankenstein, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/william_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -959,7 +959,7 @@
    "title": "William Frankenstein: lie",
    "prompt": "William Frankenstein, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/william_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -969,7 +969,7 @@
    "title": "A child: model sheet",
    "prompt": "Character model sheet for A child. A village child. Height about 1.05 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 5, Chapter 10, Chapter 15, Chapter 19.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -979,7 +979,7 @@
    "title": "A child: stand",
    "prompt": "A child, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/child_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -989,7 +989,7 @@
    "title": "A child: walk",
    "prompt": "A child, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/child_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -999,7 +999,7 @@
    "title": "A child: lie",
    "prompt": "A child, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/child_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1009,7 +1009,7 @@
    "title": "A judge: model sheet",
    "prompt": "Character model sheet for A judge. A magistrate on the bench, black robes. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 7, Chapter 13, Chapter 20, Chapter 22.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1019,7 +1019,7 @@
    "title": "A judge: stand",
    "prompt": "A judge, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/judge_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1029,7 +1029,7 @@
    "title": "A judge: walk",
    "prompt": "A judge, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/judge_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1039,7 +1039,7 @@
    "title": "A judge: sit",
    "prompt": "A judge, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/judge_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1049,7 +1049,7 @@
    "title": "A judge: point",
    "prompt": "A judge, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/judge_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1059,7 +1059,7 @@
    "title": "M. Krempe: model sheet",
    "prompt": "Character model sheet for M. Krempe. Professor of natural philosophy at Ingolstadt, a little squat man with a gruff voice and a repulsive countenance; uncouth, blunt. Height about 1.60 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 2, Chapter 3, Chapter 5.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1069,7 +1069,7 @@
    "title": "M. Krempe: stand",
    "prompt": "M. Krempe, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/krempe_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1079,7 +1079,7 @@
    "title": "M. Krempe: walk",
    "prompt": "M. Krempe, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/krempe_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1089,7 +1089,7 @@
    "title": "M. Krempe: sit",
    "prompt": "M. Krempe, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/krempe_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1099,7 +1099,7 @@
    "title": "M. Krempe: point",
    "prompt": "M. Krempe, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/krempe_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1109,7 +1109,7 @@
    "title": "M. Waldman: model sheet",
    "prompt": "Character model sheet for M. Waldman. Professor of chemistry at Ingolstadt, about fifty, benevolent face, grey hair at the temples and black at the back, short and upright, with the sweetest voice. Height about 1.72 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 2, Chapter 3, Chapter 5.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1119,7 +1119,7 @@
    "title": "M. Waldman: stand",
    "prompt": "M. Waldman, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/waldman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1129,7 +1129,7 @@
    "title": "M. Waldman: walk",
    "prompt": "M. Waldman, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/waldman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1139,7 +1139,7 @@
    "title": "M. Waldman: sit",
    "prompt": "M. Waldman, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/waldman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1149,7 +1149,7 @@
    "title": "M. Waldman: point",
    "prompt": "M. Waldman, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/waldman_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1159,7 +1159,7 @@
    "title": "Justine Moritz: model sheet",
    "prompt": "Character model sheet for Justine Moritz. Servant of the Frankenstein family, a gentle young woman; plain dress, apron and cap; later in mourning black at her trial. Height about 1.62 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 5, Chapter 7, Chapter 15.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1169,7 +1169,7 @@
    "title": "Justine Moritz: stand",
    "prompt": "Justine Moritz, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1179,7 +1179,7 @@
    "title": "Justine Moritz: walk",
    "prompt": "Justine Moritz, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1189,7 +1189,7 @@
    "title": "Justine Moritz: sit",
    "prompt": "Justine Moritz, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1199,7 +1199,7 @@
    "title": "Justine Moritz: kneel",
    "prompt": "Justine Moritz, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1209,7 +1209,7 @@
    "title": "Justine Moritz: lie",
    "prompt": "Justine Moritz, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1219,7 +1219,7 @@
    "title": "Justine Moritz: grieve",
    "prompt": "Justine Moritz, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/justine_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1229,7 +1229,7 @@
    "title": "Safie: model sheet",
    "prompt": "Character model sheet for Safie. The Arabian: daughter of a Turkish merchant, arrives on horseback dressed in a dark riding habit and covered by a thick black veil; hair of a shining raven black, curiously braided; a countenance of angelic beauty. Height about 1.63 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 12, Chapter 13, Chapter 14.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1239,7 +1239,7 @@
    "title": "Safie: stand",
    "prompt": "Safie, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/safie_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1249,7 +1249,7 @@
    "title": "Safie: walk",
    "prompt": "Safie, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/safie_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1259,7 +1259,7 @@
    "title": "Safie: sit",
    "prompt": "Safie, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/safie_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1269,7 +1269,7 @@
    "title": "Caroline Beaufort: model sheet",
    "prompt": "Character model sheet for Caroline Beaufort. Victor's mother, devoted and compassionate; seen young at her dying father's bedside and as a mother; also as the miniature portrait in the locket. Height about 1.65 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1, Chapter 2.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1279,7 +1279,7 @@
    "title": "Caroline Beaufort: stand",
    "prompt": "Caroline Beaufort, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1289,7 +1289,7 @@
    "title": "Caroline Beaufort: walk",
    "prompt": "Caroline Beaufort, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1299,7 +1299,7 @@
    "title": "Caroline Beaufort: sit",
    "prompt": "Caroline Beaufort, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1309,7 +1309,7 @@
    "title": "Caroline Beaufort: kneel",
    "prompt": "Caroline Beaufort, kneeling on both knees, full figure, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1319,7 +1319,7 @@
    "title": "Caroline Beaufort: lie",
    "prompt": "Caroline Beaufort, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1329,7 +1329,7 @@
    "title": "Caroline Beaufort: grieve",
    "prompt": "Caroline Beaufort, standing bowed with the face buried in both hands, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/caroline_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1339,7 +1339,7 @@
    "title": "Daniel Nugent: model sheet",
    "prompt": "Character model sheet for Daniel Nugent. An Irish fisherman, witness at the inquest. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 19, Chapter 20.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1349,7 +1349,7 @@
    "title": "Daniel Nugent: stand",
    "prompt": "Daniel Nugent, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/daniel_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1359,7 +1359,7 @@
    "title": "Daniel Nugent: walk",
    "prompt": "Daniel Nugent, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/daniel_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1369,7 +1369,7 @@
    "title": "Daniel Nugent: sit",
    "prompt": "Daniel Nugent, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/daniel_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1389,7 +1389,7 @@
    "title": "Beaufort: model sheet",
    "prompt": "Character model sheet for Beaufort. Caroline's father, a proud merchant fallen into poverty, wasting away in a mean street in Lucerne. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 1.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1399,7 +1399,7 @@
    "title": "Beaufort: stand",
    "prompt": "Beaufort, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/beaufort_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1419,7 +1419,7 @@
    "title": "Beaufort: sit",
    "prompt": "Beaufort, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/beaufort_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1429,7 +1429,7 @@
    "title": "Beaufort: lie",
    "prompt": "Beaufort, lying flat on his or her back, full figure seen from the side, head to the left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/beaufort_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1439,7 +1439,7 @@
    "title": "Safie's father: model sheet",
    "prompt": "Character model sheet for Safie's father. A Turkish merchant in Paris, condemned and later freed by Felix; turban and robes of the 1790s. Height about 1.75 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 13.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1459,7 +1459,7 @@
    "title": "Safie's father: walk",
    "prompt": "Safie's father, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/turk_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1469,7 +1469,7 @@
    "title": "Safie's father: back",
    "prompt": "Safie's father, seen from behind, full figure, standing still and looking away into the scene. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/turk_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1489,7 +1489,7 @@
    "title": "Safie's father: point",
    "prompt": "Safie's father, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/turk_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1499,7 +1499,7 @@
    "title": "Mr. Kirwin: model sheet",
    "prompt": "Character model sheet for Mr. Kirwin. An Irish magistrate, an old benevolent man with calm and mild manners. Height about 1.72 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 20.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1509,7 +1509,7 @@
    "title": "Mr. Kirwin: stand",
    "prompt": "Mr. Kirwin, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/kirwin_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1519,7 +1519,7 @@
    "title": "Mr. Kirwin: walk",
    "prompt": "Mr. Kirwin, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/kirwin_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1529,7 +1529,7 @@
    "title": "Mr. Kirwin: sit",
    "prompt": "Mr. Kirwin, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/kirwin_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1539,7 +1539,7 @@
    "title": "An old nurse: model sheet",
    "prompt": "Character model sheet for An old nurse. An old woman, a nurse in the Irish prison, harsh and indifferent. Height about 1.55 m. Show FOUR full-body views side by side, the same height: front, three-quarter left, profile left, back. Neutral standing pose, arms relaxed. Clear white space between the figures. No ground, no background.",
    "note": "Appears in Chapter 20.",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1549,7 +1549,7 @@
    "title": "An old nurse: stand",
    "prompt": "An old nurse, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/nurse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1569,7 +1569,7 @@
    "title": "An old nurse: sit",
    "prompt": "An old nurse, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/nurse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
