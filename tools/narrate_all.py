@@ -8,8 +8,13 @@ import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
 
-src = next((a for a in sys.argv[1:] if not a.startswith("--")), "/mnt/project-files/sources/audio")
-jobs = int(sys.argv[sys.argv.index("--jobs") + 1]) if "--jobs" in sys.argv else 6
+args = sys.argv[1:]
+jobs = 6
+if "--jobs" in args:
+    k = args.index("--jobs")
+    jobs = int(args[k + 1])
+    del args[k:k + 2]
+src = args[0] if args else "/mnt/project-files/sources/audio"
 
 
 def sid(nn):

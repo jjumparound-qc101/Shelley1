@@ -101,7 +101,7 @@ export function sceneFromData(d, index, sectionId) {
           let dir = s.dir;
           if (!s.moving && s.faceWho) dir = FACE(s.pos, posAt(s.faceWho, t));
           const pose = s.pose === 'walk' ? 'stand' : s.pose;
-          out[who] = { pose: s.moving ? 'walk' : pose, x: s.pos.x, z: s.pos.z, y: s.pos.y ?? 0, dir, moving: s.moving, dist: s.dist, phase: t * 2, idle: s.moving ? undefined : t + (CAST[who]?.h ?? 1) };
+          out[who] = { pose: s.moving ? 'stand' : pose, x: s.pos.x, z: s.pos.z, y: s.pos.y ?? 0, dir, moving: s.moving, dist: s.dist, phase: t * 2, idle: s.moving ? undefined : t + (CAST[who]?.h ?? 1) };
         }
         return out;
       }

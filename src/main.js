@@ -10,6 +10,8 @@ import { sentenceStarts, skip, Timeline } from './navigate.js';
 import { CHAPTERS } from './book.js';
 import { texture } from './ink.js';
 import { waltonStanding, waltonBack, waltonWriting } from './figures.js';
+import { CAST } from './cast.js';
+import { personArt, POSES } from './people.js';
 
 const $ = (id) => document.getElementById(id);
 const SAVE_KEY = 'frankenstein.place.v1';
@@ -157,12 +159,23 @@ async function main() {
   // The cast. Placeholder figures drawn in code (figures.js) until the AI drawings arrive;
   // an AI drawing named like the pose (e.g. ai['cast/walton_stand']) replaces it.
   const pose = (name, draw, height, facesLeft = true) => ai[`cast/${name}`] ? art(`cast/${name}`, height, facesLeft) : drawn(draw(), height);
+  // Everyone else (src/cast.js): the generic placeholder person in each pose (people.js). The step
+  // drawing is the puppet's `walk_a`, so walking alternates it with standing.
+  const lazyPose = (who, p, h) => {
+    const name = `cast/${who}_${p}`;
+    if (ai[name]) return art(name, p === 'lie' ? h * 0.35 : h * (p === 'sit' ? 0.74 : p === 'kneel' ? 0.68 : 1));
+    const c = personArt({ ...CAST[who].look, label: CAST[who].name }, p);
+    return drawn(c, p === 'lie' ? h * 0.34 : h * c.height / 760);
+  };
   const cast = {
     walton: new Puppet({
       stand: pose('walton_stand', waltonStanding, 1.8),
       back: pose('walton_back', waltonBack, 1.8),
       write: pose('walton_write', waltonWriting, 1.42),
+      ...Object.fromEntries(['walk', 'sit', 'kneel', 'lie', 'point', 'grieve'].map((p) => [p === 'walk' ? 'walk_a' : p, lazyPose('walton', p, 1.8)])),
     }, 1.8),
+    ...Object.fromEntries(Object.entries(CAST).filter(([who]) => who !== 'walton').map(([who, c]) =>
+      [who, new Puppet(Object.fromEntries(POSES.map((p) => [p === 'walk' ? 'walk_a' : p, lazyPose(who, p, c.h)])), c.h)])),
   };
   Object.values(cast).forEach((p) => scene.add(p.root));
 
