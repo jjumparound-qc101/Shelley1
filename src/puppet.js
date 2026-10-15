@@ -44,7 +44,9 @@ export class Puppet {
     let pose = s.pose;
     const walking = pose === 'stand' && s.moving && !s.float;
     const steps = walking ? (s.dist !== undefined ? s.dist / (STEP * this.height * (s.scale ?? 1)) : s.phase) : 0;
-    if (walking && this.poses.walk_a) pose = Math.floor(steps) % 2 ? (this.poses.walk_b ? 'walk_b' : 'stand') : 'walk_a';
+    // With only one step drawing, it is held for the whole walk: swapping it with the standing
+    // drawing each step made the engraved figures jump (owner, 2026-10-15).
+    if (walking && this.poses.walk_a) pose = this.poses.walk_b && Math.floor(steps) % 2 ? 'walk_b' : 'walk_a';
     if (pose !== this.pose) {
       if (this.pose) this.poses[this.pose].visible = false;
       this.poses[pose].visible = true;
@@ -57,11 +59,11 @@ export class Puppet {
       ? Math.sin((steps % 1) * Math.PI) * 0.01 * this.height
       : Math.abs(Math.sin(s.phase * Math.PI * 2)) * 0.12 * this.height;
     let rock = s.float ? Math.sin((s.phase ?? 0) * Math.PI) * 0.04 : !s.moving ? 0 : walking ? Math.sin(steps * Math.PI) * 0.02 : Math.sin(s.phase * Math.PI * 2) * 0.06;
-    let bounce = 0;
+    const bounce = 0;
     if (s.idle !== undefined && !s.moving) {
-      rock = Math.sin(s.idle * 2.1) * 0.05; // about ±3°
-      const k = (s.idle % 1.4) / 0.28; // a little bounce on his toes every 1.4 s
-      if (k < 1) bounce = Math.sin(k * Math.PI) * 0.025 * this.height;
+      // Standing still: only a slow, slight sway, as a paper figure on its wire. The livelier
+      // rock and toe-bounce from Alice read as fidgeting on the engraved figures (owner, 2026-10-15).
+      rock = Math.sin(s.idle * 0.8) * 0.008; // about ±0.5°
     }
     const scale = s.scale ?? 1;
     this.root.scale.setScalar(scale);
