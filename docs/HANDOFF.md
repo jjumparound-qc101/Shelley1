@@ -6,13 +6,12 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
 - Every section (Letters 1-4, Chapters 1-24) is narrated and staged. Letter 1 is hand-staged
   (`src/scenes/letter1.js`); the rest are data in `src/scenes/data/<id>.js` (format: docs/STAGING.md),
   checked with `node tools/check_scenes.mjs`. All art is placeholder drawn in code.
-- Text vs audio: the screen text is Gutenberg #84, which is the **1831** edition. Cori Samuel reads the
-  **1818** edition. Track mapping (tools/narrate_all.py): 02-05 = Letters 1-4, 06 = Chapters 1+2,
-  07-27 = Chapters 3-23, 28+29 = Chapter 24. Passages added in 1831 (e.g. Elizabeth's Como origin in
-  Ch 1) are not read, so those words flash past. Fix: the 1818 text (Gutenberg #41445, blocked from
-  this container) and restage Chapters 1-2.
-- Narration: `python3 tools/narration.py ID MP3` (PocketSphinx + tools/align.py), 32 kbps mono.
-  Matched 64-91% for Ch 3-24, about 30% for Ch 1-2. Chapter 1 timings were squeezed by hand to fit.
+- Text: the 1818 edition (Gutenberg #41445, source/text/pg41445.txt), which Cori Samuel reads. Chapters
+  are numbered straight through the three volumes: Vol. I = ch01-07, II = ch08-16, III = ch17-23.
+  Track map (tools/narrate_all.py): 02-05 = Letters 1-4, 06-27 = Chapters 1-22, 28+29 = Chapter 23.
+  The old 1831 staging of Chapters 1-2 is kept in source/staging_1831/ for reference.
+- Narration: `python3 tools/narration.py ID MP3` (PocketSphinx + tools/align.py), 32 kbps mono;
+  84-93% of words matched in every section.
 - Master asset list: `node tools/assets_master.mjs` -> docs/ASSETS_MASTER.md + assets/manifest.json
   (930 images). Floors, grounds, furniture and mid pieces are shared (`sets/common/`).
 - Owner decisions (2026-10-15): Gothic ink engraving style (von Holst); images generated automatically
@@ -24,4 +23,3 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
 1. Images: `python3 tools/gen_batch.py next` (8 at a time, characters first), show the owner
    source/ai/review/batch_NNN.png, then `approve` / `reject`, rerun tools/assets_master.mjs, commit.
    Blocked until the cloud environment has OPENAI_API_KEY and allows api.openai.com.
-2. If the environment allows gutenberg.org: switch to the 1818 text and restage Chapters 1-2.

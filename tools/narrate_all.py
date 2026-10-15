@@ -1,7 +1,7 @@
 """Prepare every section whose LibriVox file has arrived and isn't done yet, several at a time.
-The reading is the 1818 edition, whose chapters are cut differently from the 1831 text we show
-(Gutenberg #84): track 02-05 = Letters 1-4; track 06 = Chapters 1 and 2 (one 1818 chapter);
-tracks 07-27 = Chapters 3-23; tracks 28 + 29 = Chapter 24 (29 starts at "Walton, in continuation").
+The reading and the text are the 1818 edition (Gutenberg #41445): track 02-05 = Letters 1-4,
+tracks 06-27 = Chapters 1-22 (numbered straight through the three volumes), tracks 28 + 29 =
+Chapter 23 (29 starts at "Walton, in continuation").
 Checked by transcribing the start of every track (2026-10-15).
 Usage: python3 tools/narrate_all.py [AUDIO_DIR] [--jobs 6]"""
 import glob
@@ -25,11 +25,11 @@ def tracks(sid):
     if sid.startswith("l"):
         return [int(sid[1:]) + 1]
     n = int(sid[2:])
-    return [6] if n <= 2 else [28, 29] if n == 24 else [n + 4]
+    return [28, 29] if n == 23 else [n + 5]
 
 
 def audio(sid):
-    """The section's audio file; Chapter 24 joins its two tracks (cached in source/audio)."""
+    """The section's audio file; Chapter 23 joins its two tracks (cached in source/audio)."""
     fs = [f"{src}/frankenstein_{t:02d}_shelley.mp3" for t in tracks(sid)]
     if not all(os.path.exists(f) for f in fs):
         return None
@@ -41,7 +41,7 @@ def audio(sid):
     return out
 
 
-SECTIONS = [f"l{k:02d}" for k in range(1, 5)] + [f"ch{k:02d}" for k in range(1, 25)]
+SECTIONS = [f"l{k:02d}" for k in range(1, 5)] + [f"ch{k:02d}" for k in range(1, 24)]
 todo = [(s, audio(s)) for s in SECTIONS if audio(s) and not os.path.exists(f"public/data/{s}_words.json")]
 
 

@@ -2,56 +2,46 @@
 {
 "start": 0.9,
 "end": 3.96,
-"text": "sake to befallen us during can still i in i very shall be",
+"text": "sake sheets all if region scarcely by a very shall me",
 "words": [
 {
 "w": "sake",
 "s": 0.9,
-"e": 1.11
+"e": 1.13
 },
 {
-"w": "to",
-"s": 1.11,
-"e": 1.25
+"w": "sheets",
+"s": 1.13,
+"e": 1.44
 },
 {
-"w": "befallen",
-"s": 1.25,
-"e": 1.85
+"w": "all",
+"s": 1.44,
+"e": 1.8
 },
 {
-"w": "us",
+"w": "if",
 "s": 1.85,
-"e": 1.95
+"e": 2.03
 },
 {
-"w": "during",
-"s": 1.95,
-"e": 2.2
-},
-{
-"w": "can",
-"s": 2.2,
+"w": "region",
+"s": 2.03,
 "e": 2.4
 },
 {
-"w": "still",
+"w": "scarcely",
 "s": 2.4,
-"e": 2.62
+"e": 2.8
 },
 {
-"w": "i",
-"s": 2.62,
-"e": 2.72
+"w": "by",
+"s": 2.8,
+"e": 3.1
 },
 {
-"w": "in",
-"s": 2.72,
-"e": 2.98
-},
-{
-"w": "i",
-"s": 3.01,
+"w": "a",
+"s": 3.1,
 "e": 3.16
 },
 {
@@ -65,7 +55,7 @@
 "e": 3.73
 },
 {
-"w": "be",
+"w": "me",
 "s": 3.73,
 "e": 3.96
 }
@@ -74,26 +64,21 @@
 {
 "start": 4.59,
 "end": 7.08,
-"text": "stop the from to cool attain is in attain",
+"text": "say perhaps who cool attain is in and in may not",
 "words": [
 {
-"w": "stop",
+"w": "say",
 "s": 4.59,
-"e": 4.84
+"e": 4.78
 },
 {
-"w": "the",
-"s": 4.84,
-"e": 4.95
+"w": "perhaps",
+"s": 4.78,
+"e": 5.24
 },
 {
-"w": "from",
-"s": 4.95,
-"e": 5.13
-},
-{
-"w": "to",
-"s": 5.13,
+"w": "who",
+"s": 5.24,
 "e": 5.36
 },
 {
@@ -117,25 +102,35 @@
 "e": 6.15
 },
 {
-"w": "attain",
-"s": 6.34,
+"w": "and",
+"s": 6.2,
+"e": 6.61
+},
+{
+"w": "in",
+"s": 6.61,
+"e": 6.67
+},
+{
+"w": "may",
+"s": 6.67,
+"e": 6.97
+},
+{
+"w": "not",
+"s": 6.97,
 "e": 7.08
 }
 ]
 },
 {
-"start": 8.7,
+"start": 8.75,
 "end": 12.47,
-"text": "far i am on its if we to mrs saville england",
+"text": "i am on its if me to mrs saville england",
 "words": [
 {
-"w": "far",
-"s": 8.7,
-"e": 8.85
-},
-{
 "w": "i",
-"s": 8.85,
+"s": 8.75,
 "e": 8.91
 },
 {
@@ -156,11 +151,11 @@
 {
 "w": "if",
 "s": 9.99,
-"e": 10.17
+"e": 10.18
 },
 {
-"w": "we",
-"s": 10.17,
+"w": "me",
+"s": 10.18,
 "e": 10.68
 },
 {
@@ -188,7 +183,7 @@
 {
 "start": 13.23,
 "end": 15.93,
-"text": "july southern that attain land land",
+"text": "july southern that attain but it",
 "words": [
 {
 "w": "july",
@@ -211,13 +206,13 @@
 "e": 15.07
 },
 {
-"w": "land",
-"s": 15.22,
-"e": 15.5
+"w": "but",
+"s": 15.17,
+"e": 15.56
 },
 {
-"w": "land",
-"s": 15.58,
+"w": "it",
+"s": 15.7,
 "e": 15.93
 }
 ]
@@ -352,7 +347,7 @@
 {
 "start": 24.24,
 "end": 28.77,
-"text": "this letter will reach england by man to and men now on its homeward voyage from archangel",
+"text": "this letter will reach england by man to to man now on its homeward voyage from archangel",
 "words": [
 {
 "w": "this",
@@ -392,16 +387,16 @@
 {
 "w": "to",
 "s": 26.01,
-"e": 26.16
+"e": 26.21
 },
 {
-"w": "and",
-"s": 26.16,
-"e": 26.28
+"w": "to",
+"s": 26.21,
+"e": 26.33
 },
 {
-"w": "men",
-"s": 26.31,
+"w": "man",
+"s": 26.33,
 "e": 26.59
 },
 {
@@ -601,7 +596,7 @@
 {
 "w": "pass",
 "s": 39.35,
-"e": 39.61
+"e": 39.6
 },
 {
 "w": "us",
@@ -832,7 +827,7 @@
 {
 "start": 54.36,
 "end": 66.61,
-"text": "and although not so warm as in england the southern gales which blow us speedily towards those shall us which i so ardently desire to attain breathe a degree of renovating warmth which i had not expected",
+"text": "and although not so warm as in england the southern gales which blow us speedily towards those shores which i so ardently desire to attain breathe a degree of renovating warmth which i had not expected",
 "words": [
 {
 "w": "and",
@@ -920,13 +915,8 @@
 "e": 59.98
 },
 {
-"w": "shall",
+"w": "shores",
 "s": 59.98,
-"e": 60.3
-},
-{
-"w": "us",
-"s": 60.3,
 "e": 60.44
 },
 {
@@ -1101,7 +1091,7 @@
 {
 "start": 72.24,
 "end": 83.28,
-"text": "one or two stiff gales and reach england on its accidents which experienced navigators scarcely remember to record and i stiff well content if nothing bless happen to us during our voyage",
+"text": "one or two stiff gales and the breaking of a most accidents which experienced navigators scarcely remember to record and ice be well content if nothing well s happen to us during our voyage",
 "words": [
 {
 "w": "one",
@@ -1131,27 +1121,32 @@
 {
 "w": "and",
 "s": 73.54,
-"e": 73.69
+"e": 73.65
 },
 {
-"w": "reach",
-"s": 73.77,
-"e": 74.03
+"w": "the",
+"s": 73.65,
+"e": 73.71
 },
 {
-"w": "england",
-"s": 74.03,
-"e": 74.38
+"w": "breaking",
+"s": 73.71,
+"e": 74.19
 },
 {
-"w": "on",
-"s": 74.38,
-"e": 74.59
+"w": "of",
+"s": 74.19,
+"e": 74.27
 },
 {
-"w": "its",
-"s": 74.59,
-"e": 74.76
+"w": "a",
+"s": 74.27,
+"e": 74.31
+},
+{
+"w": "most",
+"s": 74.31,
+"e": 74.77
 },
 {
 "w": "accidents",
@@ -1199,18 +1194,18 @@
 "e": 79.76
 },
 {
-"w": "i",
+"w": "ice",
 "s": 79.76,
-"e": 79.85
+"e": 79.95
 },
 {
-"w": "stiff",
-"s": 79.85,
-"e": 80.13
+"w": "be",
+"s": 79.95,
+"e": 80.07
 },
 {
 "w": "well",
-"s": 80.13,
+"s": 80.07,
 "e": 80.33
 },
 {
@@ -1229,8 +1224,13 @@
 "e": 81.27
 },
 {
-"w": "bless",
+"w": "well",
 "s": 81.27,
+"e": 81.46
+},
+{
+"w": "s",
+"s": 81.46,
 "e": 81.64
 },
 {
@@ -1268,7 +1268,7 @@
 {
 "start": 84.57,
 "end": 91.74,
-"text": "adieu my dear margaret be assured that for my in sake as well as still us i will not rashly encounter danger",
+"text": "adieu my dear margaret be assured that for my in sake as well as your s i will not rashly encounter danger",
 "words": [
 {
 "w": "adieu",
@@ -1277,7 +1277,7 @@
 },
 {
 "w": "my",
-"s": 85.05,
+"s": 85.04,
 "e": 85.25
 },
 {
@@ -1338,16 +1338,16 @@
 {
 "w": "as",
 "s": 88.97,
-"e": 89.08
+"e": 89.12
 },
 {
-"w": "still",
-"s": 89.08,
-"e": 89.36
+"w": "your",
+"s": 89.12,
+"e": 89.39
 },
 {
-"w": "us",
-"s": 89.36,
+"w": "s",
+"s": 89.39,
 "e": 89.57
 },
 {
@@ -1441,90 +1441,65 @@
 },
 {
 "start": 96.48,
-"end": 98.76,
-"text": "am am that make a bold my england triumph",
+"end": 98.79,
+"text": "remember me to all my english friends",
 "words": [
 {
-"w": "am",
+"w": "remember",
 "s": 96.48,
-"e": 96.62
+"e": 96.86
 },
 {
-"w": "am",
-"s": 96.62,
-"e": 96.77
+"w": "me",
+"s": 96.86,
+"e": 97.02
 },
 {
-"w": "that",
-"s": 96.77,
-"e": 96.87
+"w": "to",
+"s": 97.02,
+"e": 97.13
 },
 {
-"w": "make",
-"s": 96.87,
-"e": 97.1
-},
-{
-"w": "a",
-"s": 97.1,
-"e": 97.15
-},
-{
-"w": "bold",
+"w": "all",
 "s": 97.22,
-"e": 97.52
+"e": 97.51
 },
 {
 "w": "my",
-"s": 97.52,
+"s": 97.51,
 "e": 97.68
 },
 {
-"w": "england",
+"w": "english",
 "s": 97.68,
-"e": 98.09
+"e": 98.18
 },
 {
-"w": "triumph",
-"s": 98.09,
-"e": 98.76
+"w": "friends",
+"s": 98.18,
+"e": 98.79
 }
 ]
 },
 {
 "start": 99.54,
 "end": 101.97,
-"text": "men stiff make many own us on obedient",
+"text": "most affectionately yours on w",
 "words": [
 {
-"w": "men",
+"w": "most",
 "s": 99.54,
-"e": 99.69
+"e": 99.81
 },
 {
-"w": "stiff",
-"s": 99.69,
-"e": 99.91
+"w": "affectionately",
+"s": 99.81,
+"e": 100.47
 },
 {
-"w": "make",
-"s": 99.91,
-"e": 100.16
-},
-{
-"w": "many",
-"s": 100.16,
-"e": 100.54
-},
-{
-"w": "own",
-"s": 100.54,
-"e": 100.8
-},
-{
-"w": "us",
-"s": 100.8,
-"e": 101.0
+"w": "yours",
+"s": 100.47,
+"e": 101.01
 },
 {
 "w": "on",
@@ -1532,8 +1507,8 @@
 "e": 101.43
 },
 {
-"w": "obedient",
-"s": 101.49,
+"w": "w",
+"s": 101.43,
 "e": 101.97
 }
 ]
@@ -1541,7 +1516,7 @@
 {
 "start": 103.68,
 "end": 104.93,
-"text": "and of sake shores cool",
+"text": "and affectionately all",
 "words": [
 {
 "w": "and",
@@ -1549,23 +1524,13 @@
 "e": 103.89
 },
 {
-"w": "of",
+"w": "affectionately",
 "s": 103.89,
-"e": 104.01
+"e": 104.67
 },
 {
-"w": "sake",
-"s": 104.01,
-"e": 104.26
-},
-{
-"w": "shores",
-"s": 104.26,
-"e": 104.53
-},
-{
-"w": "cool",
-"s": 104.57,
+"w": "all",
+"s": 104.67,
 "e": 104.93
 }
 ]
