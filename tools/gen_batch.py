@@ -3,7 +3,10 @@
 Owner decisions (2026-10-15): Gothic ink engraving style (the style block in assets/manifest.json);
 images made automatically through the OpenAI image API, approved batch by batch.
 
-  python3 tools/gen_batch.py next [--n 8] [--group Characters]   make the next N images not done yet
+  python3 tools/gen_batch.py next [--n 8] [--group Characters] [--sheets] [--jobs 4]
+                                                                  make the next N images not done yet
+Owner plan (2026-10-15): wave 1 = the character model sheets (`next --sheets --n 27`), approved by
+the owner; wave 2 = everything else in parallel, posed figures drawn with their approved sheet.
   python3 tools/gen_batch.py approve [FILE ...]                   put the batch into the game (all, or these)
   python3 tools/gen_batch.py reject FILE [FILE ...]               throw these away; `next` makes them again
 
@@ -20,6 +23,7 @@ import json
 import os
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -71,7 +75,7 @@ def cmd_next(a):
         sys.exit(f"batch {pending['batch']} is waiting for approval: {REVIEW}/batch_{pending['batch']:03d}.png")
     todo = []
     for e in m["entries"]:
-        if e["file"] in done or (a.group and e["group"] != a.group):
+        if e["file"] in done or (a.group and e["group"] != a.group) or (a.sheets and not e["file"].endswith("_sheet")):
             continue
         if e.get("ref") and e["ref"] not in done:
             continue  # the model sheet must be approved first
@@ -81,8 +85,7 @@ def cmd_next(a):
     if not todo:
         sys.exit("nothing to make: every image in that part of the list is done (or waits on a model sheet)")
     style = m["style"].replace('Reply "ready" and wait for my first request.', "").strip()
-    made = []
-    for e in todo:
+    def make(e):
         out = f"source/ai/{e['file']}.png"
         os.makedirs(os.path.dirname(out), exist_ok=True)
         refs = [f"source/ai/{e['ref']}.png"] if e.get("ref") else []
@@ -91,12 +94,13 @@ def cmd_next(a):
             cmd += ["--ref", r]
         if a.model:
             cmd += ["--model", a.model]
-        print(f"making {e['file']} ...", flush=True)
         r = subprocess.run(cmd, capture_output=True, text=True)
-        if r.returncode:
-            print(f"  failed: {(r.stderr or r.stdout)[-400:]}", flush=True)
-            continue
-        made.append(e["file"])
+        print(f"{e['file']}: {'failed ' + (r.stderr or r.stdout)[-300:] if r.returncode else 'made'}", flush=True)
+        return None if r.returncode else e["file"]
+
+    # Several requests at once: the API's rate limit is the real limit (wave 2 uses --jobs 8 or more).
+    with ThreadPoolExecutor(a.jobs) as ex:
+        made = [f for f in ex.map(make, todo) if f]
     if not made:
         sys.exit("no images were made")
     os.makedirs(REVIEW, exist_ok=True)
@@ -151,6 +155,8 @@ def main():
     n.add_argument("--n", type=int, default=8)
     n.add_argument("--group", default=None)
     n.add_argument("--model", default=None)
+    n.add_argument("--jobs", type=int, default=4)
+    n.add_argument("--sheets", action="store_true", help="wave 1: only the character model sheets")
     sub.add_parser("approve").add_argument("files", nargs="*")
     sub.add_parser("reject").add_argument("files", nargs="+")
     a = ap.parse_args()
