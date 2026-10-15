@@ -1,5 +1,8 @@
 """Prepare every section whose LibriVox file has arrived and isn't done yet, several at a time.
-LibriVox track NN (frankenstein_NN_shelley.mp3) is section NN-1: 02-05 = Letters 1-4, 06-29 = Chapters 1-24.
+The reading is the 1818 edition, whose chapters are cut differently from the 1831 text we show
+(Gutenberg #84): track 02-05 = Letters 1-4; track 06 = Chapters 1 and 2 (one 1818 chapter);
+tracks 07-27 = Chapters 3-23; tracks 28 + 29 = Chapter 24 (29 starts at "Walton, in continuation").
+Checked by transcribing the start of every track (2026-10-15).
 Usage: python3 tools/narrate_all.py [AUDIO_DIR] [--jobs 6]"""
 import glob
 import os
@@ -17,16 +20,29 @@ if "--jobs" in args:
 src = args[0] if args else "/mnt/project-files/sources/audio"
 
 
-def sid(nn):
-    k = nn - 1
-    return f"l{k:02d}" if k <= 4 else f"ch{k - 4:02d}"
+def tracks(sid):
+    """Track numbers holding a section."""
+    if sid.startswith("l"):
+        return [int(sid[1:]) + 1]
+    n = int(sid[2:])
+    return [6] if n <= 2 else [28, 29] if n == 24 else [n + 4]
 
 
-todo = []
-for f in sorted(glob.glob(f"{src}/frankenstein_*_shelley.mp3")):
-    nn = int(re.search(r"_(\d+)_shelley", f).group(1))
-    if nn >= 2 and not os.path.exists(f"public/data/{sid(nn)}_words.json"):
-        todo.append((sid(nn), f))
+def audio(sid):
+    """The section's audio file; Chapter 24 joins its two tracks (cached in source/audio)."""
+    fs = [f"{src}/frankenstein_{t:02d}_shelley.mp3" for t in tracks(sid)]
+    if not all(os.path.exists(f) for f in fs):
+        return None
+    if len(fs) == 1:
+        return fs[0]
+    out = f"source/audio/{sid}_joined.mp3"
+    if not os.path.exists(out):
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"concat:{'|'.join(fs)}", "-c", "copy", out], check=True)
+    return out
+
+
+SECTIONS = [f"l{k:02d}" for k in range(1, 5)] + [f"ch{k:02d}" for k in range(1, 25)]
+todo = [(s, audio(s)) for s in SECTIONS if audio(s) and not os.path.exists(f"public/data/{s}_words.json")]
 
 
 def run(job):

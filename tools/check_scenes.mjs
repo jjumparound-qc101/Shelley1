@@ -16,7 +16,8 @@ const OUT_MARKS = ['C', 'L', 'R', 'FL', 'FR', 'FC', 'BL', 'BR', 'BC', 'farL', 'f
 
 function words(id) {
   const f = `public/data/${id}_words.json`;
-  if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
+  const w = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, 'utf8'));
+  if (w?.paragraphs) return w;
   const text = fs.readFileSync(`source/text/${id}.txt`, 'utf8').replace(/_/g, '');
   const paras = text.split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter((p) => /[A-Za-z]/.test(p)).slice(1);
   let t = 5;
