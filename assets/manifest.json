@@ -1579,7 +1579,7 @@
    "title": "walton_petersburgh: wall back",
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 1: lodging",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1589,7 +1589,7 @@
    "title": "walton_petersburgh: wall left",
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 1: lodging",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1599,7 +1599,7 @@
    "title": "walton_petersburgh: wall right",
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 1: lodging",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1609,7 +1609,7 @@
    "title": "walton_petersburgh: view",
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the view through the window: town, snow, filling the whole image edge to edge.",
    "note": "Letter 1: lodging",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1619,7 +1619,7 @@
    "title": "archangel_lodging: wall back",
    "prompt": "A plain timber room in the port of Archangel in late March, encompassed by frost and snow; a writing desk by the window looking out on the frozen harbour. Draw the back wall (timber, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 2: Archangel: no friend; Letter 2: The land of mist and snow",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1629,7 +1629,7 @@
    "title": "archangel_lodging: wall left",
    "prompt": "A plain timber room in the port of Archangel in late March, encompassed by frost and snow; a writing desk by the window looking out on the frozen harbour. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 2: Archangel: no friend; Letter 2: The land of mist and snow",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1639,7 +1639,7 @@
    "title": "archangel_lodging: wall right",
    "prompt": "A plain timber room in the port of Archangel in late March, encompassed by frost and snow; a writing desk by the window looking out on the frozen harbour. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 2: Archangel: no friend; Letter 2: The land of mist and snow",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1649,7 +1649,7 @@
    "title": "archangel_lodging: view",
    "prompt": "A plain timber room in the port of Archangel in late March, encompassed by frost and snow; a writing desk by the window looking out on the frozen harbour. Draw the view through the window: sea, snow, filling the whole image edge to edge.",
    "note": "Letter 2: Archangel: no friend; Letter 2: The land of mist and snow",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1659,7 +1659,7 @@
    "title": "archangel_harbour: far",
    "prompt": "The harbour of Archangel at the end of winter, among merchants and seamen: Walton's hired vessel lies at the quay among the ice, waiting for the weather to permit embarkation. Draw the far scenery strip: sea, snow, sky included, filling the whole image edge to edge.",
    "note": "Letter 2: The lieutenant and the master",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1679,7 +1679,7 @@
    "title": "walton_cabin: wall left",
    "prompt": "Walton's small timber cabin aboard his ship: a writing desk under the stern window, a narrow bunk, charts and books on a shelf; floating sheets of ice pass outside in the long summer light. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 3: Safe, and well advanced; Letter 4: My guest; Letter 4: Listen to my history; Chapter 23: Swear to me, Walton; Chapter 23: Walton: August 26th; Chapter 23: September 5th: the sailors' demand; Chapter 23: Victor's death; Chapter 23: The creature over the coffin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1709,7 +1709,7 @@
    "title": "walton_deck: far",
    "prompt": "The deck of Walton's ship in the Arctic summer night, sailing north before the southern gales over the pathless seas, the stars overhead, floating ice on the water. Draw the far scenery strip: sea, moon, sky included, filling the whole image edge to edge.",
    "note": "Letter 3: What can stop the determined heart?; Letter 4: Shut in by ice; Letter 4: The stranger on the ice; Letter 4: Do you share my madness?; Chapter 23: September 2nd: in the ice; Chapter 23: The ice breaks; Chapter 23: Midnight: a sound in the cabin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1719,7 +1719,7 @@
    "title": "geneva_house: wall back",
    "prompt": "The drawing room of the Frankenstein house in Geneva, a family among the most distinguished of that republic: panelled walls, a fire, windows over the lake. Draw the back wall (panel, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: A Genevese family; Chapter 1: Elizabeth; Chapter 2: The house of mourning; Chapter 5: Elizabeth writes from Geneva; Chapter 6: Home: Justine accused; Chapter 7: She has confessed; Chapter 8: The dead calmness of inaction; Chapter 16: Home to Geneva; Chapter 17: My father's proposal; Chapter 21: Home to Geneva; Chapter 21: The wedding day",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1729,7 +1729,7 @@
    "title": "geneva_house: wall left",
    "prompt": "The drawing room of the Frankenstein house in Geneva, a family among the most distinguished of that republic: panelled walls, a fire, windows over the lake. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: A Genevese family; Chapter 1: Elizabeth; Chapter 2: The house of mourning; Chapter 5: Elizabeth writes from Geneva; Chapter 6: Home: Justine accused; Chapter 7: She has confessed; Chapter 8: The dead calmness of inaction; Chapter 16: Home to Geneva; Chapter 17: My father's proposal; Chapter 21: Home to Geneva; Chapter 21: The wedding day",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1739,7 +1739,7 @@
    "title": "geneva_house: wall right",
    "prompt": "The drawing room of the Frankenstein house in Geneva, a family among the most distinguished of that republic: panelled walls, a fire, windows over the lake. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: A Genevese family; Chapter 1: Elizabeth; Chapter 2: The house of mourning; Chapter 5: Elizabeth writes from Geneva; Chapter 6: Home: Justine accused; Chapter 7: She has confessed; Chapter 8: The dead calmness of inaction; Chapter 16: Home to Geneva; Chapter 17: My father's proposal; Chapter 21: Home to Geneva; Chapter 21: The wedding day",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1749,7 +1749,7 @@
    "title": "geneva_house: view",
    "prompt": "The drawing room of the Frankenstein house in Geneva, a family among the most distinguished of that republic: panelled walls, a fire, windows over the lake. Draw the view through the window: lake, filling the whole image edge to edge.",
    "note": "Chapter 1: A Genevese family; Chapter 1: Elizabeth; Chapter 2: The house of mourning; Chapter 5: Elizabeth writes from Geneva; Chapter 6: Home: Justine accused; Chapter 7: She has confessed; Chapter 8: The dead calmness of inaction; Chapter 16: Home to Geneva; Chapter 17: My father's proposal; Chapter 21: Home to Geneva; Chapter 21: The wedding day",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1759,7 +1759,7 @@
    "title": "lucerne_garret: wall back",
    "prompt": "A poor house in a mean street near the Reuss in Lucerne, where the ruined merchant Beaufort lives unknown and in wretchedness with his daughter Caroline. Draw the back wall (rough, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Beaufort in Lucerne; Chapter 1: A protecting spirit",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1769,7 +1769,7 @@
    "title": "lucerne_garret: wall left",
    "prompt": "A poor house in a mean street near the Reuss in Lucerne, where the ruined merchant Beaufort lives unknown and in wretchedness with his daughter Caroline. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Beaufort in Lucerne; Chapter 1: A protecting spirit",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1779,7 +1779,7 @@
    "title": "lucerne_garret: wall right",
    "prompt": "A poor house in a mean street near the Reuss in Lucerne, where the ruined merchant Beaufort lives unknown and in wretchedness with his daughter Caroline. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Beaufort in Lucerne; Chapter 1: A protecting spirit",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1789,7 +1789,7 @@
    "title": "lucerne_garret: view",
    "prompt": "A poor house in a mean street near the Reuss in Lucerne, where the ruined merchant Beaufort lives unknown and in wretchedness with his daughter Caroline. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 1: Beaufort in Lucerne; Chapter 1: A protecting spirit",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1799,7 +1799,7 @@
    "title": "belrive: far",
    "prompt": "A garden by the Lake of Geneva on a summer afternoon, where the children play: the mountains beyond the water. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 1: Henry Clerval; Chapter 1: The blasted oak; Chapter 8: The house of mourning",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1809,7 +1809,7 @@
    "title": "thonon_inn: wall back",
    "prompt": "The inn at the baths near Thonon, where the inclemency of the weather keeps the family indoors for a day; an old shelf of forgotten books. Draw the back wall (timber, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Cornelius Agrippa",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1819,7 +1819,7 @@
    "title": "thonon_inn: wall left",
    "prompt": "The inn at the baths near Thonon, where the inclemency of the weather keeps the family indoors for a day; an old shelf of forgotten books. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Cornelius Agrippa",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1839,7 +1839,7 @@
    "title": "thonon_inn: view",
    "prompt": "The inn at the baths near Thonon, where the inclemency of the weather keeps the family indoors for a day; an old shelf of forgotten books. Draw the view through the window: lake, storm, filling the whole image edge to edge.",
    "note": "Chapter 1: Cornelius Agrippa",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1849,7 +1849,7 @@
    "title": "belrive_room: wall back",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the back wall (panel, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1869,7 +1869,7 @@
    "title": "belrive_room: wall right",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1879,7 +1879,7 @@
    "title": "belrive_room: view",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the view through the window: lake, night, filling the whole image edge to edge.",
    "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1909,7 +1909,7 @@
    "title": "geneva_bedroom: wall right",
    "prompt": "A sickroom in the Frankenstein house: a curtained bed, medicine on a small table, the shutters half closed. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: The first misfortune",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1919,7 +1919,7 @@
    "title": "geneva_bedroom: view",
    "prompt": "A sickroom in the Frankenstein house: a curtained bed, medicine on a small table, the shutters half closed. Draw the view through the window: lake, clouds, filling the whole image edge to edge.",
    "note": "Chapter 2: The first misfortune",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1929,7 +1929,7 @@
    "title": "road_ingolstadt: far",
    "prompt": "The long and fatiguing road from Geneva into Germany by chaise; at the end of it the high white steeple of Ingolstadt. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 2: The road to Ingolstadt",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1939,7 +1939,7 @@
    "title": "krempe_study: wall back",
    "prompt": "M. Krempe's study at the university of Ingolstadt: crowded shelves of books on natural philosophy, a desk heaped with papers. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Krempe",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1949,7 +1949,7 @@
    "title": "krempe_study: wall left",
    "prompt": "M. Krempe's study at the university of Ingolstadt: crowded shelves of books on natural philosophy, a desk heaped with papers. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Krempe",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1959,7 +1959,7 @@
    "title": "krempe_study: wall right",
    "prompt": "M. Krempe's study at the university of Ingolstadt: crowded shelves of books on natural philosophy, a desk heaped with papers. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Krempe",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1969,7 +1969,7 @@
    "title": "krempe_study: view",
    "prompt": "M. Krempe's study at the university of Ingolstadt: crowded shelves of books on natural philosophy, a desk heaped with papers. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 2: M. Krempe",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1989,7 +1989,7 @@
    "title": "ingolstadt_lodging: wall left",
    "prompt": "Victor's solitary apartment in Ingolstadt, newly taken: plain plastered walls, a bed, a table, a window over the town. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: Chimeras of boundless grandeur; Chapter 3: The secret of life; Chapter 3: Winter, spring and summer passed; Chapter 4: The dream; Chapter 4: The fever; Chapter 5: A letter from Elizabeth; Chapter 5: Dear, dear Elizabeth; Chapter 5: The orientalists; Chapter 6: William is dead",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1999,7 +1999,7 @@
    "title": "ingolstadt_lodging: wall right",
    "prompt": "Victor's solitary apartment in Ingolstadt, newly taken: plain plastered walls, a bed, a table, a window over the town. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: Chimeras of boundless grandeur; Chapter 3: The secret of life; Chapter 3: Winter, spring and summer passed; Chapter 4: The dream; Chapter 4: The fever; Chapter 5: A letter from Elizabeth; Chapter 5: Dear, dear Elizabeth; Chapter 5: The orientalists; Chapter 6: William is dead",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2009,7 +2009,7 @@
    "title": "ingolstadt_lodging: view",
    "prompt": "Victor's solitary apartment in Ingolstadt, newly taken: plain plastered walls, a bed, a table, a window over the town. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 2: Chimeras of boundless grandeur; Chapter 3: The secret of life; Chapter 3: Winter, spring and summer passed; Chapter 4: The dream; Chapter 4: The fever; Chapter 5: A letter from Elizabeth; Chapter 5: Dear, dear Elizabeth; Chapter 5: The orientalists; Chapter 6: William is dead",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2029,7 +2029,7 @@
    "title": "ingolstadt_lecture: wall left",
    "prompt": "The lecturing room of the university of Ingolstadt: tiered benches of students facing the professor's table, chemical apparatus ready for experiments. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Waldman's lecture; Chapter 3: Two years of study; Chapter 5: The professors",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2039,7 +2039,7 @@
    "title": "ingolstadt_lecture: wall right",
    "prompt": "The lecturing room of the university of Ingolstadt: tiered benches of students facing the professor's table, chemical apparatus ready for experiments. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Waldman's lecture; Chapter 3: Two years of study; Chapter 5: The professors",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2059,7 +2059,7 @@
    "title": "waldman_laboratory: wall back",
    "prompt": "M. Waldman's house in Ingolstadt and the laboratory beyond it, full of his various machines and instruments. Draw the back wall (stone, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: A day memorable to me",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2069,7 +2069,7 @@
    "title": "waldman_laboratory: wall left",
    "prompt": "M. Waldman's house in Ingolstadt and the laboratory beyond it, full of his various machines and instruments. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: A day memorable to me",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2079,7 +2079,7 @@
    "title": "waldman_laboratory: wall right",
    "prompt": "M. Waldman's house in Ingolstadt and the laboratory beyond it, full of his various machines and instruments. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: A day memorable to me",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2089,7 +2089,7 @@
    "title": "waldman_laboratory: view",
    "prompt": "M. Waldman's house in Ingolstadt and the laboratory beyond it, full of his various machines and instruments. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 2: A day memorable to me",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2099,7 +2099,7 @@
    "title": "ingolstadt_vault: wall back",
    "prompt": "The vaults and charnel-houses where Victor spends days and nights observing the decay and corruption of the human body: low stone arches, coffins, bones heaped in niches, a single candle. Draw the back wall (stone), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: Vaults and charnel-houses",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2109,7 +2109,7 @@
    "title": "ingolstadt_vault: wall left",
    "prompt": "The vaults and charnel-houses where Victor spends days and nights observing the decay and corruption of the human body: low stone arches, coffins, bones heaped in niches, a single candle. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: Vaults and charnel-houses",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2119,7 +2119,7 @@
    "title": "ingolstadt_vault: wall right",
    "prompt": "The vaults and charnel-houses where Victor spends days and nights observing the decay and corruption of the human body: low stone arches, coffins, bones heaped in niches, a single candle. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: Vaults and charnel-houses",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2129,7 +2129,7 @@
    "title": "ingolstadt_workshop: wall back",
    "prompt": "A solitary chamber, or rather cell, at the top of the house, separated from all the other apartments by a gallery and staircase: Victor's workshop of filthy creation, the moon at the window. Draw the back wall (stone, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: The workshop of filthy creation; Chapter 4: A dreary night of November",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2139,7 +2139,7 @@
    "title": "ingolstadt_workshop: wall left",
    "prompt": "A solitary chamber, or rather cell, at the top of the house, separated from all the other apartments by a gallery and staircase: Victor's workshop of filthy creation, the moon at the window. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: The workshop of filthy creation; Chapter 4: A dreary night of November",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2149,7 +2149,7 @@
    "title": "ingolstadt_workshop: wall right",
    "prompt": "A solitary chamber, or rather cell, at the top of the house, separated from all the other apartments by a gallery and staircase: Victor's workshop of filthy creation, the moon at the window. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 3: The workshop of filthy creation; Chapter 4: A dreary night of November",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2159,7 +2159,7 @@
    "title": "ingolstadt_workshop: view",
    "prompt": "A solitary chamber, or rather cell, at the top of the house, separated from all the other apartments by a gallery and staircase: Victor's workshop of filthy creation, the moon at the window. Draw the view through the window: town, moon, filling the whole image edge to edge.",
    "note": "Chapter 3: The workshop of filthy creation; Chapter 4: A dreary night of November",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2169,7 +2169,7 @@
    "title": "ingolstadt_inn_yard: far",
    "prompt": "The streets of Ingolstadt at dawn in the rain: the church with its white steeple and clock; the inn where the diligences and carriages stop. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 4: The morning: Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2179,7 +2179,7 @@
    "title": "ingolstadt_country: far",
    "prompt": "The country around Ingolstadt in May: a serene sky and verdant fields; the flowers of spring bloomed in the hedges; a village where the peasants are dancing on a Sunday afternoon. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 5: A ramble with Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2189,7 +2189,7 @@
    "title": "ingolstadt_street: far",
    "prompt": "The streets of Ingolstadt, where Victor and Clerval hurry to order the horses; a cabriolet waiting at the inn. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 6: Clerval's farewell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2199,7 +2199,7 @@
    "title": "lausanne_shore: far",
    "prompt": "The shore of the Lake of Geneva near Lausanne: the waters placid, all around calm, and the snowy mountains, “the palaces of nature”; farther on, the black sides of Jura and the bright summit of Mont Blanc. Draw the far scenery strip: lake, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 6: The road by the lake",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2209,7 +2209,7 @@
    "title": "plainpalais: far",
    "prompt": "The fields of Plainpalais by night in a thunderstorm: a low hill above the lake, a clump of trees, and the nearly perpendicular rocks of Mont Salêve; lightning playing on the summit of Mont Blanc and making the lake appear like a vast sheet of fire. Draw the far scenery strip: alps, storm, sky included, filling the whole image edge to edge.",
    "note": "Chapter 6: The storm on Plainpalais; Chapter 15: The child in the fields",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2219,7 +2219,7 @@
    "title": "geneva_court: wall back",
    "prompt": "The court of justice in Geneva, crowded with spectators; the judges at their bench, the accused in the dock, Victor and his family seated among the witnesses. Draw the back wall (court, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: The trial of Justine; Chapter 7: All black",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2229,7 +2229,7 @@
    "title": "geneva_court: wall left",
    "prompt": "The court of justice in Geneva, crowded with spectators; the judges at their bench, the accused in the dock, Victor and his family seated among the witnesses. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: The trial of Justine; Chapter 7: All black",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2239,7 +2239,7 @@
    "title": "geneva_court: wall right",
    "prompt": "The court of justice in Geneva, crowded with spectators; the judges at their bench, the accused in the dock, Victor and his family seated among the witnesses. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: The trial of Justine; Chapter 7: All black",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2249,7 +2249,7 @@
    "title": "geneva_court: view",
    "prompt": "The court of justice in Geneva, crowded with spectators; the judges at their bench, the accused in the dock, Victor and his family seated among the witnesses. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 7: The trial of Justine; Chapter 7: All black",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2259,7 +2259,7 @@
    "title": "geneva_prison: wall back",
    "prompt": "The gloomy prison chamber in Geneva: bare stone, straw on the floor, a small barred window; Justine sits on the straw at the farther end, her hands manacled. Draw the back wall (cell, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: Justine in prison; Chapter 22: A solitary cell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2269,7 +2269,7 @@
    "title": "geneva_prison: wall left",
    "prompt": "The gloomy prison chamber in Geneva: bare stone, straw on the floor, a small barred window; Justine sits on the straw at the farther end, her hands manacled. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: Justine in prison; Chapter 22: A solitary cell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2279,7 +2279,7 @@
    "title": "geneva_prison: wall right",
    "prompt": "The gloomy prison chamber in Geneva: bare stone, straw on the floor, a small barred window; Justine sits on the straw at the farther end, her hands manacled. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 7: Justine in prison; Chapter 22: A solitary cell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2289,7 +2289,7 @@
    "title": "geneva_prison: view",
    "prompt": "The gloomy prison chamber in Geneva: bare stone, straw on the floor, a small barred window; Justine sits on the straw at the farther end, her hands manacled. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 7: Justine in prison; Chapter 22: A solitary cell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2299,7 +2299,7 @@
    "title": "geneva_cemetery: far",
    "prompt": "A churchyard in Geneva where the family mourns over the graves of William and Justine, the first hapless victims of Victor's unhallowed arts. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 7: The graves of William and Justine; Chapter 23: The oath at the graves",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2309,7 +2309,7 @@
    "title": "lake_geneva: far",
    "prompt": "The lake of Geneva at night below the house at Belrive: Victor alone in a small sailing boat in the middle of the silent water, the dark shore and the mountains beyond. Draw the far scenery strip: alps, moon, sky included, filling the whole image edge to edge.",
    "note": "Chapter 8: Nights upon the lake; Chapter 17: Alone on the lake; Chapter 21: The voyage to Evian; Chapter 22: Back over the lake",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2319,7 +2319,7 @@
    "title": "chamounix_valley: far",
    "prompt": "The ravine of the Arve on the road to Chamounix in August: immense mountains and precipices on every side, the river raging among rocks, ruined castles on piny crags, and the white pyramids of the Alps above all. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 8: The valley of the Arve",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2329,7 +2329,7 @@
    "title": "chamounix_inn: wall back",
    "prompt": "A plain timbered room at the inn in the village of Chamounix; from the window, pallid lightnings playing above Mont Blanc and the noisy Arve rushing beneath. Draw the back wall (timber, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 8: The village of Chamounix",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2339,7 +2339,7 @@
    "title": "chamounix_inn: wall left",
    "prompt": "A plain timbered room at the inn in the village of Chamounix; from the window, pallid lightnings playing above Mont Blanc and the noisy Arve rushing beneath. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 8: The village of Chamounix",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2349,7 +2349,7 @@
    "title": "chamounix_inn: wall right",
    "prompt": "A plain timbered room at the inn in the village of Chamounix; from the window, pallid lightnings playing above Mont Blanc and the noisy Arve rushing beneath. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 8: The village of Chamounix",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2359,7 +2359,7 @@
    "title": "chamounix_inn: view",
    "prompt": "A plain timbered room at the inn in the village of Chamounix; from the window, pallid lightnings playing above Mont Blanc and the noisy Arve rushing beneath. Draw the view through the window: alps, storm, filling the whole image edge to edge.",
    "note": "Chapter 8: The village of Chamounix",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2369,7 +2369,7 @@
    "title": "arveiron: far",
    "prompt": "The foot of the glacier where the Arveiron takes its rise, in the valley of Chamounix: the icy wall of the glacier overhanging, abrupt sides of vast mountains, a few shattered pines, brawling waters. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 9: The sources of the Arveiron",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2379,7 +2379,7 @@
    "title": "montanvert_path: far",
    "prompt": "The precipitous zigzag path up Montanvert in pouring rain: trees broken and strewn by the winter avalanche, ravines of snow, sombre stunted pines, and the valley below hidden in curling mists. Draw the far scenery strip: alps, storm, sky included, filling the whole image edge to edge.",
    "note": "Chapter 9: The ascent of Montanvert",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2389,7 +2389,7 @@
    "title": "montanvert: far",
    "prompt": "The Mer de Glace below Montanvert: a vast river of ice rising like the waves of a troubled sea, cut by deep rifts, among aerial summits, with Mont Blanc rising in awful majesty above. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 9: The sea of ice; Chapter 9: Across the ice; Chapter 16: The sea of ice at sunset",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2399,7 +2399,7 @@
    "title": "creature_hut: wall back",
    "prompt": "A rough herdsman's hut on the mountainside above the Mer de Glace: bare stone and timber, an earth floor, rain without, and a fire the creature has lighted. Draw the back wall (rough, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 9: The hut on the mountain; Chapter 16: The demand",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2409,7 +2409,7 @@
    "title": "creature_hut: wall left",
    "prompt": "A rough herdsman's hut on the mountainside above the Mer de Glace: bare stone and timber, an earth floor, rain without, and a fire the creature has lighted. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 9: The hut on the mountain; Chapter 16: The demand",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2419,7 +2419,7 @@
    "title": "creature_hut: wall right",
    "prompt": "A rough herdsman's hut on the mountainside above the Mer de Glace: bare stone and timber, an earth floor, rain without, and a fire the creature has lighted. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 9: The hut on the mountain; Chapter 16: The demand",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2429,7 +2429,7 @@
    "title": "ingolstadt_forest: far",
    "prompt": "The forest near Ingolstadt: a brook running among the trees, berries hanging on the bushes; by night the moon rising among the trees. Draw the far scenery strip: forest, moon, sky included, filling the whole image edge to edge.",
    "note": "Chapter 10: The forest near Ingolstadt; Chapter 10: The discovery of fire",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2439,7 +2439,7 @@
    "title": "shepherd_hut: wall back",
    "prompt": "A small shepherd's hut on rising ground among snowy fields: a fire with breakfast preparing over it, straw on a dry floor, bread, cheese, milk and wine on the board. Draw the back wall (rough, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: The shepherd's hut",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2449,7 +2449,7 @@
    "title": "shepherd_hut: wall left",
    "prompt": "A small shepherd's hut on rising ground among snowy fields: a fire with breakfast preparing over it, straw on a dry floor, bread, cheese, milk and wine on the board. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: The shepherd's hut",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2459,7 +2459,7 @@
    "title": "shepherd_hut: wall right",
    "prompt": "A small shepherd's hut on rising ground among snowy fields: a fire with breakfast preparing over it, straw on a dry floor, bread, cheese, milk and wine on the board. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: The shepherd's hut",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2469,7 +2469,7 @@
    "title": "shepherd_hut: view",
    "prompt": "A small shepherd's hut on rising ground among snowy fields: a fire with breakfast preparing over it, straw on a dry floor, bread, cheese, milk and wine on the board. Draw the view through the window: hills, snow, filling the whole image edge to edge.",
    "note": "Chapter 10: The shepherd's hut",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2479,7 +2479,7 @@
    "title": "creature_village: far",
    "prompt": "A German village at sunset after snow: huts, neater cottages and stately houses, gardens of vegetables, milk and cheese set at the cottage windows. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 10: The village",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2489,7 +2489,7 @@
    "title": "delacey_outside: far",
    "prompt": "The De Laceys' neat cottage in the snow, with a low wooden hovel built against its back wall, a pig sty and a clear pool of water beside it, and the field and wood beyond. Draw the far scenery strip: forest, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 10: The hovel; Chapter 11: The invisible hand; Chapter 11: The transparent pool; Chapter 12: The sweet Arabian; Chapter 14: Autumn at the cottage; Chapter 15: The deserted cottage; Chapter 15: The burning cottage",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2499,7 +2499,7 @@
    "title": "delacey_cottage: wall back",
    "prompt": "The inside of the De Laceys' cottage seen through a chink in a boarded-up window: a small room, whitewashed and clean but very bare of furniture, a small fire in one corner. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: Through the chink; Chapter 11: The cottagers; Chapter 11: A godlike science; Chapter 12: A tap at the door; Chapter 12: Good night, sweet Safie; Chapter 12: Ruins of Empires; Chapter 13: Exile; Chapter 14: The old man alone",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2509,7 +2509,7 @@
    "title": "delacey_cottage: wall left",
    "prompt": "The inside of the De Laceys' cottage seen through a chink in a boarded-up window: a small room, whitewashed and clean but very bare of furniture, a small fire in one corner. Draw the left wall, fireplace, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: Through the chink; Chapter 11: The cottagers; Chapter 11: A godlike science; Chapter 12: A tap at the door; Chapter 12: Good night, sweet Safie; Chapter 12: Ruins of Empires; Chapter 13: Exile; Chapter 14: The old man alone",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2519,7 +2519,7 @@
    "title": "delacey_cottage: wall right",
    "prompt": "The inside of the De Laceys' cottage seen through a chink in a boarded-up window: a small room, whitewashed and clean but very bare of furniture, a small fire in one corner. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 10: Through the chink; Chapter 11: The cottagers; Chapter 11: A godlike science; Chapter 12: A tap at the door; Chapter 12: Good night, sweet Safie; Chapter 12: Ruins of Empires; Chapter 13: Exile; Chapter 14: The old man alone",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2529,7 +2529,7 @@
    "title": "delacey_cottage: view",
    "prompt": "The inside of the De Laceys' cottage seen through a chink in a boarded-up window: a small room, whitewashed and clean but very bare of furniture, a small fire in one corner. Draw the view through the window: forest, filling the whole image edge to edge.",
    "note": "Chapter 10: Through the chink; Chapter 11: The cottagers; Chapter 11: A godlike science; Chapter 12: A tap at the door; Chapter 12: Good night, sweet Safie; Chapter 12: Ruins of Empires; Chapter 13: Exile; Chapter 14: The old man alone",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2539,7 +2539,7 @@
    "title": "creature_hovel: wall back",
    "prompt": "Inside the hovel against the back of the cottage: low wooden walls letting in the wind through innumerable chinks, a dry earth floor carpeted with clean straw, light only through the sty. Draw the back wall (timber), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 11: On my straw; Chapter 12: What was I?; Chapter 13: The history of my friends; Chapter 14: My beloved cottagers; Chapter 14: The books",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2549,7 +2549,7 @@
    "title": "creature_hovel: wall left",
    "prompt": "Inside the hovel against the back of the cottage: low wooden walls letting in the wind through innumerable chinks, a dry earth floor carpeted with clean straw, light only through the sty. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 11: On my straw; Chapter 12: What was I?; Chapter 13: The history of my friends; Chapter 14: My beloved cottagers; Chapter 14: The books",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2559,7 +2559,7 @@
    "title": "creature_hovel: wall right",
    "prompt": "Inside the hovel against the back of the cottage: low wooden walls letting in the wind through innumerable chinks, a dry earth floor carpeted with clean straw, light only through the sty. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 11: On my straw; Chapter 12: What was I?; Chapter 13: The history of my friends; Chapter 14: My beloved cottagers; Chapter 14: The books",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2569,7 +2569,7 @@
    "title": "delacey_wood: far",
    "prompt": "The moonlit woods near the cottage in late spring: green banks interspersed with innumerable flowers, stars of pale radiance, clear and balmy nights. Draw the far scenery strip: forest, moon, sky included, filling the whole image edge to edge.",
    "note": "Chapter 12: Nocturnal rambles; Chapter 14: The portmanteau; Chapter 15: A miserable night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2579,7 +2579,7 @@
    "title": "paris_court: wall back",
    "prompt": "A court of justice in Paris, where the Turkish merchant is tried and condemned to death while all Paris is indignant. Draw the back wall (court, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The Turk condemned",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2589,7 +2589,7 @@
    "title": "paris_court: wall left",
    "prompt": "A court of justice in Paris, where the Turkish merchant is tried and condemned to death while all Paris is indignant. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The Turk condemned",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2599,7 +2599,7 @@
    "title": "paris_court: wall right",
    "prompt": "A court of justice in Paris, where the Turkish merchant is tried and condemned to death while all Paris is indignant. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The Turk condemned",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2609,7 +2609,7 @@
    "title": "paris_court: view",
    "prompt": "A court of justice in Paris, where the Turkish merchant is tried and condemned to death while all Paris is indignant. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 13: The Turk condemned",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2619,7 +2619,7 @@
    "title": "paris_prison: wall back",
    "prompt": "The dungeon of the unfortunate Muhammadan, lighted by one strongly grated window; the prisoner sits loaded with chains, awaiting execution. Draw the back wall (cell, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The grate at night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2629,7 +2629,7 @@
    "title": "paris_prison: wall left",
    "prompt": "The dungeon of the unfortunate Muhammadan, lighted by one strongly grated window; the prisoner sits loaded with chains, awaiting execution. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The grate at night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2639,7 +2639,7 @@
    "title": "paris_prison: wall right",
    "prompt": "The dungeon of the unfortunate Muhammadan, lighted by one strongly grated window; the prisoner sits loaded with chains, awaiting execution. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: The grate at night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2649,7 +2649,7 @@
    "title": "paris_prison: view",
    "prompt": "The dungeon of the unfortunate Muhammadan, lighted by one strongly grated window; the prisoner sits loaded with chains, awaiting execution. Draw the view through the window: town, night, filling the whole image edge to edge.",
    "note": "Chapter 13: The grate at night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2659,7 +2659,7 @@
    "title": "leghorn_house: wall back",
    "prompt": "The merchant's lodging at Leghorn on the Italian coast, with a view of the harbour, where he waits for a chance to pass into the Turkish dominions. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: Leghorn; Chapter 13: Safie's flight",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2669,7 +2669,7 @@
    "title": "leghorn_house: wall left",
    "prompt": "The merchant's lodging at Leghorn on the Italian coast, with a view of the harbour, where he waits for a chance to pass into the Turkish dominions. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: Leghorn; Chapter 13: Safie's flight",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2679,7 +2679,7 @@
    "title": "leghorn_house: wall right",
    "prompt": "The merchant's lodging at Leghorn on the Italian coast, with a view of the harbour, where he waits for a chance to pass into the Turkish dominions. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 13: Leghorn; Chapter 13: Safie's flight",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2689,7 +2689,7 @@
    "title": "leghorn_house: view",
    "prompt": "The merchant's lodging at Leghorn on the Italian coast, with a view of the harbour, where he waits for a chance to pass into the Turkish dominions. Draw the view through the window: sea, filling the whole image edge to edge.",
    "note": "Chapter 13: Leghorn; Chapter 13: Safie's flight",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2699,7 +2699,7 @@
    "title": "swiss_river_wood: far",
    "prompt": "A deep wood on the confines of Switzerland on one of the first days of spring, skirted by a deep and rapid river into which the budding trees bend their branches; a cypress. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 15: The girl in the river",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2709,7 +2709,7 @@
    "title": "geneva_barn: wall back",
    "prompt": "An empty barn near Geneva at night, where a young woman lies sleeping on some straw. Draw the back wall (timber), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 15: The sleeper in the barn",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2719,7 +2719,7 @@
    "title": "geneva_barn: wall left",
    "prompt": "An empty barn near Geneva at night, where a young woman lies sleeping on some straw. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 15: The sleeper in the barn",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2729,7 +2729,7 @@
    "title": "geneva_barn: wall right",
    "prompt": "An empty barn near Geneva at night, where a young woman lies sleeping on some straw. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 15: The sleeper in the barn",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2739,7 +2739,7 @@
    "title": "montanvert_fountain: far",
    "prompt": "The halfway resting-place on the path down from Montanvert, a fountain beside it, dark pines rising and broken trees lying on the ground; stars shining at intervals between passing clouds. Draw the far scenery strip: alps, night, sky included, filling the whole image edge to edge.",
    "note": "Chapter 16: The halfway resting-place",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2749,7 +2749,7 @@
    "title": "geneva_departure: far",
    "prompt": "Before the house in Geneva at the end of September, the travelling carriage waiting to carry Victor away. Draw the far scenery strip: lake, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 17: A tearful, silent farewell",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2759,7 +2759,7 @@
    "title": "strasburgh: far",
    "prompt": "Strasburgh on the Rhine at sunset, the great cathedral spire over the roofs. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 17: Clerval at Strasburgh",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2769,7 +2769,7 @@
    "title": "rhine_boat: far",
    "prompt": "A boat on the Rhine below Mainz: steep hills of beautiful form, ruined castles on the edges of precipices over black woods, vineyards on green sloping banks. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 17: Down the Rhine",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2779,7 +2779,7 @@
    "title": "thames_ship: far",
    "prompt": "The deck of a ship coming up the Thames on a clear December morning: flat, fertile banks, and at last the steeples of London with St. Paul's towering above all. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 17: To London",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2789,7 +2789,7 @@
    "title": "london_lodging: wall back",
    "prompt": "Lodgings in London, the wonderful and celebrated city, where Victor and Clerval stay several months; letters of introduction to natural philosophers on the desk. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: London",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2799,7 +2799,7 @@
    "title": "london_lodging: wall left",
    "prompt": "Lodgings in London, the wonderful and celebrated city, where Victor and Clerval stay several months; letters of introduction to natural philosophers on the desk. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: London",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2809,7 +2809,7 @@
    "title": "london_lodging: wall right",
    "prompt": "Lodgings in London, the wonderful and celebrated city, where Victor and Clerval stay several months; letters of introduction to natural philosophers on the desk. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: London",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2819,7 +2819,7 @@
    "title": "london_lodging: view",
    "prompt": "Lodgings in London, the wonderful and celebrated city, where Victor and Clerval stay several months; letters of introduction to natural philosophers on the desk. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 18: London",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2829,7 +2829,7 @@
    "title": "oxford_isis: far",
    "prompt": "Meadows of exquisite verdure beside the lovely Isis at Oxford, reflecting the city's majestic assemblage of towers, and spires, and domes, embosomed among aged trees. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 18: Windsor and Oxford",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2839,7 +2839,7 @@
    "title": "cumberland_lakes: far",
    "prompt": "The lakes and mountains of Cumberland and Westmorland, little patches of snow lingering on the northern sides of the mountains and rocky streams dashing down: almost the Swiss mountains. Draw the far scenery strip: lake, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 18: Matlock and the Cumberland lakes",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2849,7 +2849,7 @@
    "title": "perth_road: far",
    "prompt": "The road along the banks of the Tay to Perth, where their Scotch friend expects them; the house of the friend beyond a gate. Draw the far scenery strip: hills, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 18: Edinburgh and Perth: parting",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2859,7 +2859,7 @@
    "title": "orkney_shore: far",
    "prompt": "One of the remotest of the Orkneys, hardly more than a rock whose high sides are continually beaten by the waves; barren soil, a few miserable cows, three miserable huts, the stony beach. Draw the far scenery strip: sea, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 18: The remotest of the Orkneys; Chapter 19: The barren rock",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2869,7 +2869,7 @@
    "title": "orkney_hut: wall back",
    "prompt": "The hired hut on the Orkney island: two squalid rooms, unplastered walls, a mended door; Victor's laboratory, the chemical instruments, and the unfinished second being lying under a sheet on a table. Draw the back wall (rough, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: The work in the hut; Chapter 19: The dæmon at the casement",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2879,7 +2879,7 @@
    "title": "orkney_hut: wall left",
    "prompt": "The hired hut on the Orkney island: two squalid rooms, unplastered walls, a mended door; Victor's laboratory, the chemical instruments, and the unfinished second being lying under a sheet on a table. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: The work in the hut; Chapter 19: The dæmon at the casement",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2889,7 +2889,7 @@
    "title": "orkney_hut: wall right",
    "prompt": "The hired hut on the Orkney island: two squalid rooms, unplastered walls, a mended door; Victor's laboratory, the chemical instruments, and the unfinished second being lying under a sheet on a table. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 18: The work in the hut; Chapter 19: The dæmon at the casement",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2899,7 +2899,7 @@
    "title": "orkney_hut: view",
    "prompt": "The hired hut on the Orkney island: two squalid rooms, unplastered walls, a mended door; Victor's laboratory, the chemical instruments, and the unfinished second being lying under a sheet on a table. Draw the view through the window: sea, night, filling the whole image edge to edge.",
    "note": "Chapter 18: The work in the hut; Chapter 19: The dæmon at the casement",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2909,7 +2909,7 @@
    "title": "orkney_hut_room: wall back",
    "prompt": "Victor's own apartment in the hut; through the window the sea lies almost motionless under the eye of the quiet moon, a few fishing vessels specking the water. Draw the back wall (rough, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 19: I shall be with you on your wedding-night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2919,7 +2919,7 @@
    "title": "orkney_hut_room: wall left",
    "prompt": "Victor's own apartment in the hut; through the window the sea lies almost motionless under the eye of the quiet moon, a few fishing vessels specking the water. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 19: I shall be with you on your wedding-night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2929,7 +2929,7 @@
    "title": "orkney_hut_room: wall right",
    "prompt": "Victor's own apartment in the hut; through the window the sea lies almost motionless under the eye of the quiet moon, a few fishing vessels specking the water. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 19: I shall be with you on your wedding-night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2939,7 +2939,7 @@
    "title": "orkney_hut_room: view",
    "prompt": "Victor's own apartment in the hut; through the window the sea lies almost motionless under the eye of the quiet moon, a few fishing vessels specking the water. Draw the view through the window: sea, moon, filling the whole image edge to edge.",
    "note": "Chapter 19: I shall be with you on your wedding-night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2949,7 +2949,7 @@
    "title": "orkney_sea: far",
    "prompt": "A little skiff about four miles from the Orkney shore between two and three in the morning; the moon overspread by a thick cloud; then, by day, high wind and threatening waves. Draw the far scenery strip: sea, moon, sky included, filling the whole image edge to edge.",
    "note": "Chapter 19: Adrift",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2959,7 +2959,7 @@
    "title": "irish_shore: far",
    "prompt": "A small neat town and a good harbour on the Irish coast, a steeple behind a small promontory; a crowd gathers at the water's edge. Draw the far scenery strip: town, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 19: The Irish harbour",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2969,7 +2969,7 @@
    "title": "irish_court: wall back",
    "prompt": "A room in one of the best houses of the little Irish town, where the magistrate Mr. Kirwin hears the witnesses; Victor, half-dead with fatigue and hunger, stands before him. Draw the back wall (court, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Before Mr. Kirwin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2979,7 +2979,7 @@
    "title": "irish_court: wall left",
    "prompt": "A room in one of the best houses of the little Irish town, where the magistrate Mr. Kirwin hears the witnesses; Victor, half-dead with fatigue and hunger, stands before him. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Before Mr. Kirwin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2989,7 +2989,7 @@
    "title": "irish_court: wall right",
    "prompt": "A room in one of the best houses of the little Irish town, where the magistrate Mr. Kirwin hears the witnesses; Victor, half-dead with fatigue and hunger, stands before him. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Before Mr. Kirwin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2999,7 +2999,7 @@
    "title": "irish_court: view",
    "prompt": "A room in one of the best houses of the little Irish town, where the magistrate Mr. Kirwin hears the witnesses; Victor, half-dead with fatigue and hunger, stands before him. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 20: Before Mr. Kirwin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3009,7 +3009,7 @@
    "title": "irish_inn_room: wall back",
    "prompt": "The room at the inn where the body lies for interment: an open coffin, and in it the lifeless form of Henry Clerval. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Henry Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3019,7 +3019,7 @@
    "title": "irish_inn_room: wall left",
    "prompt": "The room at the inn where the body lies for interment: an open coffin, and in it the lifeless form of Henry Clerval. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Henry Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3029,7 +3029,7 @@
    "title": "irish_inn_room: wall right",
    "prompt": "The room at the inn where the body lies for interment: an open coffin, and in it the lifeless form of Henry Clerval. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: Henry Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3039,7 +3039,7 @@
    "title": "irish_inn_room: view",
    "prompt": "The room at the inn where the body lies for interment: an open coffin, and in it the lifeless form of Henry Clerval. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 20: Henry Clerval",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3049,7 +3049,7 @@
    "title": "irish_prison: wall back",
    "prompt": "The best room in the prison, wretched indeed: a wretched bed, barred windows, bolts and all the miserable apparatus of a dungeon, and the squalidness of the room. Draw the back wall (cell, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The prison",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3059,7 +3059,7 @@
    "title": "irish_prison: wall left",
    "prompt": "The best room in the prison, wretched indeed: a wretched bed, barred windows, bolts and all the miserable apparatus of a dungeon, and the squalidness of the room. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The prison",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3069,7 +3069,7 @@
    "title": "irish_prison: wall right",
    "prompt": "The best room in the prison, wretched indeed: a wretched bed, barred windows, bolts and all the miserable apparatus of a dungeon, and the squalidness of the room. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The prison",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3079,7 +3079,7 @@
    "title": "irish_prison: view",
    "prompt": "The best room in the prison, wretched indeed: a wretched bed, barred windows, bolts and all the miserable apparatus of a dungeon, and the squalidness of the room. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 20: The prison",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3089,7 +3089,7 @@
    "title": "irish_assizes: wall back",
    "prompt": "The court of the country town nearly a hundred miles away where the assizes are held; the grand jury rejects the bill and Victor is liberated. Draw the back wall (court, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The assizes",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3099,7 +3099,7 @@
    "title": "irish_assizes: wall left",
    "prompt": "The court of the country town nearly a hundred miles away where the assizes are held; the grand jury rejects the bill and Victor is liberated. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The assizes",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3109,7 +3109,7 @@
    "title": "irish_assizes: wall right",
    "prompt": "The court of the country town nearly a hundred miles away where the assizes are held; the grand jury rejects the bill and Victor is liberated. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 20: The assizes",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3119,7 +3119,7 @@
    "title": "irish_assizes: view",
    "prompt": "The court of the country town nearly a hundred miles away where the assizes are held; the grand jury rejects the bill and Victor is liberated. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 20: The assizes",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3129,7 +3129,7 @@
    "title": "havre_ship_deck: far",
    "prompt": "The deck of a vessel bound for Havre-de-Grace at midnight, sailing with a fair wind from the Irish shores; stars overhead and the dashing of the waves. Draw the far scenery strip: sea, night, sky included, filling the whole image edge to edge.",
    "note": "Chapter 20: The voyage to Havre",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3139,7 +3139,7 @@
    "title": "paris_hotel: wall back",
    "prompt": "Rooms in a hotel in Paris where Victor rests with his father after the voyage from Ireland; tall panelled walls and a window over the grey roofs of the city. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 21: Paris: I murdered her; Chapter 21: Elizabeth's letter",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3149,7 +3149,7 @@
    "title": "paris_hotel: wall left",
    "prompt": "Rooms in a hotel in Paris where Victor rests with his father after the voyage from Ireland; tall panelled walls and a window over the grey roofs of the city. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 21: Paris: I murdered her; Chapter 21: Elizabeth's letter",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3159,7 +3159,7 @@
    "title": "paris_hotel: wall right",
    "prompt": "Rooms in a hotel in Paris where Victor rests with his father after the voyage from Ireland; tall panelled walls and a window over the grey roofs of the city. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 21: Paris: I murdered her; Chapter 21: Elizabeth's letter",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3169,7 +3169,7 @@
    "title": "paris_hotel: view",
    "prompt": "Rooms in a hotel in Paris where Victor rests with his father after the voyage from Ireland; tall panelled walls and a window over the grey roofs of the city. Draw the view through the window: town, clouds, filling the whole image edge to edge.",
    "note": "Chapter 21: Paris: I murdered her; Chapter 21: Elizabeth's letter",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3179,7 +3179,7 @@
    "title": "evian_inn: wall back",
    "prompt": "A parlour of the inn at Evian on the shore of the lake, at night; through the window the waters, woods and mountains in black outline, and a storm rising from the west. Draw the back wall (timber, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The wedding night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3189,7 +3189,7 @@
    "title": "evian_inn: wall left",
    "prompt": "A parlour of the inn at Evian on the shore of the lake, at night; through the window the waters, woods and mountains in black outline, and a storm rising from the west. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The wedding night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3199,7 +3199,7 @@
    "title": "evian_inn: wall right",
    "prompt": "A parlour of the inn at Evian on the shore of the lake, at night; through the window the waters, woods and mountains in black outline, and a storm rising from the west. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The wedding night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3209,7 +3209,7 @@
    "title": "evian_inn: view",
    "prompt": "A parlour of the inn at Evian on the shore of the lake, at night; through the window the waters, woods and mountains in black outline, and a storm rising from the west. Draw the view through the window: lake, storm, filling the whole image edge to edge.",
    "note": "Chapter 22: The wedding night",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3219,7 +3219,7 @@
    "title": "evian_chamber: wall back",
    "prompt": "The bridal chamber at the inn at Evian: the bed, its shutters thrown back so that the pale yellow light of the moon floods the room; the lake below the open window. Draw the back wall (timber, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: Elizabeth; Chapter 22: Women weeping around",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3229,7 +3229,7 @@
    "title": "evian_chamber: wall left",
    "prompt": "The bridal chamber at the inn at Evian: the bed, its shutters thrown back so that the pale yellow light of the moon floods the room; the lake below the open window. Draw the left wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: Elizabeth; Chapter 22: Women weeping around",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3239,7 +3239,7 @@
    "title": "evian_chamber: wall right",
    "prompt": "The bridal chamber at the inn at Evian: the bed, its shutters thrown back so that the pale yellow light of the moon floods the room; the lake below the open window. Draw the right wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: Elizabeth; Chapter 22: Women weeping around",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3249,7 +3249,7 @@
    "title": "evian_chamber: view",
    "prompt": "The bridal chamber at the inn at Evian: the bed, its shutters thrown back so that the pale yellow light of the moon floods the room; the lake below the open window. Draw the view through the window: lake, moon, filling the whole image edge to edge.",
    "note": "Chapter 22: Elizabeth; Chapter 22: Women weeping around",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3259,7 +3259,7 @@
    "title": "evian_shore: far",
    "prompt": "The shore of the lake below Evian at night; boats drawn up after the search with nets, the woods and vines climbing behind the village. Draw the far scenery strip: lake, night, sky included, filling the whole image edge to edge.",
    "note": "Chapter 22: The search",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3269,7 +3269,7 @@
    "title": "alphonse_bedchamber: wall back",
    "prompt": "Alphonse Frankenstein's bedchamber in the house at Geneva, where the old man, unable to rise from his bed, wastes away under the news. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: My father dies",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3279,7 +3279,7 @@
    "title": "alphonse_bedchamber: wall left",
    "prompt": "Alphonse Frankenstein's bedchamber in the house at Geneva, where the old man, unable to rise from his bed, wastes away under the news. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: My father dies",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3289,7 +3289,7 @@
    "title": "alphonse_bedchamber: wall right",
    "prompt": "Alphonse Frankenstein's bedchamber in the house at Geneva, where the old man, unable to rise from his bed, wastes away under the news. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: My father dies",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3299,7 +3299,7 @@
    "title": "alphonse_bedchamber: view",
    "prompt": "Alphonse Frankenstein's bedchamber in the house at Geneva, where the old man, unable to rise from his bed, wastes away under the news. Draw the view through the window: lake, clouds, filling the whole image edge to edge.",
    "note": "Chapter 22: My father dies",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3309,7 +3309,7 @@
    "title": "geneva_magistrate: wall back",
    "prompt": "The house of a criminal judge in Geneva, a magistrate's study with a desk and books of law. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The criminal judge",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3319,7 +3319,7 @@
    "title": "geneva_magistrate: wall left",
    "prompt": "The house of a criminal judge in Geneva, a magistrate's study with a desk and books of law. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The criminal judge",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3329,7 +3329,7 @@
    "title": "geneva_magistrate: wall right",
    "prompt": "The house of a criminal judge in Geneva, a magistrate's study with a desk and books of law. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 22: The criminal judge",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3359,7 +3359,7 @@
    "title": "northern_forest: far",
    "prompt": "A northern forest in the snow at night; words cut in the bark of the trees and in the stone, left by the creature to guide and mock his pursuer. Draw the far scenery strip: forest, night, sky included, filling the whole image edge to edge.",
    "note": "Chapter 23: Marks on the trees",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3379,7 +3379,7 @@
    "title": "arctic_hamlet: far",
    "prompt": "A wretched hamlet on the shore of the frozen sea: a few huts and a solitary cottage, the ice stretching away to the horizon. Draw the far scenery strip: ice, clouds, sky included, filling the whole image edge to edge.",
    "note": "Chapter 23: The hamlet on the shore",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3409,7 +3409,7 @@
    "title": "floor: boards",
    "prompt": "A floor tile (boards) for a stage floor: boards, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "23 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3419,7 +3419,7 @@
    "title": "floor: earth",
    "prompt": "A floor tile (earth) for a stage floor: earth, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "3 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3429,7 +3429,7 @@
    "title": "floor: flags",
    "prompt": "A floor tile (flags) for a stage floor: flags, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "7 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3469,7 +3469,7 @@
    "title": "ground: grass",
    "prompt": "A ground tile (grass) for a stage floor: grass, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "11 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3499,7 +3499,7 @@
    "title": "ground: sand",
    "prompt": "A ground tile (sand) for a stage floor: sand, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "1 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -3509,7 +3509,7 @@
    "title": "ground: snow",
    "prompt": "A ground tile (snow) for a stage floor: snow, seen from straight above. A seamless tile, so copies join without a seam. Filling the whole image.",
    "note": "7 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
