@@ -67,6 +67,20 @@ def opaque(file):
     return file.startswith("vignettes/") or name in ("wall_back", "wall_left", "wall_right", "view", "far") or name.startswith(("floor_", "ground_")) or name == "floor" or name == "ground"
 
 
+def save_web(im, f, dst):
+    """The game's copy: full-frame pictures at most 1280 px wide, quality 70; cut-outs at most
+    1600 px, quality 75. Engraved hatching compresses poorly, and the whole book's art has to
+    fit the web build (2026-10-15)."""
+    if opaque(f):
+        if im.width > 1280:
+            im = im.resize((1280, round(im.height * 1280 / im.width)), Image.LANCZOS)
+        im.save(dst, "WEBP", quality=70)
+    else:
+        if max(im.size) > 1600:
+            im.thumbnail((1600, 1600))
+        im.save(dst, "WEBP", quality=75)
+
+
 def contact_sheet(files, out):
     th = 360
     ims = [Image.open(f"source/ai/{f}.png").convert("RGB") for f in files]
@@ -148,14 +162,13 @@ def cmd_approve(a):
         dst = f"public/art/ai/{f}.webp"
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         im = Image.open(png)
-        if max(im.size) > 1600:
-            im.thumbnail((1600, 1600))
-        im.save(dst, "WEBP", quality=88)
+        save_web(im, f, dst)
         os.remove(png)
         if f not in index:
             index.append(f)
         print(f"approved {f}")
     json.dump(sorted(index), open(INDEX, "w"), indent=1)
+    subprocess.run([sys.executable, f"{HERE}/art_sizes.py"], check=True)
     pending["files"] = [f for f in pending["files"] if f not in files]
     json.dump(pending, open(PENDING, "w"), indent=1)
 

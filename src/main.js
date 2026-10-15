@@ -18,13 +18,6 @@ const SAVE_KEY = 'frankenstein.place.v1';
 const SPEED_KEY = 'frankenstein.speed.v1';
 const SPEEDS = [1, 1.25, 1.5, 2];
 
-async function loadTexture(url) {
-  const t = await new THREE.TextureLoader().loadAsync(url);
-  t.colorSpace = THREE.SRGBColorSpace;
-  t.anisotropy = 4;
-  return { tex: t, aspect: t.image.width / t.image.height };
-}
-
 // The reader's place: the chapter, and the time reached in each chapter. Browser storage
 // can be missing or blocked, so every access is guarded and the game works without it.
 const place = {
@@ -56,16 +49,55 @@ async function main() {
   scene.fog = new THREE.Fog('#efe9da', 9, 34);
   const camera = new THREE.PerspectiveCamera(45, 1, 0.02, 80);
 
-  // AI drawings (PROVENANCE.md), listed in public/art/ai/index.json as paths without the extension
-  // (e.g. "l01/desk"); every set falls back to its code-drawn placeholder for any that are missing.
-  // Model sheets are only references for drawing the poses, so the game skips them.
+  // AI drawings, listed in public/art/ai/index.json as paths without the extension (e.g.
+  // "cast/victor_stand"); every set falls back to its code-drawn placeholder for any that are missing.
+  // There are hundreds, so they load per section (artFor/loadArt below): each texture exists from the
+  // start with its size (public/art/ai/sizes.json), and its picture is fetched when a section that
+  // uses it opens, and dropped again when the reader moves on. Model sheets are only references for
+  // drawing the poses, so the game skips them.
   const AI_ART = (await fetch('art/ai/index.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])).filter((n) => !n.endsWith('_sheet'));
+  const SIZES = await fetch('art/ai/sizes.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   const narrated = CHAPTERS.filter((c) => c.narrated);
-  const [wordsList, ...aiArt] = await Promise.all([
-    Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json()))),
-    ...AI_ART.map((n) => loadTexture(`art/ai/${n}.webp`)),
-  ]);
-  const ai = Object.fromEntries(AI_ART.map((n, i) => [n, aiArt[i]]));
+  const wordsList = await Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json())));
+  const ai = {};
+  const BLANK = document.createElement('canvas'); BLANK.width = BLANK.height = 1;
+  for (const n of AI_ART) {
+    if (!SIZES[n]) continue;
+    const tex = new THREE.Texture(BLANK);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = 4;
+    ai[n] = { tex, aspect: SIZES[n][0] / SIZES[n][1] };
+  }
+  const artLoads = new Map(); // name -> promise of its picture
+  function loadArt(names) {
+    return Promise.all(names.filter((n) => ai[n]).map((n) => {
+      if (!artLoads.has(n)) artLoads.set(n, new THREE.ImageLoader().loadAsync(`art/ai/${n}.webp`)
+        .then((img) => { ai[n].tex.image = img; ai[n].tex.needsUpdate = true; })
+        .catch(() => artLoads.delete(n)));
+      return artLoads.get(n);
+    }));
+  }
+  function dropArt(keep) {
+    for (const n of [...artLoads.keys()]) {
+      if (keep.has(n)) continue;
+      ai[n].tex.dispose(); ai[n].tex.image = BLANK; ai[n].tex.needsUpdate = true;
+      artLoads.delete(n);
+    }
+  }
+  // The drawings a section uses: its sets, its people, its thought pictures and the shared pieces.
+  function artFor(c) {
+    const sets = new Set(c.scenes.flatMap((d) => d.arts ?? [d.art]).filter(Boolean));
+    const people = new Set(c.scenes.flatMap((d) => d.people ?? [d.hero]).filter(Boolean));
+    const thoughts = new Set(c.scenes.flatMap((d) => d.thoughtArt ?? []));
+    return Object.keys(ai).filter((n) => {
+      const [kind, a, b] = n.split('/');
+      if (kind === 'cast') return people.has(a.replace(/_[a-z]+$/, ''));
+      if (kind === 'sets') return a === 'common' || sets.has(a);
+      if (kind === 'vignettes') return thoughts.has(a);
+      if (kind === 'props') return false;
+      return true; // anything else (e.g. l01/...) is small: always
+    });
+  }
   // Lettering on the proscenium, props and title pages is drawn to canvas, so the fonts must be loaded first.
   if (document.fonts) await Promise.all([document.fonts.load('600 64px "IM Fell English"'), document.fonts.load('italic 40px "IM Fell English"')]);
 
@@ -217,6 +249,9 @@ async function main() {
     // the book and the browser reloaded the page). Textures upload again by themselves when next shown.
     if (chapter) freeTextures();
     chapter = c;
+    const need = artFor(c);
+    dropArt(new Set(need));
+    await loadArt(need);
     ch = build(c);
     if (active) { active.group.visible = false; active = null; }
     page = new Page($('page'), ch.words, (t) => { audio.currentTime = t; if (mode === 'watch') play(audio); }, c.tints);

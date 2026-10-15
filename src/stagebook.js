@@ -39,6 +39,9 @@ export function sceneFromData(d, index, sectionId) {
     hero: d.hero ?? 'victor',
     turn: d.turn,
     art,
+    // For loading its drawings (main.js artFor): who is on stage, and its named thought pictures.
+    people: [...new Set([d.hero ?? 'victor', ...Object.keys(d.cast ?? {}), ...(d.beats ?? []).map((b) => b.who).filter(Boolean)])],
+    thoughtArt: (d.beats ?? []).map((b) => b.art).filter(Boolean),
     start: (cue) => (index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0)),
     parts: (cue) => (d.parts ?? []).map(([title, at]) => ({ title, t: resolveCue(cue, at, resolveCue(cue, d.start ?? 0)) })),
 

@@ -10,7 +10,9 @@ export const WINDOW = { x0: 0.8, x1: 2.6, y0: 0.95, y1: 3.45 }; // in the back w
 export const DESK = { x: -1.9, z: -2.75 };
 
 const PXM = 120;
-const pick = (ai, name, draw) => ai[`l01/${name}`]?.tex ?? texture(draw());
+// The master drawings use the asset list's names (sets/walton_petersburgh/..., the shared furniture).
+const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
+const pick = (ai, name, draw) => ai[`l01/${name}`]?.tex ?? ai[AI_NAME[name]]?.tex ?? texture(draw());
 
 function backWall() {
   const W = ROOM.w * PXM, H = ROOM.h * PXM, { c, g } = canvas(W, H);

@@ -13,6 +13,8 @@ export const letter1 = {
   id: 'lodging',
   title: 'St. Petersburgh, December',
   hero: 'walton',
+  arts: ['walton_petersburgh'],
+  people: ['walton'],
   start: () => 0,
   parts: (cue) => [
     { title: 'The north wind', t: cue.at('walk') - 2 },
