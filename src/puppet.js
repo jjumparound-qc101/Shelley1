@@ -60,11 +60,7 @@ export class Puppet {
       : Math.abs(Math.sin(s.phase * Math.PI * 2)) * 0.12 * this.height;
     let rock = s.float ? Math.sin((s.phase ?? 0) * Math.PI) * 0.04 : !s.moving ? 0 : walking ? Math.sin(steps * Math.PI) * 0.02 : Math.sin(s.phase * Math.PI * 2) * 0.06;
     const bounce = 0;
-    if (s.idle !== undefined && !s.moving) {
-      // Standing still: only a slow, slight sway, as a paper figure on its wire. The livelier
-      // rock and toe-bounce from Alice read as fidgeting on the engraved figures (owner, 2026-10-15).
-      rock = Math.sin(s.idle * 0.8) * 0.008; // about ±0.5°
-    }
+    // Standing still means still: no idle sway (owner, 2026-10-15). `idle` is ignored.
     const scale = s.scale ?? 1;
     this.root.scale.setScalar(scale);
     this.root.position.set(s.x, (s.y ?? 0) + (hop + bounce) * scale - (s.sink ?? 0) * this.height * scale * 1.1, s.z);
