@@ -21,5 +21,7 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
 - Artifact publish: build to scratch dist, 3 publishes (64 MB limit per publish).
 
 ## Next
-1. Image generation script reading assets/manifest.json, characters first, batches for approval.
+1. Images: `python3 tools/gen_batch.py next` (8 at a time, characters first), show the owner
+   source/ai/review/batch_NNN.png, then `approve` / `reject`, rerun tools/assets_master.mjs, commit.
+   Blocked until the cloud environment has OPENAI_API_KEY and allows api.openai.com.
 2. If the environment allows gutenberg.org: switch to the 1818 text and restage Chapters 1-2.

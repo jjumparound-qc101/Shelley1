@@ -29,8 +29,9 @@ def main():
     ap.add_argument("--size", default="1024x1536")
     ap.add_argument("--model", default="gpt-image-2.5-sunburst")  # owner, 2026-10-13; gpt-image-2 as fallback
     ap.add_argument("--quality", default="high")
+    ap.add_argument("--style", default=None, help="style block to use (default: docs/ART_PROMPTS.md)")
     a = ap.parse_args()
-    prompt = style_block() + "\n\nRequest:\n" + a.prompt
+    prompt = (a.style or style_block()) + "\n\nRequest:\n" + a.prompt
     auth = ["-H", f"Authorization: Bearer {os.environ.get('OPENAI_API_KEY', '')}"]
     # Streamed, so the connection stays busy while a high-quality image is drawn (the
     # environment's proxy drops a request that is silent for about 30 s).
