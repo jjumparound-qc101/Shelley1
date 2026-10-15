@@ -13,6 +13,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 
 def style_block():
@@ -47,9 +48,14 @@ def main():
                            "stream": True, "partial_images": 1})
         cmd = ["curl", "-sS", "-N", "https://api.openai.com/v1/images/generations", *auth,
                "-H", "Content-Type: application/json", "-d", body]
-    out = subprocess.run(cmd, capture_output=True, text=True)
-    events = [json.loads(ln[5:]) for ln in out.stdout.splitlines() if ln.startswith("data:") and ln[5:].strip().startswith("{")]
-    done = [e for e in events if e.get("type", "").endswith(".completed")]
+    # The API allows only so many reference images a minute; wait and try again when it says so.
+    for attempt in range(8):
+        out = subprocess.run(cmd, capture_output=True, text=True)
+        events = [json.loads(ln[5:]) for ln in out.stdout.splitlines() if ln.startswith("data:") and ln[5:].strip().startswith("{")]
+        done = [e for e in events if e.get("type", "").endswith(".completed")]
+        if done or "rate limit" not in out.stdout.lower():
+            break
+        time.sleep(10 + 10 * attempt)
     if not done:
         sys.exit(f"no image from the API: {out.stdout[-1500:]} {out.stderr[-500:]}")
     r = {"data": [{"b64_json": done[-1]["b64_json"]}], "usage": done[-1].get("usage", {})}
