@@ -150,5 +150,15 @@
  "cast/william_lie",
  "cast/william_sheet",
  "cast/william_stand",
- "cast/william_walk"
+ "cast/william_walk",
+ "sets/belrive_room/wall_left",
+ "sets/geneva_bedroom/wall_back",
+ "sets/geneva_bedroom/wall_left",
+ "sets/ingolstadt_lecture/view",
+ "sets/ingolstadt_lecture/wall_back",
+ "sets/ingolstadt_lodging/wall_back",
+ "sets/thonon_inn/wall_right",
+ "sets/walton_cabin/view",
+ "sets/walton_cabin/wall_back",
+ "sets/walton_cabin/wall_right"
 ]
