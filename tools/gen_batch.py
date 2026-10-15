@@ -23,6 +23,8 @@ import json
 import os
 import subprocess
 import sys
+import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 from PIL import Image, ImageDraw, ImageFont
@@ -31,6 +33,24 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REVIEW = "source/ai/review"
 PENDING = f"{REVIEW}/pending.json"
 INDEX = "public/art/ai/index.json"
+REF_PER_MIN = 18  # the API allows 20 reference images a minute (owner, 2026-10-15: stay inside it); 2 spare
+
+
+class Pace:
+    """Lets at most `per_min` reference images start in any 60 seconds, across all the parallel jobs."""
+    def __init__(self, per_min):
+        self.per_min, self.starts, self.lock = per_min, [], threading.Lock()
+
+    def wait(self, n):
+        while True:
+            with self.lock:
+                now = time.time()
+                self.starts = [t for t in self.starts if now - t < 60]
+                if len(self.starts) + n <= self.per_min:
+                    self.starts += [now] * n
+                    return
+                pause = 60 - (now - self.starts[0]) + 0.1
+            time.sleep(pause)
 
 
 def load(p, default):
@@ -84,6 +104,7 @@ def cmd_next(a):
             break
     if not todo:
         sys.exit("nothing to make: every image in that part of the list is done (or waits on a model sheet)")
+    pace = Pace(a.ref_per_min)
     style = m["style"].replace('Reply "ready" and wait for my first request.', "").strip()
     def make(e):
         out = f"source/ai/{e['file']}.png"
@@ -92,6 +113,8 @@ def cmd_next(a):
         cmd = [sys.executable, f"{HERE}/gen_image.py", out, e["prompt"], "--size", e["size"], "--style", style]
         for r in refs:
             cmd += ["--ref", r]
+        if refs:
+            pace.wait(len(refs))
         if a.model:
             cmd += ["--model", a.model]
         r = subprocess.run(cmd, capture_output=True, text=True)
@@ -156,6 +179,7 @@ def main():
     n.add_argument("--group", default=None)
     n.add_argument("--model", default=None)
     n.add_argument("--jobs", type=int, default=4)
+    n.add_argument("--ref-per-min", type=int, default=REF_PER_MIN)
     n.add_argument("--sheets", action="store_true", help="wave 1: only the character model sheets")
     sub.add_parser("approve").add_argument("files", nargs="*")
     sub.add_parser("reject").add_argument("files", nargs="+")
