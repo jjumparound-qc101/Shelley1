@@ -74,7 +74,7 @@ export default [
       { at: 'shaken', shot: 'mid', on: 'caroline', dur: 4 },
       { at: 'Italy', think: 'the pleasant climate of Italy, that land of wonders', dur: 9 },
       { at: 'Naples', think: 'I, their eldest child, was born at Naples', dur: 7 },
-      { at: 'Naples+3', who: 'victor', enter: 'door', to: 'R', face: 'caroline' },
+      { at: 'Naples', who: 'victor', enter: 'door', to: 'R', face: 'caroline' },
       { at: 'caresses', who: 'caroline', to: 'L', face: 'victor' },
       { at: 'caresses', shot: 'mid', on: ['caroline', 'victor'], dur: 4 },
       { at: 'idol', shot: 'close', on: 'alphonse', dur: 4 },

@@ -63,7 +63,7 @@ def main():
     os.makedirs("public/data", exist_ok=True)
     out = f"public/audio/{a.sid}.mp3"
     lead_ms = int(a.lead * 1000)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.2f}", "-to", f"{t1:.2f}", "-i", a.mp3, "-ac", "1", "-b:a", "64k",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.2f}", "-to", f"{t1:.2f}", "-i", a.mp3, "-ac", "1", "-ar", "22050", "-b:a", "32k",
                     "-af", f"afade=t=out:st={dur - 1:.2f}:d=1,adelay={lead_ms}:all=1", out], check=True)
     shift = a.lead - t0
     for p in words["paragraphs"]:

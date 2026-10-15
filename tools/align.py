@@ -36,7 +36,7 @@ def main():
 
     book = clean_book(open(a.book, encoding="utf-8").read())
     i = book.index(a.start)
-    j = book.index(a.end, i) + len(a.end)
+    j = book.rindex(a.end) + len(a.end)  # the last occurrence: a short ending like "his tale." can occur earlier
     paragraphs = [re.sub(r"\s+", " ", p).strip() for p in re.split(r"\n\s*\n", book[i:j]) if p.strip()]
     paragraphs = [p for p in paragraphs if norm(p)]  # drop "* * *" section-break lines
 
