@@ -1379,7 +1379,7 @@
    "title": "Daniel Nugent: point",
    "prompt": "Daniel Nugent, standing, one arm raised and pointing ahead to the left, full figure. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/daniel_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1409,7 +1409,7 @@
    "title": "Beaufort: walk",
    "prompt": "Beaufort, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/beaufort_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1449,7 +1449,7 @@
    "title": "Safie's father: stand",
    "prompt": "Safie's father, standing, full figure, facing three-quarters left, arms at the sides. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/turk_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1479,7 +1479,7 @@
    "title": "Safie's father: sit",
    "prompt": "Safie's father, seated on a plain wooden chair, full figure including the chair, facing three-quarters left. Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/turk_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1559,7 +1559,7 @@
    "title": "An old nurse: walk",
    "prompt": "An old nurse, walking to the left in mid-stride, full figure (one step; the game alternates it with standing). Match the attached model sheet exactly (same face, hair, costume and proportions). White background, no ground, no shadow.",
    "ref": "cast/nurse_sheet",
-   "done": false
+   "done": true
   },
   {
    "group": "Characters",
@@ -1669,7 +1669,7 @@
    "title": "walton_cabin: wall back",
    "prompt": "Walton's small timber cabin aboard his ship: a writing desk under the stern window, a narrow bunk, charts and books on a shelf; floating sheets of ice pass outside in the long summer light. Draw the back wall (timber, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 3: Safe, and well advanced; Letter 4: My guest; Letter 4: Listen to my history; Chapter 23: Swear to me, Walton; Chapter 23: Walton: August 26th; Chapter 23: September 5th: the sailors' demand; Chapter 23: Victor's death; Chapter 23: The creature over the coffin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1689,7 +1689,7 @@
    "title": "walton_cabin: wall right",
    "prompt": "Walton's small timber cabin aboard his ship: a writing desk under the stern window, a narrow bunk, charts and books on a shelf; floating sheets of ice pass outside in the long summer light. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 3: Safe, and well advanced; Letter 4: My guest; Letter 4: Listen to my history; Chapter 23: Swear to me, Walton; Chapter 23: Walton: August 26th; Chapter 23: September 5th: the sailors' demand; Chapter 23: Victor's death; Chapter 23: The creature over the coffin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1699,7 +1699,7 @@
    "title": "walton_cabin: view",
    "prompt": "Walton's small timber cabin aboard his ship: a writing desk under the stern window, a narrow bunk, charts and books on a shelf; floating sheets of ice pass outside in the long summer light. Draw the view through the window: sea, clouds, filling the whole image edge to edge.",
    "note": "Letter 3: Safe, and well advanced; Letter 4: My guest; Letter 4: Listen to my history; Chapter 23: Swear to me, Walton; Chapter 23: Walton: August 26th; Chapter 23: September 5th: the sailors' demand; Chapter 23: Victor's death; Chapter 23: The creature over the coffin",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1829,7 +1829,7 @@
    "title": "thonon_inn: wall right",
    "prompt": "The inn at the baths near Thonon, where the inclemency of the weather keeps the family indoors for a day; an old shelf of forgotten books. Draw the right wall, fireplace, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: Cornelius Agrippa",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1859,7 +1859,7 @@
    "title": "belrive_room: wall left",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1889,7 +1889,7 @@
    "title": "geneva_bedroom: wall back",
    "prompt": "A sickroom in the Frankenstein house: a curtained bed, medicine on a small table, the shutters half closed. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: The first misfortune",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1899,7 +1899,7 @@
    "title": "geneva_bedroom: wall left",
    "prompt": "A sickroom in the Frankenstein house: a curtained bed, medicine on a small table, the shutters half closed. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: The first misfortune",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -1979,7 +1979,7 @@
    "title": "ingolstadt_lodging: wall back",
    "prompt": "Victor's solitary apartment in Ingolstadt, newly taken: plain plastered walls, a bed, a table, a window over the town. Draw the back wall (plaster, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: Chimeras of boundless grandeur; Chapter 3: The secret of life; Chapter 3: Winter, spring and summer passed; Chapter 4: The dream; Chapter 4: The fever; Chapter 5: A letter from Elizabeth; Chapter 5: Dear, dear Elizabeth; Chapter 5: The orientalists; Chapter 6: William is dead",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2019,7 +2019,7 @@
    "title": "ingolstadt_lecture: wall back",
    "prompt": "The lecturing room of the university of Ingolstadt: tiered benches of students facing the professor's table, chemical apparatus ready for experiments. Draw the back wall (panel, with a window), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Chapter 2: M. Waldman's lecture; Chapter 3: Two years of study; Chapter 5: The professors",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
@@ -2049,7 +2049,7 @@
    "title": "ingolstadt_lecture: view",
    "prompt": "The lecturing room of the university of Ingolstadt: tiered benches of students facing the professor's table, chemical apparatus ready for experiments. Draw the view through the window: town, filling the whole image edge to edge.",
    "note": "Chapter 2: M. Waldman's lecture; Chapter 3: Two years of study; Chapter 5: The professors",
-   "done": false
+   "done": true
   },
   {
    "group": "Buildings and places",
