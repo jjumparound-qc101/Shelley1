@@ -151,9 +151,10 @@ portrait, the sledges and dogs, thought/memory vignettes.
 - **D1. Art style.** Recommend: black ink engraving in the manner of von Holst's 1831
   plates (darker, Gothic, more night hatching than Tenniel), with Alice's colour rule
   (colour only where the text names it, e.g. the Creature's yellow skin, black lips).
-- **D2. Audiobook.** Recommend: a solo LibriVox reading that matches the Gutenberg
-  text (a full-cast dramatic reading only if one exists for the same edition). I will
-  list the candidates with lengths and match rates in the new environment.
+- **D2. Audiobook.** Recommend: Cori Samuel's LibriVox solo reading of the 1818
+  text (7h59m), which matches Gutenberg #84. Alternative: Thomas A. Copeland's solo
+  reading of the 1831 text, shown with Gutenberg #42324 instead. (Found by a separate
+  check; the match rate is confirmed in Stage B.)
 - **D3. Who makes the images.** Recommend: by API from the queue (`gen_image.py`),
   with you approving each model sheet and each batch's contact sheet. Needs
   OPENAI_API_KEY and api.openai.com in the environment. The alternative is Alice's
