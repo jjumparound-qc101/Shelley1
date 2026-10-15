@@ -1,0 +1,32 @@
+{
+ "batch": 1,
+ "files": [
+  "cast/victor_sheet",
+  "cast/creature_sheet",
+  "cast/alphonse_sheet",
+  "cast/peasant_sheet",
+  "cast/elizabeth_sheet",
+  "cast/townsman_sheet",
+  "cast/townswoman_sheet",
+  "cast/clerval_sheet",
+  "cast/ernest_sheet",
+  "cast/felix_sheet",
+  "cast/walton_sheet",
+  "cast/sailor_sheet",
+  "cast/child_sheet",
+  "cast/agatha_sheet",
+  "cast/delacey_sheet",
+  "cast/judge_sheet",
+  "cast/caroline_sheet",
+  "cast/william_sheet",
+  "cast/krempe_sheet",
+  "cast/waldman_sheet",
+  "cast/justine_sheet",
+  "cast/safie_sheet",
+  "cast/daniel_sheet",
+  "cast/beaufort_sheet",
+  "cast/turk_sheet",
+  "cast/kirwin_sheet",
+  "cast/nurse_sheet"
+ ]
+}
