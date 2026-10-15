@@ -1,4 +1,5 @@
-// The book: Letters 1-4 and Chapters 1-24 (Project Gutenberg #84, the 1818 text), each with
+// The book: Letters 1-4 and Chapters 1-23 (Project Gutenberg #41445, the 1818 text,
+// with the chapters numbered straight through its three volumes), each with
 // its narration (Cori Samuel's LibriVox reading) and text timings, and its staged scenes.
 // A section is readable once its narration is aligned (`narrated`: public/audio/<id>.mp3 and
 // public/data/<id>_words.json, from tools/narration.py). Its scenes are written as data in
@@ -13,7 +14,7 @@ const WORDS = import.meta.glob('../public/data/*_words.json');
 
 const SECTIONS = [
   ...[1, 2, 3, 4].map((n) => ({ id: `l${String(n).padStart(2, '0')}`, label: `Letter ${n}` })),
-  ...Array.from({ length: 24 }, (_, i) => ({ id: `ch${String(i + 1).padStart(2, '0')}`, label: `Chapter ${i + 1}` })),
+  ...Array.from({ length: 23 }, (_, i) => ({ id: `ch${String(i + 1).padStart(2, '0')}`, label: `Chapter ${i + 1}` })),
 ];
 
 export const CHAPTERS = SECTIONS.map((s, i) => {

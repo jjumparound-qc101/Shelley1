@@ -10,7 +10,7 @@ import path from 'node:path';
 import { CAST } from '../src/cast.js';
 import { setPieces } from '../src/sets/library.js';
 
-const ORDER = ['l01', 'l02', 'l03', 'l04', ...Array.from({ length: 24 }, (_, i) => `ch${String(i + 1).padStart(2, '0')}`)];
+const ORDER = ['l01', 'l02', 'l03', 'l04', ...Array.from({ length: 23 }, (_, i) => `ch${String(i + 1).padStart(2, '0')}`)];
 const LABEL = (id) => (id.startsWith('l') ? `Letter ${+id.slice(1)}` : `Chapter ${+id.slice(2)}`);
 const slug = (s) => s.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 48);
 // Done = approved into the game (tools/gen_batch.py approve adds it to public/art/ai/index.json).

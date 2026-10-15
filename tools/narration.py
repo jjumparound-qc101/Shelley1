@@ -1,13 +1,14 @@
 """Prepare one section's narration for the game: text, word timings and trimmed audio.
 
-  1. Cut the section's text out of Project Gutenberg #84 -> source/text/<id>.txt
-     (ids: l01-l04 for the Letters, ch01-ch24 for the Chapters)
+  1. Cut the section's text out of Project Gutenberg #41445, the 1818 edition that Cori Samuel
+     reads -> source/text/<id>.txt (ids: l01-l04 for the Letters; ch01-ch23 for the Chapters,
+     numbered straight through the three volumes: Vol. I = ch01-07, II = ch08-16, III = ch17-23)
   2. Transcribe the LibriVox file with word times (tools/ps_transcribe.py, PocketSphinx)
      -> source/audio/<id>_ps_words.json (skipped if it exists)
   3. Align the book text to it (tools/align.py)
   4. Trim the audio from just before the section's first word (dropping the LibriVox
      intro and the spoken section title) to just after its last, with a 1 s fade-out,
-     and put LEAD seconds of quiet in front (the hold in the theatre seat); mono 64 kbps
+     and put LEAD seconds of quiet in front (the hold in the theatre seat); mono 32 kbps
      -> public/audio/<id>.mp3, and re-time the words to it -> public/data/<id>_words.json
 
 Usage: python3 tools/narration.py ID LIBRIVOX.mp3 [--lead 5]
@@ -20,19 +21,33 @@ import re
 import subprocess
 import sys
 
-BOOK = "source/text/pg84.txt"
+BOOK = "source/text/pg41445.txt"
 HERE = os.path.dirname(__file__)
 
 
 def section_text(sid):
     book = open(BOOK, encoding="utf-8").read().replace("\r\n", "\n")
     book = book[book.index("*** START"):book.index("*** END")]
-    heads = [m for m in re.finditer(r"\n(Letter|Chapter) (\d+)\n", book)]
-    heads = heads[len(heads) // 2:] if len(heads) > 28 else heads  # skip the contents list
-    ids = [("l" if m.group(1) == "Letter" else "ch") + m.group(2).zfill(2) for m in heads]
+    heads = list(re.finditer(r"\n(LETTER|CHAPTER) ([IVX]+)\.\n", book))
+    ids, ch = [], 0
+    for m in heads:
+        if m.group(1) == "LETTER":
+            ids.append(f"l{roman(m.group(2)):02d}")
+        else:
+            ch += 1
+            ids.append(f"ch{ch:02d}")
     k = ids.index(sid)
-    end = heads[k + 1].start() if k + 1 < len(heads) else book.index("\n\n\n\n", heads[k].end() + 2000)
-    return book[heads[k].start():end].strip() + "\n"
+    end = heads[k + 1].start() if k + 1 < len(heads) else len(book)
+    text = book[heads[k].start():end]
+    text = re.split(r"\n\s*END OF VOL\.|\n\s*FRANKENSTEIN;\n|\n\s*THE END\.", text)[0]  # title pages, the end
+    text = re.sub(r"\n[ \t]*(\*[ \t]*){5}\n", "\n", text)  # the row of stars between letters
+    heading = f"{'Letter' if sid[0] == 'l' else 'Chapter'} {int(sid[-2:])}"
+    return heading + "\n\n" + text.strip().split("\n", 1)[1].strip() + "\n"
+
+
+def roman(r):
+    v = {"I": 1, "V": 5, "X": 10}
+    return sum(-v[c] if i + 1 < len(r) and v[c] < v[r[i + 1]] else v[c] for i, c in enumerate(r))
 
 
 def main():

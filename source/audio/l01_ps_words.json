@@ -143,7 +143,7 @@
 {
 "start": 13.19,
 "end": 16.99,
-"text": "and be to that this under imagined sun obtain think land",
+"text": "and be to steady this under imagined sun obtain think land",
 "words": [
 {
 "w": "and",
@@ -161,9 +161,9 @@
 "e": 13.59
 },
 {
-"w": "that",
+"w": "steady",
 "s": 13.59,
-"e": 14.07
+"e": 14.11
 },
 {
 "w": "this",
@@ -785,7 +785,7 @@
 {
 "start": 56.61,
 "end": 61.18,
-"text": "if i by this wind of promise my daydreams become more felt and and vivid",
+"text": "if i by this wind of promise my day dreams become more felt and and vivid",
 "words": [
 {
 "w": "if",
@@ -828,8 +828,13 @@
 "e": 58.93
 },
 {
-"w": "daydreams",
+"w": "day",
 "s": 58.93,
+"e": 59.16
+},
+{
+"w": "dreams",
+"s": 59.16,
 "e": 59.51
 },
 {
@@ -1148,28 +1153,28 @@
 ]
 },
 {
-"start": 82.8,
+"start": 82.85,
 "end": 86.89,
-"text": "for with your leave my sister i will put some trust in preceding navigators",
+"text": "only be when leave my sister i will put some trust in preceding navigators",
 "words": [
 {
-"w": "for",
-"s": 82.8,
-"e": 82.94
+"w": "only",
+"s": 82.85,
+"e": 83.09
 },
 {
-"w": "with",
-"s": 82.94,
-"e": 83.14
+"w": "be",
+"s": 83.09,
+"e": 83.22
 },
 {
-"w": "your",
-"s": 83.14,
-"e": 83.35
+"w": "when",
+"s": 83.22,
+"e": 83.38
 },
 {
 "w": "leave",
-"s": 83.35,
+"s": 83.38,
 "e": 83.66
 },
 {
@@ -1404,7 +1409,7 @@
 {
 "start": 100.47,
 "end": 108.18,
-"text": "its productions and features may be without example as the phenomena of the heavenly bodies undoubtedly are in those undiscovered solitudes",
+"text": "its productions and features may be without example as the the common are the heavenly bodies undoubtedly are in those undiscovered solitudes",
 "words": [
 {
 "w": "its",
@@ -1457,18 +1462,23 @@
 "e": 103.81
 },
 {
-"w": "phenomena",
+"w": "the",
 "s": 103.81,
-"e": 104.36
+"e": 104.02
 },
 {
-"w": "of",
-"s": 104.36,
-"e": 104.44
+"w": "common",
+"s": 104.02,
+"e": 104.28
+},
+{
+"w": "are",
+"s": 104.28,
+"e": 104.42
 },
 {
 "w": "the",
-"s": 104.44,
+"s": 104.42,
 "e": 104.52
 },
 {
@@ -1894,7 +1904,7 @@
 {
 "start": 138.48,
 "end": 154.9,
-"text": "these are my enticements and they a sufficient to conquer all fear of danger or path and to induce me to commence this laborious voyage with the joy a child feels when he embarks in a little by meet with his holiday mates on an expedition of discovery up his native river",
+"text": "these are my enticements and they a sufficient to conquer all fear obtain shall at that and to induce me to commence this laborious voyage with the joy a child feels when he embarks in a little by meet with his holiday mates on an expedition of discovery up his native river",
 "words": [
 {
 "w": "these",
@@ -1957,24 +1967,24 @@
 "e": 142.3
 },
 {
-"w": "of",
+"w": "obtain",
 "s": 142.3,
-"e": 142.39
+"e": 142.7
 },
 {
-"w": "danger",
-"s": 142.39,
-"e": 142.91
+"w": "shall",
+"s": 142.7,
+"e": 143.02
 },
 {
-"w": "or",
-"s": 142.91,
-"e": 143.05
+"w": "at",
+"s": 143.02,
+"e": 143.1
 },
 {
-"w": "path",
-"s": 143.05,
-"e": 143.49
+"w": "that",
+"s": 143.1,
+"e": 143.35
 },
 {
 "w": "and",
@@ -2652,7 +2662,7 @@
 {
 "start": 192.46,
 "end": 200.58,
-"text": "nothing contributes so much to tranquillise the mind as a steady path s a point on which the soul may fix its intellectual eye",
+"text": "nothing contributes so much to tranquillize the mind as a steady path s a point on which the soul may fix its intellectual eye",
 "words": [
 {
 "w": "nothing",
@@ -2680,7 +2690,7 @@
 "e": 194.11
 },
 {
-"w": "tranquillise",
+"w": "tranquillize",
 "s": 194.11,
 "e": 194.8
 },
@@ -3006,7 +3016,7 @@
 {
 "start": 215.55,
 "end": 222.88,
-"text": "you may remember that a history of all the voyages made at that this of discovery composed the whole of on good uncle thomas library",
+"text": "you may remember that a history of all the voyages made at that this of discovery composed the whole of on good uncle thomas s library",
 "words": [
 {
 "w": "you",
@@ -3126,11 +3136,16 @@
 {
 "w": "thomas",
 "s": 221.76,
-"e": 222.08
+"e": 222.1
+},
+{
+"w": "s",
+"s": 222.1,
+"e": 222.21
 },
 {
 "w": "library",
-"s": 222.08,
+"s": 222.21,
 "e": 222.88
 }
 ]
@@ -3200,7 +3215,7 @@
 {
 "start": 228.27,
 "end": 241.37,
-"text": "these volumes were my study day and night and my familiarity with them increased that regret which i had felt as a child on learning that my father s dying injunction had the began my uncle to allow me to embark in a sea failing life",
+"text": "these volumes were my study day and night and my familiarity with them increased that regret which i had felt as a child on learning that my father s dying injunction had the began my uncle to allow me to embark in a sea faring life",
 "words": [
 {
 "w": "these",
@@ -3423,7 +3438,7 @@
 "e": 240.51
 },
 {
-"w": "failing",
+"w": "faring",
 "s": 240.51,
 "e": 240.96
 },
@@ -3559,7 +3574,7 @@
 {
 "start": 251.73,
 "end": 263.65,
-"text": "i also became a poet and for one me an lived in a paradise of my an creation i imagined that i also might obtain many ship the temple where the names of how imagined shakespeare a consecrated",
+"text": "i also became a poet and for one me an lived in a paradise of my own creation i imagined that i also might obtain many ship the temple where the names of how imagined shakespeare a consecrated",
 "words": [
 {
 "w": "i",
@@ -3639,11 +3654,11 @@
 {
 "w": "my",
 "s": 255.69,
-"e": 255.82
+"e": 255.87
 },
 {
-"w": "an",
-"s": 255.82,
+"w": "own",
+"s": 255.91,
 "e": 256.11
 },
 {
@@ -4591,7 +4606,7 @@
 {
 "start": 323.85,
 "end": 335.0,
-"text": "i must own i felt a little proud when my captain offered me the second dignity in the vessel and entreated me to remain with the greatest earnestness so valuable did he consider my sun is his",
+"text": "i must own i felt a little proud when my captain offered me the second dignity in the vessel and entreated me to remain with the greatest earnestness the valuable did he consider my sun is his",
 "words": [
 {
 "w": "i",
@@ -4734,13 +4749,13 @@
 "e": 332.49
 },
 {
-"w": "so",
-"s": 332.79,
-"e": 332.93
+"w": "the",
+"s": 332.76,
+"e": 332.94
 },
 {
 "w": "valuable",
-"s": 332.93,
+"s": 332.94,
 "e": 333.48
 },
 {
@@ -4865,7 +4880,7 @@
 {
 "start": 342.66,
 "end": 350.05,
-"text": "my life might have been passed in ease and luxury but i preferred your reach every enticement that wealth placed in my path",
+"text": "my life might have been passed in ease and luxury the understand can only to every enticement that wealth placed in my path",
 "words": [
 {
 "w": "my",
@@ -4918,29 +4933,29 @@
 "e": 345.52
 },
 {
-"w": "but",
+"w": "the",
 "s": 345.98,
-"e": 346.09
+"e": 346.1
 },
 {
-"w": "i",
-"s": 346.09,
-"e": 346.23
-},
-{
-"w": "preferred",
-"s": 346.23,
+"w": "understand",
+"s": 346.1,
 "e": 346.66
 },
 {
-"w": "your",
-"s": 346.76,
-"e": 347.06
+"w": "can",
+"s": 346.66,
+"e": 346.86
 },
 {
-"w": "reach",
-"s": 347.06,
-"e": 347.28
+"w": "only",
+"s": 346.86,
+"e": 347.21
+},
+{
+"w": "to",
+"s": 347.21,
+"e": 347.31
 },
 {
 "w": "every",
@@ -5422,7 +5437,7 @@
 {
 "start": 381.57,
 "end": 389.71,
-"text": "they fly quickly as the snow in their sledges imagined is pleasant and in my opinion far more agreeable than that of an english stagecoach",
+"text": "they fly quickly as the snow in their sledges imagined is pleasant and in my opinion far more agreeable than that of an english stage coach",
 "words": [
 {
 "w": "they",
@@ -5545,8 +5560,13 @@
 "e": 388.86
 },
 {
-"w": "stagecoach",
+"w": "stage",
 "s": 388.86,
+"e": 389.26
+},
+{
+"w": "coach",
+"s": 389.26,
 "e": 389.71
 }
 ]
@@ -5554,7 +5574,7 @@
 {
 "start": 390.72,
 "end": 405.0,
-"text": "the cold is not excessive if you are wrapped in felt as a dress which i have already adopted there is a great difference between walking the deck and remaining seated motionless how is when no exercise prevents the blood from actually freezing in your veins",
+"text": "the cold is not excessive if you are wrapt in felt as a dress which i have already adopted there is a great difference between walking the deck and remaining seated motionless how is when no exercise prevents the blood from actually freezing in your veins",
 "words": [
 {
 "w": "the",
@@ -5597,13 +5617,13 @@
 "e": 392.4
 },
 {
-"w": "wrapped",
+"w": "wrapt",
 "s": 392.4,
-"e": 392.68
+"e": 392.67
 },
 {
 "w": "in",
-"s": 392.68,
+"s": 392.67,
 "e": 392.8
 },
 {
@@ -6450,7 +6470,7 @@
 {
 "w": "dear",
 "s": 449.23,
-"e": 449.68
+"e": 449.67
 },
 {
 "w": "excellent",

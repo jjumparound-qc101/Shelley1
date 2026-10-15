@@ -1,7 +1,7 @@
 # Staging a section as data
 
-Each section (l02-l04, ch01-ch24) is staged in `src/scenes/data/<id>.js`, which exports a list of
-scenes. `src/stagebook.js` turns them into playable scenes; `tools/assets_master.py` reads them to
+Each section (l02-l04, ch01-ch23; the 1818 text, chapters numbered straight through) is staged in `src/scenes/data/<id>.js`, which exports a list of
+scenes. `src/stagebook.js` turns them into playable scenes; `tools/assets_master.mjs` reads them to
 build the master asset list. Letter 1 is hand-written (`src/scenes/letter1.js`) and is the model
 for the feel: calm camera moves, the narrator visible most of the time, a thought vignette when the
 text dwells on something not on stage.
@@ -79,8 +79,8 @@ townswoman, peasant, child, judge, nurse, daniel (src/cast.js). Two of the same 
 not supported yet; use different extras.
 
 ## Who is the narrator
-Letters 1-4 and the end of Chapter 24: Walton writing (hero: walton). Chapters 1-10 and 17-24:
-Victor tells his story (hero: victor). Chapters 11-16: the creature tells his (hero: creature).
+Letters 1-4 and the end of Chapter 23: Walton writing (hero: walton). Chapters 1-9 and 16-23:
+Victor tells his story (hero: victor). Chapters 10-15: the creature tells his (hero: creature).
 Keep the teller in the picture most of the time; when the text recalls something far away, use a
 thought vignette rather than leaving the scene.
 
