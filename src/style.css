@@ -1,0 +1,212 @@
+/* IM FELL English, bundled (SIL Open Font License, public/fonts/OFL.txt). */
+@font-face { font-family: "IM Fell English"; src: url("/fonts/IMFeENrm28P.ttf") format("truetype"); font-style: normal; font-display: swap; }
+@font-face { font-family: "IM Fell English"; src: url("/fonts/IMFeENit28P.ttf") format("truetype"); font-style: italic; font-display: swap; }
+
+:root {
+  --paper: #efe9da;
+  --ink: #17140f;
+  --faint: rgba(23, 20, 15, 0.42);
+  --serif: "IM Fell English", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--paper); color: var(--ink); font-family: var(--serif); }
+#stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+body[data-mode="explore"] #stage { cursor: grab; }
+
+button {
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper);
+  border: 1.5px solid var(--ink); padding: 0.35em 1em; cursor: pointer;
+}
+button:hover { background: var(--ink); color: var(--paper); }
+
+#intro, #endCard {
+  position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--paper); text-align: center; padding: 16px; z-index: 5;
+}
+#endCard { background: transparent; color: var(--paper); z-index: 4; font-size: 1.4rem; }
+#endCard h2 { font-weight: normal; font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0.8em 0 0; letter-spacing: 0.03em; }
+#endCard .quote { font-style: italic; max-width: 30em; margin: 0; }
+/* A chapter's tailpiece under its last line (owner, 2026-10-15; Chapter I: the Rabbit's watch), the engraving
+   shown light on the dark card. */
+#endTail { height: clamp(3.5rem, 12vh, 7rem); width: auto; max-width: 70vw; margin: 0.6em 0 0; filter: invert(0.88); opacity: 0.9; }
+#endTail[hidden] { display: none; }
+#endCard button { background: transparent; color: var(--paper); border-color: var(--paper); }
+#endCard button:hover:not(:disabled) { background: var(--paper); color: var(--ink); }
+#endCard button:disabled:hover { background: transparent; color: var(--paper); }
+#intro[hidden], #endCard[hidden] { display: none; }
+#intro h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: normal; margin: 0; letter-spacing: 0.03em; }
+.sub { font-style: italic; font-size: 1.2rem; margin: 0.4em 0 1.4em; }
+.note { color: var(--faint); max-width: 34em; line-height: 1.5; margin: 0 0 1.6em; }
+
+#fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 3; }
+#dark { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 1; }
+#turn { position: fixed; inset: 0; background: var(--paper); opacity: 0; pointer-events: none; z-index: 1; }
+.start { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+button:disabled { opacity: 0.4; cursor: default; }
+button:disabled:hover { background: var(--paper); color: var(--ink); }
+
+#page {
+  position: fixed; left: 50%; bottom: 78px; transform: translateX(-50%);
+  width: min(46rem, calc(100% - 32px)); max-height: 22vh; overflow-y: auto;
+  background: rgba(239, 233, 218, 0.9); border: 1px solid var(--faint);
+  padding: 0.6rem 1.2rem; font-size: clamp(1rem, 2.1vw, 1.2rem); line-height: 1.5; z-index: 2;
+}
+#page .para { margin: 0; }
+#page .para.first { text-indent: 1.5em; }
+#page .w { color: var(--faint); cursor: pointer; transition: color 0.2s; }
+#page .w.said { color: var(--ink); }
+#page .w.now { color: var(--ink); text-decoration: underline; text-underline-offset: 0.2em; }
+#page .w.tint.said, #page .w.tint.now { color: var(--tint); } /* colour words in poems and songs (COLOR.md rule 6) */
+/* Words the recording leaves out: always faint, never marked as spoken (explained in Contents). */
+#page .w.skip, #page .w.skip.said { color: var(--faint); opacity: 0.6; }
+body[data-mode="explore"] #page { display: none; }
+
+/* Text layouts (L key or the Text button). */
+body[data-text="top"] #page { bottom: auto; top: 16px; }
+body[data-text="side"] #page {
+  left: auto; right: 16px; top: 16px; bottom: 78px; transform: none;
+  width: min(24rem, 34vw); max-height: none; padding: 1.4rem 1.5rem;
+  background: rgba(239, 233, 218, 0.96); box-shadow: -4px 4px 0 rgba(23, 20, 15, 0.15);
+}
+/* Phrases flow together as one paragraph; each paragraph starts on a new, indented line. */
+body[data-text="side"] #page .para { display: inline; }
+body[data-text="side"] #page .para::after { content: " "; }
+body[data-text="side"] #page .para.first::before { content: ""; display: block; height: 0.5em; }
+body[data-text="side"] #page .para.first .w:first-child { margin-left: 1.5em; }
+body[data-text="side"] #page .para[hidden] { display: none; }
+@media (max-width: 700px) {
+  body[data-text="side"] #page { left: 16px; right: 16px; width: auto; top: auto; max-height: 30vh; }
+}
+
+#controls { position: fixed; bottom: calc(30px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 2; transition: opacity 0.4s; }
+#more { display: contents; }
+#moreBtn { display: none; }
+
+#hint, #prompt {
+  position: fixed; left: 50%; transform: translateX(-50%); margin: 0; z-index: 2;
+  background: rgba(239, 233, 218, 0.9); padding: 0.3em 0.8em; border: 1px solid var(--faint); white-space: nowrap;
+}
+#hint { top: 16px; display: none; font-size: 0.95rem; max-width: calc(100% - 32px); overflow: hidden; text-overflow: ellipsis; }
+body[data-mode="explore"] #hint { display: block; }
+#prompt { bottom: 84px; font-style: italic; }
+
+/* The timeline: the chapter's length, with a mark at each scene. Click or drag to seek. */
+#timeline { position: fixed; left: calc(16px + env(safe-area-inset-left)); right: calc(16px + env(safe-area-inset-right)); bottom: calc(4px + env(safe-area-inset-bottom)); transition: opacity 0.4s; height: 20px; z-index: 2; cursor: pointer; touch-action: none; }
+#timeline .track { position: absolute; left: 0; right: 0; top: 9px; height: 3px; background: var(--faint); transition: top 0.15s, height 0.15s; }
+#timeline:hover .track, #timeline.drag .track { top: 7px; height: 7px; }
+#timeline .fill { height: 100%; width: 0; background: var(--ink); }
+#timeline .mark { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: var(--ink); }
+#timeline .tip {
+  position: absolute; bottom: 22px; transform: translateX(-50%); white-space: nowrap; font-size: 0.9rem; pointer-events: none;
+  background: rgba(239, 233, 218, 0.95); border: 1px solid var(--faint); padding: 0 0.4em; visibility: hidden;
+}
+#timeline:hover .tip, #timeline.drag .tip { visibility: visible; }
+body[data-mode="explore"] #timeline { display: none; }
+
+#sceneMenu {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 6;
+  width: min(30rem, calc(100% - 32px)); max-height: calc(100% - 32px); overflow-y: auto; background: var(--paper); border: 2px solid var(--ink);
+  padding: 1.2rem 1.5rem; text-align: center; box-shadow: 6px 6px 0 rgba(23, 20, 15, 0.25);
+}
+#sceneMenu h2 { margin: 0 0 0.6em; font-weight: normal; font-style: italic; }
+#contents { text-align: left; margin-bottom: 1em; }
+#contents h3 { font-weight: normal; font-size: 1rem; margin: 0.35em 0 0.15em; }
+#contents h3 button { border: none; padding: 0; background: none; text-align: left; font-size: inherit; }
+#contents h3 button:hover:not(:disabled) { background: none; color: var(--ink); text-decoration: underline; }
+#contents h3 .later { color: var(--faint); font-style: italic; font-size: 0.9rem; }
+#sceneMenu ol { list-style: none; padding: 0 0 0 1em; margin: 0 0 0.4em; display: grid; gap: 3px; }
+#sceneMenu li button { padding: 0.15em 0.8em; font-size: 0.95rem; }
+#sceneMenu li button { width: 100%; display: flex; justify-content: space-between; gap: 1em; }
+#sceneMenu li button.here { background: var(--ink); color: var(--paper); }
+#sceneMenu .keys { color: var(--faint); font-size: 0.95rem; }
+#aboutSkipped { margin: 0 0 0.8em; }
+#aboutSkipped summary { display: inline-block; cursor: pointer; border: 1.5px solid var(--ink); padding: 0.15em 0.8em; font-size: 0.95rem; list-style: none; }
+#aboutSkipped summary::-webkit-details-marker { display: none; }
+#aboutSkipped summary:hover, #aboutSkipped[open] summary { background: var(--ink); color: var(--paper); }
+#aboutSkipped p { text-align: left; font-size: 0.95rem; margin: 0.6em 0 0; }
+#aboutSkipped .w.skip { color: var(--faint); opacity: 0.6; }
+
+#card {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 4;
+  width: min(30rem, calc(100% - 32px)); background: var(--paper); border: 2px solid var(--ink);
+  padding: 1.2rem 1.5rem; text-align: center; box-shadow: 6px 6px 0 rgba(23, 20, 15, 0.25);
+}
+#card h2 { margin: 0 0 0.6em; font-weight: normal; font-style: italic; }
+#card p { font-size: 1.15rem; line-height: 1.5; }
+
+.error { position: fixed; top: 16px; left: 16px; right: 16px; background: #fff; color: #900; padding: 1em; z-index: 9; white-space: pre-wrap; }
+
+#perf {
+  position: fixed; top: 8px; left: 8px; margin: 0; z-index: 6; pointer-events: none;
+  background: rgba(23, 20, 15, 0.8); color: var(--paper); padding: 0.4em 0.6em;
+  font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums;
+}
+
+/* Hints for keyboard or touch, whichever the reader has. */
+.touch-hint { display: none; }
+@media (pointer: coarse) {
+  .touch-hint { display: inline; }
+  .key-hint { display: none; }
+  button { min-height: 44px; min-width: 44px; }
+  #timeline { height: 32px; }
+  #timeline .track { top: 15px; }
+  #timeline.drag .track { top: 12px; height: 9px; }
+  #prompt { cursor: pointer; }
+}
+
+/* --- Phones ------------------------------------------------------------------------------
+   main.js sets body[data-form] from the window: 'portrait' (a tall phone: the picture in a
+   band at the top, the text below it, like an illustrated book), 'landscape' (a short screen:
+   the picture first, a two-line text strip, the controls folded and hidden while reading),
+   or 'wide' (computers and tablets: as before). */
+body[data-form="portrait"] #moreBtn, body[data-form="landscape"] #moreBtn { display: inline-block; }
+body[data-form="portrait"] #more, body[data-form="landscape"] #more {
+  display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  flex-direction: column; gap: 6px; padding: 8px; background: var(--paper); border: 1.5px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(23, 20, 15, 0.2); min-width: 12rem;
+}
+body.more-open #more { display: flex !important; }
+body.more-open #moreBtn { background: var(--ink); color: var(--paper); }
+body[data-form] #layoutBtn[hidden] { display: none; }
+
+/* Portrait: picture band on top (height set by main.js as --pic-h), text below. */
+body[data-form="portrait"] #stage { top: env(safe-area-inset-top); bottom: auto; height: var(--pic-h, 50vh); }
+body[data-form="portrait"][data-mode="watch"] #page {
+  top: calc(env(safe-area-inset-top) + var(--pic-h, 50vh) + 10px); bottom: calc(96px + env(safe-area-inset-bottom));
+  left: calc(14px + env(safe-area-inset-left)); right: calc(14px + env(safe-area-inset-right)); width: auto; transform: none;
+  max-height: none; background: transparent; border: none; box-shadow: none; padding: 0.2rem 0.4rem;
+  font-size: 1.15rem; line-height: 1.55;
+}
+body[data-form="portrait"] #controls { bottom: calc(40px + env(safe-area-inset-bottom)); }
+body[data-form="portrait"] #prompt { bottom: calc(100px + env(safe-area-inset-bottom)); }
+
+/* Landscape phone: a two-line strip low down, controls hidden while reading. */
+body[data-form="landscape"] #page {
+  bottom: calc(38px + env(safe-area-inset-bottom)); transition: bottom 0.4s; max-height: 3.3em; padding: 0.2rem 0.9rem;
+  font-size: 1rem; line-height: 1.5; left: calc(16px + env(safe-area-inset-left)); transform: none;
+  width: min(44rem, calc(100% - 200px - env(safe-area-inset-left) - env(safe-area-inset-right)));
+}
+body[data-form="landscape"][data-text="top"] #page { top: calc(8px + env(safe-area-inset-top)); bottom: auto; }
+body[data-form="landscape"] #controls { bottom: calc(38px + env(safe-area-inset-bottom)); left: auto; right: calc(16px + env(safe-area-inset-right)); transform: none; }
+body[data-form="landscape"] #more { left: auto; right: 0; transform: none; }
+body[data-form="landscape"] #controls button { padding: 0.2em 0.8em; }
+body[data-form="landscape"] #prompt { bottom: calc(60px + env(safe-area-inset-bottom)); }
+body.chrome-hidden #controls, body.chrome-hidden #timeline { opacity: 0; pointer-events: none; }
+body.chrome-hidden[data-form="landscape"] #page { bottom: calc(10px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: min(44rem, calc(100% - 32px)); }
+
+/* The walking stick for Explore on touch screens (bottom left). */
+#stick { display: none; position: fixed; left: calc(24px + env(safe-area-inset-left)); bottom: calc(28px + env(safe-area-inset-bottom));
+  width: 120px; height: 120px; border-radius: 50%; border: 1.5px solid var(--ink); background: rgba(239, 233, 218, 0.55); z-index: 3; touch-action: none; }
+#stick .knob { position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%;
+  background: var(--paper); border: 1.5px solid var(--ink); box-shadow: 2px 2px 0 rgba(23, 20, 15, 0.25); }
+@media (pointer: coarse) { body[data-mode="explore"] #stick { display: block; } }
+
+/* Thought bubbles (src/thoughts.js): one uniform oval, the picture filling it, drawn over the
+   picture beside Alice with a trail of small bubbles toward her head (owner, 2026-10-14). */
+#thoughts { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
+#thoughts .thought { position: fixed; display: none; border-radius: 50%; overflow: hidden; background: var(--paper, #efe9da);
+  border: 3px solid #17140f; box-shadow: 0 2px 10px rgba(23, 20, 15, 0.25); transform-origin: 50% 50%; }
+#thoughts .thought img { position: absolute; left: -3%; top: -3%; width: 106%; height: 106%; object-fit: cover; }
+#thoughts .thought-dot { position: fixed; display: none; border-radius: 50%; background: var(--paper, #efe9da); border: 2px solid #17140f; }
+body[data-mode="explore"] #thoughts { display: none; }

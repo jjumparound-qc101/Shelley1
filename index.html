@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Frankenstein</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body data-mode="watch" data-text="bottom">
+  <canvas id="stage"></canvas>
+  <audio id="narration" preload="auto"></audio>
+
+  <div id="turn"></div>
+  <div id="dark"></div>
+  <div id="fade"></div>
+
+  <section id="intro">
+    <h1>Frankenstein</h1>
+    <p class="sub">or, The Modern Prometheus · Mary Shelley · in a toy theater</p>
+    <p class="note">The 1818 text, read by Cori Samuel for LibriVox. Every picture is a placeholder drawn in code for now; parts not yet staged play on their title page.</p>
+    <div class="start">
+      <button id="continue" hidden>Continue</button>
+      <button id="begin">Begin</button>
+      <button id="contentsIntro">Contents</button>
+    </div>
+  </section>
+
+  <article id="page" aria-live="polite"></article>
+
+  <nav id="controls">
+    <button id="playBtn">Play</button>
+    <!-- On phones these fold into the "More" panel. -->
+    <div id="more">
+      <button id="restartBtn">Restart</button>
+      <button id="modeBtn">Explore</button>
+      <button id="layoutBtn">Text: Bottom</button>
+      <button id="speedBtn" title="Reading speed (S)">1×</button>
+      <button id="scenesBtn" title="Contents: letters, chapters and scenes (M)">Contents</button>
+    </div>
+    <button id="moreBtn" aria-expanded="false">More</button>
+  </nav>
+
+  <div id="timeline" title="Click or drag to move through the chapter">
+    <div class="track"><div class="fill"></div></div>
+  </div>
+
+  <aside id="sceneMenu" hidden>
+    <h2>Contents</h2>
+    <!-- Words the narrators don't read aloud (tools/forced_align.py marks them). -->
+    <details id="aboutSkipped">
+      <summary>Why are some words faint?</summary>
+      <p>The text is Mary Shelley’s, word for word. The recording is a volunteer’s reading, and here and there a reader leaves out a word. Those words stay on the page, shown faint, and the reading passes over them.</p>
+    </details>
+    <div id="contents"></div>
+    <p class="keys"><span class="key-hint">← → a sentence back or on · Shift+← → a scene · S speed · M this menu</span><span class="touch-hint">Swipe the text left or right: a sentence on or back · tap the picture to show the controls</span></p>
+    <button id="sceneClose">Close</button>
+  </aside>
+
+  <p id="hint"><span class="key-hint">Explore: W A S D to walk · drag or ← → to look · E to inspect · Tab to return</span><span class="touch-hint">Drag to look · the stick to walk · or tap the ground to walk there</span></p>
+  <p id="prompt" hidden></p>
+  <!-- Explore on touch screens: push to walk forward, back or sideways. -->
+  <div id="stick" aria-label="Walk"><div class="knob"></div></div>
+
+  <aside id="card" hidden>
+    <h2 id="cardTitle"></h2>
+    <p id="cardText"></p>
+    <button id="cardClose">Close</button>
+  </aside>
+
+  <section id="endCard" hidden>
+    <p class="quote" id="endQuote"></p>
+    <img id="endTail" alt="" hidden>
+    <h2 id="endTitle"></h2>
+    <p class="sub" id="endSub"></p>
+    <div class="start">
+      <button id="endExplore">Explore</button>
+      <button id="endReplay">Replay the chapter</button>
+      <button id="endNext">Continue</button>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

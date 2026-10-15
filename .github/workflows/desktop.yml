@@ -1,0 +1,48 @@
+# Builds the desktop app on real Windows and Linux machines and keeps the
+# result as a downloadable artifact (Actions tab -> latest run -> Artifacts).
+name: Desktop build
+
+on:
+  push:
+    branches: [claude/project-thread-c8eoh0, main]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run package:win
+      # Test builds connect to Steam as Valve's "Spacewar" test app (480) until
+      # the game has its own app ID. Remove this before any public release.
+      - run: Set-Content -Path release/Frankenstein-win32-x64/steam_appid.txt -Value 480 -NoNewline
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Frankenstein-windows-x64
+          path: release/Frankenstein-win32-x64
+          retention-days: 14
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run package:linux
+      # Launch the packaged app and check it plays without errors.
+      - run: npx playwright-core install-deps chromium || true
+      - run: SOFTWARE_GL=1 xvfb-run -a node tools/electron_smoke.mjs release/Frankenstein-linux-x64/Frankenstein smoke-shots/electron
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Frankenstein-linux-x64-smoke
+          path: smoke-shots/electron
+          retention-days: 14
