@@ -110,8 +110,8 @@ function seatsArt() {
 }
 
 // The AI theatre (tools/theatre_art.py): the openings cut out of each drawing, in its pixels.
-const FRONT_OPEN = { x0: 398, x1: 1137, y0: 273, y1: 775 }; // theatre/proscenium, 1536 x 1024
-const HOUSE_OPEN = { x0: 492, x1: 1043, y0: 417, y1: 796 }; // theatre/house, 1536 x 1024
+const FRONT_OPEN = { x0: 399, x1: 1137, y0: 274, y1: 775 }; // theatre/proscenium, 1536 x 1024
+const HOUSE_OPEN = { x0: 432, x1: 1100, y0: 197, y1: 885 }; // theatre/house: its empty middle, where the toy theatre stands
 
 // Builds the theatre into a scene's group. title/sub: lettered on the toy front (the drawn one;
 // the AI front has the title lettered on its banner by tools/theatre_art.py).
@@ -125,20 +125,31 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
     const k = 3.4 / K / (FRONT_OPEN.y1 - FRONT_OPEN.y0); // metres per pixel (before K)
     const W = 1536 * k, H = 1024 * k, y0 = -(1024 - FRONT_OPEN.y1) * k;
     const pros = paperFlat(ai['theatre/proscenium'].tex, W, H, { edge: false });
-    pros.position.set((768 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k, y0, PROS.z);
+    const px0 = (768 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k;
+    pros.position.set(px0, y0, PROS.z);
     group.add(pros);
-    // The theatre round it: the auditorium, its own stage opening framing the toy front, and in
-    // the foreground the row in front of our seat, the audience from behind.
-    const k2 = H * 0.98 / (HOUSE_OPEN.y1 - HOUSE_OPEN.y0);
+    // The hall round it has no stage arch of its own (owner, 2026-10-16: one arch, not two): the
+    // toy front stands in its empty middle, just filling its width, on a plain paper ground with
+    // a hole for the toy stage's opening.
+    const k2 = W * 1.03 / (HOUSE_OPEN.x1 - HOUSE_OPEN.x0);
     const house = paperFlat(ai['theatre/house'].tex, 1536 * k2, 1024 * k2, { edge: false });
-    house.position.set((768 - (HOUSE_OPEN.x0 + HOUSE_OPEN.x1) / 2) * k2, y0 - (1024 - HOUSE_OPEN.y1) * k2, PROS.z + 0.1);
+    const hy = y0 + 0.15 - (1024 - HOUSE_OPEN.y1) * k2; // the toy front's foot just below the stalls' top
+    house.position.set((768 - (HOUSE_OPEN.x0 + HOUSE_OPEN.x1) / 2) * k2, hy, PROS.z + 0.1);
+    const hole = { x0: (HOUSE_OPEN.x0 - 768) * k2 - 0.2, x1: (HOUSE_OPEN.x1 - 768) * k2 + 0.2, y0: hy + (1024 - HOUSE_OPEN.y1) * k2 - 0.2, y1: hy + (1024 - HOUSE_OPEN.y0) * k2 + 0.2 };
+    const op = { x0: px0 + (FRONT_OPEN.x0 - 768) * k, x1: px0 + (FRONT_OPEN.x1 - 768) * k, y0: y0 + (1024 - FRONT_OPEN.y1) * k, y1: y0 + (1024 - FRONT_OPEN.y0) * k };
+    const shape = new THREE.Shape([new THREE.Vector2(hole.x0, hole.y0), new THREE.Vector2(hole.x1, hole.y0), new THREE.Vector2(hole.x1, hole.y1), new THREE.Vector2(hole.x0, hole.y1)]);
+    shape.holes.push(new THREE.Path([new THREE.Vector2(op.x0, op.y0), new THREE.Vector2(op.x0, op.y1), new THREE.Vector2(op.x1, op.y1), new THREE.Vector2(op.x1, op.y0)]));
+    const ground = new THREE.Mesh(new THREE.ShapeGeometry(shape), new THREE.MeshBasicMaterial({ color: '#efe9da' }));
+    ground.position.z = PROS.z + 0.05; group.add(ground);
     const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 5.2, seatsH = seatsW / sa;
     const seats = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false });
     seats.position.set(0, 1.5 - seatsH, 14.2); // hat-tops at the stage floor as seen from the seat, so the stage shows over them
     // The same row again at each end (mirrored), for wide and tall screens.
     const more = [-1, 1].map((d) => { const m = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false }); m.scale.x = -1; m.position.set(d * seatsW, seats.position.y, 14.2); return m; });
     // Drawn over the set (and only ever seen from the audience's side).
-    overSet(house, 50); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
+    // All drawn over the set, in this order (only ever seen from the audience's side; from the
+    // stage the ground's back face is culled).
+    overSet(ground, 40); overSet(pros, 45); overSet(house, 50); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
     group.add(house, seats, ...more);
     return { pros, house, seats };
   }
