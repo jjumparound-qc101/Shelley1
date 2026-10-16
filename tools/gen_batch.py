@@ -107,8 +107,12 @@ def cmd_next(a):
     pending = load(PENDING, {"batch": 0, "files": []})
     if pending["files"]:
         sys.exit(f"batch {pending['batch']} is waiting for approval: {REVIEW}/batch_{pending['batch']:03d}.png")
+    only = [ln.strip() for ln in open(a.files)] if a.files else None
+    entries = [e for e in m["entries"] if e["file"] in only] if only else m["entries"]
+    if only:
+        entries.sort(key=lambda e: only.index(e["file"]))  # the list's own order
     todo = []
-    for e in m["entries"]:
+    for e in entries:
         if e["file"] in done or (a.group and e["group"] != a.group) or (a.sheets and not e["file"].endswith("_sheet")):
             continue
         if e.get("ref") and e["ref"] not in done:
@@ -192,6 +196,7 @@ def main():
     n.add_argument("--group", default=None)
     n.add_argument("--model", default=None)
     n.add_argument("--jobs", type=int, default=4)
+    n.add_argument("--files", default=None, help="a text file of image names (one per line): make only these, in that order")
     n.add_argument("--ref-per-min", type=int, default=REF_PER_MIN)
     n.add_argument("--sheets", action="store_true", help="wave 1: only the character model sheets")
     sub.add_parser("approve").add_argument("files", nargs="*")
