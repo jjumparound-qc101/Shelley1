@@ -12,6 +12,8 @@
      -> public/audio/<id>.mp3, and re-time the words to it -> public/data/<id>_words.json
 
 Usage: python3 tools/narration.py ID LIBRIVOX.mp3 [--lead 5]
+       python3 tools/narration.py ID LIBRIVOX.mp3 --audio-only  (re-cut the audio only, keeping
+       public/data/<id>_words.json and its trim, e.g. after changing MUTE)
 Needs ffmpeg and pocketsphinx.
 """
 import argparse
@@ -22,7 +24,21 @@ import subprocess
 import sys
 
 BOOK = "source/text/pg41445.txt"
+# Spans of the finished audio (seconds, lead included) to silence. The Letters' dates end
+# "17—.", the year left blank on purpose, and the reader voices it "seventeen blank"; it is
+# meant to go unspoken, so both words are muted (owner, 2026-10-16). The text keeps "17—.".
+MUTE = {"l01": [(10.25, 11.85)], "l02": [(9.77, 11.43)], "l03": [(8.60, 10.13)], "l04": [(8.50, 10.05)]}
 HERE = os.path.dirname(__file__)
+
+
+def encode(sid, mp3, t0, t1, lead):
+    out = f"public/audio/{sid}.mp3"
+    af = f"afade=t=out:st={t1 - t0 - 1:.2f}:d=1,adelay={int(lead * 1000)}:all=1"
+    for m0, m1 in MUTE.get(sid, []):
+        af += f",volume=enable='between(t,{m0},{m1})':volume=0"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.2f}", "-to", f"{t1:.2f}", "-i", mp3, "-ac", "1", "-ar", "22050", "-b:a", "32k",
+                    "-af", af, out], check=True)
+    return out
 
 
 def section_text(sid):
@@ -55,7 +71,12 @@ def main():
     ap.add_argument("sid")
     ap.add_argument("mp3")
     ap.add_argument("--lead", type=float, default=5.0)
+    ap.add_argument("--audio-only", action="store_true")
     a = ap.parse_args()
+    if a.audio_only:
+        old = json.load(open(f"public/data/{a.sid}_words.json"))
+        encode(a.sid, a.mp3, *old["trim"], old["lead_silence"])
+        return
     text = section_text(a.sid)
     txt = f"source/text/{a.sid}.txt"
     open(txt, "w", encoding="utf-8").write(text)
@@ -76,10 +97,7 @@ def main():
     dur = t1 - t0
     os.makedirs("public/audio", exist_ok=True)
     os.makedirs("public/data", exist_ok=True)
-    out = f"public/audio/{a.sid}.mp3"
-    lead_ms = int(a.lead * 1000)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t0:.2f}", "-to", f"{t1:.2f}", "-i", a.mp3, "-ac", "1", "-ar", "22050", "-b:a", "32k",
-                    "-af", f"afade=t=out:st={dur - 1:.2f}:d=1,adelay={lead_ms}:all=1", out], check=True)
+    out = encode(a.sid, a.mp3, t0, t1, a.lead)
     shift = a.lead - t0
     for p in words["paragraphs"]:
         for w in p:
