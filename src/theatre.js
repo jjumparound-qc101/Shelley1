@@ -15,7 +15,7 @@ export const PROS = { w: 12, h: 7.2, z: 2.2, open: { w: 8.4, h: 4.6, cy: 2.55 } 
 const K = 0.7;
 const at = ([x, y, z]) => [x * K, y * K, PROS.z + (z - PROS.z) * K];
 // The opening shot, from the stalls (scenes start their camera here).
-export const SEAT = { pos: at([0, 2.3, 25]), look: at([0, 1.9, -3]) };
+export const SEAT = { pos: at([0, 2.0, 19]), look: at([0, 1.7, -3]) };
 // Over the heads, up the aisle, just short of the toy front.
 export const AISLE = { pos: at([0, 1.9, 11.0]), look: at([0, 1.5, -3]) };
 
@@ -119,25 +119,29 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
   const group = new THREE.Group(); group.scale.setScalar(K); group.position.z = PROS.z * (1 - K); scene.add(group);
   const overSet = (o, r) => o.traverse((m) => { if (m.material) { m.material.depthTest = false; m.material.transparent = true; m.material.fog = false; m.renderOrder = r; } });
   if (ai['theatre/proscenium'] && ai['theatre/house'] && ai['theatre/seats']) {
-    // The toy front, scaled so its opening is as high as the room (3.4 m; the room's sides then
-    // sit just behind the drawn curtains), its foot at the stage floor. (Owner, 2026-10-16: a
-    // proper paper theatre, as in the Alice game.)
+    // One arch only, as in the Alice game (owner, 2026-10-16: "not a stage inside a stage"): the
+    // hall's own arch frames the stage, and of the toy front only its middle hangs inside it, the
+    // title, valance and tied-back curtains (cut from theatre/proscenium: no columns, no stage or
+    // footlights of its own; the hall's stage is the stage). Scaled so the curtains' opening is as
+    // high as the room (3.4 m), its foot at the stage floor.
     const k = 3.4 / K / (FRONT_OPEN.y1 - FRONT_OPEN.y0); // metres per pixel (before K)
-    const W = 1536 * k, H = 1024 * k, y0 = -(1024 - FRONT_OPEN.y1) * k;
-    const pros = paperFlat(ai['theatre/proscenium'].tex, W, H, { edge: false });
-    const px0 = (768 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k;
-    pros.position.set(px0, y0, PROS.z);
+    const y0 = -(1024 - FRONT_OPEN.y1) * k, px0 = (768 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k;
+    const CROP = { x0: 196, x1: 1340, y0: 0, y1: FRONT_OPEN.y1 };
+    const tex = ai['theatre/proscenium'].tex.clone();
+    tex.repeat.set((CROP.x1 - CROP.x0) / 1536, (CROP.y1 - CROP.y0) / 1024);
+    tex.offset.set(CROP.x0 / 1536, (1024 - CROP.y1) / 1024); tex.needsUpdate = true;
+    const FW = (CROP.x1 - CROP.x0) * k, FH = (CROP.y1 - CROP.y0) * k;
+    const pros = paperFlat(tex, FW, FH, { edge: false });
+    pros.position.set(((CROP.x0 + CROP.x1) / 2 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k, 0, PROS.z);
     group.add(pros);
-    // The hall round it, as in the Alice game (owner, 2026-10-16): the hall's own stage arch, pelmet
-    // and curtains frame the toy front, which stands on the hall's stage. The hall's opening is
-    // 0.98 of the toy front's height, so the hall's drapes just cover its outer edges and there is
-    // no blank paper round it.
-    const k2 = H * 0.98 / (HOUSE_OPEN.y1 - HOUSE_OPEN.y0);
+    // The hall: its opening narrower than the valance, so the hall's drapes cover its ends and its
+    // pelmet the toy front's pediment, leaving the title just under the pelmet (as in Alice).
+    const k2 = FW * 0.85 / (HOUSE_OPEN.x1 - HOUSE_OPEN.x0);
     const house = paperFlat(ai['theatre/house'].tex, 1536 * k2, 1024 * k2, { edge: false });
-    const hy = y0 - (1024 - HOUSE_OPEN.y1) * k2; // the hall's opening foot at the toy front's foot
-    house.position.set(px0 + (768 - (HOUSE_OPEN.x0 + HOUSE_OPEN.x1) / 2) * k2, hy, PROS.z + 0.1);
-    // Dark drapery behind the toy front, filling the hall's opening round its pediment and urns,
-    // with a hole for the toy stage's opening.
+    const hy = -(1024 - HOUSE_OPEN.y1) * k2; // the hall's stage floor at the stage floor
+    house.position.set((768 - (HOUSE_OPEN.x0 + HOUSE_OPEN.x1) / 2) * k2, hy, PROS.z + 0.1);
+    // Dark drapery behind the valance, filling the hall's opening round its pediment, with a hole
+    // for the stage opening.
     const hole = { x0: house.position.x + (HOUSE_OPEN.x0 - 768) * k2, x1: house.position.x + (HOUSE_OPEN.x1 - 768) * k2, y0: hy + (1024 - HOUSE_OPEN.y1) * k2, y1: hy + (1024 - HOUSE_OPEN.y0) * k2 };
     const op = { x0: px0 + (FRONT_OPEN.x0 - 768) * k, x1: px0 + (FRONT_OPEN.x1 - 768) * k, y0: y0 + (1024 - FRONT_OPEN.y1) * k, y1: y0 + (1024 - FRONT_OPEN.y0) * k };
     const shape = new THREE.Shape([new THREE.Vector2(hole.x0, hole.y0), new THREE.Vector2(hole.x1, hole.y0), new THREE.Vector2(hole.x1, hole.y1), new THREE.Vector2(hole.x0, hole.y1)]);
@@ -146,9 +150,9 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
     backing.position.z = PROS.z - 0.05; group.add(backing);
     const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 5.2, seatsH = seatsW / sa;
     const seats = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false });
-    seats.position.set(0, 1.62 - seatsH, 18); // hat-tops at the stage floor as seen from the seat, so the stage shows over them
+    seats.position.set(0, 1.45 - seatsH, 13); // hat-tops at the stage floor as seen from the seat, so the stage shows over them
     // The same row again at each end (mirrored), for wide and tall screens.
-    const more = [-1, 1].map((d) => { const m = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false }); m.scale.x = -1; m.position.set(d * seatsW, seats.position.y, 18); return m; });
+    const more = [-1, 1].map((d) => { const m = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false }); m.scale.x = -1; m.position.set(d * seatsW, seats.position.y, 13); return m; });
     // All drawn over the set, in this order (only ever seen from the audience's side).
     overSet(backing, 40); overSet(pros, 45); overSet(house, 50); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
     group.add(house, seats, ...more);
