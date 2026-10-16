@@ -25,6 +25,30 @@ function source(art) {
   c.getContext('2d').drawImage(img, 0, 0); return c.toDataURL();
 }
 
+// An AI vignette is engraved inside its own oval on plain paper, and the ovals differ in shape.
+// So the card is cut to that drawn oval: find where the ink is, then show just that part, a
+// little inside its engraved rim, so the game's frame takes the rim's place (owner, 2026-10-16).
+function inkBox(art) {
+  const img = art?.isTexture ? art.image : null;
+  if (!img || !img.width || img instanceof HTMLCanvasElement) return null;
+  const W = 160, H = Math.max(1, Math.round(160 * img.height / img.width));
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0, W, H);
+  const d = g.getImageData(0, 0, W, H).data;
+  const ink = (x, y) => { const i = (y * W + x) * 4; return d[i] + d[i + 1] + d[i + 2] < 3 * 150; };
+  const rowInk = (y) => { let n = 0; for (let x = 0; x < W; x++) n += ink(x, y); return n; };
+  const colInk = (x) => { let n = 0; for (let y = 0; y < H; y++) n += ink(x, y); return n; };
+  let x0 = 0, x1 = W - 1, y0 = 0, y1 = H - 1;
+  while (x0 < x1 && colInk(x0) < 2) x0++;
+  while (x1 > x0 && colInk(x1) < 2) x1--;
+  while (y0 < y1 && rowInk(y0) < 2) y0++;
+  while (y1 > y0 && rowInk(y1) < 2) y1--;
+  const w = x1 - x0 + 1, h = y1 - y0 + 1;
+  if (w < W * 0.3 || h < H * 0.3) return null;
+  const inset = 0.035;
+  return { x: (x0 + w * inset) / W, y: (y0 + h * inset) / H, w: w * (1 - 2 * inset) / W, h: h * (1 - 2 * inset) / H, aspect: (w * img.width / W) / (h * img.height / H) };
+}
+
 // list: [{ t0, t1, art (a canvas from props.js, or an AI drawing's texture) }].
 // Returns update(t): scenes call it every frame (extra arguments from older scenes are ignored).
 export function thoughts(group, list) {
@@ -33,9 +57,11 @@ export function thoughts(group, list) {
     const el = document.createElement('div');
     el.className = 'thought';
     const img = document.createElement('img'); img.src = source(art); img.alt = ''; el.appendChild(img);
+    const box = inkBox(art);
+    if (box) Object.assign(img.style, { width: `${100 / box.w}%`, height: `${100 / box.h}%`, left: `${-100 * box.x / box.w}%`, top: `${-100 * box.y / box.h}%`, objectFit: 'fill' });
     const trail = [0, 1, 2].map(() => { const b = document.createElement('div'); b.className = 'thought-dot'; layer.appendChild(b); return b; });
     layer.appendChild(el);
-    const card = { el, trail, open: 0, place: null, group, dots: [] };
+    const card = { el, trail, open: 0, place: null, group, dots: [], aspect: box?.aspect ?? 1024 / 720 };
     ALL.add(card);
     return { t0, t1, card };
   });
@@ -61,10 +87,12 @@ export function layoutThoughts(view, alice) {
     const replace = !c.place || (c.covering && now - c.covering > 500);
     if (replace) {
       const narrow = view.w < 600;
-      let w = Math.min(view.w * (narrow ? 0.62 : 0.4), 420, view.h * (narrow ? 0.72 : 0.5) * (1024 / 720));
+      let w = Math.min(view.w * (narrow ? 0.62 : 0.4), 420, view.h * (narrow ? 0.72 : 0.5) * c.aspect);
+      // About the same area whatever the oval's shape.
+      w *= Math.min(1, Math.sqrt(c.aspect / (1024 / 720)));
       let spot = null;
-      for (let tries = 0; tries < 4 && !spot; tries++, w *= 0.85) spot = findSpot(view, w, w * 720 / 1024, taken, alice);
-      if (!spot) { w = Math.min(view.w * 0.3, 260); spot = { x: view.x + 8, y: view.y + 8, w, h: w * 720 / 1024 }; }
+      for (let tries = 0; tries < 4 && !spot; tries++, w *= 0.85) spot = findSpot(view, w, w / c.aspect, taken, alice);
+      if (!spot) { w = Math.min(view.w * 0.3, 260); spot = { x: view.x + 8, y: view.y + 8, w, h: w / c.aspect }; }
       c.from = c.place ? { ...shown(c, now) } : null;
       c.place = spot; c.movedAt = now; c.covering = null;
       // The trail: from the oval toward where her head is now, fixed with the bubble.
