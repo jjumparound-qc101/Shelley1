@@ -6,7 +6,22 @@ import { cameraTrack, smooth, lerp } from './track.js';
 import { thoughts } from './thoughts.js';
 import { vignette } from './vignettes.js';
 import { CAST } from './cast.js';
-import { placeProps, heldProps } from './props.js';
+import { placeProps, heldProps, PROPS } from './props.js';
+
+// A room's AI wall drawings are already furnished, so a cut-out of ordinary furniture standing in
+// front of them only doubles what is drawn. It stays only where the staging uses it: someone sits,
+// lies or stands at it, or the scene's table-top props are set on it. Story pieces (bars, dock,
+// slab, coffin, lab bench, guitar) always stay. (Owner, 2026-10-16.)
+const COMMON = new Set(['desk', 'table', 'chair', 'bench', 'bed', 'shelf']);
+const TOPS = ['desk', 'table', 'bench', 'slab', 'lab'];
+function inUse(d) {
+  const used = new Set();
+  for (const c of Object.values(d.cast ?? {})) if (typeof c.at === 'string') used.add(c.at);
+  for (const b of d.beats ?? []) if (typeof b.to === 'string') used.add(b.to);
+  const all = d.set.furniture ?? [], name = (f) => (Array.isArray(f) ? f[0] : f);
+  if ((d.props ?? []).some(([p]) => PROPS[p]?.[0] === 't')) used.add(TOPS.find((t) => all.some((f) => name(f) === t)));
+  return all.filter((f) => !COMMON.has(name(f)) || used.has(name(f)));
+}
 import { hatch, blob, fillPaper, outline } from './ink.js';
 
 // A cue: "word", "word#2" (2nd), "word+1.5" / "word#2-0.8" (seconds after or before),
@@ -54,7 +69,7 @@ export function sceneFromData(d, index, sectionId) {
     build({ group, ai, cue }) {
       const t0 = index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0);
       const T = (spec) => resolveCue(cue, spec, t0);
-      const set = buildSet(group, ai, d.set, art);
+      const set = buildSet(group, ai, d.set?.kind === 'room' && ai[`sets/${art}/wall_back`] ? { ...d.set, furniture: inUse(d) } : d.set, art);
       placeProps(group, ai, set, d.set?.kind, (d.props ?? []).map(([n]) => n));
       const M = (name) => (typeof name === 'object' ? { ...name, x: name.x * (set.sx ?? 1) } : set.marks[name] ?? set.marks.C); // a room draws spots in (ROOM_SX)
 

@@ -227,7 +227,7 @@ export function buildLodging(group, ai = {}) {
   const glow = halo('#fff6dd', 0.9, 0.55); glow.position.set(DESK.x - 0.55, 1.12, DESK.z - 0.08); group.add(glow);
   const fall = snow(group);
   return {
-    sledge, glow,
+    sledge, glow, desk: deskFlat, chair: chairFlat,
     update(t) { fall(t); glow.material.opacity = 0.5 + 0.06 * Math.sin(t * 7.3) * Math.sin(t * 3.1); },
     bounds: { minX: -3.6, maxX: 3.6, minZ: -3.6, maxZ: 1.6 },
     hotspots: [
