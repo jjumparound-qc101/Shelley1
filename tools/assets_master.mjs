@@ -21,7 +21,7 @@ const have = new Set(fs.existsSync('public/art/ai/index.json') ? JSON.parse(fs.r
 const LETTER1 = [{
   id: 'lodging', art: 'walton_petersburgh', hero: 'walton',
   set: { kind: 'room', wall: 'plaster', floor: 'boards', window: true, view: 'town', weather: 'snow', furniture: ['desk', 'chair', 'shelf'] },
-  setNote: 'Walton\'s lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall.',
+  setNote: 'Walton\'s lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a chart of the northern seas on the wall. No desk, chair, candle or writing things in the wall drawings: the desk and chair stand on the stage in front of them.',
   cast: { walton: { pose: 'stand' } }, beats: [{ who: 'walton', pose: 'back' }, { who: 'walton', pose: 'write' }],
   props: [['sledge', 'a Russian sledge with its horse and a driver wrapped in furs, flying over the snow']],
   thoughts: ['the sun is for ever visible, its broad disk just skirting the horizon', 'the wondrous power which attracts the needle', 'the whale-fishers on an expedition to the North Sea'],
