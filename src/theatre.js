@@ -139,7 +139,7 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
     // their heads over the hall's stage front.
     const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 7.2, seatsH = seatsW / sa;
     const seats = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false });
-    seats.position.set(0, 2.0 - seatsH, 10.5);
+    seats.position.set(0, 2.25 - seatsH, 10.5);
     // Dark stalls behind the chair backs, so no paper shows between their legs or past the row's ends.
     const stalls = new THREE.Mesh(new THREE.PlaneGeometry(seatsW * 3, seatsH * 0.45), new THREE.MeshBasicMaterial({ color: '#2b2723' }));
     stalls.position.set(0, seats.position.y + seatsH * 0.225, 10.55); group.add(stalls);
