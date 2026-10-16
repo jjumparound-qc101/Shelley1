@@ -464,7 +464,7 @@ Reply "ready" and wait for my first request.
   > A poor house in a mean street near the Reuss in Lucerne, where the ruined merchant Beaufort lives unknown and in wretchedness with his daughter Caroline. Draw the view through the window: town, clouds, filling the whole image edge to edge.
 
 ### belrive
-- [x] `sets/belrive/far.png` made: yes · in game: yes · online: yes. (1536x1024) belrive: far. _Chapter 1: Henry Clerval; Chapter 1: The blasted oak; Chapter 8: The house of mourning_
+- [x] `sets/belrive/far.png` made: yes · in game: yes · online: yes. (1536x1024) belrive: far. _Chapter 1: Henry Clerval; Chapter 1: The blasted oak_
   > A garden by the Lake of Geneva on a summer afternoon, where the children play: the mountains beyond the water. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.
 
 ### thonon_inn
@@ -478,13 +478,13 @@ Reply "ready" and wait for my first request.
   > The inn at the baths near Thonon, where the inclemency of the weather keeps the family indoors for a day; an old shelf of forgotten books. Draw the view through the window: lake, storm, filling the whole image edge to edge.
 
 ### belrive_room
-- [x] `sets/belrive_room/wall_back.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall back. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle_
+- [x] `sets/belrive_room/wall_back.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall back. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning_
   > Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the back wall (panel, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).
-- [x] `sets/belrive_room/wall_left.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall left. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle_
+- [x] `sets/belrive_room/wall_left.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall left. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning_
   > Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).
-- [x] `sets/belrive_room/wall_right.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall right. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle_
+- [x] `sets/belrive_room/wall_right.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: wall right. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning_
   > Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).
-- [x] `sets/belrive_room/view.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: view. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle_
+- [x] `sets/belrive_room/view.png` made: yes · in game: yes · online: yes. (1536x1024) belrive_room: view. _Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning_
   > Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the view through the window: lake, night, filling the whole image edge to edge.
 
 ### geneva_bedroom
@@ -960,22 +960,22 @@ Reply "ready" and wait for my first request.
   > A plain wooden table. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/shelf.png` made: yes · in game: yes · online: yes. (1024x1024) shelf (furniture). _used in 11 places_
   > A bookcase full of old books. One piece, whole, on white, as a cut-out for a toy theatre.
+- [x] `sets/common/desk.png` made: yes · in game: yes · online: yes. (1024x1024) desk (furniture). _used in 10 places_
+  > A writing desk with a candle, papers and a quill. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/bed.png` made: yes · in game: yes · online: yes. (1024x1024) bed (furniture). _used in 9 places_
   > A curtained bed of the 1790s, side view. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/bench.png` made: yes · in game: yes · online: yes. (1024x1024) bench (furniture). _used in 11 places_
   > A long wooden bench. One piece, whole, on white, as a cut-out for a toy theatre.
-- [x] `sets/common/desk.png` made: yes · in game: yes · online: yes. (1024x1024) desk (furniture). _used in 10 places_
-  > A writing desk with a candle, papers and a quill. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/rocks.png` made: yes · in game: yes · online: yes. (1536x1024) rocks (scenery). _used in 16 places_
   > A group of rugged rocks and boulders, as a cut-out stage flat. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/church.png` made: yes · in game: yes · online: yes. (1536x1024) church (scenery). _used in 10 places_
   > A small stone church with a steeple. One piece, whole, on white, as a cut-out for a toy theatre.
-- [x] `sets/common/wall.png` made: yes · in game: yes · online: yes. (1536x1024) wall (scenery). _used in 5 places_
-  > A length of old stone wall. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/cottage.png` made: yes · in game: yes · online: yes. (1536x1024) cottage (scenery). _used in 9 places_
   > A small, low, thatched country cottage seen from the front. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/boat.png` made: yes · in game: yes · online: yes. (1536x1024) boat (scenery). _used in 8 places_
   > A small sailing boat on the shore. One piece, whole, on white, as a cut-out for a toy theatre.
+- [x] `sets/common/wall.png` made: yes · in game: yes · online: yes. (1536x1024) wall (scenery). _used in 5 places_
+  > A length of old stone wall. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/hovel.png` made: yes · in game: yes · online: yes. (1536x1024) hovel (scenery). _used in 5 places_
   > A low lean-to hovel of wood against a cottage wall, with a tiny door. One piece, whole, on white, as a cut-out for a toy theatre.
 - [x] `sets/common/glacier.png` made: yes · in game: yes · online: yes. (1536x1024) glacier (scenery). _used in 6 places_

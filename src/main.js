@@ -181,16 +181,22 @@ async function main() {
     camera.rotateX(nudge.pitch);
   }
   // The picture free of the text strip and the controls, for the thought bubbles.
+  // The picture less the text and controls. The text box grows and shrinks with each sentence, so
+  // the space kept for it is its full height (22% of the screen at most, style.css), and a thought
+  // placed beside it stays clear of it whatever is said next.
   function freeView() {
     const pic = renderer.domElement.getBoundingClientRect();
-    let top = pic.top, bottom = pic.bottom;
+    let top = pic.top, bottom = pic.bottom, left = pic.left, right = pic.right;
+    const full = innerHeight * 0.22;
     for (const id of ['page', 'controls', 'timeline']) {
-      const el = document.getElementById(id); if (!el || el.offsetParent === null) continue;
+      const el = document.getElementById(id); if (!el || getComputedStyle(el).display === 'none') continue; // (offsetParent is always null for these fixed boxes)
       const r = el.getBoundingClientRect(); if (r.height === 0 || r.width < innerWidth * 0.3) continue;
       if (r.top >= pic.bottom || r.bottom <= pic.top) continue; // not over the picture
-      if (r.top > pic.top + pic.height * 0.45) bottom = Math.min(bottom, r.top - 6); else if (r.bottom < pic.top + pic.height * 0.55) top = Math.max(top, r.bottom + 6);
+      if (r.height > pic.height * 0.5) { if (r.left > pic.left + pic.width / 2) right = Math.min(right, r.left - 6); else left = Math.max(left, r.right + 6); continue; } // text at the side
+      const h = id === 'page' ? Math.max(r.height, full) : r.height;
+      if (r.top > pic.top + pic.height * 0.45) bottom = Math.min(bottom, r.bottom - h - 6); else if (r.bottom < pic.top + pic.height * 0.55) top = Math.max(top, r.top + h + 6);
     }
-    return { x: pic.left, y: top, w: pic.width, h: Math.max(80, bottom - top) };
+    return { x: left, y: top, w: right - left, h: Math.max(80, bottom - top) };
   }
 
   // The cast. Placeholder figures drawn in code (figures.js) until the AI drawings arrive;

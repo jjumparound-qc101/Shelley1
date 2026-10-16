@@ -56,7 +56,7 @@ export function sceneFromData(d, index, sectionId) {
       const T = (spec) => resolveCue(cue, spec, t0);
       const set = buildSet(group, ai, d.set, art);
       placeProps(group, ai, set, d.set?.kind, (d.props ?? []).map(([n]) => n));
-      const M = (name) => (typeof name === 'object' ? name : set.marks[name] ?? set.marks.C);
+      const M = (name) => (typeof name === 'object' ? { ...name, x: name.x * (set.sx ?? 1) } : set.marks[name] ?? set.marks.C); // a room draws spots in (ROOM_SX)
 
       // ---- The cast: a list of timed events per person.
       const tracks = {};

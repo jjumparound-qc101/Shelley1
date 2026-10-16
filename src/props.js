@@ -75,7 +75,7 @@ export function placeProps(group, ai, set, kind, names) {
   const furn = Object.entries(set.spots ?? {}).filter(([n]) => TOP[n]).sort((a, b) => Object.keys(TOP).indexOf(a[0]) - Object.keys(TOP).indexOf(b[0]))[0];
   const tops = names.filter((n) => PROPS[n]?.[0] === 't').length;
   const clear = (x, z) => Object.values(set.spots ?? {}).every((s) => Math.hypot(s.x - x, s.z - z) > 1.3);
-  const floorSlots = (kind === 'room' ? ROOM_FLOOR : OUT_FLOOR).filter(([x, z]) => clear(x, z));
+  const sx = set.sx ?? 1, floorSlots = (kind === 'room' ? ROOM_FLOOR : OUT_FLOOR).map(([x, z]) => [x * sx, z]).filter(([x, z]) => clear(x, z));
   for (const name of names) {
     const art = ai[`props/${name}`], tex = art?.tex;
     if (!tex || !propPlaced(name, kind) || HELD[name]) continue;
@@ -86,22 +86,22 @@ export function placeProps(group, ai, set, kind, names) {
     }
     if (WINDOW[name]) { // just in front of the view, so it shows through the window
       const v = paperFlat(tex, WINDOW[name] * (art.aspect ?? 1), WINDOW[name], { edge: false });
-      v.position.set(2.0, 1.1, (set.back ?? -4.2) - 2.9); group.add(v); continue;
+      v.position.set(2.0 * sx, 1.1, (set.back ?? -4.2) - 2.9); group.add(v); continue;
     }
     if (k === 't' && !furn) k = 'f';
     const w = h * (art.aspect ?? 1);
     const flat = paperFlat(tex, w, h);
     if (k === 't') {
       const [fn, s] = furn, i = used.t++;
-      flat.position.set(s.x + (i - (tops - 1) / 2) * 0.4, (set.furnH?.[fn] ?? 1) * TOP[fn], s.z + 0.04);
+      flat.position.set(s.x + (i - (tops - 1) / 2) * 0.3, (set.furnH?.[fn] ?? 1) * TOP[fn], s.z + 0.04);
     } else if (k === 'w') {
       const i = used.w++;
-      flat.position.set(-1.6 + i * 1.2, 1.5, (set.back ?? -4.2) + 0.03);
+      flat.position.set((-1.6 + i * 1.2) * sx, 1.5, (set.back ?? -4.2) + 0.03);
     } else if (k === 'b') {
       const i = used.b++, [x, z] = h >= 4 ? [i % 2 ? 7 : -7, -15] : OUT_FAR[i % OUT_FAR.length];
       flat.position.set(x, 0, z);
     } else {
-      const i = used.f++, slots = floorSlots.length ? floorSlots : kind === 'room' ? ROOM_FLOOR : OUT_FLOOR, [x, z] = slots[i % slots.length];
+      const i = used.f++, slots = floorSlots.length ? floorSlots : (kind === 'room' ? ROOM_FLOOR : OUT_FLOOR).map(([x, z]) => [x * sx, z]), [x, z] = slots[i % slots.length];
       flat.position.set(x + Math.floor(i / slots.length) * 0.5, 0, z);
     }
     group.add(flat);

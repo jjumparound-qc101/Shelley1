@@ -2156,7 +2156,7 @@
    "size": "1536x1024",
    "title": "belrive: far",
    "prompt": "A garden by the Lake of Geneva on a summer afternoon, where the children play: the mountains beyond the water. Draw the far scenery strip: alps, clouds, sky included, filling the whole image edge to edge.",
-   "note": "Chapter 1: Henry Clerval; Chapter 1: The blasted oak; Chapter 8: The house of mourning",
+   "note": "Chapter 1: Henry Clerval; Chapter 1: The blasted oak",
    "done": true,
    "game": true,
    "online": true
@@ -2216,7 +2216,7 @@
    "size": "1536x1024",
    "title": "belrive_room: wall back",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the back wall (panel, with a window, fireplace), filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
-   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
+   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning",
    "done": true,
    "game": true,
    "online": true
@@ -2228,7 +2228,7 @@
    "size": "1536x1024",
    "title": "belrive_room: wall left",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
-   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
+   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning",
    "done": true,
    "game": true,
    "online": true
@@ -2240,7 +2240,7 @@
    "size": "1536x1024",
    "title": "belrive_room: wall right",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
-   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
+   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning",
    "done": true,
    "game": true,
    "online": true
@@ -2252,7 +2252,7 @@
    "size": "1536x1024",
    "title": "belrive_room: view",
    "prompt": "Victor's corner of the family house by candlelight, the desk piled with the old books of Agrippa, Paracelsus and Albertus Magnus. Draw the view through the window: lake, night, filling the whole image edge to edge.",
-   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle",
+   "note": "Chapter 1: The elixir of life; Chapter 1: Our domestic circle; Chapter 8: The house of mourning",
    "done": true,
    "game": true,
    "online": true
@@ -4283,6 +4283,17 @@
   },
   {
    "group": "Props",
+   "file": "sets/common/desk",
+   "size": "1024x1024",
+   "title": "desk (furniture)",
+   "prompt": "A writing desk with a candle, papers and a quill. One piece, whole, on white, as a cut-out for a toy theatre.",
+   "note": "used in 10 places",
+   "done": true,
+   "game": true,
+   "online": true
+  },
+  {
+   "group": "Props",
    "file": "sets/common/bed",
    "size": "1024x1024",
    "title": "bed (furniture)",
@@ -4299,17 +4310,6 @@
    "title": "bench (furniture)",
    "prompt": "A long wooden bench. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 11 places",
-   "done": true,
-   "game": true,
-   "online": true
-  },
-  {
-   "group": "Props",
-   "file": "sets/common/desk",
-   "size": "1024x1024",
-   "title": "desk (furniture)",
-   "prompt": "A writing desk with a candle, papers and a quill. One piece, whole, on white, as a cut-out for a toy theatre.",
-   "note": "used in 10 places",
    "done": true,
    "game": true,
    "online": true
@@ -4338,17 +4338,6 @@
   },
   {
    "group": "Props",
-   "file": "sets/common/wall",
-   "size": "1536x1024",
-   "title": "wall (scenery)",
-   "prompt": "A length of old stone wall. One piece, whole, on white, as a cut-out for a toy theatre.",
-   "note": "used in 5 places",
-   "done": true,
-   "game": true,
-   "online": true
-  },
-  {
-   "group": "Props",
    "file": "sets/common/cottage",
    "size": "1536x1024",
    "title": "cottage (scenery)",
@@ -4365,6 +4354,17 @@
    "title": "boat (scenery)",
    "prompt": "A small sailing boat on the shore. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 8 places",
+   "done": true,
+   "game": true,
+   "online": true
+  },
+  {
+   "group": "Props",
+   "file": "sets/common/wall",
+   "size": "1536x1024",
+   "title": "wall (scenery)",
+   "prompt": "A length of old stone wall. One piece, whole, on white, as a cut-out for a toy theatre.",
+   "note": "used in 5 places",
    "done": true,
    "game": true,
    "online": true

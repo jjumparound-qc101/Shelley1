@@ -5,9 +5,12 @@ import * as THREE from 'three';
 import { paperFlat, halo } from '../stage.js';
 import { canvas, texture, hatch, outline, fillPaper, grain, blob, rng, INK, PAPER } from '../ink.js';
 
-export const ROOM = { w: 8.4, d: 6.4, h: 4.6, back: -4.2 };
-export const WINDOW = { x0: 0.8, x1: 2.6, y0: 0.95, y1: 3.45 }; // in the back wall, metres
-export const DESK = { x: -1.9, z: -2.75 };
+// Sized to the AI wall drawings, as the library's rooms are (src/sets/library.js, buildRoom): a
+// 3.4 m wall, the 3:2 picture hung 3.9 m high and sunk 0.5 m so its drawn floor meets the stage floor.
+export const ROOM = { w: 5.85, d: 6.4, h: 3.4, back: -4.2 };
+const DRAWN_H = 3.9, SINK = 0.5;
+export const WINDOW = { x0: 0.55, x1: 1.8, y0: 0.8, y1: 2.9 }; // in the back wall, metres
+export const DESK = { x: -1.35, z: -2.75 };
 
 const PXM = 120;
 // The master drawings use the asset list's names (sets/walton_petersburgh/..., the shared furniture).
@@ -203,11 +206,13 @@ export function buildLodging(group, ai = {}) {
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: pick(ai, 'ceiling', ceiling) }));
   ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
-  const bw = paperFlat(pick(ai, 'wall_back', backWall), w, h, { edge: false });
-  bw.position.set(0, 0, back); group.add(bw);
+  const drawn = (name) => !!(ai[`l01/${name}`] ?? ai[AI_NAME[name]]);
+  const bw = paperFlat(pick(ai, 'wall_back', backWall), w, drawn('wall_back') ? DRAWN_H : h, { edge: false });
+  bw.position.set(0, drawn('wall_back') ? -SINK : 0, back); group.add(bw);
   for (const s of [-1, 1]) {
-    const sw = paperFlat(pick(ai, s < 0 ? 'wall_left' : 'wall_right', () => sideWall(510 + s * 7, s > 0)), d, h, { edge: false });
-    sw.rotation.y = -s * Math.PI / 2; sw.position.set(s * w / 2, 0, back + d / 2); group.add(sw);
+    const n = s < 0 ? 'wall_left' : 'wall_right';
+    const sw = paperFlat(pick(ai, n, () => sideWall(510 + s * 7, s > 0)), d, drawn(n) ? DRAWN_H : h, { edge: false });
+    sw.rotation.y = -s * Math.PI / 2; sw.position.set(s * w / 2, drawn(n) ? -SINK : 0, back + d / 2); group.add(sw);
   }
   const st = paperFlat(pick(ai, 'street', street), 9, 9 * 1400 / 2400, { edge: false, opaque: true });
   st.position.set((WINDOW.x0 + WINDOW.x1) / 2, 0, back - 3.0); group.add(st); // the road just below the sill line

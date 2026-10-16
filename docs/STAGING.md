@@ -48,7 +48,7 @@ The section audio has 5 s of quiet before the first word.
   weather: 'snow'|'storm'|'night'|'moon'|'clouds', door: 'left'|'right'|'back', fire: 'back'|'left'|'right',
   shelf: true, furniture: [...], light: 'day'|'candle'|'night' }`
   Furniture: desk, table, chair, bed, bench, shelf, lab, slab, dock, bars, coffin, guitar; each as a
-  name or `[name, { x, z }]` (room is 8.4 m wide, x -4..4; back wall at z -4.2, front at z 2).
+  name or `[name, { x, z }]` (positions are written for an 8.4 m room, x -4..4; back wall at z -4.2, front at z 2. The room is built 5.85 m wide and 3.4 m high to match its wall drawings, so every x is drawn in by 0.7: ROOM_SX in src/sets/library.js).
 - Outdoor: `{ kind: 'outdoor', ground: 'grass'|'snow'|'ice'|'rock'|'sand'|'street'|'water'|'deck'|'earth',
   far: 'alps'|'glacier'|'hills'|'sea'|'lake'|'ice'|'town'|'forest', mid: [...], wings: 'trees'|'rocks'|null,
   weather: ..., light }` Mid pieces: trees, cottage, hovel, church, rocks, boat, ship, glacier, wall,
