@@ -218,20 +218,25 @@ export function buildLodging(group, ai = {}) {
   st.position.set((WINDOW.x0 + WINDOW.x1) / 2, 0, back - 3.0); group.add(st); // the road just below the sill line
   const sledge = paperFlat(pick(ai, 'sledge', sledgeArt), 1.9, 1.9 * 420 / 900, { edge: false });
   sledge.position.set(-6, 0.5, back - 2.4); sledge.visible = false; group.add(sledge);
-  const chairFlat = paperFlat(pick(ai, 'chair', chair), 0.62, 1.2);
+  // The AI desk and chair keep their drawn shape: the desk 1.15 m high to the top of its candle,
+  // its writing top at 0.76 m (it was squashed into the code desk's box, its top too low to write at).
+  const aiDesk = !!(ai['l01/desk'] ?? ai[AI_NAME.desk]), deskA = (ai['l01/desk'] ?? ai[AI_NAME.desk])?.aspect ?? 1;
+  const chairA = (ai['l01/chair'] ?? ai[AI_NAME.chair])?.aspect ?? 0.57;
+  const chairFlat = aiDesk ? paperFlat(pick(ai, 'chair', chair), 1.0 * chairA, 1.0) : paperFlat(pick(ai, 'chair', chair), 0.62, 1.2);
   chairFlat.position.set(DESK.x, 0, DESK.z - 0.55); group.add(chairFlat);
-  const deskFlat = paperFlat(pick(ai, 'desk', desk), 1.75, 0.98);
+  const deskFlat = aiDesk ? paperFlat(pick(ai, 'desk', desk), 1.15 * deskA, 1.15) : paperFlat(pick(ai, 'desk', desk), 1.75, 0.98);
   deskFlat.position.set(DESK.x, 0, DESK.z); group.add(deskFlat);
-  const candleFlat = paperFlat(pick(ai, 'candle', candle), 0.1, 0.3, { edge: false });
-  candleFlat.position.set(DESK.x - 0.55, 0.87, DESK.z - 0.05); group.add(candleFlat);
-  const glow = halo('#fff6dd', 0.9, 0.55); glow.position.set(DESK.x - 0.55, 1.12, DESK.z - 0.08); group.add(glow);
+  // The drawn desk has its own candle (at its right); the code candle stands in only without it.
+  const flame = aiDesk ? [DESK.x + 0.3 * 1.15 * deskA, 1.06] : [DESK.x - 0.55, 1.12];
+  if (!aiDesk) { const candleFlat = paperFlat(pick(ai, 'candle', candle), 0.1, 0.3, { edge: false }); candleFlat.position.set(DESK.x - 0.55, 0.87, DESK.z - 0.05); group.add(candleFlat); }
+  const glow = halo('#fff6dd', 0.9, 0.55); glow.position.set(flame[0], flame[1], DESK.z - 0.08); group.add(glow);
   const fall = snow(group);
   return {
     sledge, glow, desk: deskFlat, chair: chairFlat,
     update(t) { fall(t); glow.material.opacity = 0.5 + 0.06 * Math.sin(t * 7.3) * Math.sin(t * 3.1); },
     bounds: { minX: -3.6, maxX: 3.6, minZ: -3.6, maxZ: 1.6 },
     hotspots: [
-      { id: 'letter', pos: new THREE.Vector3(DESK.x, 0.95, DESK.z), title: 'The letter',
+      { id: 'letter', pos: new THREE.Vector3(DESK.x, 0.8, DESK.z), title: 'The letter',
         text: '“You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.”' },
       { id: 'window', pos: new THREE.Vector3((WINDOW.x0 + WINDOW.x1) / 2, 1.8, back + 0.1), title: 'The window',
         text: '“I feel a cold northern breeze play upon my cheeks, which braces my nerves and fills me with delight.”' },

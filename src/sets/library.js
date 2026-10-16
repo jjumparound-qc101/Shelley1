@@ -191,6 +191,7 @@ function tiledPlane(w, d, size, tex) {
   }
   return geo;
 }
+const midArt = (ai, art, name) => ai[`sets/${art}/${name}`] ?? ai[`sets/common/${name}`];
 const aiArt = (ai, art, piece, common) => ai[`sets/${art}/${piece}`]?.tex ?? (common ? ai[`sets/common/${common}`]?.tex : undefined);
 
 // Room size. The AI wall drawings (3:2) show a wall about 3.4 m high from floor to ceiling, with
@@ -199,6 +200,12 @@ const aiArt = (ai, art, piece, common) => ai[`sets/${art}/${piece}`]?.tex ?? (co
 // (not stretched), sunk so its drawn floor line meets the stage floor. The stage was laid out for
 // an 8.4 m room, so positions across it (marks, furniture, props, explicit spots) are drawn in
 // by ROOM_SX; front to back is unchanged. (Owner, 2026-10-16: people looked small in a giant's house.)
+// The AI furniture drawings (sets/common/<name>): [their full height on stage in metres, the
+// height of the surface things stand on as a share of it]. A desk's top is at 0.76 m, a table's at 0.75.
+const DRAWN_FURN = {
+  desk: [1.15, 0.66], table: [0.85, 0.88], chair: [1.0], bed: [2.2], bench: [1.0, 0.45], shelf: [2.1],
+  coffin: [0.8], lab: [1.7, 0.55], slab: [0.9, 0.8], dock: [1.1], bars: [3.1], guitar: [0.95],
+};
 const WALL_H = 3.9, WALL_SINK = 0.5, ROOM_W = WALL_H * 1.5;
 export const ROOM_SX = ROOM_W / 8.4;
 export function buildRoom(group, ai, spec, art) {
@@ -233,16 +240,20 @@ export function buildRoom(group, ai, spec, art) {
     if (spec.weather === 'snow') update = snowfall(group, { x0: -1, x1: 4.5, z0: back - 2.8, z1: back - 0.3, n: 220 });
     if (spec.weather === 'storm') { const l = lightning(group, 12, back - 3.0); update = l; }
   }
-  const spots = {}, furnH = {};
+  const spots = {}, furnH = {}, topH = {};
   for (const f of spec.furniture ?? []) {
     const [name, at] = Array.isArray(f) ? f : [f, null];
     const P = furniturePiece(name); if (!P) continue;
     const [cv, fw, fh, def] = P;
     const spot = { ...def, ...(at ?? {}) }; spot.x *= k;
-    const flat = paperFlat(aiArt(ai, art, name, name) ?? texture(cv), fw, fh);
+    // An AI drawing keeps its own shape (stretching it to the code piece's box squashed the desk
+    // and stretched beds and benches to twice their width): set to its real height, its width follows.
+    const key = ai[`sets/${art}/${name}`] ? `sets/${art}/${name}` : `sets/common/${name}`, drawn = ai[key];
+    const ph = drawn ? DRAWN_FURN[name]?.[0] ?? fh : fh, pw = drawn ? ph * (drawn.aspect ?? fw / fh) : fw;
+    const flat = paperFlat(drawn?.tex ?? texture(cv), pw, ph);
     flat.position.set(spot.x, 0, spot.z); group.add(flat);
-    spots[name] = spot; furnH[name] = fh;
-    if (name === 'desk' || name === 'table') { const g2 = halo('#fff6dd', 0.8, spec.light === 'candle' || spec.light === 'night' ? 0.5 : 0); g2.position.set(spot.x - 0.5, fh + 0.2, spot.z - 0.05); group.add(g2); }
+    spots[name] = spot; furnH[name] = ph; if (drawn && DRAWN_FURN[name]?.[1]) topH[name] = ph * DRAWN_FURN[name][1];
+    if (name === 'desk' || name === 'table') { const g2 = halo('#fff6dd', 0.8, spec.light === 'candle' || spec.light === 'night' ? 0.5 : 0); g2.position.set(drawn && name === 'desk' ? spot.x + 0.28 * pw : spot.x - 0.5, drawn && name === 'desk' ? ph * 0.9 : ph + 0.2, spot.z - 0.05); group.add(g2); } // the drawn desk has its candle at the right
   }
   const marks = {
     C: { x: 0, z: -2.2 }, L: { x: -2.0 * k, z: -2.1 }, R: { x: 2.0 * k, z: -2.1 }, BL: { x: -2.4 * k, z: -3.4 }, BR: { x: 2.4 * k, z: -3.4 }, BC: { x: 0, z: -3.5 },
@@ -253,7 +264,7 @@ export function buildRoom(group, ai, spec, art) {
   };
   for (const [name, s] of Object.entries(spots)) marks[name] = name === 'bed' || name === 'slab' || name === 'coffin' ? { x: s.x, z: s.z, y: 0.55 } : { x: s.x + 0.9 * k, z: s.z - 0.2 };
   return {
-    marks, spots, furnH, back, update, w, depth: d, sx: k,
+    marks, spots, furnH, topH, back, update, w, depth: d, sx: k,
     bounds: { minX: -w / 2 + 0.6, maxX: w / 2 - 0.6, minZ: back + 0.6, maxZ: 1.6 },
     cam: { minX: -w / 2 + 0.4, maxX: w / 2 - 0.4, minZ: back + 0.6, maxZ: 1.8, maxY: h - 0.3 },
     shots: { wide: { pos: [0, 1.85, 1.2], look: [0, 1.3, -4] }, high: { pos: [0, 3.2, 1.0], look: [0, 0.6, -3] } },
@@ -278,14 +289,14 @@ export function buildOutdoor(group, ai, spec, art) {
   for (const [i, m] of (spec.mid ?? []).entries()) {
     const [name, at] = Array.isArray(m) ? m : [m, null];
     const P = MID[name]; if (!P) continue;
-    const [cv, mw, mh] = P();
-    const flat = paperFlat(aiArt(ai, art, name, name) ?? texture(cv), mw, mh);
+    const [cv, mw, mh] = P(), a = midArt(ai, art, name);
+    const flat = paperFlat(a?.tex ?? texture(cv), a ? mh * a.aspect : mw, mh); // a drawing keeps its own shape
     const spot = at ?? { x: (i % 2 ? 1 : -1) * (4 + r() * 3), z: -7 - r() * 4 };
     flat.position.set(spot.x, spot.y ?? 0, spot.z); if (spot.flip) flat.scale.x = -1; group.add(flat);
   }
   // Wings: trees or rocks at the sides hide the edges of the set.
   const wing = spec.wings ?? (spec.ground === 'ice' || spec.ground === 'snow' || spec.ground === 'water' || spec.ground === 'deck' ? null : 'trees');
-  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](); const f = paperFlat(aiArt(ai, art, wing, wing) ?? texture(cv), mw, mh); f.position.set(x, 0, z); f.scale.x = s; f.rotation.y = s * 0.8; group.add(f); } // turned in, never seen edge on
+  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](), a = midArt(ai, art, wing); const f = paperFlat(a?.tex ?? texture(cv), a ? mh * a.aspect : mw, mh); f.position.set(x, 0, z); f.scale.x = s; f.rotation.y = s * 0.8; group.add(f); } // turned in, never seen edge on
   let fx = () => {};
   if (spec.weather === 'snow') fx = snowfall(group);
   if (spec.weather === 'storm') fx = lightning(group, 44, -20);

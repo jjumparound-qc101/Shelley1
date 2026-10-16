@@ -93,7 +93,7 @@ export function placeProps(group, ai, set, kind, names) {
     const flat = paperFlat(tex, w, h);
     if (k === 't') {
       const [fn, s] = furn, i = used.t++;
-      flat.position.set(s.x + (i - (tops - 1) / 2) * 0.3, (set.furnH?.[fn] ?? 1) * TOP[fn], s.z + 0.04);
+      flat.position.set(s.x + (i - (tops - 1) / 2) * 0.3, set.topH?.[fn] ?? (set.furnH?.[fn] ?? 1) * TOP[fn], s.z + 0.04);
     } else if (k === 'w') {
       const i = used.w++;
       flat.position.set((-1.6 + i * 1.2) * sx, 1.5, (set.back ?? -4.2) + 0.03);

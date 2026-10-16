@@ -3,16 +3,21 @@
 // the aisle and on through the toy stage into the scene (as the Alice game opens).
 // All drawn in code for now; the AI drawings replace each piece by name when they arrive
 // (`ai.theatre_house`, `ai.theatre_seats`, `ai.proscenium`).
+import * as THREE from 'three';
 import { paperFlat } from './stage.js';
 import { proscenium } from './art.js';
 import { canvas, texture, hatch, outline, fillPaper, grain, blob, INK, PAPER } from './ink.js';
 
-// The toy front: 12 x 7.2 m at z = 2.2, its opening 8.4 x 4.6 m.
+// The toy front: 12 x 7.2 m at z = 2.2, its opening 8.4 x 4.6 m, as laid out for an 8.4 m room.
+// The rooms are now 5.85 m wide (src/sets/library.js, ROOM_SX), so the whole theatre is built at
+// K = 0.7 of that about the toy front's plane: its opening fits the room, nothing shows around it.
 export const PROS = { w: 12, h: 7.2, z: 2.2, open: { w: 8.4, h: 4.6, cy: 2.55 } };
+const K = 0.7;
+const at = ([x, y, z]) => [x * K, y * K, PROS.z + (z - PROS.z) * K];
 // The opening shot, from the stalls (scenes start their camera here).
-export const SEAT = { pos: [0, 2.0, 17.5], look: [0, 1.6, -3] };
+export const SEAT = { pos: at([0, 2.0, 17.5]), look: at([0, 1.6, -3]) };
 // Over the heads, up the aisle, just short of the toy front.
-export const AISLE = { pos: [0, 1.9, 11.0], look: [0, 1.5, -3] };
+export const AISLE = { pos: at([0, 1.9, 11.0]), look: at([0, 1.5, -3]) };
 
 const HOUSE = { w: 26, h: 15, y0: -3, z: 2.3 }; // the auditorium's front, around the toy front
 const PXM = 100; // canvas pixels per metre
@@ -105,7 +110,8 @@ function seatsArt() {
 }
 
 // Builds the theatre into a scene's group. title/sub: lettered on the toy front.
-export function buildTheatre(group, ai = {}, { title = 'FRANKENSTEIN', sub = '' } = {}) {
+export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' } = {}) {
+  const group = new THREE.Group(); group.scale.setScalar(K); group.position.z = PROS.z * (1 - K); scene.add(group);
   const { w: PW, h: PH, open } = PROS;
   const CW = 2048, CH = Math.round((CW * PH) / PW);
   const px = (m) => (m / PW) * CW, py = (m) => (m / PH) * CH;

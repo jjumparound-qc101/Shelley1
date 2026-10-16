@@ -43,7 +43,7 @@ export const letter1 = {
     };
 
     // Where he stands: writing behind the desk; beside it; at the window, looking out.
-    const SEAT = { x: DESK.x, z: DESK.z - 0.4 };
+    const SEAT = { x: DESK.x, z: DESK.z - 0.25 };
     const BY_DESK = { x: DESK.x + 0.95, z: DESK.z - 0.2 };
     const AT_WINDOW = { x: 1.6, z: ROOM.back + 0.5 }; // to the right of the panes, so the street shows past him
 
@@ -94,7 +94,7 @@ export const letter1 = {
       { t: T.sledges - 2, dur: 3, pos: [0.63, 1.7, -1.5], look: [0.98, 1.1, -6.6] },          // a sledge in the street
       { t: T.depart, dur: 5, pos: [0.0, 1.8, 0.9], look: [-0.42, 1.3, -4] },
       { t: T.depart + 6, dur: 5, pos: [-0.77, 1.5, -0.6], look: [-1.33, 1.15, -3.0] },
-      { t: T.farewell, dur: 12, pos: [0.0, 1.95, 12.5], look: [0.0, 1.7, -3] },                // back out to the toy stage, as at the start
+      { t: T.farewell, dur: 12, pos: [0.0, 1.37, 9.4], look: [0.0, 1.19, -1.44] },                // back out to the toy stage, as at the start
     ]);
 
     return {
