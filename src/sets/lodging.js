@@ -9,7 +9,7 @@ import { canvas, texture, hatch, outline, fillPaper, grain, blob, rng, INK, PAPE
 // 3.4 m wall, the 3:2 picture hung 3.9 m high and sunk 0.5 m so its drawn floor meets the stage floor.
 export const ROOM = { w: 5.85, d: 6.4, h: 3.4, back: -4.2 };
 const DRAWN_H = 3.9, SINK = 0.5;
-export const WINDOW = { x0: 0.55, x1: 1.8, y0: 0.8, y1: 2.9 }; // in the back wall, metres
+export const WINDOW = { x0: -0.53, x1: 0.55, y0: 0.67, y1: 3.0 }; // in the back wall, metres: the drawn window's panes (cut out by tools/window_cut.py)
 export const DESK = { x: -1.35, z: -2.75 };
 
 const PXM = 120;
@@ -214,8 +214,8 @@ export function buildLodging(group, ai = {}) {
     const sw = paperFlat(pick(ai, n, () => sideWall(510 + s * 7, s > 0)), d, drawn(n) ? DRAWN_H : h, { edge: false });
     sw.rotation.y = -s * Math.PI / 2; sw.position.set(s * w / 2, drawn(n) ? -SINK : 0, back + d / 2); group.add(sw);
   }
-  const st = paperFlat(pick(ai, 'street', street), 9, 9 * 1400 / 2400, { edge: false, opaque: true });
-  st.position.set((WINDOW.x0 + WINDOW.x1) / 2, 0, back - 3.0); group.add(st); // the road just below the sill line
+  const st = paperFlat(pick(ai, 'street', street), 9, 9 * 755 / 1062, { edge: false, opaque: true }); // the AI view, cropped to 1062 x 755 (tools/window_cut.py)
+  st.position.set((WINDOW.x0 + WINDOW.x1) / 2, -0.6, back - 3.0); group.add(st); // the road just below the sill line
   const sledge = paperFlat(pick(ai, 'sledge', sledgeArt), 1.9, 1.9 * 420 / 900, { edge: false });
   sledge.position.set(-6, 0.5, back - 2.4); sledge.visible = false; group.add(sledge);
   // The AI desk and chair keep their drawn shape: the desk 1.15 m high to the top of its candle,

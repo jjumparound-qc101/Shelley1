@@ -45,7 +45,7 @@ export const letter1 = {
     // Where he stands: writing behind the desk; beside it; at the window, looking out.
     const SEAT = { x: DESK.x, z: DESK.z - 0.25 };
     const BY_DESK = { x: DESK.x + 0.95, z: DESK.z - 0.2 };
-    const AT_WINDOW = { x: 1.6, z: ROOM.back + 0.5 }; // to the right of the panes, so the street shows past him
+    const AT_WINDOW = { x: 0.3, z: ROOM.back + 0.55 }; // before the window (WINDOW), a little right of centre, so the street shows past him
 
     const writing = (t) => t < T.walk - 1.2 || (t > T.refl + 5.2 && t < T.fav - 1.0) || t > T.depart + 5.2;
     // The AI drawing of him writing has its own chair (and no desk: the room's desk stays put),
@@ -82,16 +82,16 @@ export const letter1 = {
       ...openingKeys(T.title, T.you, { pos: [0.0, 1.85, 1.2], look: [-0.28, 1.4, -4] }),
       { t: T.you + 2, dur: 5, pos: [-0.7, 1.55, -0.4], look: [-1.33, 1.15, -3.0] },        // Walton writing
       { t: T.walk - 1, dur: 4, pos: [0.14, 1.7, 0.4], look: [0.42, 1.3, -3.6] },             // he rises and crosses the room
-      { t: T.walk + 5, dur: 4, pos: [0.63, 1.75, -1.6], look: [1.26, 1.9, -6] },             // over his shoulder, the street
-      { t: T.needle - 4, dur: 10, pos: [0.98, 1.65, -1.9], look: [1.19, 1.8, -6] },
-      { t: T.needle + 30, dur: 8, pos: [2.1, 1.6, -1.8], look: [1.05, 1.5, -3.8] },         // beside him at the glass
+      { t: T.walk + 5, dur: 4, pos: [-0.3, 1.75, -1.4], look: [0.1, 1.9, -6] },             // over his shoulder, the street
+      { t: T.needle - 4, dur: 10, pos: [-0.1, 1.65, -1.8], look: [0.15, 1.8, -6] },
+      { t: T.needle + 30, dur: 8, pos: [1.2, 1.6, -1.9], look: [0.2, 1.5, -3.8] },         // beside him at the glass
       { t: T.refl, dur: 4, pos: [0.0, 1.85, 0.8], look: [-0.14, 1.3, -4] },                   // back to the desk
       { t: T.refl + 8, dur: 5, pos: [-0.91, 1.45, -0.9], look: [-1.36, 1.2, -3.1] },
       { t: T.visions, dur: 8, pos: [-1.33, 1.35, -1.4], look: [-1.61, 1.15, -3.0] },        // the candle
       { t: T.six, dur: 6, pos: [-0.28, 1.6, -0.2], look: [-1.26, 1.2, -3.0] },
       { t: T.margaret2, dur: 12, pos: [-0.98, 1.4, -1.2], look: [-1.33, 1.25, -3.1] },
-      { t: T.fav - 0.5, dur: 4, pos: [0.28, 1.7, 0.0], look: [0.63, 1.4, -3.8] },            // to the window again
-      { t: T.sledges - 2, dur: 3, pos: [0.63, 1.7, -1.5], look: [0.98, 1.1, -6.6] },          // a sledge in the street
+      { t: T.fav - 0.5, dur: 4, pos: [-0.1, 1.7, 0.0], look: [0.1, 1.4, -3.8] },            // to the window again
+      { t: T.sledges - 2, dur: 3, pos: [-0.2, 1.7, -1.5], look: [0.0, 1.1, -6.6] },          // a sledge in the street
       { t: T.depart, dur: 5, pos: [0.0, 1.8, 0.9], look: [-0.42, 1.3, -4] },
       { t: T.depart + 6, dur: 5, pos: [-0.77, 1.5, -0.6], look: [-1.33, 1.15, -3.0] },
       { t: T.farewell, dur: 12, ...STALLS },                // back out to the toy stage, as at the start
