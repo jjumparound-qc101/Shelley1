@@ -148,13 +148,16 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
     shape.holes.push(new THREE.Path([new THREE.Vector2(op.x0, op.y0), new THREE.Vector2(op.x0, op.y1), new THREE.Vector2(op.x1, op.y1), new THREE.Vector2(op.x1, op.y0)]));
     const backing = new THREE.Mesh(new THREE.ShapeGeometry(shape), new THREE.MeshBasicMaterial({ color: '#2b2723' }));
     backing.position.z = PROS.z - 0.05; group.add(backing);
-    const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 5.2, seatsH = seatsW / sa;
+    const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 6.4, seatsH = seatsW / sa;
     const seats = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false });
-    seats.position.set(0, 1.45 - seatsH, 13); // hat-tops at the stage floor as seen from the seat, so the stage shows over them
+    seats.position.set(0, 1.8 - seatsH, 13); // heads over the hall's stage front, as in the Alice game (owner, 2026-10-16)
     // The same row again at each end (mirrored), for wide and tall screens.
     const more = [-1, 1].map((d) => { const m = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false }); m.scale.x = -1; m.position.set(d * seatsW, seats.position.y, 13); return m; });
+    // Dark stalls behind the chair backs, so no paper shows between their legs.
+    const stalls = new THREE.Mesh(new THREE.PlaneGeometry(seatsW * 3, seatsH * 0.4), new THREE.MeshBasicMaterial({ color: '#2b2723' }));
+    stalls.position.set(0, seats.position.y + seatsH * 0.2, 13.05); group.add(stalls);
     // All drawn over the set, in this order (only ever seen from the audience's side).
-    overSet(backing, 40); overSet(pros, 45); overSet(house, 50); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
+    overSet(backing, 40); overSet(pros, 45); overSet(house, 50); overSet(stalls, 55); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
     group.add(house, seats, ...more);
     return { pros, house, seats };
   }
@@ -173,7 +176,7 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
   const seats = paperFlat(texture(seatsArt()), 8, 2, { edge: false });
   seats.position.set(0, -0.1, 14.2); // hat-tops at about the lower third of the opening shot
   // Drawn over the set (and only ever seen from the audience's side), like Alice's house.
-  overSet(house, 50); overSet(seats, 60);
+  overSet(house, 50); overSet(stalls, 55); overSet(seats, 60);
   group.add(house, seats);
   return { pros, house, seats };
 }
