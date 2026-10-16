@@ -640,7 +640,7 @@ async function main() {
   // so checks can read its scenes before Begin is pressed.
   build(CHAPTERS[0]);
   window.__slice = {
-    audio, setMode, setLayout, camera, perf, chapters: CHAPTERS, begin, explorer, cast,
+    audio, setMode, setLayout, camera, perf, chapters: CHAPTERS, begin, explorer, cast, ai, artFor, // ai and artFor: tools/full_check.mjs
     get chapter() { return chapter; },
     get scenes() { return (ch ?? CHAPTERS[0].built).scenes; },
     get cue() { return (ch ?? CHAPTERS[0].built).cue; },

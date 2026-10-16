@@ -6,7 +6,7 @@ import { cameraTrack, smooth, lerp } from './track.js';
 import { thoughts } from './thoughts.js';
 import { vignette } from './vignettes.js';
 import { CAST } from './cast.js';
-import { placeProps } from './props.js';
+import { placeProps, heldProps } from './props.js';
 import { hatch, blob, fillPaper, outline } from './ink.js';
 
 // A cue: "word", "word#2" (2nd), "word+1.5" / "word#2-0.8" (seconds after or before),
@@ -151,9 +151,12 @@ export function sceneFromData(d, index, sectionId) {
         art: ai[`vignettes/${thoughtName(b)}`]?.tex ?? placeholderThought(b.think, 900 + i * 7 + index * 31),
       })));
 
+      // ---- Props in someone's hands, moving with them.
+      const held = heldProps(group, ai, (d.props ?? []).map(([n]) => n), Object.keys(tracks));
+
       return {
         T: {}, bg: set.bg, fog: set.fog, bounds: set.bounds, hotspots: [],
-        camera, actors, update(t) { set.update(t); think(t); },
+        camera, actors, update(t, cast) { set.update(t); think(t); held(cast); },
       };
     },
   };

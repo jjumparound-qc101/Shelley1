@@ -5,8 +5,9 @@
 //   f  on the floor, at the sides of the set
 //   w  hung on the back wall (rooms only)
 //   b  large, out of doors only: in the middle distance (ships, carriages, trees, graves)
-//   h  held, worn or a mark on the ground: not set on stage by itself
+//   h  held or worn by someone on stage (HELD below), a mark on the ground, or seen through the window
 // Props stay on stage for the whole scene. Tools: tools/assets_master.mjs lists which are placed.
+import * as THREE from 'three';
 import { paperFlat } from './stage.js';
 
 export const PROPS = {
@@ -38,8 +39,28 @@ export const PROPS = {
   surgeon_draught: ['t', 0.15], lantern: ['t', 0.4], coffin_victor: ['f', 0.6],
 };
 
+// Held and worn props: [height m, who holds it (the first of them on stage in the scene), where].
+// Where: hand (held out in front), wrists (across both hands), head (on top), veil (over head and
+// shoulders), shoulder (carried on the back), face (laid over the face, as on a body lying down).
+export const HELD = {
+  caroline_miniature: [0.18, ['judge', 'victor'], 'hand'], manacles: [0.3, ['justine'], 'wrists'],
+  cloak: [0.9, ['creature'], 'hand'], branch_fan: [0.6, ['creature'], 'hand'], milk_pail: [0.35, ['agatha'], 'head'],
+  firewood: [0.6, ['felix'], 'shoulder'], black_veil: [0.75, ['safie'], 'veil'], chains: [0.5, ['turk', 'victor'], 'wrists'],
+  victor_journal: [0.25, ['creature'], 'hand'], felix_stick: [1.1, ['felix'], 'hand'], brand: [0.9, ['creature'], 'hand'],
+  gun: [1.2, ['peasant'], 'hand'], locket: [0.12, ['creature'], 'hand'], pistol: [0.25, ['victor'], 'hand'],
+  handkerchief: [0.35, ['elizabeth'], 'face'],
+};
+// Laid flat on the ground in front of the stage, and seen through a room's window.
+const GROUND = { footprints: 1.2 };
+const WINDOW = { fishing_vessels: 0.7 };
+
 // Whether a prop is set on stage in a set of this kind ('room' or 'outdoor').
-export const propPlaced = (name, kind) => { const k = PROPS[name]?.[0]; return !!k && k !== 'h' && !(k === 'w' && kind !== 'room') && !(k === 'b' && kind === 'room'); };
+export const propPlaced = (name, kind) => {
+  const k = PROPS[name]?.[0];
+  if (WINDOW[name]) return kind === 'room';
+  if (k === 'h') return !!HELD[name] || !!GROUND[name];
+  return !!k && !(k === 'w' && kind !== 'room') && !(k === 'b' && kind === 'room');
+};
 
 // Where a table-top prop sits on each piece of furniture: the height of its top, as a share of the piece's height.
 const TOP = { desk: 0.78, table: 0.8, bench: 0.72, slab: 0.83, lab: 0.8 };
@@ -57,8 +78,16 @@ export function placeProps(group, ai, set, kind, names) {
   const floorSlots = (kind === 'room' ? ROOM_FLOOR : OUT_FLOOR).filter(([x, z]) => clear(x, z));
   for (const name of names) {
     const art = ai[`props/${name}`], tex = art?.tex;
-    if (!tex || !propPlaced(name, kind)) continue;
+    if (!tex || !propPlaced(name, kind) || HELD[name]) continue;
     let [k, h] = PROPS[name];
+    if (GROUND[name]) { // flat on the ground, a little in front of centre stage
+      const g = paperFlat(tex, GROUND[name] * (art.aspect ?? 1), GROUND[name], { anchor: 'center', edge: false });
+      g.rotation.x = -Math.PI / 2; g.position.set(0.8, 0.02, kind === 'room' ? -1.2 : -1.8); group.add(g); continue;
+    }
+    if (WINDOW[name]) { // just in front of the view, so it shows through the window
+      const v = paperFlat(tex, WINDOW[name] * (art.aspect ?? 1), WINDOW[name], { edge: false });
+      v.position.set(2.0, 1.1, (set.back ?? -4.2) - 2.9); group.add(v); continue;
+    }
     if (k === 't' && !furn) k = 'f';
     const w = h * (art.aspect ?? 1);
     const flat = paperFlat(tex, w, h);
@@ -77,4 +106,37 @@ export function placeProps(group, ai, set, kind, names) {
     }
     group.add(flat);
   }
+}
+
+// Held props: made once per scene, then moved with whoever holds them, at a point of the drawing
+// in its current pose (src/puppet.js), so they follow mirroring and the turn toward the camera.
+// Hidden while the holder is off stage.
+const POINT = { hand: [0.3, 0.5], wrists: [0.5, 0.55], head: [0.5, 0.03], veil: [0.5, 0.0], shoulder: [0.5, 0.32], face: [0.5, 0.12] };
+const pt = new THREE.Vector3();
+export function heldProps(group, ai, names, people) {
+  const list = [];
+  for (const name of names) {
+    const art = ai[`props/${name}`], H = HELD[name];
+    if (!art?.tex || !H) continue;
+    const who = H[1].find((w) => people.includes(w));
+    if (!who) continue;
+    const flat = paperFlat(art.tex, H[0] * (art.aspect ?? 1), H[0], { anchor: 'center', edge: false });
+    flat.visible = false; group.add(flat);
+    list.push({ flat, who, at: H[2], h: H[0] });
+  }
+  return (cast) => {
+    for (const p of list) {
+      const puppet = cast?.[p.who];
+      p.flat.visible = !!puppet?.root.visible;
+      if (!p.flat.visible) continue;
+      // Lying down, a face cloth sits at the head end (drawn at the left of a lying figure).
+      // A drawn pose may mark its hand; the AI drawings don't, so the front hand (left of a figure drawn facing left).
+      if (p.at === 'hand' && puppet.poses[puppet.pose]?.userData.hand) puppet.handPoint(pt);
+      else puppet.point(...(p.at === 'face' && puppet.pose === 'lie' ? [0.12, 0.35] : POINT[p.at]), pt);
+      const lift = p.at === 'head' ? p.h * 0.45 : p.at === 'veil' ? -p.h * 0.45 : 0;
+      pt.y += lift; group.worldToLocal(pt); // the scene's group may sit anywhere in the world
+      p.flat.position.set(pt.x, pt.y, pt.z + 0.02);
+      p.flat.rotation.set(0, puppet.root.rotation.y, 0);
+    }
+  };
 }
