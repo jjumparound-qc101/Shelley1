@@ -3538,7 +3538,7 @@
    "title": "chair (furniture)",
    "prompt": "A plain wooden chair. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 23 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3547,7 +3547,7 @@
    "title": "trees (scenery)",
    "prompt": "A tall clump of old trees with full foliage, as a cut-out stage flat. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 27 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3556,7 +3556,7 @@
    "title": "table (furniture)",
    "prompt": "A plain wooden table. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 14 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3565,7 +3565,7 @@
    "title": "shelf (furniture)",
    "prompt": "A bookcase full of old books. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 11 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3574,7 +3574,7 @@
    "title": "bed (furniture)",
    "prompt": "A curtained bed of the 1790s, side view. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 9 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3583,7 +3583,7 @@
    "title": "bench (furniture)",
    "prompt": "A long wooden bench. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 11 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3592,7 +3592,7 @@
    "title": "desk (furniture)",
    "prompt": "A writing desk with a candle, papers and a quill. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 10 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3619,7 +3619,7 @@
    "title": "wall (scenery)",
    "prompt": "A length of old stone wall. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 5 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Props",
@@ -3727,7 +3727,7 @@
    "title": "coffin (furniture)",
    "prompt": "A plain wooden coffin on trestles, lid off. One piece, whole, on white, as a cut-out for a toy theatre.",
    "note": "used in 2 places",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -3961,7 +3961,7 @@
    "title": "a merchant, who, from a flourishing state, fell, through numerous mischances, into poverty",
    "prompt": "A small engraved vignette picture filling an oval: a merchant, who, from a flourishing state, fell, through numerous mischances, into poverty. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -3970,7 +3970,7 @@
    "title": "he retreated with his daughter to the town of Lucerne, where he lived unknown and in wretchedness",
    "prompt": "A small engraved vignette picture filling an oval: he retreated with his daughter to the town of Lucerne, where he lived unknown and in wretchedness. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -3979,7 +3979,7 @@
    "title": "the house, which was situated in a mean street, near the Reuss",
    "prompt": "A small engraved vignette picture filling an oval: the house, which was situated in a mean street, near the Reuss. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -3988,7 +3988,7 @@
    "title": "in the tenth month her father died in her arms, leaving her an orphan and a beggar",
    "prompt": "A small engraved vignette picture filling an oval: in the tenth month her father died in her arms, leaving her an orphan and a beggar. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -3997,7 +3997,7 @@
    "title": "he conducted her to Geneva, and placed her under the protection of a relation",
    "prompt": "A small engraved vignette picture filling an oval: he conducted her to Geneva, and placed her under the protection of a relation. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4006,7 +4006,7 @@
    "title": "My father had a sister, whom he tenderly loved, and who had married early in life an Italian gentleman",
    "prompt": "A small engraved vignette picture filling an oval: My father had a sister, whom he tenderly loved, and who had married early in life an Italian gentleman. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4015,7 +4015,7 @@
    "title": "the infant Elizabeth, the only child of his deceased sister",
    "prompt": "A small engraved vignette picture filling an oval: the infant Elizabeth, the only child of his deceased sister. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4024,7 +4024,7 @@
    "title": "he immediately went to Italy, that he might accompany the little Elizabeth to her future home",
    "prompt": "A small engraved vignette picture filling an oval: he immediately went to Italy, that he might accompany the little Elizabeth to her future home. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4033,7 +4033,7 @@
    "title": "her hazel eyes, although as lively as a bird's, possessed an attractive softness",
    "prompt": "A small engraved vignette picture filling an oval: her hazel eyes, although as lively as a bird's, possessed an attractive softness. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4042,7 +4042,7 @@
    "title": "she busied herself in following the aerial creations of the poets",
    "prompt": "A small engraved vignette picture filling an oval: she busied herself in following the aerial creations of the poets. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4051,7 +4051,7 @@
    "title": "when he was nine years old, he wrote a fairy tale",
    "prompt": "A small engraved vignette picture filling an oval: when he was nine years old, he wrote a fairy tale. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4060,7 +4060,7 @@
    "title": "Orlando, Robin Hood, Amadis, and St. George",
    "prompt": "A small engraved vignette picture filling an oval: Orlando, Robin Hood, Amadis, and St. George. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4069,7 +4069,7 @@
    "title": "some favourite scene done by her own hand, to please her aunt",
    "prompt": "A small engraved vignette picture filling an oval: some favourite scene done by her own hand, to please her aunt. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4078,7 +4078,7 @@
    "title": "like a mountain river, from ignoble and almost forgotten sources",
    "prompt": "A small engraved vignette picture filling an oval: like a mountain river, from ignoble and almost forgotten sources. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4087,7 +4087,7 @@
    "title": "the torrent which, in its course, has swept away all my hopes and joys",
    "prompt": "A small engraved vignette picture filling an oval: the torrent which, in its course, has swept away all my hopes and joys. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4096,7 +4096,7 @@
    "title": "a party of pleasure to the baths near Thonon",
    "prompt": "A small engraved vignette picture filling an oval: a party of pleasure to the baths near Thonon. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4105,7 +4105,7 @@
    "title": "the principles of Agrippa had been entirely exploded",
    "prompt": "A small engraved vignette picture filling an oval: the principles of Agrippa had been entirely exploded. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4114,7 +4114,7 @@
    "title": "the whole works of this author, and afterwards of Paracelsus and Albertus Magnus",
    "prompt": "A small engraved vignette picture filling an oval: the whole works of this author, and afterwards of Paracelsus and Albertus Magnus. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4123,7 +4123,7 @@
    "title": "the search of the philosopher's stone and the elixir of life",
    "prompt": "A small engraved vignette picture filling an oval: the search of the philosopher's stone and the elixir of life. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4132,7 +4132,7 @@
    "title": "The raising of ghosts or devils",
    "prompt": "A small engraved vignette picture filling an oval: The raising of ghosts or devils. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4141,7 +4141,7 @@
    "title": "Distillation, and the wonderful effects of steam",
    "prompt": "A small engraved vignette picture filling an oval: Distillation, and the wonderful effects of steam. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4150,7 +4150,7 @@
    "title": "some experiments on an air-pump, which I saw employed by a gentleman",
    "prompt": "A small engraved vignette picture filling an oval: some experiments on an air-pump, which I saw employed by a gentleman. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4159,7 +4159,7 @@
    "title": "It advanced from behind the mountains of Jura",
    "prompt": "A small engraved vignette picture filling an oval: It advanced from behind the mountains of Jura. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4168,7 +4168,7 @@
    "title": "nothing remained but a blasted stump",
    "prompt": "A small engraved vignette picture filling an oval: nothing remained but a blasted stump. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4177,7 +4177,7 @@
    "title": "entirely reduced to thin ribbands of wood",
    "prompt": "A small engraved vignette picture filling an oval: entirely reduced to thin ribbands of wood. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4186,7 +4186,7 @@
    "title": "a small electrical machine",
    "prompt": "A small engraved vignette picture filling an oval: a small electrical machine. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4195,7 +4195,7 @@
    "title": "a kite, with a wire and string, which drew down that fluid from the clouds",
    "prompt": "A small engraved vignette picture filling an oval: a kite, with a wire and string, which drew down that fluid from the clouds. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4204,7 +4204,7 @@
    "title": "Cornelius Agrippa, Albertus Magnus, and Paracelsus, the lords of my imagination",
    "prompt": "A small engraved vignette picture filling an oval: Cornelius Agrippa, Albertus Magnus, and Paracelsus, the lords of my imagination. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4213,7 +4213,7 @@
    "title": "The lecture, being one of the last, was entirely incomprehensible to me",
    "prompt": "A small engraved vignette picture filling an oval: The lecture, being one of the last, was entirely incomprehensible to me. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -4222,7 +4222,7 @@
    "title": "potassium and boron, of sulphates and oxyds",
    "prompt": "A small engraved vignette picture filling an oval: potassium and boron, of sulphates and oxyds. Drawn large and close so it reads at a small size.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Thought vignettes",
@@ -7669,7 +7669,7 @@
    "title": "straw plaiting",
    "prompt": "Bundles of straw and half-plaited straw work on a poor table. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7678,7 +7678,7 @@
    "title": "clerval sword",
    "prompt": "A wooden toy sword and paper crown for Clerval's plays of chivalry. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7687,7 +7687,7 @@
    "title": "agrippa book",
    "prompt": "An old leather volume of the works of Cornelius Agrippa, open at its title page. One object, whole, on white.",
    "note": "Chapter 1, Chapter 3",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7696,7 +7696,7 @@
    "title": "alchemy books",
    "prompt": "Piles of old books of Paracelsus and Albertus Magnus, with alchemical diagrams. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7705,7 +7705,7 @@
    "title": "chalk circle",
    "prompt": "A chalk circle and symbols on the floor for a failed incantation. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7714,7 +7714,7 @@
    "title": "blasted oak",
    "prompt": "An old oak struck by lightning: a stream of fire, then a blasted stump of thin ribbands of wood. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
@@ -7723,7 +7723,7 @@
    "title": "mathematics books",
    "prompt": "Books of mathematics and a Greek grammar on the desk. One object, whole, on white.",
    "note": "Chapter 1",
-   "done": false
+   "done": true
   },
   {
    "group": "Extra props (later)",
