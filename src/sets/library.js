@@ -181,13 +181,24 @@ function lightning(group, w, z) {
 
 // A drawing for this place, else the shared one (floors, grounds, furniture and mid pieces are
 // drawn once in sets/common/ and used everywhere unless a place has its own).
+// A floor or ground picture is a seamless tile: it repeats across the stage, a tile about every
+// `size` metres, instead of one picture stretched over the whole floor (owner, 2026-10-16).
+function tiledPlane(w, d, size, tex) {
+  const geo = new THREE.PlaneGeometry(w, d);
+  if (tex) {
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.needsUpdate = true;
+    const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / size, uv.getY(i) * d / size);
+  }
+  return geo;
+}
 const aiArt = (ai, art, piece, common) => ai[`sets/${art}/${piece}`]?.tex ?? (common ? ai[`sets/common/${common}`]?.tex : undefined);
 
 export function buildRoom(group, ai, spec, art) {
   const w = spec.w ?? 8.4, d = spec.d ?? 6.4, h = spec.h ?? 4.6, back = -4.2, s0 = spec.seed ?? 1;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
   const win = spec.window === false ? null : [0.8, 2.6, 0.95, 3.45];
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: aiArt(ai, art, 'floor', `floor_${spec.floor ?? 'boards'}`) ?? groundTex(spec.floor ?? 'boards', [w / 1.6, d / 1.6]) }));
+  const floorAi = aiArt(ai, art, 'floor', `floor_${spec.floor ?? 'boards'}`);
+  const floor = new THREE.Mesh(tiledPlane(w, d, 2.4, floorAi), new THREE.MeshBasicMaterial({ map: floorAi ?? groundTex(spec.floor ?? 'boards', [w / 1.6, d / 1.6]) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceilT = (() => { const { c, g } = canvas(1024, 800); const a = new Path2D(); a.rect(0, 0, 1024, 800); fillPaper(g, a); hatch(g, a, { angle: 0, gap: 4, seed: s0 + 30, alpha: 0.7 }); for (let x = 60; x < 1024; x += 180) { const b = new Path2D(); b.rect(x, 0, 50, 800); fillPaper(g, b); hatch(g, b, { angle: 1.57, gap: 5, seed: x }); outline(g, b, 2.5); } return texture(c); })();
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: ceilT })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
@@ -238,7 +249,8 @@ export function buildRoom(group, ai, spec, art) {
 export function buildOutdoor(group, ai, spec, art) {
   const W = 40, D = 26, s0 = spec.seed ?? 1;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(W, D), new THREE.MeshBasicMaterial({ map: aiArt(ai, art, 'ground', `ground_${spec.ground ?? 'grass'}`) ?? groundTex(spec.ground ?? 'grass', [W / 2, D / 2]) }));
+  const groundAi = aiArt(ai, art, 'ground', `ground_${spec.ground ?? 'grass'}`);
+  const ground = new THREE.Mesh(tiledPlane(W, D, 4, groundAi), new THREE.MeshBasicMaterial({ map: groundAi ?? groundTex(spec.ground ?? 'grass', [W / 2, D / 2]) }));
   ground.rotation.x = -Math.PI / 2; ground.position.set(0, 0, -D / 2 + 4); group.add(ground);
   const far = paperFlat(tiled(pick('far', () => farArt(spec.far ?? 'hills', spec.weather)), 1.6), 44, 17.6, { edge: false, opaque: true });
   far.position.set(0, -1.5, -20); group.add(far);

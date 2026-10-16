@@ -7,6 +7,12 @@ import { buildLodging, DESK, ROOM } from '../sets/lodging.js';
 import { route, cameraTrack } from '../track.js';
 import { thoughts } from '../thoughts.js';
 import { poleSun, needle, whalers } from '../vignettes.js';
+
+// The engraved thought pictures (tools/assets_master.mjs names them from their words); the
+// drawings in vignettes.js stand in until they load.
+const SUN = 'the_sun_is_for_ever_visible_its_broad_disk_just_';
+const NEEDLE = 'the_wondrous_power_which_attracts_the_needle';
+const WHALE = 'the_whale_fishers_on_an_expedition_to_the_north_';
 import { PAPER } from '../ink.js';
 
 export const letter1 = {
@@ -15,6 +21,7 @@ export const letter1 = {
   hero: 'walton',
   arts: ['walton_petersburgh'],
   people: ['walton'],
+  thoughtArt: [SUN, NEEDLE, WHALE],
   start: () => 0,
   parts: (cue) => [
     { title: 'The north wind', t: cue.at('walk') - 2 },
@@ -61,9 +68,9 @@ export const letter1 = {
     }
 
     const think = thoughts(group, [
-      { t0: T.sun - 1.5, t1: T.sun + 11, art: poleSun() },
-      { t0: T.needle - 1.0, t1: T.needle + 9, art: needle() },
-      { t0: T.whale - 0.8, t1: T.whale + 11, art: whalers() },
+      { t0: T.sun - 1.5, t1: T.sun + 11, art: ai[`vignettes/${SUN}`]?.tex ?? poleSun() },
+      { t0: T.needle - 1.0, t1: T.needle + 9, art: ai[`vignettes/${NEEDLE}`]?.tex ?? needle() },
+      { t0: T.whale - 0.8, t1: T.whale + 11, art: ai[`vignettes/${WHALE}`]?.tex ?? whalers() },
     ]);
 
     const camera = cameraTrack([
