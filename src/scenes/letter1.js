@@ -48,8 +48,9 @@ export const letter1 = {
     const AT_WINDOW = { x: 1.6, z: ROOM.back + 0.5 }; // to the right of the panes, so the street shows past him
 
     const writing = (t) => t < T.walk - 1.2 || (t > T.refl + 5.2 && t < T.fav - 1.0) || t > T.depart + 5.2;
-    // The AI drawing of him writing has its own desk and chair, so the room's are put away meanwhile.
-    const ownDesk = !!ai['cast/walton_write'];
+    // The AI drawing of him writing has its own chair (and no desk: the room's desk stays put),
+    // so the room's chair is put away meanwhile.
+    const ownChair = !!ai['cast/walton_write'];
     function walton(t) {
       const legs = [
         [0, BY_DESK], [T.walk - 0.6, BY_DESK], [T.walk + 4.5, AT_WINDOW],
@@ -104,7 +105,7 @@ export const letter1 = {
       hotspots: room.hotspots,
       camera,
       actors: (t) => ({ walton: walton(t) }),
-      update(t) { room.update(t); sledge(t); think(t); room.desk.visible = room.chair.visible = !(ownDesk && writing(t)); },
+      update(t) { room.update(t); sledge(t); think(t); room.chair.visible = !(ownChair && writing(t)); },
     };
   },
 };
