@@ -132,7 +132,13 @@ export function sceneFromData(d, index, sectionId) {
           mid: () => ({ pos: [cx + side * 0.8, hh * 0.9, cz + 3.4 + span * 0.6], look: [cx, hh * 0.62, cz] }),
           close: () => ({ pos: [cx + side * 0.45, hh * 0.86, cz + 1.9], look: [cx, hh * 0.8, cz] }),
           low: () => ({ pos: [cx + side * 0.6, 0.7, cz + 2.8 + span * 0.5], look: [cx, hh * 0.75, cz] }),
-          over: () => { const a = ps[0], o = ps[1] ?? { ...a, z: a.z - 2 }; const dx = o.x - a.x, dz = o.z - a.z, L = Math.hypot(dx, dz) || 1; return { pos: [a.x - dx / L * 1.3 + 0.35, a.h * 0.95, a.z - dz / L * 1.3 + 0.6], look: [o.x, o.h * 0.75, o.z] }; },
+          over: () => {
+            const a = ps[0], o = ps[1] ?? { ...a, z: a.z - 2 }; const dx = o.x - a.x, dz = o.z - a.z, L = Math.hypot(dx, dz) || 1;
+            // Two people side by side would put the camera looking along the stage, past the edge of the
+            // scenery and at cut-outs edge on: then it stands in front of the near one and looks across.
+            if (Math.abs(dx) / L > 0.7) return { pos: [a.x - Math.sign(dx) * 0.6, a.h * 0.95, Math.max(a.z, o.z) + 2.2], look: [o.x, o.h * 0.75, o.z] };
+            return { pos: [a.x - dx / L * 1.3 + 0.35, a.h * 0.95, a.z - dz / L * 1.3 + 0.6], look: [o.x, o.h * 0.75, o.z] };
+          },
         };
         const k = (kinds[b.shot] ?? kinds.mid)();
         return { t, dur: b.dur ?? 3, pos: b.pos ?? clampCam(k.pos), look: b.look ?? k.look };

@@ -254,6 +254,11 @@ export function buildOutdoor(group, ai, spec, art) {
   ground.rotation.x = -Math.PI / 2; ground.position.set(0, 0, -D / 2 + 4); group.add(ground);
   const far = paperFlat(tiled(pick('far', () => farArt(spec.far ?? 'hills', spec.weather)), 1.6), 44, 17.6, { edge: false, opaque: true });
   far.position.set(0, -1.5, -20); group.add(far);
+  // The same scenery carried round both sides, so a shot looking along the stage still sees it.
+  for (const sx of [-1, 1]) {
+    const side = paperFlat(far.children[0].material.map, 26, 17.6, { edge: false, opaque: true });
+    side.rotation.y = -sx * Math.PI / 2; side.position.set(sx * 22, -1.5, -7); group.add(side);
+  }
   const r = rng(s0 + 50);
   for (const [i, m] of (spec.mid ?? []).entries()) {
     const [name, at] = Array.isArray(m) ? m : [m, null];
@@ -265,7 +270,7 @@ export function buildOutdoor(group, ai, spec, art) {
   }
   // Wings: trees or rocks at the sides hide the edges of the set.
   const wing = spec.wings ?? (spec.ground === 'ice' || spec.ground === 'snow' || spec.ground === 'water' || spec.ground === 'deck' ? null : 'trees');
-  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](); const f = paperFlat(aiArt(ai, art, wing, wing) ?? texture(cv), mw, mh); f.position.set(x, 0, z); f.scale.x = s; group.add(f); }
+  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](); const f = paperFlat(aiArt(ai, art, wing, wing) ?? texture(cv), mw, mh); f.position.set(x, 0, z); f.scale.x = s; f.rotation.y = s * 0.8; group.add(f); } // turned in, never seen edge on
   let fx = () => {};
   if (spec.weather === 'snow') fx = snowfall(group);
   if (spec.weather === 'storm') fx = lightning(group, 44, -20);

@@ -47,7 +47,7 @@ export const HELD = {
   cloak: [0.9, ['creature'], 'hand'], branch_fan: [0.6, ['creature'], 'hand'], milk_pail: [0.35, ['agatha'], 'head'],
   firewood: [0.6, ['felix'], 'shoulder'], black_veil: [0.75, ['safie'], 'veil'], chains: [0.5, ['turk', 'victor'], 'wrists'],
   victor_journal: [0.25, ['creature'], 'hand'], felix_stick: [1.1, ['felix'], 'hand'], brand: [0.9, ['creature'], 'hand'],
-  gun: [1.2, ['peasant'], 'hand'], locket: [0.12, ['creature'], 'hand'], pistol: [0.25, ['victor'], 'hand'],
+  gun: [1.2, ['peasant'], 'hand'], locket: [0.15, ['creature'], 'hand'], pistol: [0.35, ['victor'], 'hand'],
   handkerchief: [0.35, ['elizabeth'], 'face'],
 };
 // Laid flat on the ground in front of the stage, and seen through a room's window.
@@ -111,7 +111,11 @@ export function placeProps(group, ai, set, kind, names) {
 // Held props: made once per scene, then moved with whoever holds them, at a point of the drawing
 // in its current pose (src/puppet.js), so they follow mirroring and the turn toward the camera.
 // Hidden while the holder is off stage.
-const POINT = { hand: [0.3, 0.5], wrists: [0.5, 0.55], head: [0.5, 0.03], veil: [0.5, 0.0], shoulder: [0.5, 0.32], face: [0.5, 0.12] };
+// The front hand in each pose of the AI drawings (figures drawn facing left), read off the
+// drawings on a 10% grid: at the side standing, swung forward walking, at the end of the
+// arm pointing, on the knee sitting.
+const HAND = { stand: [0.12, 0.5], walk: [0.08, 0.5], point: [0.03, 0.14], sit: [0.33, 0.5] };
+const POINT = { hand: [0.12, 0.5], wrists: [0.5, 0.55], head: [0.5, 0.03], veil: [0.5, 0.0], shoulder: [0.5, 0.32], face: [0.5, 0.12] };
 const pt = new THREE.Vector3();
 export function heldProps(group, ai, names, people) {
   const list = [];
@@ -132,7 +136,7 @@ export function heldProps(group, ai, names, people) {
       // Lying down, a face cloth sits at the head end (drawn at the left of a lying figure).
       // A drawn pose may mark its hand; the AI drawings don't, so the front hand (left of a figure drawn facing left).
       if (p.at === 'hand' && puppet.poses[puppet.pose]?.userData.hand) puppet.handPoint(pt);
-      else puppet.point(...(p.at === 'face' && puppet.pose === 'lie' ? [0.12, 0.35] : POINT[p.at]), pt);
+      else puppet.point(...(p.at === 'face' && puppet.pose === 'lie' ? [0.12, 0.35] : p.at === 'hand' ? HAND[puppet.pose] ?? POINT.hand : POINT[p.at]), pt);
       const lift = p.at === 'head' ? p.h * 0.45 : p.at === 'veil' ? -p.h * 0.45 : 0;
       pt.y += lift; group.worldToLocal(pt); // the scene's group may sit anywhere in the world
       p.flat.position.set(pt.x, pt.y, pt.z + 0.02);
