@@ -2,7 +2,7 @@
 // From a seat in the theatre, a 5 s hold, then up the aisle and through the toy stage into
 // Walton's lodging, where he writes to his sister; he goes to the window and back as the
 // letter turns from the north wind to his old plans and to the sledges in the street.
-import { buildTheatre, openingKeys } from '../theatre.js';
+import { buildTheatre, openingKeys, SEAT as STALLS } from '../theatre.js';
 import { buildLodging, DESK, ROOM } from '../sets/lodging.js';
 import { route, cameraTrack } from '../track.js';
 import { thoughts } from '../thoughts.js';
@@ -94,7 +94,7 @@ export const letter1 = {
       { t: T.sledges - 2, dur: 3, pos: [0.63, 1.7, -1.5], look: [0.98, 1.1, -6.6] },          // a sledge in the street
       { t: T.depart, dur: 5, pos: [0.0, 1.8, 0.9], look: [-0.42, 1.3, -4] },
       { t: T.depart + 6, dur: 5, pos: [-0.77, 1.5, -0.6], look: [-1.33, 1.15, -3.0] },
-      { t: T.farewell, dur: 12, pos: [0.0, 1.37, 9.4], look: [0.0, 1.19, -1.44] },                // back out to the toy stage, as at the start
+      { t: T.farewell, dur: 12, ...STALLS },                // back out to the toy stage, as at the start
     ]);
 
     return {

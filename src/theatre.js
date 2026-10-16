@@ -1,8 +1,8 @@
 // The theatre around the toy stage: the opening shot is from a seat in the stalls, looking at
 // the toy theatre's front over a row of the audience's heads; after a hold the camera rises up
 // the aisle and on through the toy stage into the scene (as the Alice game opens).
-// All drawn in code for now; the AI drawings replace each piece by name when they arrive
-// (`ai.theatre_house`, `ai.theatre_seats`, `ai.proscenium`).
+// The AI drawings (ai['theatre/proscenium'], ['theatre/house'], ['theatre/seats']) are used when
+// all three are there; the pieces drawn in code below stand in otherwise.
 import * as THREE from 'three';
 import { paperFlat } from './stage.js';
 import { proscenium } from './art.js';
@@ -15,7 +15,7 @@ export const PROS = { w: 12, h: 7.2, z: 2.2, open: { w: 8.4, h: 4.6, cy: 2.55 } 
 const K = 0.7;
 const at = ([x, y, z]) => [x * K, y * K, PROS.z + (z - PROS.z) * K];
 // The opening shot, from the stalls (scenes start their camera here).
-export const SEAT = { pos: at([0, 2.0, 17.5]), look: at([0, 1.6, -3]) };
+export const SEAT = { pos: at([0, 2.0, 19.5]), look: at([0, 1.6, -3]) };
 // Over the heads, up the aisle, just short of the toy front.
 export const AISLE = { pos: at([0, 1.9, 11.0]), look: at([0, 1.5, -3]) };
 
@@ -109,27 +109,55 @@ function seatsArt() {
   return c;
 }
 
-// Builds the theatre into a scene's group. title/sub: lettered on the toy front.
+// The AI theatre (tools/theatre_art.py): the openings cut out of each drawing, in its pixels.
+const FRONT_OPEN = { x0: 398, x1: 1137, y0: 273, y1: 775 }; // theatre/proscenium, 1536 x 1024
+const HOUSE_OPEN = { x0: 492, x1: 1043, y0: 417, y1: 796 }; // theatre/house, 1536 x 1024
+
+// Builds the theatre into a scene's group. title/sub: lettered on the toy front (the drawn one;
+// the AI front has the title lettered on its banner by tools/theatre_art.py).
 export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' } = {}) {
   const group = new THREE.Group(); group.scale.setScalar(K); group.position.z = PROS.z * (1 - K); scene.add(group);
+  const overSet = (o, r) => o.traverse((m) => { if (m.material) { m.material.depthTest = false; m.material.transparent = true; m.material.fog = false; m.renderOrder = r; } });
+  if (ai['theatre/proscenium'] && ai['theatre/house'] && ai['theatre/seats']) {
+    // The toy front, scaled so its opening is as high as the room (3.4 m; the room's sides then
+    // sit just behind the drawn curtains), its foot at the stage floor. (Owner, 2026-10-16: a
+    // proper paper theatre, as in the Alice game.)
+    const k = 3.4 / K / (FRONT_OPEN.y1 - FRONT_OPEN.y0); // metres per pixel (before K)
+    const W = 1536 * k, H = 1024 * k, y0 = -(1024 - FRONT_OPEN.y1) * k;
+    const pros = paperFlat(ai['theatre/proscenium'].tex, W, H, { edge: false });
+    pros.position.set((768 - (FRONT_OPEN.x0 + FRONT_OPEN.x1) / 2) * k, y0, PROS.z);
+    group.add(pros);
+    // The theatre round it: the auditorium, its own stage opening framing the toy front, and in
+    // the foreground the row in front of our seat, the audience from behind.
+    const k2 = H * 0.98 / (HOUSE_OPEN.y1 - HOUSE_OPEN.y0);
+    const house = paperFlat(ai['theatre/house'].tex, 1536 * k2, 1024 * k2, { edge: false });
+    house.position.set((768 - (HOUSE_OPEN.x0 + HOUSE_OPEN.x1) / 2) * k2, y0 - (1024 - HOUSE_OPEN.y1) * k2, PROS.z + 0.1);
+    const sa = ai['theatre/seats'].aspect ?? 1500 / 769, seatsW = 5.2, seatsH = seatsW / sa;
+    const seats = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false });
+    seats.position.set(0, 1.5 - seatsH, 14.2); // hat-tops at the stage floor as seen from the seat, so the stage shows over them
+    // The same row again at each end (mirrored), for wide and tall screens.
+    const more = [-1, 1].map((d) => { const m = paperFlat(ai['theatre/seats'].tex, seatsW, seatsH, { edge: false }); m.scale.x = -1; m.position.set(d * seatsW, seats.position.y, 14.2); return m; });
+    // Drawn over the set (and only ever seen from the audience's side).
+    overSet(house, 50); overSet(seats, 60); more.forEach((m) => overSet(m, 60));
+    group.add(house, seats, ...more);
+    return { pros, house, seats };
+  }
   const { w: PW, h: PH, open } = PROS;
   const CW = 2048, CH = Math.round((CW * PH) / PW);
   const px = (m) => (m / PW) * CW, py = (m) => (m / PH) * CH;
-  const frontTex = ai.proscenium?.tex ?? texture(proscenium(CW, CH, {
+  const frontTex = texture(proscenium(CW, CH, {
     x: px((PW - open.w) / 2), y: py(PH - open.cy - open.h / 2), w: px(open.w), h: py(open.h),
   }, { title, sub }));
   const pros = paperFlat(frontTex, PW, PH, { edge: false });
   pros.position.set(0, 0, PROS.z);
   group.add(pros);
 
-  const house = paperFlat(ai.theatre_house?.tex ?? texture(houseArt()), HOUSE.w, HOUSE.h, { edge: false });
+  const house = paperFlat(texture(houseArt()), HOUSE.w, HOUSE.h, { edge: false });
   house.position.set(0, HOUSE.y0, HOUSE.z);
-  const seats = paperFlat(ai.theatre_seats?.tex ?? texture(seatsArt()), 8, 2, { edge: false });
+  const seats = paperFlat(texture(seatsArt()), 8, 2, { edge: false });
   seats.position.set(0, -0.1, 14.2); // hat-tops at about the lower third of the opening shot
   // Drawn over the set (and only ever seen from the audience's side), like Alice's house.
-  [[house, 50], [seats, 60]].forEach(([o, r]) => o.traverse((m) => {
-    if (m.material) { m.material.depthTest = false; m.material.transparent = true; m.material.fog = false; m.renderOrder = r; }
-  }));
+  overSet(house, 50); overSet(seats, 60);
   group.add(house, seats);
   return { pros, house, seats };
 }
