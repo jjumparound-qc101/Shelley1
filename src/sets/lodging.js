@@ -11,7 +11,7 @@ export const DESK = { x: -1.9, z: -2.75 };
 
 const PXM = 120;
 // The master drawings use the asset list's names (sets/walton_petersburgh/..., the shared furniture).
-const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
+const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', wall_left: 'sets/walton_petersburgh/wall_left', wall_right: 'sets/walton_petersburgh/wall_right', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
 const pick = (ai, name, draw) => ai[`l01/${name}`]?.tex ?? ai[AI_NAME[name]]?.tex ?? texture(draw());
 
 function backWall() {
@@ -195,8 +195,11 @@ function snow(group) {
 
 export function buildLodging(group, ai = {}) {
   const { w, d, h, back } = ROOM;
-  const floorTex = ai['l01/floor']?.tex ?? texture(floorTile(), { repeat: [w / 1.6, d / 1.6] });
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: floorTex }));
+  // The shared boards floor, repeated every 2.4 m (as in the library's rooms), else the drawn tile.
+  const boards = ai['l01/floor']?.tex ?? ai['sets/common/floor_boards']?.tex;
+  const geo = new THREE.PlaneGeometry(w, d);
+  if (boards) { boards.wrapS = boards.wrapT = THREE.RepeatWrapping; const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / 2.4, uv.getY(i) * d / 2.4); }
+  const floor = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: boards ?? texture(floorTile(), { repeat: [w / 1.6, d / 1.6] }) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: pick(ai, 'ceiling', ceiling) }));
   ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);

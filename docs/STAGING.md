@@ -57,6 +57,12 @@ The section audio has 5 s of quiet before the first word.
 - `art`: optional shared art name when two scenes (or sections) use the same place, e.g.
   `'geneva_house'`, `'ingolstadt_garret'`, `'delacey_cottage'`: the same name means the same drawings.
 
+- `props`: `[[name, description], ...]`, objects the text mentions. Each is drawn once
+  (public/art/ai/props/<name>) and set on stage for the whole scene by src/props.js, which gives
+  every prop a height and a kind of place: on the room's desk or table, on the floor at the back
+  and sides, hung on the back wall, out in the middle distance (big outdoor things), or not at all
+  (held, worn or marked on the ground). A new prop needs a line there.
+
 ## Marks (where people stand)
 Rooms: C, L, R, BL, BR, BC, FL, FR, FC, door, window, off (outside the door), and one per piece
 of furniture (beside it; on it for bed, slab, coffin). Outdoors: C, L, R, FL, FR, FC, BL, BR, BC,

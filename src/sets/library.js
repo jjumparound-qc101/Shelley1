@@ -218,7 +218,7 @@ export function buildRoom(group, ai, spec, art) {
     if (spec.weather === 'snow') update = snowfall(group, { x0: -1, x1: 4.5, z0: back - 2.8, z1: back - 0.3, n: 220 });
     if (spec.weather === 'storm') { const l = lightning(group, 12, back - 3.0); update = l; }
   }
-  const spots = {};
+  const spots = {}, furnH = {};
   for (const f of spec.furniture ?? []) {
     const [name, at] = Array.isArray(f) ? f : [f, null];
     const P = furniturePiece(name); if (!P) continue;
@@ -226,7 +226,7 @@ export function buildRoom(group, ai, spec, art) {
     const spot = { ...def, ...(at ?? {}) };
     const flat = paperFlat(aiArt(ai, art, name, name) ?? texture(cv), fw, fh);
     flat.position.set(spot.x, 0, spot.z); group.add(flat);
-    spots[name] = spot;
+    spots[name] = spot; furnH[name] = fh;
     if (name === 'desk' || name === 'table') { const g2 = halo('#fff6dd', 0.8, spec.light === 'candle' || spec.light === 'night' ? 0.5 : 0); g2.position.set(spot.x - 0.5, fh + 0.2, spot.z - 0.05); group.add(g2); }
   }
   const marks = {
@@ -238,7 +238,7 @@ export function buildRoom(group, ai, spec, art) {
   };
   for (const [name, s] of Object.entries(spots)) marks[name] = name === 'bed' || name === 'slab' || name === 'coffin' ? { x: s.x, z: s.z, y: 0.55 } : { x: s.x + 0.9, z: s.z - 0.2 };
   return {
-    marks, update, w, depth: d,
+    marks, spots, furnH, back, update, w, depth: d,
     bounds: { minX: -w / 2 + 0.6, maxX: w / 2 - 0.6, minZ: back + 0.6, maxZ: 1.6 },
     cam: { minX: -w / 2 + 0.4, maxX: w / 2 - 0.4, minZ: back + 0.6, maxZ: 1.8, maxY: h - 0.3 },
     shots: { wide: { pos: [0, 1.85, 1.2], look: [0, 1.3, -4] }, high: { pos: [0, 3.2, 1.0], look: [0, 0.6, -3] } },

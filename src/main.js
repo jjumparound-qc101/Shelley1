@@ -92,12 +92,13 @@ async function main() {
     const sets = new Set(c.scenes.flatMap((d) => d.arts ?? [d.art]).filter(Boolean));
     const people = new Set(c.scenes.flatMap((d) => d.people ?? [d.hero]).filter(Boolean));
     const thoughts = new Set(c.scenes.flatMap((d) => d.thoughtArt ?? []));
+    const props = new Set(c.scenes.flatMap((d) => d.propArt ?? []));
     return Object.keys(ai).filter((n) => {
       const [kind, a, b] = n.split('/');
       if (kind === 'cast') return people.has(a.replace(/_[a-z]+$/, ''));
       if (kind === 'sets') return a === 'common' || sets.has(a);
       if (kind === 'vignettes') return thoughts.has(a);
-      if (kind === 'props') return false;
+      if (kind === 'props') return props.has(a);
       return true; // anything else (e.g. l01/...) is small: always
     });
   }

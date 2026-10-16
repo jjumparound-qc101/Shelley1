@@ -1,11 +1,12 @@
 // Scenes from data. Each section's staging is written as plain data in src/scenes/data/<id>.js
-// (format: docs/STAGING.md), and turned into scenes here: a set from the library, the cast's
+// (format: docs/STAGING.md), and turned into scenes here: a set from the library and its props, the cast's
 // moves and poses, camera shots and thought vignettes, all keyed to words of the text.
 import { buildSet } from './sets/library.js';
 import { cameraTrack, smooth, lerp } from './track.js';
 import { thoughts } from './thoughts.js';
 import { vignette } from './vignettes.js';
 import { CAST } from './cast.js';
+import { placeProps } from './props.js';
 import { hatch, blob, fillPaper, outline } from './ink.js';
 
 // A cue: "word", "word#2" (2nd), "word+1.5" / "word#2-0.8" (seconds after or before),
@@ -46,6 +47,7 @@ export function sceneFromData(d, index, sectionId) {
     // For loading its drawings (main.js artFor): who is on stage, and its named thought pictures.
     people: [...new Set([d.hero ?? 'victor', ...Object.keys(d.cast ?? {}), ...(d.beats ?? []).map((b) => b.who).filter(Boolean)])],
     thoughtArt: (d.beats ?? []).filter((b) => b.think).map(thoughtName),
+    propArt: (d.props ?? []).map(([n]) => n),
     start: (cue) => (index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0)),
     parts: (cue) => (d.parts ?? []).map(([title, at]) => ({ title, t: resolveCue(cue, at, resolveCue(cue, d.start ?? 0)) })),
 
@@ -53,6 +55,7 @@ export function sceneFromData(d, index, sectionId) {
       const t0 = index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0);
       const T = (spec) => resolveCue(cue, spec, t0);
       const set = buildSet(group, ai, d.set, art);
+      placeProps(group, ai, set, d.set?.kind, (d.props ?? []).map(([n]) => n));
       const M = (name) => (typeof name === 'object' ? name : set.marks[name] ?? set.marks.C);
 
       // ---- The cast: a list of timed events per person.

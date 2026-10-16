@@ -1906,7 +1906,7 @@
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the left wall, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 1: lodging",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -1918,7 +1918,7 @@
    "prompt": "Walton's lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall. Draw the right wall with the door, filling the whole image edge to edge. Flat, straight-on, as a theatre backdrop; leave any window panes plain white (the game cuts them out).",
    "note": "Letter 1: lodging",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9206,7 +9206,7 @@
    "prompt": "A letter in progress to Mrs. Saville, quill and inkstand on the desk. One object, whole, on white.",
    "note": "Letter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9217,7 +9217,7 @@
    "prompt": "Walton's hired vessel, a stout northern merchant ship, rigging white with frost. One object, whole, on white.",
    "note": "Letter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9228,7 +9228,7 @@
    "prompt": "Sea charts, a sextant and books of voyages on the cabin shelf. One object, whole, on white.",
    "note": "Letter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9239,7 +9239,7 @@
    "prompt": "A low carriage fixed on a sledge and drawn by dogs, a giant figure sitting in it, far off on the ice. One object, whole, on white.",
    "note": "Letter 4, Chapter 23",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9250,7 +9250,7 @@
    "prompt": "A brass ship's telescope. One object, whole, on white.",
    "note": "Letter 4",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9261,7 +9261,7 @@
    "prompt": "A broken sledge with one living dog, on a large fragment of ice beside the ship. One object, whole, on white.",
    "note": "Letter 4",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9272,7 +9272,7 @@
    "prompt": "Rough ship's blankets wrapped round the frozen stranger; a flask of brandy; a bowl of soup. One object, whole, on white.",
    "note": "Letter 4",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9283,7 +9283,7 @@
    "prompt": "Walton's manuscript journal, open on the desk by a candle, quill in hand. One object, whole, on white.",
    "note": "Letter 4",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9294,7 +9294,7 @@
    "prompt": "Bundles of straw and half-plaited straw work on a poor table. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9305,7 +9305,7 @@
    "prompt": "A wooden toy sword and paper crown for Clerval's plays of chivalry. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9316,7 +9316,7 @@
    "prompt": "An old leather volume of the works of Cornelius Agrippa, open at its title page. One object, whole, on white.",
    "note": "Chapter 1, Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9327,7 +9327,7 @@
    "prompt": "Piles of old books of Paracelsus and Albertus Magnus, with alchemical diagrams. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9338,7 +9338,7 @@
    "prompt": "A chalk circle and symbols on the floor for a failed incantation. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9349,7 +9349,7 @@
    "prompt": "An old oak struck by lightning: a stream of fire, then a blasted stump of thin ribbands of wood. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9360,7 +9360,7 @@
    "prompt": "Books of mathematics and a Greek grammar on the desk. One object, whole, on white.",
    "note": "Chapter 1",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9371,7 +9371,7 @@
    "prompt": "A small table with medicine bottles, a basin and a candle by the sickbed. One object, whole, on white.",
    "note": "Chapter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9382,7 +9382,7 @@
    "prompt": "A small travelling chaise with luggage strapped behind (not drawn yet; Victor sits as if inside it). One object, whole, on white.",
    "note": "Chapter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9393,7 +9393,7 @@
    "prompt": "The list of books on natural philosophy that Krempe writes out for Victor. One object, whole, on white.",
    "note": "Chapter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9404,7 +9404,7 @@
    "prompt": "A chemist's demonstration table: retorts, crucible, a microscope, a voltaic pile. One object, whole, on white.",
    "note": "Chapter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9415,7 +9415,7 @@
    "prompt": "M. Waldman's laboratory machines: an electrical machine, air pump, retorts and furnaces. One object, whole, on white.",
    "note": "Chapter 2",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9426,7 +9426,7 @@
    "prompt": "Improved chemical instruments of Victor's own design on the lecturer's table. One object, whole, on white.",
    "note": "Chapter 3, Chapter 5, Chapter 18",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9437,7 +9437,7 @@
    "prompt": "A corpse under a stained sheet on the stone slab. One object, whole, on white.",
    "note": "Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9448,7 +9448,7 @@
    "prompt": "Skulls and bones heaped in the niches of a charnel-house. One object, whole, on white.",
    "note": "Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9459,7 +9459,7 @@
    "prompt": "Anatomical drawings and calculations spread across the desk by candlelight. One object, whole, on white.",
    "note": "Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9470,7 +9470,7 @@
    "prompt": "The instruments of life: glass vessels, retorts, wires and a galvanic battery on a workbench. One object, whole, on white.",
    "note": "Chapter 3, Chapter 4",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9481,7 +9481,7 @@
    "prompt": "A basket of bones collected from the charnel-houses. One object, whole, on white.",
    "note": "Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9492,7 +9492,7 @@
    "prompt": "A small heap of letters from Victor's father, unanswered on the desk. One object, whole, on white.",
    "note": "Chapter 3",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9503,7 +9503,7 @@
    "prompt": "A folded letter in Elizabeth's hand, dated Geneva, March 18th. One object, whole, on white.",
    "note": "Chapter 5, Chapter 21",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9514,7 +9514,7 @@
    "prompt": "A lady's writing desk with ink, quill and letter paper. One object, whole, on white.",
    "note": "Chapter 5",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9525,7 +9525,7 @@
    "prompt": "Books and manuscripts in Persian, Arabic and Sanskrit open on the table. One object, whole, on white.",
    "note": "Chapter 5",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9536,7 +9536,7 @@
    "prompt": "A black-edged letter from Victor's father, dated Geneva, May 12th. One object, whole, on white.",
    "note": "Chapter 6",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9547,7 +9547,7 @@
    "prompt": "A light two-wheeled cabriolet with horses, waiting to carry Victor to Geneva. One object, whole, on white.",
    "note": "Chapter 6",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9558,7 +9558,7 @@
    "prompt": "A painting over the mantel-piece: Caroline Beaufort in rustic dress kneeling in despair by her dead father's coffin. One object, whole, on white.",
    "note": "Chapter 6",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9569,7 +9569,7 @@
    "prompt": "A small miniature portrait of William below the painting. One object, whole, on white.",
    "note": "Chapter 6",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9581,7 +9581,7 @@
    "note": "Chapter 7",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9591,7 +9591,7 @@
    "prompt": "A ballot urn with black ballots. One object, whole, on white.",
    "note": "Chapter 7",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9613,8 +9613,8 @@
    "prompt": "A heap of straw at the farther end of the cell. One object, whole, on white.",
    "note": "Chapter 7",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9624,8 +9624,8 @@
    "prompt": "Two fresh graves with simple headstones, for William and Justine. One object, whole, on white.",
    "note": "Chapter 7",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9635,7 +9635,7 @@
    "prompt": "Black crape and mourning bands in the drawing room for William and Justine. One object, whole, on white.",
    "note": "Chapter 8",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9646,7 +9646,7 @@
    "prompt": "A small sailing boat with oars, the sail set or furled. One object, whole, on white.",
    "note": "Chapter 8",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9657,7 +9657,7 @@
    "prompt": "A hired sure-footed mule with saddle and bridle (no animal drawing yet). One object, whole, on white.",
    "note": "Chapter 8",
    "done": true,
-   "game": false,
+   "game": true,
    "online": true
   },
   {
@@ -9668,8 +9668,8 @@
    "prompt": "Victor's hired mule at the inn door (no animal drawing yet). One object, whole, on white.",
    "note": "Chapter 9",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9680,7 +9680,7 @@
    "note": "Chapter 10",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9690,8 +9690,8 @@
    "prompt": "Wild berries hanging on the bushes and a clear brook. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9701,8 +9701,8 @@
    "prompt": "A fire of glowing embers left by wandering beggars, with offal roasting at its edge (no fire piece outdoors yet). One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9713,7 +9713,7 @@
    "note": "Chapter 10",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9723,8 +9723,8 @@
    "prompt": "Bread, cheese, a jug of milk and a bottle of wine on a rough board. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9734,8 +9734,8 @@
    "prompt": "A small pot over the hut fire. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9745,8 +9745,8 @@
    "prompt": "Stones and missiles thrown by the villagers. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9756,8 +9756,8 @@
    "prompt": "Milk and cheese set on a cottage windowsill. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9768,7 +9768,7 @@
    "note": "Chapter 10",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9778,8 +9778,8 @@
    "prompt": "A pig sty and a clear pool beside the hovel. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9789,8 +9789,8 @@
    "prompt": "A coarse loaf and a cup. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9800,8 +9800,8 @@
    "prompt": "Tallow tapers lit in the evening. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9811,8 +9811,8 @@
    "prompt": "A large loaf and a piece of cheese. One object, whole, on white.",
    "note": "Chapter 10",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9823,7 +9823,7 @@
    "note": "Chapter 10",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9833,8 +9833,8 @@
    "prompt": "The book Felix reads aloud. One object, whole, on white.",
    "note": "Chapter 10, Chapter 11",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9844,8 +9844,8 @@
    "prompt": "A great pile of cut firewood stacked outside the cottage door. One object, whole, on white.",
    "note": "Chapter 11",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9855,8 +9855,8 @@
    "prompt": "Felix's axe and woodcutting tools. One object, whole, on white.",
    "note": "Chapter 11",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9866,8 +9866,8 @@
    "prompt": "The first little white flower of the year. One object, whole, on white.",
    "note": "Chapter 11",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9877,8 +9877,8 @@
    "prompt": "Safie's horse, saddled for a lady (no animal drawing yet). One object, whole, on white.",
    "note": "Chapter 12",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9889,7 +9889,7 @@
    "note": "Chapter 12",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9899,8 +9899,8 @@
    "prompt": "Volney's Ruins of Empires, an 18th-century book open on the table. One object, whole, on white.",
    "note": "Chapter 12",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9910,8 +9910,8 @@
    "prompt": "A small lamp or taper on the cottage table. One object, whole, on white.",
    "note": "Chapter 12",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9921,8 +9921,8 @@
    "prompt": "The bar of a Paris court, with spectators crowded behind it. One object, whole, on white.",
    "note": "Chapter 13",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9933,7 +9933,7 @@
    "note": "Chapter 13, Chapter 22",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9943,8 +9943,8 @@
    "prompt": "Letters in Safie's hand, written in French. One object, whole, on white.",
    "note": "Chapter 13",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9954,8 +9954,8 @@
    "prompt": "A small casket of Safie's jewels and a purse of money. One object, whole, on white.",
    "note": "Chapter 13, Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9965,8 +9965,8 @@
    "prompt": "A leathern portmanteau lying open on the ground, with articles of dress and three books. One object, whole, on white.",
    "note": "Chapter 14",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9976,8 +9976,8 @@
    "prompt": "Three old leather-bound books: Paradise Lost, Plutarch's Lives and the Sorrows of Werter. One object, whole, on white.",
    "note": "Chapter 14",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9988,7 +9988,7 @@
    "note": "Chapter 14",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -9999,7 +9999,7 @@
    "note": "Chapter 14",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10010,7 +10010,7 @@
    "note": "Chapter 15",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10020,8 +10020,8 @@
    "prompt": "Heaps of straw, heath and bushes piled around the cottage walls. One object, whole, on white.",
    "note": "Chapter 15",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10032,7 +10032,7 @@
    "note": "Chapter 15",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10043,7 +10043,7 @@
    "note": "Chapter 15",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10053,8 +10053,8 @@
    "prompt": "A mountain spring in a stone basin beside the path. One object, whole, on white.",
    "note": "Chapter 16",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10064,8 +10064,8 @@
    "prompt": "A travelling carriage of the 1790s with luggage strapped on. One object, whole, on white.",
    "note": "Chapter 17",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10075,8 +10075,8 @@
    "prompt": "A packing chest of chemical instruments. One object, whole, on white.",
    "note": "Chapter 17",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10086,8 +10086,8 @@
    "prompt": "A ruined castle on a crag above the Rhine, among black woods. One object, whole, on white.",
    "note": "Chapter 17",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10097,8 +10097,8 @@
    "prompt": "Letters of introduction to the most distinguished natural philosophers of London. One object, whole, on white.",
    "note": "Chapter 18",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10108,8 +10108,8 @@
    "prompt": "A travelling case packed with chemical instruments and collected materials. One object, whole, on white.",
    "note": "Chapter 18",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10119,8 +10119,8 @@
    "prompt": "A few miserable cows on the scant pasture. One object, whole, on white.",
    "note": "Chapter 18",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10130,8 +10130,8 @@
    "prompt": "The unfinished female creature, a tall form lying under a sheet on a rough table. One object, whole, on white.",
    "note": "Chapter 18",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10141,8 +10141,8 @@
    "prompt": "The half-finished female creature torn to pieces on the table and floor (shown by the sheet and slab). One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10153,7 +10153,7 @@
    "note": "Chapter 19",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10163,8 +10163,8 @@
    "prompt": "A packet of letters from Geneva and from Clerval, brought by a fisherman. One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10174,8 +10174,8 @@
    "prompt": "A wicker basket weighted with stones, holding the relics of the destroyed work. One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10185,8 +10185,8 @@
    "prompt": "An oaten cake. One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10196,8 +10196,8 @@
    "prompt": "Chemical apparatus being cleaned on the beach. One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10207,8 +10207,8 @@
    "prompt": "A little skiff with a sail and rudder; later a sail made from part of Victor's dress. One object, whole, on white.",
    "note": "Chapter 19",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10218,8 +10218,8 @@
    "prompt": "Fishing tackle and a lantern (in the witnesses' story). One object, whole, on white.",
    "note": "Chapter 20",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10229,8 +10229,8 @@
    "prompt": "A physician's medicines prepared by the nurse. One object, whole, on white.",
    "note": "Chapter 20",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10240,8 +10240,8 @@
    "prompt": "Victor's papers and letters, among them one from his father. One object, whole, on white.",
    "note": "Chapter 20",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10251,8 +10251,8 @@
    "prompt": "A small phial of laudanum. One object, whole, on white.",
    "note": "Chapter 20",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10262,8 +10262,8 @@
    "prompt": "Pen, inkstand and paper for Victor's reply. One object, whole, on white.",
    "note": "Chapter 21",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10273,8 +10273,8 @@
    "prompt": "A pair of pistols and a dagger that Victor carries about him. One object, whole, on white.",
    "note": "Chapter 21",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10284,8 +10284,8 @@
    "prompt": "Wedding flowers and a laid table for the party at Alphonse's house. One object, whole, on white.",
    "note": "Chapter 21",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10295,8 +10295,8 @@
    "prompt": "A kind of canopy stretched over the boat to shelter them from the sun. One object, whole, on white.",
    "note": "Chapter 21",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10307,7 +10307,7 @@
    "note": "Chapter 22",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10318,7 +10318,7 @@
    "note": "Chapter 22",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10328,8 +10328,8 @@
    "prompt": "Nets cast from the boats in the search. One object, whole, on white.",
    "note": "Chapter 22",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10339,8 +10339,8 @@
    "prompt": "Oars of a hired rowing boat. One object, whole, on white.",
    "note": "Chapter 22",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10350,8 +10350,8 @@
    "prompt": "Books of law and papers on the judge's desk. One object, whole, on white.",
    "note": "Chapter 22",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10361,8 +10361,8 @@
    "prompt": "The tomb that marks the graves of William, Elizabeth and Alphonse Frankenstein. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10373,7 +10373,7 @@
    "note": "Chapter 23",
    "done": true,
    "game": false,
-   "online": false
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10383,8 +10383,8 @@
    "prompt": "Words cut into the bark of a tree and into a stone. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10394,8 +10394,8 @@
    "prompt": "A dead hare left on the snow. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10405,8 +10405,8 @@
    "prompt": "A plentiful stock of provisions packed on the sledge. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10416,8 +10416,8 @@
    "prompt": "A piece of floating ice used as a raft, with oars made from a broken sledge. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10427,8 +10427,8 @@
    "prompt": "Walton's notes of Frankenstein's history, corrected in Victor's hand. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10438,8 +10438,8 @@
    "prompt": "The letters of Felix and Safie that Victor shows Walton. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10449,8 +10449,8 @@
    "prompt": "The surgeon's composing draught in a small glass. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10460,8 +10460,8 @@
    "prompt": "A ship's lantern beside Walton's letter. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   },
   {
    "group": "Extra props (later)",
@@ -10471,8 +10471,8 @@
    "prompt": "A plain ship's coffin holding the remains of Frankenstein. One object, whole, on white.",
    "note": "Chapter 23",
    "done": true,
-   "game": false,
-   "online": false
+   "game": true,
+   "online": true
   }
  ]
 }

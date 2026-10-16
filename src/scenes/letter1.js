@@ -22,6 +22,7 @@ export const letter1 = {
   arts: ['walton_petersburgh'],
   people: ['walton'],
   thoughtArt: [SUN, NEEDLE, WHALE],
+  propArt: ['sledge'],
   start: () => 0,
   parts: (cue) => [
     { title: 'The north wind', t: cue.at('walk') - 2 },
