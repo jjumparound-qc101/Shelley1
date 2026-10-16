@@ -113,7 +113,7 @@ def cmd_next(a):
         entries.sort(key=lambda e: only.index(e["file"]))  # the list's own order
     todo = []
     for e in entries:
-        if e["file"] in done or (a.group and e["group"] != a.group) or (a.sheets and not e["file"].endswith("_sheet")):
+        if (e["file"] in done and not a.redo) or (a.group and e["group"] != a.group) or (a.sheets and not e["file"].endswith("_sheet")):
             continue
         if e.get("ref") and e["ref"] not in done:
             continue  # the model sheet must be approved first
@@ -128,7 +128,9 @@ def cmd_next(a):
         out = f"source/ai/{e['file']}.png"
         os.makedirs(os.path.dirname(out), exist_ok=True)
         refs = [f"source/ai/{e['ref']}.png"] if e.get("ref") else []
-        cmd = [sys.executable, f"{HERE}/gen_image.py", out, e["prompt"], "--size", e["size"], "--style", style]
+        refs += [f"source/ai/{r}.png" for r in a.add_ref]
+        prompt = e["prompt"] + (" " + a.extra if a.extra else "")
+        cmd = [sys.executable, f"{HERE}/gen_image.py", out, prompt, "--size", e["size"], "--style", style]
         for r in refs:
             cmd += ["--ref", r]
         if refs:
@@ -197,6 +199,9 @@ def main():
     n.add_argument("--model", default=None)
     n.add_argument("--jobs", type=int, default=4)
     n.add_argument("--files", default=None, help="a text file of image names (one per line): make only these, in that order")
+    n.add_argument("--redo", action="store_true", help="with --files: make the listed images again even if approved")
+    n.add_argument("--add-ref", action="append", default=[], help="another reference picture for every image, e.g. cast/creature_sheet")
+    n.add_argument("--extra", default=None, help="text added to the end of every prompt")
     n.add_argument("--ref-per-min", type=int, default=REF_PER_MIN)
     n.add_argument("--sheets", action="store_true", help="wave 1: only the character model sheets")
     sub.add_parser("approve").add_argument("files", nargs="*")
