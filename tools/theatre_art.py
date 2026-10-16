@@ -57,4 +57,4 @@ def cut(name, seed, title=None, sign_seed=None, corners=()):
 
 if __name__ == "__main__":
     cut("proscenium", (768, 480), title=("FRANKENSTEIN", "or, The Modern Prometheus"), sign_seed=(768, 160), corners=((4, 4), (1531, 4), (180, 40), (1356, 40), (300, 60), (1236, 60)))
-    cut("house", (768, 535))
+    cut("house", (768, 600))
