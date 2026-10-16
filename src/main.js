@@ -57,6 +57,9 @@ async function main() {
   // drawing the poses, so the game skips them.
   const AI_ART = (await fetch('art/ai/index.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])).filter((n) => !n.endsWith('_sheet'));
   const SIZES = await fetch('art/ai/sizes.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  // The published page keeps its pictures in the artifact's asset store (a version may hold only
+  // 511 files): art/ai/urls.json maps each name to its stored copy. Locally there is none.
+  const URLS = await fetch('art/ai/urls.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   const narrated = CHAPTERS.filter((c) => c.narrated);
   const wordsList = await Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json())));
   const ai = {};
@@ -71,7 +74,7 @@ async function main() {
   const artLoads = new Map(); // name -> promise of its picture
   function loadArt(names) {
     return Promise.all(names.filter((n) => ai[n]).map((n) => {
-      if (!artLoads.has(n)) artLoads.set(n, new THREE.ImageLoader().loadAsync(`art/ai/${n}.webp`)
+      if (!artLoads.has(n)) artLoads.set(n, new THREE.ImageLoader().loadAsync(URLS[n] ?? `art/ai/${n}.webp`)
         .then((img) => { ai[n].tex.image = img; ai[n].tex.needsUpdate = true; })
         .catch(() => artLoads.delete(n)));
       return artLoads.get(n);
