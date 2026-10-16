@@ -64,7 +64,7 @@ def approved():
 def opaque(file):
     """Full-frame pictures keep their paper; cut-outs lose the white around them."""
     name = file.split("/")[-1]
-    return file.startswith("vignettes/") or name in ("wall_back", "wall_left", "wall_right", "view", "far") or name.startswith(("floor_", "ground_")) or name == "floor" or name == "ground"
+    return file.startswith("vignettes/") or file in ("theatre/proscenium", "theatre/house") or name in ("wall_back", "wall_left", "wall_right", "view", "far") or name.startswith(("floor_", "ground_")) or name == "floor" or name == "ground"
 
 
 def save_web(im, f, dst):
