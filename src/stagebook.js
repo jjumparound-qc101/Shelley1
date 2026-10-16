@@ -11,6 +11,10 @@ import { hatch, blob, fillPaper, outline } from './ink.js';
 // A cue: "word", "word#2" (2nd), "word+1.5" / "word#2-0.8" (seconds after or before),
 // "^Paragraph start" (start of the paragraph beginning so), or a number (seconds).
 // Words are counted from `after` (the scene's start) on.
+// A thought's picture: its `art` name, or else its words made into a file name, the same rule
+// as tools/assets_master.mjs, which names the vignettes to make.
+const thoughtName = (b) => b.art ?? b.think.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 48);
+
 export function resolveCue(cue, spec, after = 0) {
   if (typeof spec === 'number') return spec;
   let m = /^(.*?)([+-]\d+(?:\.\d+)?)?$/.exec(spec.trim());
@@ -41,7 +45,7 @@ export function sceneFromData(d, index, sectionId) {
     art,
     // For loading its drawings (main.js artFor): who is on stage, and its named thought pictures.
     people: [...new Set([d.hero ?? 'victor', ...Object.keys(d.cast ?? {}), ...(d.beats ?? []).map((b) => b.who).filter(Boolean)])],
-    thoughtArt: (d.beats ?? []).map((b) => b.art).filter(Boolean),
+    thoughtArt: (d.beats ?? []).filter((b) => b.think).map(thoughtName),
     start: (cue) => (index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0)),
     parts: (cue) => (d.parts ?? []).map(([title, at]) => ({ title, t: resolveCue(cue, at, resolveCue(cue, d.start ?? 0)) })),
 
@@ -141,7 +145,7 @@ export function sceneFromData(d, index, sectionId) {
       // ---- Thoughts.
       const think = thoughts(group, (d.beats ?? []).filter((b) => b.think).map((b, i) => ({
         t0: T(b.at), t1: T(b.at) + (b.dur ?? 9),
-        art: ai[`vignettes/${b.art ?? ''}`]?.tex ?? placeholderThought(b.think, 900 + i * 7 + index * 31),
+        art: ai[`vignettes/${thoughtName(b)}`]?.tex ?? placeholderThought(b.think, 900 + i * 7 + index * 31),
       })));
 
       return {
