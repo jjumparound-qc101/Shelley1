@@ -1,19 +1,20 @@
 // Launch the packaged desktop app, play through key moments, and fail on errors.
 // Usage (Linux, needs a display; in CI use xvfb-run):
 //   npm run package:linux
-//   node tools/electron_smoke.mjs release/Alice-linux-x64/Alice [outDir]
+//   node tools/electron_smoke.mjs release/Frankenstein-linux-x64/Frankenstein [outDir]
 // On machines without a GPU (CI, containers) set SOFTWARE_GL=1.
 import { _electron as electron } from 'playwright-core';
 import { mkdirSync } from 'node:fs';
 
-const exe = process.argv[2] ?? 'release/Alice-linux-x64/Alice';
+const exe = process.argv[2] ?? 'release/Frankenstein-linux-x64/Frankenstein';
 const out = process.argv[3] ?? 'smoke-shots/electron';
 mkdirSync(out, { recursive: true });
 
 const app = await electron.launch({ executablePath: exe, args: ['--no-sandbox', ...(process.env.SOFTWARE_GL ? ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] : [])] });
 const win = await app.firstWindow();
 const errors = [];
-win.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+// art/ai/urls.json only exists on the published web page; the game falls back without it.
+win.on('console', (m) => m.type() === 'error' && !m.location().url.endsWith('art/ai/urls.json') && errors.push(m.text()));
 win.on('pageerror', (e) => errors.push(String(e)));
 await win.setViewportSize({ width: 1280, height: 720 });
 await win.waitForSelector('#begin');
@@ -25,8 +26,9 @@ await win.evaluate(() => { location.hash = 'fps'; });
 await win.waitForTimeout(5000);
 const live = await win.evaluate(() => ({ t: window.__slice.audio.currentTime, paused: window.__slice.audio.paused, perf: window.__slice.perf.stats }));
 
+// Letter 1 moments: the theatre seat, Walton walking to the window, and back at it for the sledges.
 const T = await win.evaluate(() => window.__slice.scenes[0].T);
-for (const [name, t] of [['wide', 1], ['watch', T.watch + 2.5], ['pop', T.pop + 0.2]]) {
+for (const [name, t] of [['wide', 1], ['walk', T.walk + 2.5], ['window', T.fav + 4.5]]) {
   await win.evaluate((t) => { const a = window.__slice.audio; a.pause(); a.currentTime = t; }, t);
   await win.waitForTimeout(400);
   await win.screenshot({ path: `${out}/${name}.png` });
