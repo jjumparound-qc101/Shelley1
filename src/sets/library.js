@@ -181,53 +181,79 @@ function lightning(group, w, z) {
 
 // A drawing for this place, else the shared one (floors, grounds, furniture and mid pieces are
 // drawn once in sets/common/ and used everywhere unless a place has its own).
+// A floor or ground picture is a seamless tile: it repeats across the stage, a tile about every
+// `size` metres, instead of one picture stretched over the whole floor (owner, 2026-10-16).
+function tiledPlane(w, d, size, tex) {
+  const geo = new THREE.PlaneGeometry(w, d);
+  if (tex) {
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping; tex.needsUpdate = true;
+    const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / size, uv.getY(i) * d / size);
+  }
+  return geo;
+}
 const aiArt = (ai, art, piece, common) => ai[`sets/${art}/${piece}`]?.tex ?? (common ? ai[`sets/common/${common}`]?.tex : undefined);
 
+// Room size. The AI wall drawings (3:2) show a wall about 3.4 m high from floor to ceiling, with
+// a strip of floor along the bottom (about 13% of the picture) and the ceiling beams at the top:
+// a door in them is about 2.1 m, a chair 1 m. So the picture is hung 3.9 m high and 5.85 m wide
+// (not stretched), sunk so its drawn floor line meets the stage floor. The stage was laid out for
+// an 8.4 m room, so positions across it (marks, furniture, props, explicit spots) are drawn in
+// by ROOM_SX; front to back is unchanged. (Owner, 2026-10-16: people looked small in a giant's house.)
+const WALL_H = 3.9, WALL_SINK = 0.5, ROOM_W = WALL_H * 1.5;
+export const ROOM_SX = ROOM_W / 8.4;
 export function buildRoom(group, ai, spec, art) {
-  const w = spec.w ?? 8.4, d = spec.d ?? 6.4, h = spec.h ?? 4.6, back = -4.2, s0 = spec.seed ?? 1;
+  const w = ROOM_W, d = spec.d ?? 6.4, h = WALL_H - WALL_SINK, back = -4.2, s0 = spec.seed ?? 1, k = ROOM_SX;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
   const win = spec.window === false ? null : [0.8, 2.6, 0.95, 3.45];
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: aiArt(ai, art, 'floor', `floor_${spec.floor ?? 'boards'}`) ?? groundTex(spec.floor ?? 'boards', [w / 1.6, d / 1.6]) }));
+  const floorAi = aiArt(ai, art, 'floor', `floor_${spec.floor ?? 'boards'}`);
+  const floor = new THREE.Mesh(tiledPlane(w, d, 2.4, floorAi), new THREE.MeshBasicMaterial({ map: floorAi ?? groundTex(spec.floor ?? 'boards', [w / 1.6, d / 1.6]) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceilT = (() => { const { c, g } = canvas(1024, 800); const a = new Path2D(); a.rect(0, 0, 1024, 800); fillPaper(g, a); hatch(g, a, { angle: 0, gap: 4, seed: s0 + 30, alpha: 0.7 }); for (let x = 60; x < 1024; x += 180) { const b = new Path2D(); b.rect(x, 0, 50, 800); fillPaper(g, b); hatch(g, b, { angle: 1.57, gap: 5, seed: x }); outline(g, b, 2.5); } return texture(c); })();
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: ceilT })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
-  const bw = paperFlat(pick('wall_back', () => wallArt(w, h, { wall: spec.wall, window: win, fire: spec.fire === 'back' ? -1.2 : null, door: spec.door === 'back' ? -2.6 : null, shelf: spec.shelf ? -1.2 : null, seed: s0 })), w, h, { edge: false });
-  bw.position.set(0, 0, back); group.add(bw);
+  // A drawn wall is hung full height and sunk (its drawn floor goes under the stage floor);
+  // a code-drawn one is just the wall.
+  const wall = (piece, ww, draw) => {
+    const t = ai[`sets/${art}/${piece}`]?.tex;
+    const f = t ? paperFlat(t, ww, WALL_H, { edge: false }) : paperFlat(texture(draw()), ww, h, { edge: false });
+    f.userData.sink = t ? WALL_SINK : 0; return f;
+  };
+  const bw = wall('wall_back', w, () => wallArt(w, h, { wall: spec.wall, window: win, fire: spec.fire === 'back' ? -1.2 : null, door: spec.door === 'back' ? -2.6 : null, shelf: spec.shelf ? -1.2 : null, seed: s0 }));
+  bw.position.set(0, -bw.userData.sink, back); group.add(bw);
   for (const side of [-1, 1]) {
     const hasDoor = spec.door === (side < 0 ? 'left' : 'right') || (!spec.door && side > 0);
     const hasFire = spec.fire === (side < 0 ? 'left' : 'right');
-    const sw = paperFlat(pick(side < 0 ? 'wall_left' : 'wall_right', () => wallArt(d, h, { wall: spec.wall, door: hasDoor ? d / 2 - 2.0 : null, fire: hasFire ? -0.5 : null, seed: s0 + 10 + side, shade: 0.35 })), d, h, { edge: false });
-    sw.rotation.y = -side * Math.PI / 2; sw.position.set(side * w / 2, 0, back + d / 2); group.add(sw);
+    const sw = wall(side < 0 ? 'wall_left' : 'wall_right', d, () => wallArt(d, h, { wall: spec.wall, door: hasDoor ? d / 2 - 2.0 : null, fire: hasFire ? -0.5 : null, seed: s0 + 10 + side, shade: 0.35 }));
+    sw.rotation.y = -side * Math.PI / 2; sw.position.set(side * w / 2, -sw.userData.sink, back + d / 2); group.add(sw);
   }
   let update = () => {};
   if (win) {
     const view = spec.view ?? 'town';
     const st = paperFlat(pick('view', () => farArt(view, spec.weather)), 12, 4.8, { edge: false, opaque: true });
-    st.position.set(1.7, 0.4, back - 3.0); group.add(st);
+    st.position.set(0, 0.4, back - 3.0); group.add(st); // behind every window the drawings put in the back wall
     if (spec.weather === 'snow') update = snowfall(group, { x0: -1, x1: 4.5, z0: back - 2.8, z1: back - 0.3, n: 220 });
     if (spec.weather === 'storm') { const l = lightning(group, 12, back - 3.0); update = l; }
   }
-  const spots = {};
+  const spots = {}, furnH = {};
   for (const f of spec.furniture ?? []) {
     const [name, at] = Array.isArray(f) ? f : [f, null];
     const P = furniturePiece(name); if (!P) continue;
     const [cv, fw, fh, def] = P;
-    const spot = { ...def, ...(at ?? {}) };
+    const spot = { ...def, ...(at ?? {}) }; spot.x *= k;
     const flat = paperFlat(aiArt(ai, art, name, name) ?? texture(cv), fw, fh);
     flat.position.set(spot.x, 0, spot.z); group.add(flat);
-    spots[name] = spot;
+    spots[name] = spot; furnH[name] = fh;
     if (name === 'desk' || name === 'table') { const g2 = halo('#fff6dd', 0.8, spec.light === 'candle' || spec.light === 'night' ? 0.5 : 0); g2.position.set(spot.x - 0.5, fh + 0.2, spot.z - 0.05); group.add(g2); }
   }
   const marks = {
-    C: { x: 0, z: -2.2 }, L: { x: -2.0, z: -2.1 }, R: { x: 2.0, z: -2.1 }, BL: { x: -2.4, z: -3.4 }, BR: { x: 2.4, z: -3.4 }, BC: { x: 0, z: -3.5 },
-    FL: { x: -1.5, z: -0.7 }, FR: { x: 1.5, z: -0.7 }, FC: { x: 0, z: -0.6 },
+    C: { x: 0, z: -2.2 }, L: { x: -2.0 * k, z: -2.1 }, R: { x: 2.0 * k, z: -2.1 }, BL: { x: -2.4 * k, z: -3.4 }, BR: { x: 2.4 * k, z: -3.4 }, BC: { x: 0, z: -3.5 },
+    FL: { x: -1.5 * k, z: -0.7 }, FR: { x: 1.5 * k, z: -0.7 }, FC: { x: 0, z: -0.6 },
     door: spec.door === 'left' ? { x: -w / 2 + 0.4, z: back + d / 2 - 2.0 } : spec.door === 'back' ? { x: -2.6, z: back + 0.4 } : { x: w / 2 - 0.4, z: back + d / 2 - 2.0 },
-    window: { x: 2.25, z: back + 0.5 },
+    window: { x: 2.25 * k, z: back + 0.5 },
     off: spec.door === 'left' ? { x: -w / 2 - 1.5, z: back + d / 2 - 2.0 } : spec.door === 'back' ? { x: -2.6, z: back - 1.5 } : { x: w / 2 + 1.5, z: back + d / 2 - 2.0 },
   };
-  for (const [name, s] of Object.entries(spots)) marks[name] = name === 'bed' || name === 'slab' || name === 'coffin' ? { x: s.x, z: s.z, y: 0.55 } : { x: s.x + 0.9, z: s.z - 0.2 };
+  for (const [name, s] of Object.entries(spots)) marks[name] = name === 'bed' || name === 'slab' || name === 'coffin' ? { x: s.x, z: s.z, y: 0.55 } : { x: s.x + 0.9 * k, z: s.z - 0.2 };
   return {
-    marks, update, w, depth: d,
+    marks, spots, furnH, back, update, w, depth: d, sx: k,
     bounds: { minX: -w / 2 + 0.6, maxX: w / 2 - 0.6, minZ: back + 0.6, maxZ: 1.6 },
     cam: { minX: -w / 2 + 0.4, maxX: w / 2 - 0.4, minZ: back + 0.6, maxZ: 1.8, maxY: h - 0.3 },
     shots: { wide: { pos: [0, 1.85, 1.2], look: [0, 1.3, -4] }, high: { pos: [0, 3.2, 1.0], look: [0, 0.6, -3] } },
@@ -238,10 +264,16 @@ export function buildRoom(group, ai, spec, art) {
 export function buildOutdoor(group, ai, spec, art) {
   const W = 40, D = 26, s0 = spec.seed ?? 1;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(W, D), new THREE.MeshBasicMaterial({ map: aiArt(ai, art, 'ground', `ground_${spec.ground ?? 'grass'}`) ?? groundTex(spec.ground ?? 'grass', [W / 2, D / 2]) }));
+  const groundAi = aiArt(ai, art, 'ground', `ground_${spec.ground ?? 'grass'}`);
+  const ground = new THREE.Mesh(tiledPlane(W, D, 4, groundAi), new THREE.MeshBasicMaterial({ map: groundAi ?? groundTex(spec.ground ?? 'grass', [W / 2, D / 2]) }));
   ground.rotation.x = -Math.PI / 2; ground.position.set(0, 0, -D / 2 + 4); group.add(ground);
   const far = paperFlat(tiled(pick('far', () => farArt(spec.far ?? 'hills', spec.weather)), 1.6), 44, 17.6, { edge: false, opaque: true });
   far.position.set(0, -1.5, -20); group.add(far);
+  // The same scenery carried round both sides, so a shot looking along the stage still sees it.
+  for (const sx of [-1, 1]) {
+    const side = paperFlat(far.children[0].material.map, 26, 17.6, { edge: false, opaque: true });
+    side.rotation.y = -sx * Math.PI / 2; side.position.set(sx * 22, -1.5, -7); group.add(side);
+  }
   const r = rng(s0 + 50);
   for (const [i, m] of (spec.mid ?? []).entries()) {
     const [name, at] = Array.isArray(m) ? m : [m, null];
@@ -253,7 +285,7 @@ export function buildOutdoor(group, ai, spec, art) {
   }
   // Wings: trees or rocks at the sides hide the edges of the set.
   const wing = spec.wings ?? (spec.ground === 'ice' || spec.ground === 'snow' || spec.ground === 'water' || spec.ground === 'deck' ? null : 'trees');
-  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](); const f = paperFlat(aiArt(ai, art, wing, wing) ?? texture(cv), mw, mh); f.position.set(x, 0, z); f.scale.x = s; group.add(f); }
+  if (wing && MID[wing]) for (const [x, z, s] of [[-8.5, -1, 1], [8.5, -2, -1], [-11, -8, 1], [11, -9, -1]]) { const [cv, mw, mh] = MID[wing](); const f = paperFlat(aiArt(ai, art, wing, wing) ?? texture(cv), mw, mh); f.position.set(x, 0, z); f.scale.x = s; f.rotation.y = s * 0.8; group.add(f); } // turned in, never seen edge on
   let fx = () => {};
   if (spec.weather === 'snow') fx = snowfall(group);
   if (spec.weather === 'storm') fx = lightning(group, 44, -20);

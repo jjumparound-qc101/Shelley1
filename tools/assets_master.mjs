@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { CAST } from '../src/cast.js';
 import { setPieces } from '../src/sets/library.js';
+import { propPlaced } from '../src/props.js';
 
 const ORDER = ['l01', 'l02', 'l03', 'l04', ...Array.from({ length: 23 }, (_, i) => `ch${String(i + 1).padStart(2, '0')}`)];
 const LABEL = (id) => (id.startsWith('l') ? `Letter ${+id.slice(1)}` : `Chapter ${+id.slice(2)}`);
@@ -20,7 +21,7 @@ const have = new Set(fs.existsSync('public/art/ai/index.json') ? JSON.parse(fs.r
 const LETTER1 = [{
   id: 'lodging', art: 'walton_petersburgh', hero: 'walton',
   set: { kind: 'room', wall: 'plaster', floor: 'boards', window: true, view: 'town', weather: 'snow', furniture: ['desk', 'chair', 'shelf'] },
-  setNote: 'Walton\'s lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a writing desk with a candle; a chart of the northern seas on the wall.',
+  setNote: 'Walton\'s lodging in St. Petersburgh in December: a plain room with a tall window on a snowy street with onion-domed churches; a chart of the northern seas on the wall. No desk, chair, candle or writing things in the wall drawings: the desk and chair stand on the stage in front of them.',
   cast: { walton: { pose: 'stand' } }, beats: [{ who: 'walton', pose: 'back' }, { who: 'walton', pose: 'write' }],
   props: [['sledge', 'a Russian sledge with its horse and a driver wrapped in furs, flying over the snow']],
   thoughts: ['the sun is for ever visible, its broad disk just skirting the horizon', 'the wondrous power which attracts the needle', 'the whale-fishers on an expedition to the North Sea'],
@@ -46,7 +47,7 @@ for (const { id, scenes } of sections) for (const d of scenes) {
   const art = d.art ?? `${id}_${d.id}`;
   const pl = (places[art] ??= { spec: d.set, note: d.setNote, sections: new Set(), titles: [] });
   pl.sections.add(id); pl.titles.push(`${LABEL(id)}: ${d.title ?? d.id}`); if (!pl.note && d.setNote) pl.note = d.setNote;
-  for (const [n, desc] of d.props ?? []) { const p = (props[slug(n)] ??= { desc, sections: new Set() }); p.sections.add(id); }
+  for (const [n, desc] of d.props ?? []) { const p = (props[slug(n)] ??= { desc, sections: new Set(), kinds: new Set() }); p.sections.add(id); p.kinds.add(d.set?.kind); }
 }
 
 // ---- Prompts.
@@ -73,7 +74,16 @@ const POSE_TEXT = {
   write: 'seated at a writing desk, writing with a quill, seen from in front across the desk',
 };
 const entries = [];
-const add = (e) => entries.push({ ...e, done: have.has(e.file) });
+// In the game = the game has a place that shows it (owner, 2026-10-16: the list should say both
+// whether a picture is made and whether it is in the game). Model sheets are only for drawing the
+// poses. Letter 1's room (src/sets/lodging.js) uses the shared boards floor, not a floor of its own.
+// An extra prop is on stage where src/props.js places it for that kind of set; Letter 1's sledge always.
+const NOT_PLACED = new Set(['sets/walton_petersburgh/floor']);
+const propOnStage = (name) => name === 'sledge' || [...(props[name]?.kinds ?? [])].some((k) => propPlaced(name, k));
+const placed = (e) => (e.file.endsWith('_sheet') ? null : e.group === 'Extra props (later)' ? propOnStage(e.file.slice(6)) : !NOT_PLACED.has(e.file));
+// Online = uploaded to the published page's picture store (assets/artifact_urls.json).
+const online = new Set(Object.keys(fs.existsSync('assets/artifact_urls.json') ? JSON.parse(fs.readFileSync('assets/artifact_urls.json', 'utf8')) : {}));
+const add = (e) => entries.push({ ...e, done: have.has(e.file), game: placed(e), online: online.has(e.file) });
 
 // 1. Characters: no drawing yet first, then by how many sections they appear in.
 const anyDrawn = (who) => [...have].some((f) => f.startsWith(`cast/${who}_`));
@@ -136,16 +146,23 @@ for (const [name, p] of Object.entries(props)) if (!common[name]) add({ group: '
 fs.mkdirSync('assets', { recursive: true });
 fs.writeFileSync('assets/manifest.json', JSON.stringify({ style: STYLE, entries }, null, 1));
 const done = entries.filter((e) => e.done).length;
+const slots = entries.filter((e) => e.game !== null).length;
+const inGame = entries.filter((e) => e.done && e.game).length;
+const live = entries.filter((e) => e.done && e.game && e.online).length;
+const notPlaced = entries.filter((e) => e.game === false);
+const sheets = entries.length - slots;
+const mark = (v) => (v === null ? '-' : v ? 'yes' : 'no');
+const status = `**Made:** ${done} of ${entries.length} images. **In the game:** ${inGame} of ${slots} (the ${sheets} model sheets are only for drawing the poses). **On the published page:** ${live} of ${slots}.\n\nEach line says **made** (approved into \`public/art/ai/\`), **in game** (the game shows it) and **online** (uploaded to the published page). A dash means it does not apply.\n\n## Not in the game yet (${notPlaced.length})\nMade but with no place in the game yet (src/props.js says where each extra prop goes: on a table or the floor, on the wall, in the distance, or in someone's hands).\n${notPlaced.map((e) => `- \`${e.file}\` (${e.done ? 'made' : 'not made'})`).join('\n')}\n`;
 const groups = ['Characters', 'Buildings and places', 'Props', 'Thought vignettes', 'Extra props (later)'];
-let md = `# Master Asset List\nGenerated by \`tools/assets_master.mjs\` from the staged sections (\`src/scenes/data/\`, Letter 1 in the script). **Don't edit by hand**: change the staging, then rerun.\n\n**Progress:** ${done} of ${entries.length} images done. ${groups.map((g) => `${g}: ${entries.filter((e) => e.group === g).length}`).join(' · ')}.\n\nImages are made in batches with \`python3 tools/gen_batch.py next\` and ticked here once approved (\`gen_batch.py approve\`).\n\n## How to use this list\n1. Make the images in this order: characters first (each character's **model sheet** first, then its poses with the sheet attached), then buildings and places, then shared props and scenery, then thought vignettes. The game draws a simple placeholder for anything not made yet, so any order works. \"Extra props (later)\" are objects the staging mentions that the game does not place on stage yet.\n2. Paste the **style block** first in a new image conversation (or the generator puts it in front of every prompt).\n3. Save each image under its file name (the path in \`source/ai/\`). Characters drawn facing left; the game mirrors them.\n4. Reject anything with grey wash, colour, text, a border or a cropped figure.\n\n## Style block\n\`\`\`\n${STYLE}\n\`\`\`\n`;
+let md = `# Master Asset List\nGenerated by \`tools/assets_master.mjs\` from the staged sections (\`src/scenes/data/\`, Letter 1 in the script). **Don't edit by hand**: change the staging, then rerun.\n\n${groups.map((g) => `${g}: ${entries.filter((e) => e.group === g).length}`).join(' · ')}.\n\n${status}\nImages are made in batches with \`python3 tools/gen_batch.py next\` and ticked here once approved (\`gen_batch.py approve\`).\n\n## How to use this list\n1. Make the images in this order: characters first (each character's **model sheet** first, then its poses with the sheet attached), then buildings and places, then shared props and scenery, then thought vignettes. The game draws a simple placeholder for anything not made yet, so any order works. \"Extra props\" are objects the staging mentions; src/props.js sets them on stage.\n2. Paste the **style block** first in a new image conversation (or the generator puts it in front of every prompt).\n3. Save each image under its file name (the path in \`source/ai/\`). Characters drawn facing left; the game mirrors them.\n4. Reject anything with grey wash, colour, text, a border or a cropped figure.\n\n## Style block\n\`\`\`\n${STYLE}\n\`\`\`\n`;
 for (const g of groups) {
   const list = entries.filter((e) => e.group === g);
-  md += `\n## ${g} (${list.filter((e) => e.done).length} of ${list.length} done)\n`;
+  md += `\n## ${g} (${list.filter((e) => e.done).length} of ${list.length} made, ${list.filter((e) => e.done && e.game).length} in the game)\n`;
   let head = null;
   for (const e of list) {
     const h = e.who ? CAST[e.who].name : e.art ?? null;
     if (h && h !== head) { md += `\n### ${h}\n`; head = h; }
-    md += `- [${e.done ? 'x' : ' '}] \`${e.file}.png\` (${e.size}) ${e.title}${e.note ? `. _${e.note}_` : ''}\n  > ${e.prompt}${e.ref ? ` Attach: \`${e.ref}\`.` : ''}\n`;
+    md += `- [${e.done ? 'x' : ' '}] \`${e.file}.png\` made: ${mark(e.done)} · in game: ${mark(e.game === null ? null : e.done && e.game)} · online: ${mark(e.game === null ? null : e.done && e.game && e.online)}. (${e.size}) ${e.title}${e.note ? `. _${e.note}_` : ''}\n  > ${e.prompt}${e.ref ? ` Attach: \`${e.ref}\`.` : ''}\n`;
   }
 }
 fs.writeFileSync('docs/ASSETS_MASTER.md', md);

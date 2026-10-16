@@ -39,7 +39,7 @@ export class Puppet {
     if (!this.root.visible) return;
     // Walking (any speed): the two step drawings alternate once per step, and the step
     // count comes from the distance covered, so the feet keep pace with the ground at any
-    // speed or size. Without walk drawings, the standing pose bobs. (The composed running
+    // speed or size. Without walk drawings, the standing pose glides. (The composed running
     // poses are retired: their legs read wrongly in motion. Owner, 2026-10-10.)
     let pose = s.pose;
     const walking = pose === 'stand' && s.moving && !s.float;
@@ -53,12 +53,10 @@ export class Puppet {
       this.pose = pose;
     }
     const flat = this.poses[pose];
-    // A walk rises a little mid-step; anything else that moves (the Rabbit) hops.
-    const hop = s.float ? Math.sin((s.phase ?? 0) * Math.PI * 2) * 0.03 * this.height
-      : !s.moving ? 0 : walking
-      ? Math.sin((steps % 1) * Math.PI) * 0.01 * this.height
-      : Math.abs(Math.sin(s.phase * Math.PI * 2)) * 0.12 * this.height;
-    let rock = s.float ? Math.sin((s.phase ?? 0) * Math.PI) * 0.04 : !s.moving ? 0 : walking ? Math.sin(steps * Math.PI) * 0.02 : Math.sin(s.phase * Math.PI * 2) * 0.06;
+    // Figures glide without bobbing: no rise mid-step, no rocking, no hop (owner, 2026-10-15).
+    // Only a swimmer (float) still bobs on the water.
+    const hop = s.float ? Math.sin((s.phase ?? 0) * Math.PI * 2) * 0.03 * this.height : 0;
+    const rock = s.float ? Math.sin((s.phase ?? 0) * Math.PI) * 0.04 : 0;
     const bounce = 0;
     // Standing still means still: no idle sway (owner, 2026-10-15). `idle` is ignored.
     const scale = s.scale ?? 1;

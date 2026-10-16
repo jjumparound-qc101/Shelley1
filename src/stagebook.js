@@ -1,16 +1,36 @@
 // Scenes from data. Each section's staging is written as plain data in src/scenes/data/<id>.js
-// (format: docs/STAGING.md), and turned into scenes here: a set from the library, the cast's
+// (format: docs/STAGING.md), and turned into scenes here: a set from the library and its props, the cast's
 // moves and poses, camera shots and thought vignettes, all keyed to words of the text.
 import { buildSet } from './sets/library.js';
 import { cameraTrack, smooth, lerp } from './track.js';
 import { thoughts } from './thoughts.js';
 import { vignette } from './vignettes.js';
 import { CAST } from './cast.js';
+import { placeProps, heldProps, PROPS } from './props.js';
+
+// A room's AI wall drawings are already furnished, so a cut-out of ordinary furniture standing in
+// front of them only doubles what is drawn. It stays only where the staging uses it: someone sits,
+// lies or stands at it, or the scene's table-top props are set on it. Story pieces (bars, dock,
+// slab, coffin, lab bench, guitar) always stay. (Owner, 2026-10-16.)
+const COMMON = new Set(['desk', 'table', 'chair', 'bench', 'bed', 'shelf']);
+const TOPS = ['desk', 'table', 'bench', 'slab', 'lab'];
+function inUse(d) {
+  const used = new Set();
+  for (const c of Object.values(d.cast ?? {})) if (typeof c.at === 'string') used.add(c.at);
+  for (const b of d.beats ?? []) if (typeof b.to === 'string') used.add(b.to);
+  const all = d.set.furniture ?? [], name = (f) => (Array.isArray(f) ? f[0] : f);
+  if ((d.props ?? []).some(([p]) => PROPS[p]?.[0] === 't')) used.add(TOPS.find((t) => all.some((f) => name(f) === t)));
+  return all.filter((f) => !COMMON.has(name(f)) || used.has(name(f)));
+}
 import { hatch, blob, fillPaper, outline } from './ink.js';
 
 // A cue: "word", "word#2" (2nd), "word+1.5" / "word#2-0.8" (seconds after or before),
 // "^Paragraph start" (start of the paragraph beginning so), or a number (seconds).
 // Words are counted from `after` (the scene's start) on.
+// A thought's picture: its `art` name, or else its words made into a file name, the same rule
+// as tools/assets_master.mjs, which names the vignettes to make.
+const thoughtName = (b) => b.art ?? b.think.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 48);
+
 export function resolveCue(cue, spec, after = 0) {
   if (typeof spec === 'number') return spec;
   let m = /^(.*?)([+-]\d+(?:\.\d+)?)?$/.exec(spec.trim());
@@ -41,15 +61,17 @@ export function sceneFromData(d, index, sectionId) {
     art,
     // For loading its drawings (main.js artFor): who is on stage, and its named thought pictures.
     people: [...new Set([d.hero ?? 'victor', ...Object.keys(d.cast ?? {}), ...(d.beats ?? []).map((b) => b.who).filter(Boolean)])],
-    thoughtArt: (d.beats ?? []).map((b) => b.art).filter(Boolean),
+    thoughtArt: (d.beats ?? []).filter((b) => b.think).map(thoughtName),
+    propArt: (d.props ?? []).map(([n]) => n),
     start: (cue) => (index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0)),
     parts: (cue) => (d.parts ?? []).map(([title, at]) => ({ title, t: resolveCue(cue, at, resolveCue(cue, d.start ?? 0)) })),
 
     build({ group, ai, cue }) {
       const t0 = index === 0 && d.start === undefined ? 0 : resolveCue(cue, d.start ?? 0);
       const T = (spec) => resolveCue(cue, spec, t0);
-      const set = buildSet(group, ai, d.set, art);
-      const M = (name) => (typeof name === 'object' ? name : set.marks[name] ?? set.marks.C);
+      const set = buildSet(group, ai, d.set?.kind === 'room' && ai[`sets/${art}/wall_back`] ? { ...d.set, furniture: inUse(d) } : d.set, art);
+      placeProps(group, ai, set, d.set?.kind, (d.props ?? []).map(([n]) => n));
+      const M = (name) => (typeof name === 'object' ? { ...name, x: name.x * (set.sx ?? 1) } : set.marks[name] ?? set.marks.C); // a room draws spots in (ROOM_SX)
 
       // ---- The cast: a list of timed events per person.
       const tracks = {};
@@ -125,7 +147,13 @@ export function sceneFromData(d, index, sectionId) {
           mid: () => ({ pos: [cx + side * 0.8, hh * 0.9, cz + 3.4 + span * 0.6], look: [cx, hh * 0.62, cz] }),
           close: () => ({ pos: [cx + side * 0.45, hh * 0.86, cz + 1.9], look: [cx, hh * 0.8, cz] }),
           low: () => ({ pos: [cx + side * 0.6, 0.7, cz + 2.8 + span * 0.5], look: [cx, hh * 0.75, cz] }),
-          over: () => { const a = ps[0], o = ps[1] ?? { ...a, z: a.z - 2 }; const dx = o.x - a.x, dz = o.z - a.z, L = Math.hypot(dx, dz) || 1; return { pos: [a.x - dx / L * 1.3 + 0.35, a.h * 0.95, a.z - dz / L * 1.3 + 0.6], look: [o.x, o.h * 0.75, o.z] }; },
+          over: () => {
+            const a = ps[0], o = ps[1] ?? { ...a, z: a.z - 2 }; const dx = o.x - a.x, dz = o.z - a.z, L = Math.hypot(dx, dz) || 1;
+            // Two people side by side would put the camera looking along the stage, past the edge of the
+            // scenery and at cut-outs edge on: then it stands in front of the near one and looks across.
+            if (Math.abs(dx) / L > 0.7) return { pos: [a.x - Math.sign(dx) * 0.6, a.h * 0.95, Math.max(a.z, o.z) + 2.2], look: [o.x, o.h * 0.75, o.z] };
+            return { pos: [a.x - dx / L * 1.3 + 0.35, a.h * 0.95, a.z - dz / L * 1.3 + 0.6], look: [o.x, o.h * 0.75, o.z] };
+          },
         };
         const k = (kinds[b.shot] ?? kinds.mid)();
         return { t, dur: b.dur ?? 3, pos: b.pos ?? clampCam(k.pos), look: b.look ?? k.look };
@@ -141,12 +169,15 @@ export function sceneFromData(d, index, sectionId) {
       // ---- Thoughts.
       const think = thoughts(group, (d.beats ?? []).filter((b) => b.think).map((b, i) => ({
         t0: T(b.at), t1: T(b.at) + (b.dur ?? 9),
-        art: ai[`vignettes/${b.art ?? ''}`]?.tex ?? placeholderThought(b.think, 900 + i * 7 + index * 31),
+        art: ai[`vignettes/${thoughtName(b)}`]?.tex ?? placeholderThought(b.think, 900 + i * 7 + index * 31),
       })));
+
+      // ---- Props in someone's hands, moving with them.
+      const held = heldProps(group, ai, (d.props ?? []).map(([n]) => n), Object.keys(tracks));
 
       return {
         T: {}, bg: set.bg, fog: set.fog, bounds: set.bounds, hotspots: [],
-        camera, actors, update(t) { set.update(t); think(t); },
+        camera, actors, update(t, cast) { set.update(t); think(t); held(cast); },
       };
     },
   };

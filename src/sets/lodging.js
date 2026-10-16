@@ -5,13 +5,16 @@ import * as THREE from 'three';
 import { paperFlat, halo } from '../stage.js';
 import { canvas, texture, hatch, outline, fillPaper, grain, blob, rng, INK, PAPER } from '../ink.js';
 
-export const ROOM = { w: 8.4, d: 6.4, h: 4.6, back: -4.2 };
-export const WINDOW = { x0: 0.8, x1: 2.6, y0: 0.95, y1: 3.45 }; // in the back wall, metres
-export const DESK = { x: -1.9, z: -2.75 };
+// Sized to the AI wall drawings, as the library's rooms are (src/sets/library.js, buildRoom): a
+// 3.4 m wall, the 3:2 picture hung 3.9 m high and sunk 0.5 m so its drawn floor meets the stage floor.
+export const ROOM = { w: 5.85, d: 6.4, h: 3.4, back: -4.2 };
+const DRAWN_H = 3.9, SINK = 0.5;
+export const WINDOW = { x0: 0.55, x1: 1.8, y0: 0.8, y1: 2.9 }; // in the back wall, metres
+export const DESK = { x: -1.35, z: -2.75 };
 
 const PXM = 120;
 // The master drawings use the asset list's names (sets/walton_petersburgh/..., the shared furniture).
-const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
+const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', wall_left: 'sets/walton_petersburgh/wall_left', wall_right: 'sets/walton_petersburgh/wall_right', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
 const pick = (ai, name, draw) => ai[`l01/${name}`]?.tex ?? ai[AI_NAME[name]]?.tex ?? texture(draw());
 
 function backWall() {
@@ -195,16 +198,21 @@ function snow(group) {
 
 export function buildLodging(group, ai = {}) {
   const { w, d, h, back } = ROOM;
-  const floorTex = ai['l01/floor']?.tex ?? texture(floorTile(), { repeat: [w / 1.6, d / 1.6] });
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: floorTex }));
+  // The shared boards floor, repeated every 2.4 m (as in the library's rooms), else the drawn tile.
+  const boards = ai['l01/floor']?.tex ?? ai['sets/common/floor_boards']?.tex;
+  const geo = new THREE.PlaneGeometry(w, d);
+  if (boards) { boards.wrapS = boards.wrapT = THREE.RepeatWrapping; const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / 2.4, uv.getY(i) * d / 2.4); }
+  const floor = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: boards ?? texture(floorTile(), { repeat: [w / 1.6, d / 1.6] }) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: pick(ai, 'ceiling', ceiling) }));
   ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
-  const bw = paperFlat(pick(ai, 'wall_back', backWall), w, h, { edge: false });
-  bw.position.set(0, 0, back); group.add(bw);
+  const drawn = (name) => !!(ai[`l01/${name}`] ?? ai[AI_NAME[name]]);
+  const bw = paperFlat(pick(ai, 'wall_back', backWall), w, drawn('wall_back') ? DRAWN_H : h, { edge: false });
+  bw.position.set(0, drawn('wall_back') ? -SINK : 0, back); group.add(bw);
   for (const s of [-1, 1]) {
-    const sw = paperFlat(pick(ai, s < 0 ? 'wall_left' : 'wall_right', () => sideWall(510 + s * 7, s > 0)), d, h, { edge: false });
-    sw.rotation.y = -s * Math.PI / 2; sw.position.set(s * w / 2, 0, back + d / 2); group.add(sw);
+    const n = s < 0 ? 'wall_left' : 'wall_right';
+    const sw = paperFlat(pick(ai, n, () => sideWall(510 + s * 7, s > 0)), d, drawn(n) ? DRAWN_H : h, { edge: false });
+    sw.rotation.y = -s * Math.PI / 2; sw.position.set(s * w / 2, drawn(n) ? -SINK : 0, back + d / 2); group.add(sw);
   }
   const st = paperFlat(pick(ai, 'street', street), 9, 9 * 1400 / 2400, { edge: false, opaque: true });
   st.position.set((WINDOW.x0 + WINDOW.x1) / 2, 0, back - 3.0); group.add(st); // the road just below the sill line
@@ -219,7 +227,7 @@ export function buildLodging(group, ai = {}) {
   const glow = halo('#fff6dd', 0.9, 0.55); glow.position.set(DESK.x - 0.55, 1.12, DESK.z - 0.08); group.add(glow);
   const fall = snow(group);
   return {
-    sledge, glow,
+    sledge, glow, desk: deskFlat, chair: chairFlat,
     update(t) { fall(t); glow.material.opacity = 0.5 + 0.06 * Math.sin(t * 7.3) * Math.sin(t * 3.1); },
     bounds: { minX: -3.6, maxX: 3.6, minZ: -3.6, maxZ: 1.6 },
     hotspots: [

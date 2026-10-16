@@ -57,6 +57,9 @@ async function main() {
   // drawing the poses, so the game skips them.
   const AI_ART = (await fetch('art/ai/index.json').then((r) => (r.ok ? r.json() : [])).catch(() => [])).filter((n) => !n.endsWith('_sheet'));
   const SIZES = await fetch('art/ai/sizes.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  // The published page keeps its pictures in the artifact's asset store (a version may hold only
+  // 511 files): art/ai/urls.json maps each name to its stored copy. Locally there is none.
+  const URLS = await fetch('art/ai/urls.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   const narrated = CHAPTERS.filter((c) => c.narrated);
   const wordsList = await Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json())));
   const ai = {};
@@ -71,7 +74,7 @@ async function main() {
   const artLoads = new Map(); // name -> promise of its picture
   function loadArt(names) {
     return Promise.all(names.filter((n) => ai[n]).map((n) => {
-      if (!artLoads.has(n)) artLoads.set(n, new THREE.ImageLoader().loadAsync(`art/ai/${n}.webp`)
+      if (!artLoads.has(n)) artLoads.set(n, new THREE.ImageLoader().loadAsync(URLS[n] ?? `art/ai/${n}.webp`)
         .then((img) => { ai[n].tex.image = img; ai[n].tex.needsUpdate = true; })
         .catch(() => artLoads.delete(n)));
       return artLoads.get(n);
@@ -89,12 +92,13 @@ async function main() {
     const sets = new Set(c.scenes.flatMap((d) => d.arts ?? [d.art]).filter(Boolean));
     const people = new Set(c.scenes.flatMap((d) => d.people ?? [d.hero]).filter(Boolean));
     const thoughts = new Set(c.scenes.flatMap((d) => d.thoughtArt ?? []));
+    const props = new Set(c.scenes.flatMap((d) => d.propArt ?? []));
     return Object.keys(ai).filter((n) => {
       const [kind, a, b] = n.split('/');
       if (kind === 'cast') return people.has(a.replace(/_[a-z]+$/, ''));
       if (kind === 'sets') return a === 'common' || sets.has(a);
       if (kind === 'vignettes') return thoughts.has(a);
-      if (kind === 'props') return false;
+      if (kind === 'props') return props.has(a);
       return true; // anything else (e.g. l01/...) is small: always
     });
   }
@@ -177,16 +181,22 @@ async function main() {
     camera.rotateX(nudge.pitch);
   }
   // The picture free of the text strip and the controls, for the thought bubbles.
+  // The picture less the text and controls. The text box grows and shrinks with each sentence, so
+  // the space kept for it is its full height (22% of the screen at most, style.css), and a thought
+  // placed beside it stays clear of it whatever is said next.
   function freeView() {
     const pic = renderer.domElement.getBoundingClientRect();
-    let top = pic.top, bottom = pic.bottom;
+    let top = pic.top, bottom = pic.bottom, left = pic.left, right = pic.right;
+    const full = innerHeight * 0.22;
     for (const id of ['page', 'controls', 'timeline']) {
-      const el = document.getElementById(id); if (!el || el.offsetParent === null) continue;
+      const el = document.getElementById(id); if (!el || getComputedStyle(el).display === 'none') continue; // (offsetParent is always null for these fixed boxes)
       const r = el.getBoundingClientRect(); if (r.height === 0 || r.width < innerWidth * 0.3) continue;
       if (r.top >= pic.bottom || r.bottom <= pic.top) continue; // not over the picture
-      if (r.top > pic.top + pic.height * 0.45) bottom = Math.min(bottom, r.top - 6); else if (r.bottom < pic.top + pic.height * 0.55) top = Math.max(top, r.bottom + 6);
+      if (r.height > pic.height * 0.5) { if (r.left > pic.left + pic.width / 2) right = Math.min(right, r.left - 6); else left = Math.max(left, r.right + 6); continue; } // text at the side
+      const h = id === 'page' ? Math.max(r.height, full) : r.height;
+      if (r.top > pic.top + pic.height * 0.45) bottom = Math.min(bottom, r.bottom - h - 6); else if (r.bottom < pic.top + pic.height * 0.55) top = Math.max(top, r.top + h + 6);
     }
-    return { x: pic.left, y: top, w: pic.width, h: Math.max(80, bottom - top) };
+    return { x: left, y: top, w: right - left, h: Math.max(80, bottom - top) };
   }
 
   // The cast. Placeholder figures drawn in code (figures.js) until the AI drawings arrive;
@@ -636,7 +646,7 @@ async function main() {
   // so checks can read its scenes before Begin is pressed.
   build(CHAPTERS[0]);
   window.__slice = {
-    audio, setMode, setLayout, camera, perf, chapters: CHAPTERS, begin, explorer, cast,
+    audio, setMode, setLayout, camera, perf, chapters: CHAPTERS, begin, explorer, cast, ai, artFor, // ai and artFor: tools/full_check.mjs
     get chapter() { return chapter; },
     get scenes() { return (ch ?? CHAPTERS[0].built).scenes; },
     get cue() { return (ch ?? CHAPTERS[0].built).cue; },

@@ -56,7 +56,7 @@ export default [
     props: [['sailing_boat', 'a small sailing boat with oars, the sail set or furled']],
   },
   {
-    id: 'belrive', title: 'The house of mourning', hero: 'victor', start: '^Our house was the house of mourning', art: 'belrive',
+    id: 'belrive', title: 'The house of mourning', hero: 'victor', start: '^Our house was the house of mourning', art: 'belrive_room',
     set: { kind: 'room', wall: 'panel', floor: 'boards', window: true, view: 'lake', door: 'left',
       furniture: [['chair', { x: 2.4, z: -2.6 }], ['bench', { x: -1, z: -2.8 }]], light: 'day' },
     setNote: 'A sitting room in the house at Belrive on the shore of the lake, windows looking over the water to the mountains; a land of peace and beauty, a house of mourning.',
