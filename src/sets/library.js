@@ -207,16 +207,35 @@ const DRAWN_FURN = {
   coffin: [0.8], lab: [1.7, 0.55], slab: [0.9, 0.8], dock: [1.1], bars: [3.1], guitar: [0.95],
 };
 const WALL_H = 3.9, WALL_SINK = 0.5, ROOM_W = WALL_H * 1.5;
+// The outdoor drawing seen through a room's windows, where the room's own "view" drawing is not a
+// plain outdoor scene (it shows a window frame, bars or the room itself) or there is none.
+// Rooms whose wall drawings show a different floor from the one their scenes ask for.
+const FLOOR_OF = { ingolstadt_workshop: 'flags', waldman_laboratory: 'boards', orkney_hut: 'flags', orkney_hut_room: 'boards', thonon_inn: 'flags' };
+export const OUTSIDE = {
+  archangel_lodging: 'archangel_harbour/far', belrive_room: 'belrive/far', evian_chamber: 'evian_shore/far',
+  geneva_bedroom: 'lake_geneva/far', geneva_court: 'geneva_departure/far', geneva_magistrate: 'geneva_departure/far',
+  geneva_prison: 'geneva_departure/far', geneva_barn: 'plainpalais/far', ingolstadt_lecture: 'ingolstadt_lodging/view',
+  krempe_study: 'ingolstadt_lodging/view', waldman_laboratory: 'ingolstadt_lodging/view', ingolstadt_vault: 'ingolstadt_lodging/view',
+  irish_assizes: 'irish_shore/far', irish_court: 'irish_shore/far', irish_inn_room: 'irish_shore/far', irish_prison: 'irish_shore/far',
+  london_lodging: 'thames_ship/far', lucerne_garret: 'lausanne_shore/far', orkney_hut: 'orkney_hut_room/view',
+  paris_court: 'paris_hotel/view', paris_prison: 'paris_hotel/view', shepherd_hut: 'ingolstadt_country/far',
+  thonon_inn: 'lake_geneva/far', creature_hovel: 'delacey_wood/far', creature_hut: 'montanvert/far', delacey_cottage: 'delacey_wood/far',
+};
 export const ROOM_SX = ROOM_W / 8.4;
 export function buildRoom(group, ai, spec, art) {
   const w = ROOM_W, d = spec.d ?? 6.4, h = WALL_H - WALL_SINK, back = -4.2, s0 = spec.seed ?? 1, k = ROOM_SX;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
   const win = spec.window === false ? null : [0.8, 2.6, 0.95, 3.45];
-  const floorAi = aiArt(ai, art, 'floor', `floor_${spec.floor ?? 'boards'}`);
-  const floor = new THREE.Mesh(tiledPlane(w, d, 2.4, floorAi), new THREE.MeshBasicMaterial({ map: floorAi ?? groundTex(spec.floor ?? 'boards', [w / 1.6, d / 1.6]) }));
+  // The floor laid in front of the drawn walls matches the floor drawn at their foot.
+  const floorKind = FLOOR_OF[art] ?? spec.floor ?? 'boards';
+  const floorAi = aiArt(ai, art, 'floor', `floor_${floorKind}`);
+  const floor = new THREE.Mesh(tiledPlane(w, d, 2.4, floorAi), new THREE.MeshBasicMaterial({ map: floorAi ?? groundTex(floorKind, [w / 1.6, d / 1.6]) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
   const ceilT = (() => { const { c, g } = canvas(1024, 800); const a = new Path2D(); a.rect(0, 0, 1024, 800); fillPaper(g, a); hatch(g, a, { angle: 0, gap: 4, seed: s0 + 30, alpha: 0.7 }); for (let x = 60; x < 1024; x += 180) { const b = new Path2D(); b.rect(x, 0, 50, 800); fillPaper(g, b); hatch(g, b, { angle: 1.57, gap: 5, seed: x }); outline(g, b, 2.5); } return texture(c); })();
-  const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: ceilT })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
+  // The drawn ceiling tile for the kind of room (sets/common/ceiling_*), else the code-drawn beams.
+  const ceilKind = art === 'walton_cabin' ? 'planks' : { timber: 'beams', rough: 'beams', stone: 'vault', cell: 'vault' }[spec.wall] ?? 'plaster';
+  const ceilAi = ai[`sets/${art}/ceiling`]?.tex ?? ai[`sets/common/ceiling_${ceilKind}`]?.tex;
+  const ceil = new THREE.Mesh(tiledPlane(w, d, 2.4, ceilAi), new THREE.MeshBasicMaterial({ map: ceilAi ?? ceilT })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
   // A drawn wall is hung full height and sunk (its drawn floor goes under the stage floor);
   // a code-drawn one is just the wall.
   const wall = (piece, ww, draw) => {
@@ -233,10 +252,21 @@ export function buildRoom(group, ai, spec, art) {
     sw.rotation.y = -side * Math.PI / 2; sw.position.set(side * w / 2, -sw.userData.sink, back + d / 2); group.add(sw);
   }
   let update = () => {};
-  if (win) {
-    const view = spec.view ?? 'town';
-    const st = paperFlat(pick('view', () => farArt(view, spec.weather)), 12, 4.8, { edge: false, opaque: true });
-    st.position.set(0, 0.4, back - 3.0); group.add(st); // behind every window the drawings put in the back wall
+  // What is outside. Every pane in the drawn walls is cut out (tools/window_panes.py), so the view
+  // stands behind the back wall and outside both side walls (owner, 2026-10-17: every window shows
+  // its view). Many rooms' own "view" drawings were made as a window seen from inside (a frame, a
+  // desk, a coffin), so those rooms look out on a plain outdoor drawing of the same place instead.
+  const drawnWalls = !!ai[`sets/${art}/wall_back`];
+  if (win || drawnWalls) {
+    const outName = OUTSIDE[art] ? `sets/${OUTSIDE[art]}` : `sets/${art}/view`, out = ai[outName];
+    const vt = out?.tex ?? texture(farArt(spec.view ?? 'town', spec.weather));
+    const vw = 12, vh = vw / (out?.aspect ?? 1.5);
+    const st = paperFlat(vt, vw, vh, { edge: false, opaque: true });
+    st.position.set(0, 1.9 - vh / 2, back - 3.0); group.add(st); // its middle at the windows' height
+    if (drawnWalls) for (const side of [-1, 1]) {
+      const sv = paperFlat(vt, vw, vh, { edge: false, opaque: true });
+      sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), 1.9 - vh / 2, back + d / 2); group.add(sv);
+    }
     if (spec.weather === 'snow') update = snowfall(group, { x0: -1, x1: 4.5, z0: back - 2.8, z1: back - 0.3, n: 220 });
     if (spec.weather === 'storm') { const l = lightning(group, 12, back - 3.0); update = l; }
   }

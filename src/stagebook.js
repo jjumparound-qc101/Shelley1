@@ -1,7 +1,7 @@
 // Scenes from data. Each section's staging is written as plain data in src/scenes/data/<id>.js
 // (format: docs/STAGING.md), and turned into scenes here: a set from the library and its props, the cast's
 // moves and poses, camera shots and thought vignettes, all keyed to words of the text.
-import { buildSet } from './sets/library.js';
+import { buildSet, OUTSIDE } from './sets/library.js';
 import { cameraTrack, smooth, lerp } from './track.js';
 import { thoughts } from './thoughts.js';
 import { vignette } from './vignettes.js';
@@ -59,6 +59,8 @@ export function sceneFromData(d, index, sectionId) {
     hero: d.hero ?? 'victor',
     turn: d.turn,
     art,
+    // Its set and the place seen through its windows (library.js OUTSIDE), for loading.
+    arts: [art, ...(OUTSIDE[art] ? [OUTSIDE[art].split('/')[0]] : [])],
     // For loading its drawings (main.js artFor): who is on stage, and its named thought pictures.
     people: [...new Set([d.hero ?? 'victor', ...Object.keys(d.cast ?? {}), ...(d.beats ?? []).map((b) => b.who).filter(Boolean)])],
     thoughtArt: (d.beats ?? []).filter((b) => b.think).map(thoughtName),

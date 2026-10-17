@@ -14,7 +14,7 @@ export const DESK = { x: -1.35, z: -2.75 };
 
 const PXM = 120;
 // The master drawings use the asset list's names (sets/walton_petersburgh/..., the shared furniture).
-const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', wall_left: 'sets/walton_petersburgh/wall_left', wall_right: 'sets/walton_petersburgh/wall_right', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge' };
+const AI_NAME = { wall_back: 'sets/walton_petersburgh/wall_back', wall_left: 'sets/walton_petersburgh/wall_left', wall_right: 'sets/walton_petersburgh/wall_right', street: 'sets/walton_petersburgh/view', desk: 'sets/common/desk', chair: 'sets/common/chair', sledge: 'props/sledge', ceiling: 'sets/common/ceiling_plaster' };
 const pick = (ai, name, draw) => ai[`l01/${name}`]?.tex ?? ai[AI_NAME[name]]?.tex ?? texture(draw());
 
 function backWall() {
@@ -216,6 +216,11 @@ export function buildLodging(group, ai = {}) {
   }
   const st = paperFlat(pick(ai, 'street', street), 9, 9 * 755 / 1062, { edge: false, opaque: true }); // the AI view, cropped to 1062 x 755 (tools/window_cut.py)
   st.position.set((WINDOW.x0 + WINDOW.x1) / 2, -0.6, back - 3.0); group.add(st); // the road just below the sill line
+  // The side walls' windows look out on the same street.
+  for (const side of [-1, 1]) {
+    const sv = paperFlat(pick(ai, 'street', street), 9, 9 * 755 / 1062, { edge: false, opaque: true });
+    sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), -0.6, back + d / 2); group.add(sv);
+  }
   const sledge = paperFlat(pick(ai, 'sledge', sledgeArt), 1.9, 1.9 * 420 / 900, { edge: false });
   sledge.position.set(-6, 0.5, back - 2.4); sledge.visible = false; group.add(sledge);
   // The AI desk and chair keep their drawn shape: the desk 1.15 m high to the top of its candle,
