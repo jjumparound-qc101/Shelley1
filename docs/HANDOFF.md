@@ -18,6 +18,9 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
   through the OpenAI API, owner approves each batch. Needs OPENAI_API_KEY and api.openai.com allowed
   in a cloud environment (not set up yet).
 - Artifact publish: build to scratch dist and publish the page with its code, audio and data. A version may hold only 511 files, so the AI pictures live in the artifact's asset store instead (Artifact publish with `asset: true`, 25 files a call). `assets/artifact_urls.json` maps each picture name to its `/_blob/<id>` address; copy it to `dist/art/ai/urls.json` when publishing (main.js loads pictures through it; locally it is absent and pictures load from public/). New pictures: upload them, add their ids to that file (check each file size against the upload result), then publish urls.json, index.json, sizes.json and the code.
+- Thought pictures: `python3 tools/vignette_ovals.py` measures each vignette's oval -> public/art/ai/ovals.json (the bubbles show exactly that oval, centred). Rerun it and publish ovals.json whenever vignettes are added or redrawn.
+- Dates in Letters 1-4: the reader's "seventeen blank" is muted (tools/narration.py MUTE; `--audio-only` re-cuts).
+
 
 ## Next
 1. Images: `python3 tools/gen_batch.py next` (8 at a time, characters first), show the owner

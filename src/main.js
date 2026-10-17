@@ -60,6 +60,8 @@ async function main() {
   // The published page keeps its pictures in the artifact's asset store (a version may hold only
   // 511 files): art/ai/urls.json maps each name to its stored copy. Locally there is none.
   const URLS = await fetch('art/ai/urls.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  // Each thought picture's oval (tools/vignette_ovals.py): the largest oval inside its engraving.
+  const OVALS = await fetch('art/ai/ovals.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   const narrated = CHAPTERS.filter((c) => c.narrated);
   const wordsList = await Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json())));
   const ai = {};
@@ -69,6 +71,7 @@ async function main() {
     const tex = new THREE.Texture(BLANK);
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 4;
+    if (OVALS[n]) tex.userData.oval = OVALS[n];
     ai[n] = { tex, aspect: SIZES[n][0] / SIZES[n][1] };
   }
   const artLoads = new Map(); // name -> promise of its picture

@@ -78,7 +78,11 @@ function fill(card) {
   const { art, img } = card, im = art?.isTexture ? art.image : art;
   if (!im || (im.width ?? 0) <= 1) return;
   img.src = source(art);
-  const box = inkBox(art);
+  // The oval measured beforehand (public/art/ai/ovals.json, by tools/vignette_ovals.py): the
+  // largest oval inside the engraving, so the picture sits centred in its bubble and fills it with
+  // no paper at the edge (owner, 2026-10-17); else a guess from where the ink is.
+  const ov = art?.userData?.oval;
+  const box = ov ? { x: ov[0], y: ov[1], w: ov[2], h: ov[3], aspect: (ov[2] * im.width) / (ov[3] * im.height) } : inkBox(art);
   if (box) Object.assign(img.style, { width: `${100 / box.w}%`, height: `${100 / box.h}%`, left: `${-100 * box.x / box.w}%`, top: `${-100 * box.y / box.h}%`, objectFit: 'fill' });
   card.aspect = box?.aspect ?? im.width / im.height;
   card.ready = true; card.place = null;
