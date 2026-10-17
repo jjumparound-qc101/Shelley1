@@ -263,9 +263,10 @@ export function buildRoom(group, ai, spec, art) {
     const vw = 12, vh = vw / (out?.aspect ?? 1.5);
     const st = paperFlat(vt, vw, vh, { edge: false, opaque: true });
     st.position.set(0, 1.9 - vh / 2, back - 3.0); group.add(st); // its middle at the windows' height
+    // Side windows are seen at a slant, so their view is wider, or panes near a corner show blank (owner, 2026-10-17).
     if (drawnWalls) for (const side of [-1, 1]) {
-      const sv = paperFlat(vt, vw, vh, { edge: false, opaque: true });
-      sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), 1.9 - vh / 2, back + d / 2); group.add(sv);
+      const sv = paperFlat(vt, vw * 1.6, vh * 1.6, { edge: false, opaque: true });
+      sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), 1.9 - vh * 0.8, back + d / 2); group.add(sv);
     }
     if (spec.weather === 'snow') update = snowfall(group, { x0: -1, x1: 4.5, z0: back - 2.8, z1: back - 0.3, n: 220 });
     if (spec.weather === 'storm') { const l = lightning(group, 12, back - 3.0); update = l; }

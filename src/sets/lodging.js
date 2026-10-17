@@ -220,10 +220,12 @@ export function buildLodging(group, ai = {}) {
   }
   const st = paperFlat(pick(ai, 'street', street), 9, 9 * 755 / 1062, { edge: false, opaque: true }); // the AI view, cropped to 1062 x 755 (tools/window_cut.py)
   st.position.set((WINDOW.x0 + WINDOW.x1) / 2, -0.6, back - 3.0); group.add(st); // the road just below the sill line
-  // The side walls' windows look out on the same street.
+  // The side walls' windows look out on the same street. Both windows are near the back, and they
+  // are seen at a slant, so each street is wider and centred on its window: a 9 m one centred on
+  // the wall left the far panes blank (owner, 2026-10-17).
   for (const side of [-1, 1]) {
-    const sv = paperFlat(pick(ai, 'street', street), 9, 9 * 755 / 1062, { edge: false, opaque: true });
-    sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), -0.6, back + d / 2); group.add(sv);
+    const sv = paperFlat(pick(ai, 'street', street), 15, 15 * 755 / 1062, { edge: false, opaque: true });
+    sv.rotation.y = -side * Math.PI / 2; sv.position.set(side * (w / 2 + 3.0), -2.6, back + 1.3); group.add(sv);
   }
   const sledge = paperFlat(pick(ai, 'sledge', sledgeArt), 1.9, 1.9 * 420 / 900, { edge: false });
   sledge.position.set(-6, 0.5, back - 2.4); sledge.visible = false; group.add(sledge);
