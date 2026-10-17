@@ -179,10 +179,11 @@ function chair() {
   return c;
 }
 
-// Snow falling outside the window, between the glass and the street.
-function snow(group) {
-  const N = 260, pos = new Float32Array(N * 3), r = rng(601);
-  for (let i = 0; i < N; i++) { pos[i * 3] = WINDOW.x0 - 1.5 + r() * (WINDOW.x1 - WINDOW.x0 + 3); pos[i * 3 + 1] = r() * 5; pos[i * 3 + 2] = ROOM.back - 0.4 - r() * 2.4; }
+// Snow falling outside a window, between the glass and the street: in the box x0..x1, z0..z1
+// (the same number of flakes per square metre and the same fall at every window; owner, 2026-10-17).
+function snow(group, { x0, x1, z0, z1 }, seed = 601) {
+  const N = Math.round(260 * (x1 - x0) * (z1 - z0) / ((WINDOW.x1 - WINDOW.x0 + 3) * 2.4)), pos = new Float32Array(N * 3), r = rng(seed);
+  for (let i = 0; i < N; i++) { pos[i * 3] = x0 + r() * (x1 - x0); pos[i * 3 + 1] = r() * 5; pos[i * 3 + 2] = z0 + r() * (z1 - z0); }
   const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
   const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: '#fbf8f0', size: 0.035, fog: false }));
   group.add(pts);
@@ -190,7 +191,8 @@ function snow(group) {
   return (t) => {
     for (let i = 0; i < N; i++) {
       pos[i * 3 + 1] = ((base[i * 3 + 1] - t * (0.35 + (i % 5) * 0.05)) % 5 + 5) % 5;
-      pos[i * 3] = base[i * 3] + Math.sin(t * 0.7 + i) * 0.08;
+      pos[i * 3] = base[i * 3] + (x1 - x0 > z1 - z0 ? Math.sin(t * 0.7 + i) * 0.08 : 0); // the drift runs along the window
+      pos[i * 3 + 2] = base[i * 3 + 2] + (x1 - x0 > z1 - z0 ? 0 : Math.sin(t * 0.7 + i) * 0.08);
     }
     geo.attributes.position.needsUpdate = true;
   };
@@ -241,7 +243,13 @@ export function buildLodging(group, ai = {}) {
   const flame = aiDesk ? [DESK.x + 0.3 * 1.15 * deskA, 1.06] : [DESK.x - 0.55, 1.12];
   if (!aiDesk) { const candleFlat = paperFlat(pick(ai, 'candle', candle), 0.1, 0.3, { edge: false }); candleFlat.position.set(DESK.x - 0.55, 0.87, DESK.z - 0.05); group.add(candleFlat); }
   const glow = halo('#fff6dd', 0.9, 0.55); glow.position.set(flame[0], flame[1], DESK.z - 0.08); group.add(glow);
-  const fall = snow(group);
+  const zw = back + 1.3; // the side windows' middle (as their streets, above); their snow reaches back past the corner, where the slanting view goes
+  const falls = [
+    snow(group, { x0: WINDOW.x0 - 1.5, x1: WINDOW.x1 + 1.5, z0: back - 2.8, z1: back - 0.4 }),
+    snow(group, { x0: -w / 2 - 2.8, x1: -w / 2 - 0.4, z0: back - 3.0, z1: zw + 2.05 }, 602),
+    snow(group, { x0: w / 2 + 0.4, x1: w / 2 + 2.8, z0: back - 3.0, z1: zw + 2.05 }, 603),
+  ];
+  const fall = (t) => falls.forEach((f) => f(t));
   return {
     sledge, glow, desk: deskFlat, chair: chairFlat,
     update(t) { fall(t); glow.material.opacity = 0.5 + 0.06 * Math.sin(t * 7.3) * Math.sin(t * 3.1); },
