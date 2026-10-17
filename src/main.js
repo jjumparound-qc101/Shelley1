@@ -101,7 +101,7 @@ async function main() {
     const props = new Set(c.scenes.flatMap((d) => d.propArt ?? []));
     return Object.keys(ai).filter((n) => {
       const [kind, a, b] = n.split('/');
-      if (kind === 'cast') return people.has(a.replace(/_[a-z]+$/, ''));
+      if (kind === 'cast') return people.has(a.replace(/_[a-z]+(_\d)?$/, '')) && !a.endsWith('_walk4') && !(a.endsWith('_walk') && ai[`cast/${a}_1`]);
       if (kind === 'sets') return a === 'common' || sets.has(a);
       if (kind === 'vignettes') return thoughts.has(a);
       if (kind === 'props') return props.has(a);
@@ -216,15 +216,21 @@ async function main() {
     const c = personArt({ ...CAST[who].look, label: CAST[who].name }, p);
     return drawn(c, p === 'lie' ? h * 0.34 : h * c.height / 760);
   };
+  // A drawn four-step walk (tools/walk_split.py: walk_1..walk_4, lined up by the feet) replaces
+  // the single step drawing.
+  const walkPoses = (who, h) => (ai[`cast/${who}_walk_1`]
+    ? Object.fromEntries([1, 2, 3, 4].map((i) => [`walk_${i}`, art(`cast/${who}_walk_${i}`, h)]))
+    : { walk_a: lazyPose(who, 'walk', h) });
   const cast = {
     walton: new Puppet({
       stand: pose('walton_stand', waltonStanding, 1.8),
       back: pose('walton_back', waltonBack, 1.8),
       write: pose('walton_write', waltonWriting, 1.42),
-      ...Object.fromEntries(['walk', 'sit', 'kneel', 'lie', 'point', 'grieve'].map((p) => [p === 'walk' ? 'walk_a' : p, lazyPose('walton', p, 1.8)])),
+      ...walkPoses('walton', 1.8),
+      ...Object.fromEntries(['sit', 'kneel', 'lie', 'point', 'grieve'].map((p) => [p, lazyPose('walton', p, 1.8)])),
     }, 1.8),
     ...Object.fromEntries(Object.entries(CAST).filter(([who]) => who !== 'walton').map(([who, c]) =>
-      [who, new Puppet(Object.fromEntries(POSES.map((p) => [p === 'walk' ? 'walk_a' : p, lazyPose(who, p, c.h)])), c.h)])),
+      [who, new Puppet({ ...Object.fromEntries(POSES.filter((p) => p !== 'walk').map((p) => [p, lazyPose(who, p, c.h)])), ...walkPoses(who, c.h) }, c.h)])),
   };
   Object.values(cast).forEach((p) => scene.add(p.root));
 
