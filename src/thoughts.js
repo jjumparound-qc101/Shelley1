@@ -83,7 +83,13 @@ function fill(card) {
   // no paper at the edge (owner, 2026-10-17); else a guess from where the ink is.
   const ov = art?.userData?.oval;
   const box = ov ? { x: ov[0], y: ov[1], w: ov[2], h: ov[3], aspect: (ov[2] * im.width) / (ov[3] * im.height) } : inkBox(art);
-  if (box) Object.assign(img.style, { width: `${100 / box.w}%`, height: `${100 / box.h}%`, left: `${-100 * box.x / box.w}%`, top: `${-100 * box.y / box.h}%`, objectFit: 'fill' });
+  // The picture is the card's background, not a sized <img>: the published page's host styles
+  // limit images to their container's width, which squeezed the picture into the bubble's left
+  // part (owner's screenshot, 2026-10-17). The <img> only tells when the picture has loaded.
+  const b = box ?? { x: 0, y: 0, w: 1, h: 1 };
+  const pos = (o, l) => (l >= 0.999 ? 50 : (100 * o) / (1 - l));
+  Object.assign(card.el.style, { backgroundImage: `url("${img.src}")`, backgroundSize: `${100 / b.w}% ${100 / b.h}%`,
+    backgroundPosition: `${pos(b.x, b.w)}% ${pos(b.y, b.h)}%`, backgroundRepeat: 'no-repeat' });
   card.aspect = box?.aspect ?? im.width / im.height;
   card.ready = true; card.place = null;
 }

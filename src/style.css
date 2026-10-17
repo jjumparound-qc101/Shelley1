@@ -207,6 +207,6 @@ body.chrome-hidden[data-form="landscape"] #page { bottom: calc(10px + env(safe-a
 #thoughts { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
 #thoughts .thought { position: fixed; display: none; border-radius: 50%; overflow: hidden; background: var(--paper, #efe9da);
   border: 3px solid #17140f; box-shadow: 0 2px 10px rgba(23, 20, 15, 0.25); transform-origin: 50% 50%; }
-#thoughts .thought img { position: absolute; left: -3%; top: -3%; width: 106%; height: 106%; object-fit: cover; }
+#thoughts .thought img { display: none; } /* the picture is the card's background (thoughts.js fill) */
 #thoughts .thought-dot { position: fixed; display: none; border-radius: 50%; background: var(--paper, #efe9da); border: 2px solid #17140f; }
 body[data-mode="explore"] #thoughts { display: none; }
