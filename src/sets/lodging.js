@@ -204,7 +204,11 @@ export function buildLodging(group, ai = {}) {
   if (boards) { boards.wrapS = boards.wrapT = THREE.RepeatWrapping; const uv = geo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / 2.4, uv.getY(i) * d / 2.4); }
   const floor = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: boards ?? texture(floorTile(), { repeat: [w / 1.6, d / 1.6] }) }));
   floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, back + d / 2); group.add(floor);
-  const ceil = new THREE.Mesh(new THREE.PlaneGeometry(w, d), new THREE.MeshBasicMaterial({ map: pick(ai, 'ceiling', ceiling) }));
+  // The drawn plaster ceiling tile, repeated every 2.4 m like the floor, else the code-drawn ceiling.
+  const plaster = ai['l01/ceiling']?.tex ?? ai[AI_NAME.ceiling]?.tex;
+  const cgeo = new THREE.PlaneGeometry(w, d);
+  if (plaster) { plaster.wrapS = plaster.wrapT = THREE.RepeatWrapping; const uv = cgeo.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * w / 2.4, uv.getY(i) * d / 2.4); }
+  const ceil = new THREE.Mesh(cgeo, new THREE.MeshBasicMaterial({ map: plaster ?? texture(ceiling()) }));
   ceil.rotation.x = Math.PI / 2; ceil.position.set(0, h, back + d / 2); group.add(ceil);
   const drawn = (name) => !!(ai[`l01/${name}`] ?? ai[AI_NAME[name]]);
   const bw = paperFlat(pick(ai, 'wall_back', backWall), w, drawn('wall_back') ? DRAWN_H : h, { edge: false });
