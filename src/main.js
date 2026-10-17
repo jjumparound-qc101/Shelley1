@@ -423,7 +423,8 @@ async function main() {
   const others = readings().filter((r) => r !== READING);
   for (const id of ['readingIntro', 'readingBtn']) {
     $(id).hidden = !others.length;
-    $(id).textContent = `Reading: ${READINGS[READING].name}`;
+    // The in-game button stays one line, so the row of buttons stays below the text box.
+    $(id).textContent = `Reading: ${id === 'readingBtn' ? READINGS[READING].short : READINGS[READING].name}`;
     $(id).addEventListener('click', () => { savePlace(); setReading(others[0]); });
   }
   // A reload within 15 minutes of reading (the page updated, or the browser reloaded it) goes straight

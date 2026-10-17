@@ -4,7 +4,7 @@ export default [
     id: 'letter', title: 'A letter from Elizabeth', hero: 'victor', art: 'ingolstadt_lodging',
     set: { kind: 'room', wall: 'plaster', floor: 'boards', window: true, view: 'town', door: 'right', furniture: ['bed', 'chair', 'table', 'desk'], light: 'day' },
     setNote: 'Victor\'s room at Ingolstadt during his long convalescence; Clerval has nursed him through the fever.',
-    cast: { victor: { at: 'bed', pose: 'sit' }, clerval: { at: 'R', face: 'victor' } },
+    cast: { victor: { at: 'bed', pose: 'lie' }, clerval: { at: 'R', face: 'victor' } },
     beats: [
       { at: 'Clerval', shot: 'wide', dur: 4 },
       { at: 'letter', who: 'clerval', to: 'C', face: 'victor' },
@@ -74,7 +74,7 @@ export default [
     id: 'reply', title: 'Dear, dear Elizabeth', hero: 'victor', start: '^“Dear, dear Elizabeth!”', art: 'ingolstadt_lodging',
     set: { kind: 'room', wall: 'plaster', floor: 'boards', window: true, view: 'town', door: 'right', furniture: ['bed', 'chair', 'table', 'desk'], light: 'day' },
     setNote: 'Victor\'s room at Ingolstadt; he writes his first letter home since the fever.',
-    cast: { victor: { at: 'bed', pose: 'sit' }, clerval: { at: 'chair', face: 'victor' } },
+    cast: { victor: { at: 'bed', pose: 'lie' }, clerval: { at: 'chair', face: 'victor' } },
     beats: [
       { at: 'Dear', shot: 'mid', on: ['victor', 'clerval'], dur: 4 },
       { at: 'instantly', who: 'victor', to: 'desk', pose: 'sit' },

@@ -18,8 +18,8 @@ const DATA = import.meta.glob('./scenes/data/*.js', { eager: true, import: 'defa
 const WORDS = import.meta.glob(['../public/data/*_words.json', '../public/data/1831/*_words.json']);
 
 export const READINGS = {
-  cast: { name: 'The LibriVox cast', text: '1831', sub: '1831/', note: 'The 1831 text, read by a LibriVox cast, with a voice for each character.' },
-  cori: { name: 'Cori Samuel', text: '1818', sub: '', note: 'The 1818 text, read by Cori Samuel for LibriVox.' },
+  cast: { name: 'The LibriVox cast', short: 'Cast', text: '1831', sub: '1831/', note: 'The 1831 text, read by a LibriVox cast, with a voice for each character.' },
+  cori: { name: 'Cori Samuel', short: 'Cori Samuel', text: '1818', sub: '', note: 'The 1818 text, read by Cori Samuel for LibriVox.' },
 };
 const READING_KEY = 'frankenstein.reading.v1';
 const hasWords = (r) => Object.keys(WORDS).some((f) => f.startsWith(`../public/data/${READINGS[r].sub}`) && !f.slice(`../public/data/${READINGS[r].sub}`.length).includes('/'));

@@ -281,7 +281,8 @@ export function buildRoom(group, ai, spec, art) {
     const key = ai[`sets/${art}/${name}`] ? `sets/${art}/${name}` : `sets/common/${name}`, drawn = ai[key];
     const ph = drawn ? DRAWN_FURN[name]?.[0] ?? fh : fh, pw = drawn ? ph * (drawn.aspect ?? fw / fh) : fw;
     const flat = paperFlat(drawn?.tex ?? texture(cv), pw, ph);
-    flat.position.set(spot.x, 0, spot.z); group.add(flat);
+    // A sitting figure's drawing has its own chair, so a chair is only a mark, never a second cut-out.
+    flat.position.set(spot.x, 0, spot.z); if (name !== 'chair') group.add(flat);
     spots[name] = spot; furnH[name] = ph; if (drawn && DRAWN_FURN[name]?.[1]) topH[name] = ph * DRAWN_FURN[name][1];
     if (name === 'desk' || name === 'table') { const g2 = halo('#fff6dd', 0.8, spec.light === 'candle' || spec.light === 'night' ? 0.5 : 0); g2.position.set(drawn && name === 'desk' ? spot.x + 0.28 * pw : spot.x - 0.5, drawn && name === 'desk' ? ph * 0.9 : ph + 0.2, spot.z - 0.05); group.add(g2); } // the drawn desk has its candle at the right
   }
@@ -302,12 +303,43 @@ export function buildRoom(group, ai, spec, art) {
   };
 }
 
+// The deck of a ship: planks from the front of the stage back to a bulwark rail, rails down both
+// sides, and the hull's side dropping from the rail to the water or ice below.
+const DECK = { x: 7, z0: 6, z1: -7.5, rail: 1.1, drop: 2.5 };
+function railTex() {
+  const { c, g } = canvas(2048, 160);
+  const band = (y, h) => { const b = new Path2D(); b.rect(0, y, 2048, h); fillPaper(g, b); hatch(g, b, { angle: 0, gap: 5, seed: 880 + y }); outline(g, b, 2.5); };
+  for (let x = 20; x < 2048; x += 90) { const b = new Path2D(); b.rect(x, 20, 16, 120); fillPaper(g, b); hatch(g, b, { angle: 1.57, gap: 4, seed: x }); outline(g, b, 2); }
+  band(0, 26); band(134, 26);
+  return texture(c);
+}
+function buildDeck(group, ai) {
+  const { x, z0, z1, rail, drop } = DECK, len = z0 - z1;
+  const boards = ai['sets/common/ground_deck']?.tex ?? ai['sets/common/floor_boards']?.tex;
+  const floor = new THREE.Mesh(tiledPlane(2 * x, len, 2.4, boards), new THREE.MeshBasicMaterial({ map: boards ?? groundTex('deck', [x, len / 2]) }));
+  floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0.01, (z0 + z1) / 2); group.add(floor);
+  const rt = railTex();
+  const hullTex = boards ?? groundTex('deck', [x, 1]);
+  const side = (w, px, pz, ry) => {
+    const r = paperFlat(rt, w, rail); r.position.set(px, 0, pz); r.rotation.y = ry; group.add(r);
+    const hull = new THREE.Mesh(new THREE.PlaneGeometry(w, drop), new THREE.MeshBasicMaterial({ map: hullTex, color: 0xb8b0a0, side: THREE.DoubleSide }));
+    hull.position.set(px, -drop / 2, pz); hull.rotation.y = ry; group.add(hull);
+  };
+  side(2 * x, 0, z1, 0);
+  for (const sx of [-1, 1]) side(len, sx * x, (z0 + z1) / 2, Math.PI / 2);
+}
+
 export function buildOutdoor(group, ai, spec, art) {
   const W = 40, D = 26, s0 = spec.seed ?? 1;
   const pick = (piece, draw) => ai[`sets/${art}/${piece}`]?.tex ?? texture(draw());
-  const groundAi = aiArt(ai, art, 'ground', `ground_${spec.ground ?? 'grass'}`);
-  const ground = new THREE.Mesh(tiledPlane(W, D, 4, groundAi), new THREE.MeshBasicMaterial({ map: groundAi ?? groundTex(spec.ground ?? 'grass', [W / 2, D / 2]) }));
-  ground.rotation.x = -Math.PI / 2; ground.position.set(0, 0, -D / 2 + 4); group.add(ground);
+  // A ship's deck is a railed platform with the sea (or the ice it is shut in by) below it,
+  // not planks running to the horizon; the scenery beyond stands down on the water or the ice.
+  const deck = spec.ground === 'deck', below = deck ? -2.5 : 0;
+  const groundKind = deck ? (spec.sea ?? 'water') : (spec.ground ?? 'grass');
+  const groundAi = aiArt(ai, art, 'ground', `ground_${groundKind}`);
+  const ground = new THREE.Mesh(tiledPlane(W, D, 4, groundAi), new THREE.MeshBasicMaterial({ map: groundAi ?? groundTex(groundKind, [W / 2, D / 2]) }));
+  ground.rotation.x = -Math.PI / 2; ground.position.set(0, below, -D / 2 + 4); group.add(ground);
+  if (deck) buildDeck(group, ai);
   const far = paperFlat(tiled(pick('far', () => farArt(spec.far ?? 'hills', spec.weather)), 1.6), 44, 17.6, { edge: false, opaque: true });
   far.position.set(0, -1.5, -20); group.add(far);
   // The same scenery carried round both sides, so a shot looking along the stage still sees it.
@@ -322,7 +354,7 @@ export function buildOutdoor(group, ai, spec, art) {
     const [cv, mw, mh] = P(), a = midArt(ai, art, name);
     const flat = paperFlat(a?.tex ?? texture(cv), a ? mh * a.aspect : mw, mh); // a drawing keeps its own shape
     const spot = at ?? { x: (i % 2 ? 1 : -1) * (4 + r() * 3), z: -7 - r() * 4 };
-    flat.position.set(spot.x, spot.y ?? 0, spot.z); if (spot.flip) flat.scale.x = -1; group.add(flat);
+    flat.position.set(spot.x, spot.y ?? below, spot.z); if (spot.flip) flat.scale.x = -1; group.add(flat);
   }
   // Wings: trees or rocks at the sides hide the edges of the set.
   const wing = spec.wings ?? (spec.ground === 'ice' || spec.ground === 'snow' || spec.ground === 'water' || spec.ground === 'deck' ? null : 'trees');

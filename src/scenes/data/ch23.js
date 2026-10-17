@@ -203,7 +203,7 @@ export default [
   {
     id: 'charge', title: 'Swear to me, Walton', hero: 'victor', start: 'unfulfilled', art: 'walton_cabin',
     set: CABIN, setNote: CABIN_NOTE,
-    cast: { victor: { at: 'bed', pose: 'sit', face: 'walton' }, walton: { at: 'chair', pose: 'sit', face: 'victor' } },
+    cast: { victor: { at: 'bed', pose: 'lie', face: 'walton' }, walton: { at: 'chair', pose: 'sit', face: 'victor' } },
     beats: [
       { at: 'guiding', shot: 'wide', dur: 4 },
       { at: 'swear', shot: 'over', on: ['walton', 'victor'], dur: 4 },
@@ -219,7 +219,7 @@ export default [
   {
     id: 'aug26', title: 'Walton: August 26th', hero: 'walton', start: 'aright', art: 'walton_cabin',
     set: CABIN, setNote: CABIN_NOTE,
-    cast: { victor: { at: 'bed', pose: 'sit' }, walton: { at: 'desk', pose: 'sit' } },
+    cast: { victor: { at: 'bed', pose: 'lie' }, walton: { at: 'desk', pose: 'sit' } },
     parts: [['When younger', '^“When younger,”']],
     beats: [
       { at: 'continuation', shot: 'wide', dur: 4 },

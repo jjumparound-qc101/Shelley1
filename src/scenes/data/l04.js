@@ -87,7 +87,7 @@ export default [
       { at: 'midnight', shot: 'mid', on: ['walton', 'victor'], dur: 4 },
       { at: '^From this time', who: 'victor', to: 'window', pose: 'stand' },
       { at: 'persuaded', who: 'walton', to: 'C', face: 'victor' },
-      { at: '^Such is my journal', who: 'victor', to: 'bed', pose: 'sit' },
+      { at: '^Such is my journal', who: 'victor', to: 'bed', pose: 'lie' },
       { at: '^Such is my journal', who: 'walton', to: 'desk', pose: 'sit' },
       { at: 'brother', shot: 'close', on: 'walton', dur: 4 },
       { at: '^I said in one', think: 'I should find no friend on the wide ocean', dur: 7 },

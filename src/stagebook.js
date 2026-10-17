@@ -127,7 +127,10 @@ export function sceneFromData(d, index, sectionId) {
           if (!s || !s.visible) continue;
           let dir = s.dir;
           if (!s.moving && s.faceWho) dir = FACE(s.pos, posAt(s.faceWho, t));
-          const pose = s.pose === 'walk' ? 'stand' : s.pose;
+          // On a bed, slab or coffin (a raised mark) a figure lies: a sitting drawing brings its own
+          // chair, and a standing one would stand on the bed (owner, 2026-10-17).
+          const raised = !s.moving && (s.pos.y ?? 0) > 0.3;
+          const pose = raised ? 'lie' : s.pose === 'walk' ? 'stand' : s.pose;
           out[who] = { pose: s.moving ? 'stand' : pose, x: s.pos.x, z: s.pos.z, y: s.pos.y ?? 0, dir, moving: s.moving, dist: s.dist, phase: t * 2, idle: s.moving ? undefined : t + (CAST[who]?.h ?? 1) };
         }
         return out;
