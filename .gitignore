@@ -4,3 +4,4 @@ smoke-shots/
 release/
 __pycache__/
 source/audio/*_joined.mp3
+source/audio/1831/*.mp3

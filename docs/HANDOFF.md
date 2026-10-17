@@ -16,9 +16,13 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
   live in 1831/ sub-folders. Cues stay in 1818 words; tools/edition_map.py maps them onto the 1831
   text (public/data/1831/<id>_map.json). After narrating either reading, rerun edition_map.py, then
   `node tools/check_scenes.mjs`, which checks every section in both. The reader switches with the
-  Reading button (start screen and More); each reading keeps its own place. Until the cast's audio
-  is narrated (`python3 tools/narrate_all.py --edition 1831`, audio in
-  /mnt/project-files/sources/audio_dramatic/), the game falls back to Cori Samuel and hides the button.
+  Reading button (start screen and More); each reading keeps its own place. Cast audio:
+  /mnt/project-files/sources/audio_dramatic/ (26 tracks split from the owner's two M4B uploads);
+  `python3 tools/narrate_all.py --edition 1831` narrates it (95-98% of words matched). Letters 2 and 3
+  share track 01 with Letter 1, so they were narrated from cuts of it starting at 684 s and 1316 s
+  (source/audio/1831/l02_track.mp3, l03_track.mp3; the plain track makes them align to Letter 1's
+  opening). The cast reads each letter's date before "To Mrs. Saville", so it falls before the cut
+  and is not heard (no MUTE needed).
 - Narration: `python3 tools/narration.py ID MP3 [--edition 1831]` (PocketSphinx + tools/align.py), 32 kbps mono;
   84-93% of words matched in every section.
 - Master asset list: `node tools/assets_master.mjs` -> docs/ASSETS_MASTER.md + assets/manifest.json
