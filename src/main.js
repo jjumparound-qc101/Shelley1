@@ -7,14 +7,14 @@ import { Page } from './narration.js';
 import { Explorer } from './explore.js';
 import { PerfMeter } from './perf.js';
 import { sentenceStarts, skip, Timeline } from './navigate.js';
-import { CHAPTERS } from './book.js';
+import { CHAPTERS, READING, READINGS, readings, setReading } from './book.js';
 import { texture } from './ink.js';
 import { waltonStanding, waltonBack, waltonWriting } from './figures.js';
 import { CAST } from './cast.js';
 import { personArt, POSES } from './people.js';
 
 const $ = (id) => document.getElementById(id);
-const SAVE_KEY = 'frankenstein.place.v1';
+const SAVE_KEY = `frankenstein.place.v1${READING === 'cori' ? '' : `.${READING}`}`; // one place per reading
 const SPEED_KEY = 'frankenstein.speed.v1';
 const SPEEDS = [1, 1.25, 1.5, 2];
 
@@ -64,6 +64,7 @@ async function main() {
   const OVALS = await fetch('art/ai/ovals.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
   const narrated = CHAPTERS.filter((c) => c.narrated);
   const wordsList = await Promise.all(narrated.map((c) => fetch(c.words).then((r) => r.json())));
+  const mapList = await Promise.all(narrated.map((c) => (c.map ? fetch(c.map).then((r) => r.json()) : null)));
   const ai = {};
   const BLANK = document.createElement('canvas'); BLANK.width = BLANK.height = 1;
   for (const n of AI_ART) {
@@ -112,7 +113,7 @@ async function main() {
   // contents); its sets are built the first time it is opened.
   narrated.forEach((c, i) => {
     c.wordsData = wordsList[i];
-    c.cue = makeCues(c.wordsData);
+    c.cue = makeCues(c.wordsData, mapList[i]);
     c.starts = c.scenes.map((def) => def.start(c.cue));
     // Marks: each scene, and the named parts within it (for the contents, the timeline and Shift+arrows).
     c.marks = c.scenes.flatMap((def, i) => [{ title: def.title, t: c.starts[i] }, ...(def.parts?.(c.cue) ?? [])]);
@@ -416,6 +417,15 @@ async function main() {
     $('continue').addEventListener('click', () => begin(savedCh, savedT));
   }
   $('begin').addEventListener('click', () => begin(CHAPTERS[0], 0));
+  // The reading (book.js READINGS): switching saves the place and reloads in the other recording,
+  // which keeps its own place.
+  $('readingNote').textContent = READINGS[READING].note;
+  const others = readings().filter((r) => r !== READING);
+  for (const id of ['readingIntro', 'readingBtn']) {
+    $(id).hidden = !others.length;
+    $(id).textContent = `Reading: ${READINGS[READING].name}`;
+    $(id).addEventListener('click', () => { savePlace(); setReading(others[0]); });
+  }
   // A reload within 15 minutes of reading (the page updated, or the browser reloaded it) goes straight
   // back to the place, paused, instead of the start screen (owner, 2026-10-14). Browsers allow sound
   // only after a tap, so the reader presses Play.

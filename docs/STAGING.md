@@ -38,6 +38,10 @@ A cue is a word of the text, counted from the scene's start:
 - `'walk'` the first "walk"; `'walk#2'` the second; `'walk+1.5'` 1.5 s after it; `'walk#2-1'`.
 - `'^I am already far'` the start of the paragraph that begins with those words (exact text).
 - A number: seconds from the start of the section audio (avoid; words survive re-timing).
+Cue words are the 1818 text's (source/text/<id>.txt). The 1831 reading plays the same staging
+through a word map (tools/edition_map.py), so a cue in a passage the 1831 text rewrote lands in
+the passage that replaced it. `node tools/check_scenes.mjs` checks both readings; if a cue only
+works in one, pick a nearby word both texts share.
 Words are matched case-insensitively with punctuation stripped; hyphenated words keep the hyphen
 (`'whale-fishers'`). A later scene's `start` is counted from the start of the section.
 The section audio has 5 s of quiet before the first word.

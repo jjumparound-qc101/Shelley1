@@ -10,7 +10,16 @@ Plan: docs/PLAN.md. Web link (private artifact): https://claude.ai/artifact/MUCW
   are numbered straight through the three volumes: Vol. I = ch01-07, II = ch08-16, III = ch17-23.
   Track map (tools/narrate_all.py): 02-05 = Letters 1-4, 06-27 = Chapters 1-22, 28+29 = Chapter 23.
   The old 1831 staging of Chapters 1-2 is kept in source/staging_1831/ for reference.
-- Narration: `python3 tools/narration.py ID MP3` (PocketSphinx + tools/align.py), 32 kbps mono;
+- Two readings (owner, 2026-10-17; src/book.js READINGS): the LibriVox dramatic reading by a cast
+  (default; 1831 text, Gutenberg #84, frankenstein_1210_librivox) and Cori Samuel (1818). Same
+  sections and one staging: game ch01 = 1831 Chapters 1-2, game chNN = 1831 Chapter NN+1. 1831 files
+  live in 1831/ sub-folders. Cues stay in 1818 words; tools/edition_map.py maps them onto the 1831
+  text (public/data/1831/<id>_map.json). After narrating either reading, rerun edition_map.py, then
+  `node tools/check_scenes.mjs`, which checks every section in both. The reader switches with the
+  Reading button (start screen and More); each reading keeps its own place. Until the cast's audio
+  is narrated (`python3 tools/narrate_all.py --edition 1831`, audio in
+  /mnt/project-files/sources/audio_dramatic/), the game falls back to Cori Samuel and hides the button.
+- Narration: `python3 tools/narration.py ID MP3 [--edition 1831]` (PocketSphinx + tools/align.py), 32 kbps mono;
   84-93% of words matched in every section.
 - Master asset list: `node tools/assets_master.mjs` -> docs/ASSETS_MASTER.md + assets/manifest.json
   (930 images). Floors, grounds, furniture and mid pieces are shared (`sets/common/`).

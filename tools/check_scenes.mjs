@@ -1,6 +1,8 @@
 // Check staged sections (src/scenes/data/<id>.js) without a browser: every cue word exists,
 // scenes start in order, people, poses, marks, shots, furniture and set pieces are known.
 // Uses the aligned words when they exist, otherwise the section text with made-up times.
+// Every section is checked in both readings: the 1818 text, and the 1831 text through its word
+// map (public/data/1831/<id>_map.json, tools/edition_map.py).
 // Usage: node tools/check_scenes.mjs [id ...]   (default: every data file)
 import fs from 'node:fs';
 import { makeCues } from '../src/cues.js';
@@ -14,11 +16,11 @@ const MID = new Set(['trees', 'cottage', 'hovel', 'church', 'rocks', 'boat', 'sh
 const ROOM_MARKS = ['C', 'L', 'R', 'BL', 'BR', 'BC', 'FL', 'FR', 'FC', 'door', 'window', 'off'];
 const OUT_MARKS = ['C', 'L', 'R', 'FL', 'FR', 'FC', 'BL', 'BR', 'BC', 'farL', 'farR', 'offL', 'offR', 'off'];
 
-function words(id) {
-  const f = `public/data/${id}_words.json`;
+function words(id, sub = '') {
+  const f = `public/data/${sub}${id}_words.json`;
   const w = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, 'utf8'));
   if (w?.paragraphs) return w;
-  const text = fs.readFileSync(`source/text/${id}.txt`, 'utf8').replace(/_/g, '');
+  const text = fs.readFileSync(`source/text/${sub}${id}.txt`, 'utf8').replace(/_/g, '');
   const paras = text.split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter((p) => /[A-Za-z]/.test(p)).slice(1);
   let t = 5;
   return { paragraphs: paras.map((p) => p.split(' ').map((w) => ({ t: w, s: (t += 0.38), e: t + 0.3 }))) };
@@ -26,12 +28,13 @@ function words(id) {
 
 const ids = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync('src/scenes/data').filter((f) => f.endsWith('.js')).map((f) => f.slice(0, -3));
 let bad = 0;
-for (const id of ids) {
+const READINGS = [['1818', () => null, ''], ['1831', (id) => JSON.parse(fs.readFileSync(`public/data/1831/${id}_map.json`, 'utf8')), '1831/']];
+for (const id of ids) for (const [ed, mapOf, sub] of READINGS) {
   const errs = [];
   const err = (m) => errs.push(m);
-  let scenes;
+  let scenes, cue;
   try { scenes = (await import(`../src/scenes/data/${id}.js?${Date.now()}`)).default; } catch (e) { console.log(`${id}: cannot load: ${e.message}`); bad++; continue; }
-  const cue = makeCues(words(id));
+  try { cue = makeCues(words(id, sub), mapOf(id)); } catch (e) { console.log(`${id} (${ed}): no words or word map: ${e.message}`); bad++; continue; }
   let prev = -1;
   scenes.forEach((d, k) => {
     const where = `${id}/${d.id ?? k}`;
@@ -63,7 +66,7 @@ for (const id of ids) {
     }
   });
   if (prev > cue.end) err(`${id}: last scene starts after the section ends`);
-  if (errs.length) { bad++; console.log(`${id}: ${errs.length} problem(s)\n  ` + errs.join('\n  ')); }
-  else console.log(`${id}: ok (${scenes.length} scenes, ${scenes.reduce((n, d) => n + (d.beats?.length ?? 0), 0)} beats)`);
+  if (errs.length) { bad++; console.log(`${id} (${ed}): ${errs.length} problem(s)\n  ` + errs.join('\n  ')); }
+  else console.log(`${id} (${ed}): ok (${scenes.length} scenes, ${scenes.reduce((n, d) => n + (d.beats?.length ?? 0), 0)} beats)`);
 }
 process.exit(bad ? 1 : 0);
