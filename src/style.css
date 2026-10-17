@@ -35,8 +35,10 @@ button:hover { background: var(--ink); color: var(--paper); }
 #endCard button:hover:not(:disabled) { background: var(--paper); color: var(--ink); }
 #endCard button:disabled:hover { background: transparent; color: var(--paper); }
 #intro[hidden], #endCard[hidden] { display: none; }
-#intro h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: normal; margin: 0; letter-spacing: 0.03em; }
+/* Title and subtitle half as large again (owner, 2026-10-17). */
+#intro h1 { font-size: clamp(2.7rem, 7.5vw, 4.8rem); font-weight: normal; margin: 0; letter-spacing: 0.03em; }
 .sub { font-style: italic; font-size: 1.2rem; margin: 0.4em 0 1.4em; }
+#intro .sub { font-size: clamp(1.3rem, 3.4vw, 1.8rem); }
 .note { color: var(--faint); max-width: 34em; line-height: 1.5; margin: 0 0 1.6em; }
 
 #fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 3; }

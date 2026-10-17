@@ -131,9 +131,10 @@ export function buildTheatre(scene, ai = {}, { title = 'FRANKENSTEIN', sub = '' 
     const tex = ai['theatre/proscenium'].tex.clone();
     tex.repeat.set((SIGN.x1 - SIGN.x0) / 1536, (SIGN.y1 - SIGN.y0) / 1024);
     tex.offset.set(SIGN.x0 / 1536, (1024 - SIGN.y1) / 1024); tex.needsUpdate = true;
-    const signW = (HOUSE_OPEN.x1 - HOUSE_OPEN.x0) * k2 * 0.62, signH = signW * (SIGN.y1 - SIGN.y0) / (SIGN.x1 - SIGN.x0);
+    // Half as large again as first hung, so the title reads from the seat (owner, 2026-10-17).
+    const signW = (HOUSE_OPEN.x1 - HOUSE_OPEN.x0) * k2 * 0.62 * 1.5, signH = signW * (SIGN.y1 - SIGN.y0) / (SIGN.x1 - SIGN.x0);
     const pros = paperFlat(tex, signW, signH, { edge: false });
-    pros.position.set(0, (HOUSE_OPEN.y1 - 352) * k2 - signH / 2, PROS.z + 0.15); // on the middle of the pelmet's swags
+    pros.position.set(0, (HOUSE_OPEN.y1 - 338) * k2 - signH / 2, PROS.z + 0.15); // over the middle of the pelmet's swags
     group.add(pros);
     // One row of the audience (not repeated), drawn wide enough to fill the view from the seat,
     // their heads over the hall's stage front.
