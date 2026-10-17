@@ -27,6 +27,7 @@ export class Puppet {
       this.poses[name] = flat;
     }
     this.pose = null;
+    this.seed = Math.random() * 6.3; // so figures at rest don't sway in step
   }
 
   // state: { pose, x, z, visible, moving, dir (+1 right / -1 left), sink (0..1), phase,
@@ -46,26 +47,34 @@ export class Puppet {
     const steps = walking ? (s.dist !== undefined ? s.dist / (STEP * this.height * (s.scale ?? 1)) : s.phase) : 0;
     // With only one step drawing, it is held for the whole walk: swapping it with the standing
     // drawing each step made the engraved figures jump (owner, 2026-10-15).
-    if (walking && this.poses.walk_a) pose = this.poses.walk_b && Math.floor(steps) % 2 ? 'walk_b' : 'walk_a';
+    // A drawn walk cycle (walk_1..walk_4: contact, passing, contact, passing) shows two frames a step.
+    if (walking && this.poses.walk_1) pose = `walk_${(Math.floor(steps * 2) % 4) + 1}`;
+    else if (walking && this.poses.walk_a) pose = this.poses.walk_b && Math.floor(steps) % 2 ? 'walk_b' : 'walk_a';
     if (pose !== this.pose) {
       if (this.pose) this.poses[this.pose].visible = false;
       this.poses[pose].visible = true;
       this.pose = pose;
     }
     const flat = this.poses[pose];
-    // Figures glide without bobbing: no rise mid-step, no rocking, no hop (owner, 2026-10-15).
-    // Only a swimmer (float) still bobs on the water.
-    const hop = s.float ? Math.sin((s.phase ?? 0) * Math.PI * 2) * 0.03 * this.height : 0;
-    const rock = s.float ? Math.sin((s.phase ?? 0) * Math.PI) * 0.04 : 0;
-    const bounce = 0;
-    // Standing still means still: no idle sway (owner, 2026-10-15). `idle` is ignored.
+    // Puppet motion (owner, 2026-10-17, replacing the still glide of 2026-10-15): a walking cut-out
+    // rises a little and rocks on each step, like a card puppet worked on a stick; at rest it sways
+    // very slightly; when it turns round it flips like a card. A swimmer (float) bobs on the water.
+    const k = s.float ? (s.phase ?? 0) : steps;
+    const lift = s.float ? 0.03 : walking ? 0.018 : 0;
+    const hop = lift ? Math.abs(Math.sin(k * Math.PI)) * lift * this.height : 0;
+    const rock = s.float ? Math.sin(k * Math.PI) * 0.04 : walking ? Math.sin(k * Math.PI) * 0.035 : 0;
+    const now = performance.now() / 1000;
+    const sway = !s.moving && !s.float && s.idle !== undefined && pose !== 'lie' ? Math.sin(now * 1.1 + this.seed) * 0.008 : 0;
     const scale = s.scale ?? 1;
     this.root.scale.setScalar(scale);
-    this.root.position.set(s.x, (s.y ?? 0) + (hop + bounce) * scale - (s.sink ?? 0) * this.height * scale * 1.1, s.z);
-    flat.rotation.z = rock + (s.tilt ?? 0);
-    // Mirror so the figure faces its direction of travel.
+    this.root.position.set(s.x, (s.y ?? 0) + hop * scale - (s.sink ?? 0) * this.height * scale * 1.1, s.z);
+    flat.rotation.z = rock + sway + (s.tilt ?? 0);
+    // Mirror so the figure faces its direction of travel, turning over like a card (0.3 s).
     const facingLeft = (s.dir ?? -1) < 0;
-    flat.scale.x = facingLeft === flat.userData.facesLeft ? 1 : -1;
+    const want = facingLeft === flat.userData.facesLeft ? 1 : -1;
+    if (this.facing !== facingLeft) { if (this.facing !== undefined) this.flipAt = now; this.facing = facingLeft; }
+    const f = this.flipAt === undefined ? 1 : Math.min(1, (now - this.flipAt) / 0.3);
+    flat.scale.x = f < 1 ? (f < 0.5 ? -want : want) * Math.max(0.04, Math.abs(Math.cos(Math.PI * f))) : want; // the old side folds away, the new one opens
     flat.position.x = flat.userData.offsetX * flat.scale.x;
     // Turn toward the camera, within limits.
     const toCam = Math.atan2(camera.position.x - s.x, camera.position.z - s.z);

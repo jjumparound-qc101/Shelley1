@@ -32,6 +32,8 @@ const place = {
       const p = this.load() ?? { times: {} };
       p.chapter = chapter;
       p.times[chapter] = t;
+      p.seen = p.seen ?? {};
+      p.seen[chapter] = Math.max(p.seen[chapter] ?? 0, t); // how far the reader has got, for the ticks in the contents
       p.at = Date.now(); // when, so a reload soon after puts the reader straight back (see below)
       localStorage.setItem(SAVE_KEY, JSON.stringify(p));
     } catch {}
@@ -362,32 +364,59 @@ async function main() {
   setSpeed(SPEEDS.includes(savedSpeed) ? savedSpeed : 1);
   $('speedBtn').addEventListener('click', () => setSpeed(SPEEDS[(SPEEDS.indexOf(speed) + 1) % SPEEDS.length]));
 
-  // The contents: every chapter, and the scenes of each narrated one. From the controls
-  // (pausing the reading) and on the start screen.
+  // The contents, as an old theatre playbill (owner, 2026-10-17): each Letter or Chapter is an act
+  // with a small engraving from its first set, its scenes listed beneath with their times, and a
+  // tick on each scene already reached (place.seen). From the controls (pausing the reading) and on
+  // the start screen. The pictures load when their act scrolls into view.
+  const ROMAN = (n) => [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']].reduce((r, [v, l]) => { while (n >= v) { r += l; n -= v; } return r; }, '');
+  const actName = (label) => label.replace(/\d+/g, (d) => ROMAN(Number(d)));
+  const picFor = (c) => {
+    for (const d of c.scenes ?? []) for (const piece of ['far', 'wall_back', 'view']) {
+      const n = `sets/${d.art ?? d.arts?.[0]}/${piece}`;
+      if (ai[n]) return URLS[n] ?? `art/ai/${n}.webp`;
+    }
+    return null;
+  };
+  const lazyPics = new IntersectionObserver((es) => es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.style.backgroundImage = `url("${e.target.dataset.pic}")`;
+    lazyPics.unobserve(e.target);
+  }), { root: $('sceneMenu') });
   const sceneButtons = [];
   for (const c of CHAPTERS) {
+    const act = document.createElement('section');
+    act.className = 'act';
+    const pic = document.createElement('div');
+    pic.className = 'pic';
+    const url = picFor(c);
+    if (url) { pic.dataset.pic = url; lazyPics.observe(pic); }
+    const body = document.createElement('div');
     const h = document.createElement('h3');
     const hb = document.createElement('button');
-    hb.textContent = c.label;
+    hb.innerHTML = '<span class="name"></span>';
+    hb.children[0].textContent = actName(c.label);
     hb.disabled = !c.narrated;
     hb.addEventListener('click', () => begin(c, 0));
     h.append(hb);
-    if (!c.narrated) h.insertAdjacentHTML('beforeend', ' <span class="later">(coming)</span>');
-    $('contents').append(h);
-    if (!c.narrated || !c.marks || c.marks.length < 2) continue;
-    const ol = document.createElement('ol');
-    c.marks.forEach((m) => {
-      const li = document.createElement('li');
-      const b = document.createElement('button');
-      b.innerHTML = '<span></span><span></span>';
-      b.children[0].textContent = m.title;
-      b.children[1].textContent = clock(m.t);
-      b.addEventListener('click', () => begin(c, m.t));
-      sceneButtons.push({ b, c, m });
-      li.append(b);
-      ol.append(li);
-    });
-    $('contents').append(ol);
+    if (!c.narrated) h.insertAdjacentHTML('beforeend', ' <span class="later">(in rehearsal)</span>');
+    body.append(h);
+    if (c.narrated && c.marks && c.marks.length >= 2) {
+      const ol = document.createElement('ol');
+      c.marks.forEach((m) => {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.innerHTML = '<span class="tick"></span><span></span><span class="dots"></span><span></span>';
+        b.children[1].textContent = m.title;
+        b.children[3].textContent = clock(m.t);
+        b.addEventListener('click', () => begin(c, m.t));
+        sceneButtons.push({ b, c, m });
+        li.append(b);
+        ol.append(li);
+      });
+      body.append(ol);
+    }
+    act.append(pic, body);
+    $('contents').append(act);
   }
   let menuResume = false;
   function openMenu() {
@@ -395,8 +424,10 @@ async function main() {
     audio.pause();
     const t = audio.currentTime;
     const here = chapter?.marks.reduce((cur, m) => (t >= m.t ? m : cur), chapter.marks[0]);
-    sceneButtons.forEach(({ b, m }) => b.classList.toggle('here', m === here));
+    const seen = place.load()?.seen ?? {};
+    sceneButtons.forEach(({ b, c, m }) => { b.classList.toggle('here', m === here); b.classList.toggle('seen', (seen[c.n] ?? -1) >= m.t + 1); });
     $('sceneMenu').hidden = false;
+    if (here) sceneButtons.find((x) => x.m === here)?.b.scrollIntoView({ block: 'center' });
   }
   function closeMenu(resume = menuResume) {
     $('sceneMenu').hidden = true;
